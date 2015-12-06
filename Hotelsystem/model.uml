@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_0GN9sJLnEeWZzfCRtZekYw" name="RootElement">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_0GN9sJLnEeWZzfCRtZekYw" name="RootElement">
   <packagedElement xmi:type="uml:Activity" xmi:id="_CIOf4JLoEeWZzfCRtZekYw" name="Booking of an overnight stay" node="_jsv_cJLoEeWZzfCRtZekYw _o0VkUJLoEeWZzfCRtZekYw _ojUeEJLuEeWedKjqbUU-RQ _tj-UgJLuEeWedKjqbUU-RQ _LYH_gJNMEeWO0-OVrstEEg _4MPkAJNMEeWO0-OVrstEEg _NZou0JNNEeWO0-OVrstEEg _RzE0QJNNEeWO0-OVrstEEg _dyX30JNNEeWO0-OVrstEEg _m_OB4JNNEeWO0-OVrstEEg _oqbmgJNNEeWO0-OVrstEEg _1wKRMJNOEeWO0-OVrstEEg _e7NAwJNQEeWO0-OVrstEEg _loQuoJNQEeWO0-OVrstEEg _mHkKsJNZEeWO0-OVrstEEg _z7XRwJNZEeWO0-OVrstEEg _-SDb8JNdEeWO0-OVrstEEg _a8o7oJNfEeWO0-OVrstEEg _vkODoJNfEeWO0-OVrstEEg _cJCA0JNgEeWO0-OVrstEEg _dEajoJNjEeWO0-OVrstEEg _4kDvoJNjEeWO0-OVrstEEg _Qce8UJNvEeWO0-OVrstEEg _npjDYJNwEeWO0-OVrstEEg _GN2aQJdCEeW4nIlJlu_kqw _GwGLsJdCEeW4nIlJlu_kqw _H2WpIJdCEeW4nIlJlu_kqw _Pq9N4JdCEeW4nIlJlu_kqw _iX5OIJdCEeW4nIlJlu_kqw _wafJsJdDEeW4nIlJlu_kqw" group="_lgzukJc8EeW4nIlJlu_kqw _9xlVYJc9EeW4nIlJlu_kqw _BZTNgJc_EeW4nIlJlu_kqw">
     <edge xmi:type="uml:ControlFlow" xmi:id="_PuSugJNMEeWO0-OVrstEEg" target="_o0VkUJLoEeWZzfCRtZekYw" source="_jsv_cJLoEeWZzfCRtZekYw"/>
     <edge xmi:type="uml:ControlFlow" xmi:id="_ZwxgEJNMEeWO0-OVrstEEg" target="_LYH_gJNMEeWO0-OVrstEEg" source="_ojUeEJLuEeWedKjqbUU-RQ"/>
@@ -269,4 +269,11 @@
     <message xmi:type="uml:Message" xmi:id="_crinAJj9EeWosv5UAtOVww" name="removeBill_Message" messageSort="asynchCall" receiveEvent="_crjOEJj9EeWosv5UAtOVww" sendEvent="_crinAZj9EeWosv5UAtOVww" signature="_Zq2dMJj9EeWosv5UAtOVww"/>
     <message xmi:type="uml:Message" xmi:id="_rjZzIJj9EeWosv5UAtOVww" name="success" messageSort="asynchCall" receiveEvent="_rjaaMZj9EeWosv5UAtOVww" sendEvent="_rjaaMJj9EeWosv5UAtOVww"/>
   </packagedElement>
+  <packagedElement xmi:type="uml:Package" href="implementation.uml#_QZUL4JwoEeWs7qnn26dFxw"/>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_w9FOsJxMEeWs7qnn26dFxw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_w9Gc0JxMEeWs7qnn26dFxw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+  </profileApplication>
 </uml:Model>
