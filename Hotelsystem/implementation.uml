@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Package xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_QZUL4JwoEeWs7qnn26dFxw" name="implementation" visibility="private">
   <packagedElement xmi:type="uml:Class" xmi:id="_TA-KoJwoEeWs7qnn26dFxw" name="BookingController">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Oitlc5y-EeWXM95eiB_1bQ" name="model" type="_gz-AcJwoEeWs7qnn26dFxw" association="_OitlcJy-EeWXM95eiB_1bQ"/>
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_7pUScJxNEeWs7qnn26dFxw" client="_TA-KoJwoEeWs7qnn26dFxw" supplier="_U_fQUJwpEeWs7qnn26dFxw" contract="_U_fQUJwpEeWs7qnn26dFxw"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_gz-AcJwoEeWs7qnn26dFxw" name="Model"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_gz-AcJwoEeWs7qnn26dFxw" name="Model">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_yltIAZy9EeWXM95eiB_1bQ" name="roomtype" type="_ujtG4JwoEeWs7qnn26dFxw" association="_yljXAJy9EeWXM95eiB_1bQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0e6sYJy9EeWXM95eiB_1bQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0fEdYJy9EeWXM95eiB_1bQ" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_1s7-s5y9EeWXM95eiB_1bQ" name="room" type="_r01s4JwoEeWs7qnn26dFxw" association="_1s7-sJy9EeWXM95eiB_1bQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2h3bkJy9EeWXM95eiB_1bQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2h3bkZy9EeWXM95eiB_1bQ" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_gtctBJy9EeWXM95eiB_1bQ" name="conferenceroombooking" type="_O7RZMJwrEeWs7qnn26dFxw" association="_gtctAJy9EeWXM95eiB_1bQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jZgDkJy9EeWXM95eiB_1bQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jZgDkZy9EeWXM95eiB_1bQ" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_lJTNRJy9EeWXM95eiB_1bQ" name="roombooking" type="_-d1BQJwoEeWs7qnn26dFxw" association="_lJTNQJy9EeWXM95eiB_1bQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mlv9IJy9EeWXM95eiB_1bQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mlv9IZy9EeWXM95eiB_1bQ" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_9LiMU5y_EeWXM95eiB_1bQ" name="key" type="_hqagQJwoEeWs7qnn26dFxw" association="_9LiMUJy_EeWXM95eiB_1bQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-cyY0Jy_EeWXM95eiB_1bQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-cyY0Zy_EeWXM95eiB_1bQ" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_pnrOUpzDEeWXM95eiB_1bQ" name="conferenceroom" type="_NQmnIJwrEeWs7qnn26dFxw" association="_pnqnQJzDEeWXM95eiB_1bQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_q0iDAJzDEeWXM95eiB_1bQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_q0iqEJzDEeWXM95eiB_1bQ" value="*"/>
+    </ownedAttribute>
+  </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_hqagQJwoEeWs7qnn26dFxw" name="Key">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_H4s14JxNEeWs7qnn26dFxw" name="id" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
@@ -11,6 +37,8 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_ILmjwJxNEeWs7qnn26dFxw" name="access" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_PCj-oJzIEeWXM95eiB_1bQ" name="getId"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Pv93MJzIEeWXM95eiB_1bQ" name="getAccess"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_poxd8JwoEeWs7qnn26dFxw" name="Bill">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_3XtEYJwuEeWs7qnn26dFxw" name="cost" visibility="private">
@@ -19,11 +47,14 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_30siYJwuEeWs7qnn26dFxw" name="date" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_4OBoYJwuEeWs7qnn26dFxw" name="from" visibility="private">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_4OBoYJwuEeWs7qnn26dFxw" name="description" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_DaIYYJzHEeWXM95eiB_1bQ" name="getCost"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_EQIMQJzHEeWXM95eiB_1bQ" name="getDate"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Iz8VsJzHEeWXM95eiB_1bQ" name="getDescription"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_qcBf0JwoEeWs7qnn26dFxw" name="Error">
+  <packagedElement xmi:type="uml:Class" xmi:id="_qcBf0JwoEeWs7qnn26dFxw" name="RoomIssue">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_pDADIJxDEeWs7qnn26dFxw" name="type" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
@@ -33,6 +64,9 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_E2oogJxMEeWs7qnn26dFxw" name="finishDate" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_NoZjMJzHEeWXM95eiB_1bQ" name="getType"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_OtcfsJzHEeWXM95eiB_1bQ" name="getStartDate"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_PwPZcJzHEeWXM95eiB_1bQ" name="getFinishDate"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_r01s4JwoEeWs7qnn26dFxw" name="Room">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_YbkG4JwvEeWs7qnn26dFxw" name="number" visibility="private">
@@ -43,6 +77,28 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Iz-88JxOEeWs7qnn26dFxw" value="1"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_I0BZMJxOEeWs7qnn26dFxw" value="1"/>
     </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_u45po5y-EeWXM95eiB_1bQ" name="bill" type="_poxd8JwoEeWs7qnn26dFxw" association="_u45poJy-EeWXM95eiB_1bQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ub0b8JzAEeWXM95eiB_1bQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ub0b8ZzAEeWXM95eiB_1bQ" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_D4cJM5zAEeWXM95eiB_1bQ" name="roomissue" type="_qcBf0JwoEeWs7qnn26dFxw" association="_D4cJMJzAEeWXM95eiB_1bQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F-_mAJzAEeWXM95eiB_1bQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F-_mAZzAEeWXM95eiB_1bQ" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_yOL4hJzAEeWXM95eiB_1bQ" name="guest" type="_FyjzIJwpEeWs7qnn26dFxw" association="_yOL4gJzAEeWXM95eiB_1bQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="___7KEJzAEeWXM95eiB_1bQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="___7KEZzAEeWXM95eiB_1bQ" value="*"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_MtCjoJzGEeWXM95eiB_1bQ" name="Room">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_zIANsJzGEeWXM95eiB_1bQ" name="number">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_4gKlMJzGEeWXM95eiB_1bQ" name="getBills"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_9ZCYoJzGEeWXM95eiB_1bQ" name="getRoomIssues"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="__s1AMJzGEeWXM95eiB_1bQ" name="getGuests"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_AjrvsJzHEeWXM95eiB_1bQ" name="getRoomStatus"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_BZHi4JzHEeWXM95eiB_1bQ" name="getRoomNumber"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_ujtG4JwoEeWs7qnn26dFxw" name="RoomType">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_4neVEJwsEeWs7qnn26dFxw" name="name" visibility="private">
@@ -72,6 +128,48 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_ysPQQJwtEeWs7qnn26dFxw" name="maxNbrOfExtraBeds" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Q0FLIZy-EeWXM95eiB_1bQ" name="bed" type="_wTlwIJwoEeWs7qnn26dFxw" association="_Q0EkEJy-EeWXM95eiB_1bQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TBgE8Jy-EeWXM95eiB_1bQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TBgE8Zy-EeWXM95eiB_1bQ" value="*"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_21VloJzHEeWXM95eiB_1bQ" name="getName"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_3bAegJzHEeWXM95eiB_1bQ" name="getDescription"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_4Hz6IJzHEeWXM95eiB_1bQ" name="getPrice"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_42WbIJzHEeWXM95eiB_1bQ" name="isNonSmoking"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_6fTV8JzHEeWXM95eiB_1bQ" name="hasWifi"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_8z3ZkJzHEeWXM95eiB_1bQ" name="hasMiniBar"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_9k508JzHEeWXM95eiB_1bQ" name="hasTv"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_-YP9cJzHEeWXM95eiB_1bQ" name="hasBalcony"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="__NgxgJzHEeWXM95eiB_1bQ" name="getMaxNumberOfExtraBeds¨"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_aaTS8JzIEeWXM95eiB_1bQ" name="RoomType">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_cly6IJzIEeWXM95eiB_1bQ" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_hnFCsJzIEeWXM95eiB_1bQ" name="description">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_jk6BUJzIEeWXM95eiB_1bQ" name="price">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_mZmWgJzIEeWXM95eiB_1bQ" name="nonSmoking">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_o9q1wJzIEeWXM95eiB_1bQ" name="wifi">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_rMbzYJzIEeWXM95eiB_1bQ" name="miniBar">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_xYno0JzIEeWXM95eiB_1bQ" name="tv">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ztaV8JzIEeWXM95eiB_1bQ" name="balcony">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_2dc0oJzIEeWXM95eiB_1bQ" name="maxNbrOfExtraBeds">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_wTlwIJwoEeWs7qnn26dFxw" name="Bed">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_uCZh4JwuEeWs7qnn26dFxw" name="type" visibility="private">
@@ -80,30 +178,66 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_ubNDcJwuEeWs7qnn26dFxw" name="nbrOfSpots" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_CuNREJzIEeWXM95eiB_1bQ" name="getType"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_DVf6kJzIEeWXM95eiB_1bQ" name="getNumberOfSpots"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_-d1BQJwoEeWs7qnn26dFxw" name="RoomBooking">
+    <generalization xmi:type="uml:Generalization" xmi:id="_7WLUkJy8EeWXM95eiB_1bQ" general="_feji4Jy7EeWXM95eiB_1bQ"/>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_L3tekJxMEeWs7qnn26dFxw" name="deposit" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_MOwFkJxMEeWs7qnn26dFxw" name="pension" visibility="private" type="_SfBMwJwrEeWs7qnn26dFxw"/>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_MoFLkJxMEeWs7qnn26dFxw" name="cost" visibility="private">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_EMyv8Jy9EeWXM95eiB_1bQ" name="roomtype" type="_ujtG4JwoEeWs7qnn26dFxw" association="_EKEzIJy9EeWXM95eiB_1bQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LPXa0Jy9EeWXM95eiB_1bQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LPXa0Zy9EeWXM95eiB_1bQ" value="*"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_M7OKAJxMEeWs7qnn26dFxw" name="arrivalDate" visibility="private">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_bIPlwZzCEeWXM95eiB_1bQ" name="guest" type="_FyjzIJwpEeWs7qnn26dFxw" association="_bIO-sJzCEeWXM95eiB_1bQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BfAFQJzDEeWXM95eiB_1bQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BfBTYJzDEeWXM95eiB_1bQ" value="*"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_NMHFsJxMEeWs7qnn26dFxw" name="departureDate" visibility="private">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-    </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_NeUQAJxMEeWs7qnn26dFxw" name="paymentOption" visibility="private" type="_8IAPAJxMEeWs7qnn26dFxw"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_p8zM8JzHEeWXM95eiB_1bQ" name="getDeposit"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_q3f6oJzHEeWXM95eiB_1bQ" name="getPension"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_r8MR0JzHEeWXM95eiB_1bQ" name="getRooms"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_tPXJ4JzHEeWXM95eiB_1bQ" name="getGuests"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Ymsx4JzJEeWXM95eiB_1bQ" name="RoomBooking">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_dGVl8JzJEeWXM95eiB_1bQ" name="deposit">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+      </ownedParameter>
+    </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_AH6kgJwpEeWs7qnn26dFxw" name="Person" isAbstract="true">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_HqYuEJxCEeWs7qnn26dFxw" name="name" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_S995sJzHEeWXM95eiB_1bQ" name="socialSecurityNumber">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_a_NMQJzHEeWXM95eiB_1bQ" name="getName"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_b34gsJzHEeWXM95eiB_1bQ" name="getSocialSecurityNumber"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_6xjuIJzIEeWXM95eiB_1bQ" name="Person">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_9hgtQJzIEeWXM95eiB_1bQ" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="__XdiQJzIEeWXM95eiB_1bQ" name="socialSecurityNumber">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_FyjzIJwpEeWs7qnn26dFxw" name="Guest"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_FyjzIJwpEeWs7qnn26dFxw" name="Guest">
+    <generalization xmi:type="uml:Generalization" xmi:id="_g8nDAJzAEeWXM95eiB_1bQ" general="_AH6kgJwpEeWs7qnn26dFxw"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_iL74sJzHEeWXM95eiB_1bQ" name="getRoom"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_jc3VEJzHEeWXM95eiB_1bQ" name="getRoomBooking"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_IMNVYJzJEeWXM95eiB_1bQ" name="Guest">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_KcTIsJzJEeWXM95eiB_1bQ" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_MuMS0JzJEeWXM95eiB_1bQ" name="socialSecurityNumber">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_GK_hQJwpEeWs7qnn26dFxw" name="Customer">
+    <generalization xmi:type="uml:Generalization" xmi:id="_gcmGMJzAEeWXM95eiB_1bQ" general="_AH6kgJwpEeWs7qnn26dFxw"/>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_xDxREJxCEeWs7qnn26dFxw" name="address" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
@@ -113,8 +247,27 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_-CoUMJxCEeWs7qnn26dFxw" name="member" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
     </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_x8sqc5zBEeWXM95eiB_1bQ" name="roombooking" type="_-d1BQJwoEeWs7qnn26dFxw" association="_x8sqcJzBEeWXM95eiB_1bQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MM7dAJzCEeWXM95eiB_1bQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MM95QJzCEeWXM95eiB_1bQ" value="*"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_dagKAJzHEeWXM95eiB_1bQ" name="getAddress"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eUIgsJzHEeWXM95eiB_1bQ" name="getPhoneNumber"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_fFaMoJzHEeWXM95eiB_1bQ" name="isMember"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_O0G2cJzJEeWXM95eiB_1bQ" name="Customer">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_RXwe8JzJEeWXM95eiB_1bQ" name="address">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_TWKFUJzJEeWXM95eiB_1bQ" name="phoneNbr">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_VWF8wJzJEeWXM95eiB_1bQ" name="member">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+    </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_SWoXsJwpEeWs7qnn26dFxw" name="AdminController">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_MUkS45y-EeWXM95eiB_1bQ" name="model" type="_gz-AcJwoEeWs7qnn26dFxw" association="_MUkS4Jy-EeWXM95eiB_1bQ"/>
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_8kQ3wJxNEeWs7qnn26dFxw" client="_SWoXsJwpEeWs7qnn26dFxw" supplier="_X_2C8JwpEeWs7qnn26dFxw" contract="_X_2C8JwpEeWs7qnn26dFxw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_U_fQUJwpEeWs7qnn26dFxw" name="IBooking"/>
@@ -132,8 +285,20 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_eNr64JxNEeWs7qnn26dFxw" name="equipment" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_FzMFAJzIEeWXM95eiB_1bQ" name="getType"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_GgyK0JzIEeWXM95eiB_1bQ" name="getSize"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_HQz5kJzIEeWXM95eiB_1bQ" name="getCostPerHour"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_JmD5sJzIEeWXM95eiB_1bQ" name="getEquipment"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_O7RZMJwrEeWs7qnn26dFxw" name="ConferenceRoomBooking"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_O7RZMJwrEeWs7qnn26dFxw" name="ConferenceRoomBooking">
+    <generalization xmi:type="uml:Generalization" xmi:id="_4RliMJy8EeWXM95eiB_1bQ" general="_feji4Jy7EeWXM95eiB_1bQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_j5yioJy8EeWXM95eiB_1bQ" name="nbrOfPeople" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lh2FkJy8EeWXM95eiB_1bQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lh_PgJy8EeWXM95eiB_1bQ" value="1"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_L3w2kJzIEeWXM95eiB_1bQ" name="getNumberOfPeople"/>
+  </packagedElement>
   <packagedElement xmi:type="uml:Enumeration" xmi:id="_SfBMwJwrEeWs7qnn26dFxw" name="PensionType">
     <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_DPbJMJxDEeWs7qnn26dFxw" name="HalfPension"/>
     <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_F0rUMJxDEeWs7qnn26dFxw" name="FullPension"/>
@@ -157,5 +322,118 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KmbK8JxOEeWs7qnn26dFxw"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KmdAIJxOEeWs7qnn26dFxw" value="*"/>
     </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_JDPMYJy7EeWXM95eiB_1bQ" name="ModelFactory"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_feji4Jy7EeWXM95eiB_1bQ" name="Booking" isAbstract="true">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_uHHHsJy7EeWXM95eiB_1bQ" name="cost" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_xy9HUJy7EeWXM95eiB_1bQ" name="paymentOption" visibility="private" type="_8IAPAJxMEeWs7qnn26dFxw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_M7OKAJxMEeWs7qnn26dFxw" name="startDate" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_NMHFsJxMEeWs7qnn26dFxw" name="endDate" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_yLMxwJzHEeWXM95eiB_1bQ" name="getCost"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_y2LBYJzHEeWXM95eiB_1bQ" name="getPaymentOption"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_zr4hYJzHEeWXM95eiB_1bQ" name="getStartDate"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_0rF7oJzHEeWXM95eiB_1bQ" name="getEndDate"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_EKEzIJy9EeWXM95eiB_1bQ" memberEnd="_EMyv8Jy9EeWXM95eiB_1bQ _EMyv8Zy9EeWXM95eiB_1bQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EKEzIZy9EeWXM95eiB_1bQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EKEzIpy9EeWXM95eiB_1bQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_EMyv8Zy9EeWXM95eiB_1bQ" name="roombooking" type="_-d1BQJwoEeWs7qnn26dFxw" association="_EKEzIJy9EeWXM95eiB_1bQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NlAcgJy9EeWXM95eiB_1bQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NlBqoJy9EeWXM95eiB_1bQ" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_gtctAJy9EeWXM95eiB_1bQ" memberEnd="_gtctA5y9EeWXM95eiB_1bQ _gtctBJy9EeWXM95eiB_1bQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gtctAZy9EeWXM95eiB_1bQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gtctApy9EeWXM95eiB_1bQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_gtctA5y9EeWXM95eiB_1bQ" name="model" type="_gz-AcJwoEeWs7qnn26dFxw" association="_gtctAJy9EeWXM95eiB_1bQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_lJTNQJy9EeWXM95eiB_1bQ" memberEnd="_lJTNQ5y9EeWXM95eiB_1bQ _lJTNRJy9EeWXM95eiB_1bQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lJTNQZy9EeWXM95eiB_1bQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lJTNQpy9EeWXM95eiB_1bQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_lJTNQ5y9EeWXM95eiB_1bQ" name="model" type="_gz-AcJwoEeWs7qnn26dFxw" association="_lJTNQJy9EeWXM95eiB_1bQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_yljXAJy9EeWXM95eiB_1bQ" memberEnd="_yltIAZy9EeWXM95eiB_1bQ _yltIApy9EeWXM95eiB_1bQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_yljXAZy9EeWXM95eiB_1bQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_yltIAJy9EeWXM95eiB_1bQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_yltIApy9EeWXM95eiB_1bQ" name="model" type="_gz-AcJwoEeWs7qnn26dFxw" association="_yljXAJy9EeWXM95eiB_1bQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_1s7-sJy9EeWXM95eiB_1bQ" memberEnd="_1s7-s5y9EeWXM95eiB_1bQ _1s7-tJy9EeWXM95eiB_1bQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1s7-sZy9EeWXM95eiB_1bQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1s7-spy9EeWXM95eiB_1bQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_1s7-tJy9EeWXM95eiB_1bQ" name="model" type="_gz-AcJwoEeWs7qnn26dFxw" association="_1s7-sJy9EeWXM95eiB_1bQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_MUkS4Jy-EeWXM95eiB_1bQ" memberEnd="_MUkS45y-EeWXM95eiB_1bQ _MUkS5Jy-EeWXM95eiB_1bQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MUkS4Zy-EeWXM95eiB_1bQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MUkS4py-EeWXM95eiB_1bQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_MUkS5Jy-EeWXM95eiB_1bQ" name="admincontroller" type="_SWoXsJwpEeWs7qnn26dFxw" association="_MUkS4Jy-EeWXM95eiB_1bQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_OitlcJy-EeWXM95eiB_1bQ" memberEnd="_Oitlc5y-EeWXM95eiB_1bQ _OitldJy-EeWXM95eiB_1bQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_OitlcZy-EeWXM95eiB_1bQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Oitlcpy-EeWXM95eiB_1bQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_OitldJy-EeWXM95eiB_1bQ" name="bookingcontroller" type="_TA-KoJwoEeWs7qnn26dFxw" association="_OitlcJy-EeWXM95eiB_1bQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Q0EkEJy-EeWXM95eiB_1bQ" memberEnd="_Q0FLIZy-EeWXM95eiB_1bQ _Q0FLIpy-EeWXM95eiB_1bQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Q0EkEZy-EeWXM95eiB_1bQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Q0FLIJy-EeWXM95eiB_1bQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Q0FLIpy-EeWXM95eiB_1bQ" name="roomtype" type="_ujtG4JwoEeWs7qnn26dFxw" association="_Q0EkEJy-EeWXM95eiB_1bQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_T7qnIJy-EeWXM95eiB_1bQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_T7zxEJy-EeWXM95eiB_1bQ" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_u45poJy-EeWXM95eiB_1bQ" memberEnd="_u45po5y-EeWXM95eiB_1bQ _u45ppJy-EeWXM95eiB_1bQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_u45poZy-EeWXM95eiB_1bQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_u45popy-EeWXM95eiB_1bQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_u45ppJy-EeWXM95eiB_1bQ" name="room" type="_r01s4JwoEeWs7qnn26dFxw" association="_u45poJy-EeWXM95eiB_1bQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_9LiMUJy_EeWXM95eiB_1bQ" memberEnd="_9LiMU5y_EeWXM95eiB_1bQ _9LiMVJy_EeWXM95eiB_1bQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9LiMUZy_EeWXM95eiB_1bQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9LiMUpy_EeWXM95eiB_1bQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_9LiMVJy_EeWXM95eiB_1bQ" name="model" type="_gz-AcJwoEeWs7qnn26dFxw" association="_9LiMUJy_EeWXM95eiB_1bQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_D4cJMJzAEeWXM95eiB_1bQ" memberEnd="_D4cJM5zAEeWXM95eiB_1bQ _D4cJNJzAEeWXM95eiB_1bQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_D4cJMZzAEeWXM95eiB_1bQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_D4cJMpzAEeWXM95eiB_1bQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_D4cJNJzAEeWXM95eiB_1bQ" name="room" type="_r01s4JwoEeWs7qnn26dFxw" association="_D4cJMJzAEeWXM95eiB_1bQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_yOL4gJzAEeWXM95eiB_1bQ" memberEnd="_yOL4g5zAEeWXM95eiB_1bQ _yOL4hJzAEeWXM95eiB_1bQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_yOL4gZzAEeWXM95eiB_1bQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_yOL4gpzAEeWXM95eiB_1bQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_yOL4g5zAEeWXM95eiB_1bQ" name="room" type="_r01s4JwoEeWs7qnn26dFxw" association="_yOL4gJzAEeWXM95eiB_1bQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_x8sqcJzBEeWXM95eiB_1bQ" memberEnd="_x8sqc5zBEeWXM95eiB_1bQ _x8sqdJzBEeWXM95eiB_1bQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_x8sqcZzBEeWXM95eiB_1bQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_x8sqcpzBEeWXM95eiB_1bQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_x8sqdJzBEeWXM95eiB_1bQ" name="customer" type="_GK_hQJwpEeWs7qnn26dFxw" association="_x8sqcJzBEeWXM95eiB_1bQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_bIO-sJzCEeWXM95eiB_1bQ" memberEnd="_bIPlwJzCEeWXM95eiB_1bQ _bIPlwZzCEeWXM95eiB_1bQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bIO-sZzCEeWXM95eiB_1bQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bIO-spzCEeWXM95eiB_1bQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_bIPlwJzCEeWXM95eiB_1bQ" name="roombooking" type="_-d1BQJwoEeWs7qnn26dFxw" association="_bIO-sJzCEeWXM95eiB_1bQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_pnqnQJzDEeWXM95eiB_1bQ" memberEnd="_pnrOUpzDEeWXM95eiB_1bQ _pnrOU5zDEeWXM95eiB_1bQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pnrOUJzDEeWXM95eiB_1bQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pnrOUZzDEeWXM95eiB_1bQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_pnrOU5zDEeWXM95eiB_1bQ" name="model" type="_gz-AcJwoEeWs7qnn26dFxw" association="_pnqnQJzDEeWXM95eiB_1bQ"/>
   </packagedElement>
 </uml:Package>
