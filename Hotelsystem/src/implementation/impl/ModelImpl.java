@@ -14,6 +14,7 @@ import implementation.RoomType;
 import java.util.Collection;
 import java.util.*;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -104,10 +105,15 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected ModelImpl() {
 		super();
+		conferenceroom = new BasicEList();
+		key = new BasicEList();
+		roombooking = new BasicEList();
+		conferenceroombooking = new BasicEList();
+		room = new BasicEList();
+		roomtype = new BasicEList();
 	}
 
 	/**

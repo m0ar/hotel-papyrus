@@ -9,7 +9,7 @@ import implementation.RoomType;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -235,10 +235,10 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected RoomTypeImpl() {
 		super();
+		bed = new BasicEList();
 	}
 
 	/**

@@ -6,6 +6,10 @@ import implementation.IAdministration;
 import implementation.IBooking;
 import implementation.ImplementationPackage;
 import implementation.Main;
+import implementation.RoomStatus;
+
+import java.util.Random;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -147,7 +151,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	public static void main(String[] args) {
 		MainImpl main = new MainImpl();
 		main.init();
-		System.out.println("hej");
 	}
 
 	/**
@@ -156,6 +159,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	 */
 	public void init() {
 		ModelImpl model = new ModelImpl();
+		initModel(model);
 
 		BookingControllerImpl bc = new BookingControllerImpl();
 		bc.setModel(model);
@@ -164,16 +168,31 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		AdminControllerImpl ac = new AdminControllerImpl();
 		ac.setModel(model);
 		iadministration = ac;
+
 	}
 	
 	private void initModel(ModelImpl model){
-		EList rooms = model.getRoom();
-		//EList<RoomTypeImpl> roomTypes = initRoomTypes();
+		EList roomTypes = initRoomTypes();
+		EList rooms = initRooms(roomTypes);
+		model.getRoomtype().addAll(roomTypes);
+		model.getRoom().addAll(rooms);
+		
+	}
+	
+	private EList initRooms(EList roomTypes){
+		EList rooms = new BasicEList();
+		Random random = new Random();
 		for(int floor = 100; floor <= 500; floor += 100){
 			for(int roomNr = 1; roomNr <= 50; roomNr++){
-				
+				RoomImpl room = new RoomImpl();
+				room.setNumber(floor + roomNr);
+				int rnd = random.nextInt(roomTypes.size());
+				room.setRoomtype((RoomTypeImpl)roomTypes.get(rnd));
+				room.setStatus(RoomStatus.AVAILABLE_LITERAL);
+				rooms.add(room);
 			}
 		}
+		return rooms;
 	}
 	
 	private EList initRoomTypes(){
@@ -195,8 +214,31 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		
 		
 		RoomTypeImpl type2 = new RoomTypeImpl();
+		type2.setBalcony(false);
+		type2.setDescription("Standard room with double bed");
+		type2.setMaxNbrOfExtraBeds(2);
+		type2.setMiniBar(true);
+		type2.setName("Double room");
+		type2.setNonSmoking(true);
+		type2.setPrice(600);
+		type2.setTv(true);
+		type2.setWifi(true);
+		BedImpl doubleBed = new BedImpl();
+		doubleBed.setNbrOfSpots(2);
+		doubleBed.setType("Double bed");
+		type1.getBed().add(doubleBed);		
+
 		RoomTypeImpl type3 = new RoomTypeImpl();
-		
+		type3.setBalcony(true);
+		type3.setDescription("Suite with double bed");
+		type3.setMaxNbrOfExtraBeds(3);
+		type3.setMiniBar(true);
+		type3.setName("Suite");
+		type3.setNonSmoking(true);
+		type3.setPrice(1500);
+		type3.setTv(true);
+		type3.setWifi(true);
+		type3.getBed().add(doubleBed);
 		roomTypes.add(type1);
 		roomTypes.add(type2);
 		roomTypes.add(type3);

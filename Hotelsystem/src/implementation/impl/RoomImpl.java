@@ -13,7 +13,7 @@ import implementation.RoomType;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -126,10 +126,12 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected RoomImpl() {
 		super();
+		bill = new BasicEList();
+		roomissue = new BasicEList();
+		guest = new BasicEList();
 	}
 
 	/**
