@@ -8,8 +8,11 @@ import implementation.ImplementationPackage;
 import implementation.Model;
 
 import implementation.RoomType;
-import org.eclipse.emf.common.notify.Notification;
 
+import java.util.Date;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -172,19 +175,52 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		return summarizeRooms(availableRooms);
 	}
 
-	private List<Tuple<RoomTypeImpl, Integer>> summarizeRooms(EList rooms) {
-		List<Tuple<RoomTypeImpl, Integer>> summarize = new List<Tuple<RoomTypeImpl, Integer>>;
+	private EList<Tuple<RoomTypeImpl, Integer>> summarizeRooms(EList rooms) {
+		EList<Tuple<RoomTypeImpl, Integer>> summarize = new BasicEList<Tuple<RoomTypeImpl, Integer>>();
 
-		for(RoomImpl room : rooms) {
+		for(RoomImpl room : (EList<RoomImpl>)model.getRoom()) {
 			int index = summarize.indexOf(room);
 			if(index == -1)
-				summarize.add(new Tuple<RoomTypeImpl, Integer>(room, 1));
+				summarize.add(new Tuple<RoomTypeImpl, Integer>((RoomTypeImpl)room.getRoomtype(), 1));
 			else
-				summarize.get(index).y++;
+				summarize.get(index).y = summarize.get(index).y + 1;
 		}
 
 		return summarize;
 	}
+	
+	public EList getAvaiableRooms(String startDate, String endDate) {
+		Date sd = new Date(startDate);
+		Date ed = new Date(endDate);
+
+		EList unavailableRooms = getUnavailableRooms(sd, ed);
+		EList roomClone = new BasicEList(model.getRoom());
+		roomClone.removeAll(unavailableRooms);
+		return roomClone;
+	}
+
+	private EList getUnavailableRooms(Date sd, Date ed) {
+		EList unavailableRooms = new BasicEList();
+
+		for(RoomBookingImpl booking : (EList<RoomBookingImpl>)model.getRoombooking()) {
+			Date bookingSd = new Date(booking.startDate);
+			Date bookingEd = new Date(booking.endDate);
+
+			// sd	bookingSd	  ed		=== overlap
+			boolean overlapBookingSd = sd.before(bookingSd) && ed.after(bookingSd);
+			
+			// sd	bookingEd	  ed		=== overlap
+			boolean overlapBookingEd = sd.before(bookingEd) && ed.after(bookingEd);
+
+			if(overlapBookingEd || overlapBookingSd) {
+				for(RoomImpl room : (EList<RoomImpl>)booking.getRoom())
+					unavailableRooms.add(room);
+			}
+		}
+
+		return unavailableRooms;
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -275,8 +311,8 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	public class Tuple<X, Y> { 
-		public final X x; 
-		public final Y y; 
+		public X x; 
+		public Y y; 
 		public Tuple(X x, Y y) { 
 		this.x = x; 
 		this.y = y; 

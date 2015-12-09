@@ -145,7 +145,9 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	}
 
 	public static void main(String[] args) {
-		init();
+		MainImpl main = new MainImpl();
+		main.init();
+		System.out.println("hej");
 	}
 
 	/**

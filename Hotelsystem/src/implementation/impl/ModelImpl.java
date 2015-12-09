@@ -191,37 +191,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		return conferenceroom;
 	}
 
-	public EList getAvaiableRooms(String startDate, String endDate) {
-		Date sd = new Date(startDate);
-		Date ed = new Date(endDate);
-
-		EList unavailableRooms = getUnavailableRooms(sd, ed);
-		EList roomClone = new BasicEList(room);
-		roomClone.removeAll(unavailableRooms);
-		return roomClone;
-	}
-
-	private EList getUnavailableRooms(Date sd, Date ed) {
-		EList unavailableRooms = new BasicEList();
-
-		for(BookingImpl booking : RoomBooking) {
-			Date bookingSd = new Date(booking.startDate);
-			Date bookingEd = new Date(booking.endDate);
-
-			// sd	bookingSd	  ed		=== overlap
-			boolean overlapBookingSd = sd.before(bookingSd) && ed.after(bookingSd);
-			
-			// sd	bookingEd	  ed		=== overlap
-			boolean overlapBookingEd = sd.before(bookingEd) && ed.after(bookingEd);
-
-			if(overlapBookingEd || overlapBookingSd) {
-				for(RoomImpl room : booking.room)
-					unavailableRooms.add(room);
-			}
-		}
-
-		return unavailableRooms;
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
