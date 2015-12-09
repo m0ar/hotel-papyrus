@@ -140,32 +140,13 @@
         lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IBooking" abstract="true" interface="true">
-    <eOperations name="reserveRoomtype" ordered="false" lowerBound="1">
-      <eParameters name="startDate" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-      <eParameters name="endDate" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-      <eParameters name="roomType" ordered="false" lowerBound="1" eType="#//RoomType"/>
-    </eOperations>
     <eOperations name="selectExtras" ordered="false" lowerBound="1">
       <eParameters name="extrasList" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
-    <eOperations name="createBooking" ordered="false" lowerBound="1">
-      <eParameters name="reservationID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-    </eOperations>
-    <eOperations name="validateBookingData" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
-      <eParameters name="nbrOfGuests" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-      <eParameters name="nbrOfRooms" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-      <eParameters name="startDate" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-      <eParameters name="endDate" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-    </eOperations>
-    <eOperations name="confirmBooking" ordered="false" lowerBound="1"/>
-    <eOperations name="findAvailableRoomTypes" ordered="false" lowerBound="1" eType="#//RoomType">
-      <eParameters name="nbrOfGuests" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-      <eParameters name="startDate" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-      <eParameters name="endDate" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-      <eParameters name="nbrOfRooms" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-    </eOperations>
-    <eOperations name="requestConferenceRoom" ordered="false" lowerBound="1">
-      <eParameters name="conferenceRoom" ordered="false" lowerBound="1" eType="#//ConferenceRoom"/>
+    <eOperations name="makePayment" ordered="false" lowerBound="1">
+      <eParameters name="cardDetails" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+      <eParameters name="amount" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="age" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
     <eOperations name="findAvailableConferenceRooms" ordered="false" upperBound="-1"
         eType="#//ConferenceRoom">
@@ -176,10 +157,30 @@
       <eParameters name="names" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
       <eParameters name="SSNs" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
-    <eOperations name="makePayment" ordered="false" lowerBound="1">
-      <eParameters name="cardDetails" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-      <eParameters name="amount" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+    <eOperations name="validateBookingData" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
+      <eParameters name="nbrOfGuests" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="nbrOfRooms" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="startDate" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+      <eParameters name="endDate" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
+    <eOperations name="createBooking" ordered="false" lowerBound="1">
+      <eParameters name="reservationID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+    </eOperations>
+    <eOperations name="requestConferenceRoom" ordered="false" lowerBound="1">
+      <eParameters name="conferenceRoom" ordered="false" lowerBound="1" eType="#//ConferenceRoom"/>
+    </eOperations>
+    <eOperations name="reserveRoomtype" ordered="false" lowerBound="1">
+      <eParameters name="startDate" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+      <eParameters name="endDate" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+      <eParameters name="roomType" ordered="false" lowerBound="1" eType="#//RoomType"/>
+    </eOperations>
+    <eOperations name="findAvailableRoomTypes" ordered="false" upperBound="-1" eType="#//RoomType">
+      <eParameters name="nbrOfGuests" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="startDate" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+      <eParameters name="endDate" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+      <eParameters name="nbrOfRooms" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+    </eOperations>
+    <eOperations name="confirmBooking" ordered="false" lowerBound="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Customer" eSuperTypes="#//Person">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" ordered="false"
@@ -196,71 +197,69 @@
         lowerBound="1" eType="#//Model"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IAdministration" abstract="true" interface="true">
-    <eOperations name="assignGuestsToRoom" ordered="false" lowerBound="1">
-      <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-      <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-    </eOperations>
-    <eOperations name="unassignGuestsFromRoom" ordered="false" lowerBound="1">
-      <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-    </eOperations>
-    <eOperations name="getAvailableRooms" ordered="false" lowerBound="1" eType="#//Room">
-      <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-    </eOperations>
-    <eOperations name="updateRoomStatus" ordered="false" lowerBound="1">
-      <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-      <eParameters name="status" ordered="false" lowerBound="1" eType="#//RoomStatus"/>
-    </eOperations>
-    <eOperations name="removeBill" ordered="false" lowerBound="1">
-      <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-      <eParameters name="bill" ordered="false" lowerBound="1" eType="#//Bill"/>
-    </eOperations>
-    <eOperations name="createRoom" ordered="false" lowerBound="1">
-      <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-      <eParameters name="roomType" ordered="false" lowerBound="1" eType="#//RoomType"/>
-    </eOperations>
     <eOperations name="checkIn" ordered="false" lowerBound="1">
       <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-    </eOperations>
-    <eOperations name="updateRoom" ordered="false" lowerBound="1">
-      <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-      <eParameters name="roomType" ordered="false" lowerBound="1" eType="#//RoomType"/>
     </eOperations>
     <eOperations name="bookConferenceRoom" ordered="false" lowerBound="1">
       <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
       <eParameters name="startTime" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
       <eParameters name="endTime" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
-    <eOperations name="assignKeysToRoom" ordered="false" lowerBound="1">
+    <eOperations name="unassignGuestsFromRoom" ordered="false" lowerBound="1">
+      <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+    </eOperations>
+    <eOperations name="checkOut" ordered="false" lowerBound="1">
+      <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+    </eOperations>
+    <eOperations name="removeRoom" ordered="false" lowerBound="1">
       <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-      <eParameters name="key1" ordered="false" lowerBound="1" eType="#//Key"/>
-      <eParameters name="key2" ordered="false" lowerBound="1" eType="#//Key"/>
     </eOperations>
     <eOperations name="addBill" ordered="false" lowerBound="1">
       <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
       <eParameters name="bill" ordered="false" lowerBound="1" eType="#//Bill"/>
     </eOperations>
-    <eOperations name="checkOut" ordered="false" lowerBound="1">
+    <eOperations name="deactivateKeysFromRoom" ordered="false" lowerBound="1">
       <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
-    <eOperations name="getFinalBill" ordered="false" lowerBound="1">
+    <eOperations name="updateRoom" ordered="false" lowerBound="1">
+      <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="roomType" ordered="false" lowerBound="1" eType="#//RoomType"/>
+    </eOperations>
+    <eOperations name="removeBill" ordered="false" lowerBound="1">
       <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="bill" ordered="false" lowerBound="1" eType="#//Bill"/>
+    </eOperations>
+    <eOperations name="updateRoomStatus" ordered="false" lowerBound="1">
+      <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="status" ordered="false" lowerBound="1" eType="#//RoomStatus"/>
     </eOperations>
     <eOperations name="makePayment" ordered="false" lowerBound="1">
       <eParameters name="cardDetails" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
       <eParameters name="amount" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
-    <eOperations name="removeRoom" ordered="false" lowerBound="1">
+    <eOperations name="assignKeysToRoom" ordered="false" lowerBound="1">
+      <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="key1" ordered="false" lowerBound="1" eType="#//Key"/>
+      <eParameters name="key2" ordered="false" lowerBound="1" eType="#//Key"/>
+    </eOperations>
+    <eOperations name="getFinalBill" ordered="false" lowerBound="1">
+      <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+    </eOperations>
+    <eOperations name="assignGuestsToRoom" ordered="false" lowerBound="1">
+      <eParameters name="guests" ordered="false" lowerBound="1" upperBound="-1" eType="#//Guest"/>
       <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
-    <eOperations name="deactivateKeysFromRoom" ordered="false" lowerBound="1">
-      <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+    <eOperations name="createRoom" ordered="false" lowerBound="1">
+      <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="roomType" ordered="false" lowerBound="1" eType="#//RoomType"/>
+    </eOperations>
+    <eOperations name="getAvailableRooms" ordered="false" lowerBound="1" eType="#//Room">
+      <eParameters name="roomType" ordered="false" lowerBound="1" upperBound="-1"
+          eType="#//RoomType"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelFactory"/>
   <eClassifiers xsi:type="ecore:EClass" name="Main">
-    <eOperations name="main" ordered="false" lowerBound="1">
-      <eParameters name="args" ordered="false" upperBound="-1" eType="ecore:EDataType types.ecore#//String"/>
-    </eOperations>
     <eOperations name="init" ordered="false" lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="iadministration" ordered="false"
         lowerBound="1" eType="#//IAdministration"/>

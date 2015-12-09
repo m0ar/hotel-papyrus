@@ -2,6 +2,7 @@
  */
 package implementation;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -19,26 +20,10 @@ public interface IAdministration extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model bookingIDDataType="org.eclipse.uml2.types.Integer" bookingIDRequired="true" bookingIDOrdered="false" roomIDDataType="org.eclipse.uml2.types.Integer" roomIDRequired="true" roomIDOrdered="false"
-	 * @generated
-	 */
-	void assignGuestsToRoom(int bookingID, int roomID);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model bookingIDDataType="org.eclipse.uml2.types.Integer" bookingIDRequired="true" bookingIDOrdered="false"
 	 * @generated
 	 */
 	void unassignGuestsFromRoom(int bookingID);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" bookingIDDataType="org.eclipse.uml2.types.Integer" bookingIDRequired="true" bookingIDOrdered="false"
-	 * @generated
-	 */
-	Room getAvailableRooms(int bookingID);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,6 +48,14 @@ public interface IAdministration extends EObject {
 	 * @generated
 	 */
 	void createRoom(int roomID, RoomType roomType);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" ordered="false" roomTypeType="implementation.RoomType" roomTypeRequired="true" roomTypeMany="true" roomTypeOrdered="false"
+	 * @generated
+	 */
+	Room getAvailableRooms(EList roomType);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -119,6 +112,14 @@ public interface IAdministration extends EObject {
 	 * @generated
 	 */
 	void getFinalBill(int bookingID);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model guestsType="implementation.Guest" guestsRequired="true" guestsMany="true" guestsOrdered="false" roomIDDataType="org.eclipse.uml2.types.Integer" roomIDRequired="true" roomIDOrdered="false"
+	 * @generated
+	 */
+	void assignGuestsToRoom(EList guests, int roomID);
 
 	/**
 	 * <!-- begin-user-doc -->

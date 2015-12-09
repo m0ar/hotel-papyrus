@@ -2,8 +2,6 @@
  */
 package implementation;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -75,14 +73,6 @@ public interface Main extends EObject {
 	 * @generated
 	 */
 	void setIbooking(IBooking value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model argsDataType="org.eclipse.uml2.types.String" argsMany="true" argsOrdered="false"
-	 * @generated
-	 */
-	void main(EList args);
 
 	/**
 	 * <!-- begin-user-doc -->

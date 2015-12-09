@@ -6,14 +6,9 @@ import implementation.IAdministration;
 import implementation.IBooking;
 import implementation.ImplementationPackage;
 import implementation.Main;
-
-import java.util.ArrayList;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.BasicEList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -152,21 +147,12 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void main(EList args) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	public void init() {
 		ModelImpl model = new ModelImpl();
-		initModel(model);
+		
+				
+		
 		BookingControllerImpl bc = new BookingControllerImpl();
 		bc.setModel(model);
 		ibooking = bc;
@@ -177,15 +163,15 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	
 	private void initModel(ModelImpl model){
 		EList rooms = model.getRoom();
-		EList<RoomTypeImpl> roomTypes = initRoomTypes();
+		//EList<RoomTypeImpl> roomTypes = initRoomTypes();
 		for(int floor = 100; floor <= 500; floor += 100){
 			for(int roomNr = 1; roomNr <= 50; roomNr++){
-				R
+				
 			}
 		}
 	}
 	
-	private EList initRoomTypes(){
+/*	private EList initRoomTypes(){
 		EList roomTypes = new BasicEList();
 		RoomTypeImpl type1 = new RoomTypeImpl();
 		type1.setBalcony(newBalcony);
@@ -211,7 +197,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	private EList initRooms(EList roomTypes){
 		
 	}
-
+*/
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

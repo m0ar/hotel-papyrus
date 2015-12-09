@@ -36,6 +36,14 @@ public interface IBooking extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model cardDetailsDataType="org.eclipse.uml2.types.String" cardDetailsRequired="true" cardDetailsOrdered="false" amountDataType="org.eclipse.uml2.types.Integer" amountRequired="true" amountOrdered="false" ageDataType="org.eclipse.uml2.types.Integer" ageRequired="true" ageOrdered="false"
+	 * @generated
+	 */
+	void makePayment(String cardDetails, int amount, int age);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model reservationIDDataType="org.eclipse.uml2.types.Integer" reservationIDRequired="true" reservationIDOrdered="false"
 	 * @generated
 	 */
@@ -60,10 +68,10 @@ public interface IBooking extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" nbrOfGuestsDataType="org.eclipse.uml2.types.Integer" nbrOfGuestsRequired="true" nbrOfGuestsOrdered="false" startDateDataType="org.eclipse.uml2.types.String" startDateRequired="true" startDateOrdered="false" endDateDataType="org.eclipse.uml2.types.String" endDateRequired="true" endDateOrdered="false" nbrOfRoomsDataType="org.eclipse.uml2.types.Integer" nbrOfRoomsRequired="true" nbrOfRoomsOrdered="false"
+	 * @model type="implementation.RoomType" ordered="false" nbrOfGuestsDataType="org.eclipse.uml2.types.Integer" nbrOfGuestsRequired="true" nbrOfGuestsOrdered="false" startDateDataType="org.eclipse.uml2.types.String" startDateRequired="true" startDateOrdered="false" endDateDataType="org.eclipse.uml2.types.String" endDateRequired="true" endDateOrdered="false" nbrOfRoomsDataType="org.eclipse.uml2.types.Integer" nbrOfRoomsRequired="true" nbrOfRoomsOrdered="false"
 	 * @generated
 	 */
-	RoomType findAvailableRoomTypes(int nbrOfGuests, String startDate, String endDate, int nbrOfRooms);
+	EList findAvailableRoomTypes(int nbrOfGuests, String startDate, String endDate, int nbrOfRooms);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,12 +96,4 @@ public interface IBooking extends EObject {
 	 * @generated
 	 */
 	void enterResidentialsCredentials(String names, int SSNs);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model cardDetailsDataType="org.eclipse.uml2.types.String" cardDetailsRequired="true" cardDetailsOrdered="false" amountDataType="org.eclipse.uml2.types.Integer" amountRequired="true" amountOrdered="false"
-	 * @generated
-	 */
-	void makePayment(String cardDetails, int amount);
 } // IBooking

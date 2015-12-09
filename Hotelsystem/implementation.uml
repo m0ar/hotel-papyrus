@@ -170,252 +170,267 @@
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_8kQ3wJxNEeWs7qnn26dFxw" client="_SWoXsJwpEeWs7qnn26dFxw" supplier="_X_2C8JwpEeWs7qnn26dFxw" contract="_X_2C8JwpEeWs7qnn26dFxw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_U_fQUJwpEeWs7qnn26dFxw" name="IBooking">
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_Dg-5EJ5NEeWKBr577pjDPA" name="reserveRoomtype">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Dg-5EZ5NEeWKBr577pjDPA" name="startDate">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_g29eIJ5ZEeWKBr577pjDPA" name="selectExtras">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g29eIZ5ZEeWKBr577pjDPA" name="extrasList">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_Dg-5Ep5NEeWKBr577pjDPA"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Dg-5E55NEeWKBr577pjDPA" name="endDate">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_Dg-5FJ5NEeWKBr577pjDPA"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Dg-5FZ5NEeWKBr577pjDPA" name="roomType">
-        <type xmi:type="uml:Class" href="#_ujtG4JwoEeWs7qnn26dFxw"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_Dg-5Fp5NEeWKBr577pjDPA"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g29eIp5ZEeWKBr577pjDPA"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_Dg_gIJ5NEeWKBr577pjDPA" name="selectExtras">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DhAHMJ5NEeWKBr577pjDPA" name="extrasList">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_g29eI55ZEeWKBr577pjDPA" name="makePayment">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g29eJJ5ZEeWKBr577pjDPA" name="cardDetails">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_DhAHMZ5NEeWKBr577pjDPA"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g29eJZ5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g29eJp5ZEeWKBr577pjDPA" name="amount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g29eJ55ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g29eKJ5ZEeWKBr577pjDPA" name="age">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_DhAHMp5NEeWKBr577pjDPA" name="createBooking">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DhAHM55NEeWKBr577pjDPA" name="reservationID">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_DhAHNJ5NEeWKBr577pjDPA"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_g2-FMJ5ZEeWKBr577pjDPA" name="findAvailableConferenceRooms">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2-FMZ5ZEeWKBr577pjDPA" name="startTime">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2-FMp5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2-FM55ZEeWKBr577pjDPA" name="endTime">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2-FNJ5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2-FNZ5ZEeWKBr577pjDPA" name="confRoom" direction="return">
+        <type xmi:type="uml:Class" href="#_NQmnIJwrEeWs7qnn26dFxw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_g2-FNp5ZEeWKBr577pjDPA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_g2-FN55ZEeWKBr577pjDPA" value="*"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2-FOJ5ZEeWKBr577pjDPA"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_DhAHNZ5NEeWKBr577pjDPA" name="validateBookingData">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DhAHNp5NEeWKBr577pjDPA" name="nbrOfGuests">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_DhAHN55NEeWKBr577pjDPA"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DhAHOJ5NEeWKBr577pjDPA" name="nbrOfRooms">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_DhAHOZ5NEeWKBr577pjDPA"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DhAHOp5NEeWKBr577pjDPA" name="startDate">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_g2-FOZ5ZEeWKBr577pjDPA" name="enterResidentialsCredentials">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2-FOp5ZEeWKBr577pjDPA" name="names">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_DhAHO55NEeWKBr577pjDPA"/>
       </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DhAHPJ5NEeWKBr577pjDPA" name="endDate">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2-FO55ZEeWKBr577pjDPA" name="SSNs">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_g2-sQJ5ZEeWKBr577pjDPA" name="validateBookingData">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2-sQZ5ZEeWKBr577pjDPA" name="nbrOfGuests">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2-sQp5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2-sQ55ZEeWKBr577pjDPA" name="nbrOfRooms">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2-sRJ5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2-sRZ5ZEeWKBr577pjDPA" name="startDate">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_DhAHPZ5NEeWKBr577pjDPA"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2-sRp5ZEeWKBr577pjDPA"/>
       </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DhAHPp5NEeWKBr577pjDPA" name="valid" direction="return">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2-sR55ZEeWKBr577pjDPA" name="endDate">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2-sSJ5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2-sSZ5ZEeWKBr577pjDPA" name="valid" direction="return">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_DhAHP55NEeWKBr577pjDPA" name="confirmBooking"/>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_DhAHQJ5NEeWKBr577pjDPA" name="findAvailableRoomTypes">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DhAHQZ5NEeWKBr577pjDPA" name="nbrOfGuests">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_g2-sSp5ZEeWKBr577pjDPA" name="createBooking">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2-sS55ZEeWKBr577pjDPA" name="reservationID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_DhAHQp5NEeWKBr577pjDPA"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2-sTJ5ZEeWKBr577pjDPA"/>
       </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DhAHQ55NEeWKBr577pjDPA" name="startDate">
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_g2-sTZ5ZEeWKBr577pjDPA" name="requestConferenceRoom">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2-sTp5ZEeWKBr577pjDPA" name="conferenceRoom">
+        <type xmi:type="uml:Class" href="#_NQmnIJwrEeWs7qnn26dFxw"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2-sT55ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_g2_TUJ5ZEeWKBr577pjDPA" name="reserveRoomtype">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2_TUZ5ZEeWKBr577pjDPA" name="startDate">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_DhAHRJ5NEeWKBr577pjDPA"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2_TUp5ZEeWKBr577pjDPA"/>
       </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DhAHRZ5NEeWKBr577pjDPA" name="endDate">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2_TU55ZEeWKBr577pjDPA" name="endDate">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_DhAHRp5NEeWKBr577pjDPA"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2_TVJ5ZEeWKBr577pjDPA"/>
       </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DhAHR55NEeWKBr577pjDPA" name="nbrOfRooms">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_DhAHSJ5NEeWKBr577pjDPA"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DhAHSZ5NEeWKBr577pjDPA" name="roomType" direction="return">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2_TVZ5ZEeWKBr577pjDPA" name="roomType">
         <type xmi:type="uml:Class" href="#_ujtG4JwoEeWs7qnn26dFxw"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_DhAHSp5NEeWKBr577pjDPA"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2_TVp5ZEeWKBr577pjDPA"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_DhAHS55NEeWKBr577pjDPA" name="requestConferenceRoom">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DhAHTJ5NEeWKBr577pjDPA" name="conferenceRoom">
-        <type xmi:type="uml:Class" href="#_NQmnIJwrEeWs7qnn26dFxw"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_DhAHTZ5NEeWKBr577pjDPA"/>
-      </ownedParameter>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_DhAuQJ5NEeWKBr577pjDPA" name="findAvailableConferenceRooms">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DhAuQZ5NEeWKBr577pjDPA" name="startTime">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_DhAuQp5NEeWKBr577pjDPA"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DhAuQ55NEeWKBr577pjDPA" name="endTime">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_DhAuRJ5NEeWKBr577pjDPA"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DhAuRZ5NEeWKBr577pjDPA" name="confRoom" direction="return">
-        <type xmi:type="uml:Class" href="#_NQmnIJwrEeWs7qnn26dFxw"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DhAuRp5NEeWKBr577pjDPA"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DhAuR55NEeWKBr577pjDPA" value="*"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_DhAuSJ5NEeWKBr577pjDPA"/>
-      </ownedParameter>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_DhAuSZ5NEeWKBr577pjDPA" name="enterResidentialsCredentials">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DhAuSp5NEeWKBr577pjDPA" name="names">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DhAuS55NEeWKBr577pjDPA" name="SSNs">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_g2_TV55ZEeWKBr577pjDPA" name="findAvailableRoomTypes">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2_TWJ5ZEeWKBr577pjDPA" name="nbrOfGuests">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2_TWZ5ZEeWKBr577pjDPA"/>
       </ownedParameter>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_DhAuTJ5NEeWKBr577pjDPA" name="makePayment">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DhAuTZ5NEeWKBr577pjDPA" name="cardDetails">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2_TWp5ZEeWKBr577pjDPA" name="startDate">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_DhAuTp5NEeWKBr577pjDPA"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2_TW55ZEeWKBr577pjDPA"/>
       </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DhAuT55NEeWKBr577pjDPA" name="amount">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2_TXJ5ZEeWKBr577pjDPA" name="endDate">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2_TXZ5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2_TXp5ZEeWKBr577pjDPA" name="nbrOfRooms">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_DhAuUJ5NEeWKBr577pjDPA"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2_TX55ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2_TYJ5ZEeWKBr577pjDPA" name="roomType" direction="return">
+        <type xmi:type="uml:Class" href="#_ujtG4JwoEeWs7qnn26dFxw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_g2_TYZ5ZEeWKBr577pjDPA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_g2_TYp5ZEeWKBr577pjDPA" value="*"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2_TY55ZEeWKBr577pjDPA"/>
       </ownedParameter>
     </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_g2_6YJ5ZEeWKBr577pjDPA" name="confirmBooking"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_X_2C8JwpEeWs7qnn26dFxw" name="IAdministration">
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_7Lt3QJ5MEeWKBr577pjDPA" name="assignGuestsToRoom">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7Lt3QZ5MEeWKBr577pjDPA" name="bookingID">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eDOyQJ5ZEeWKBr577pjDPA" name="checkIn">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDOyQZ5ZEeWKBr577pjDPA" name="bookingID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7Lt3Qp5MEeWKBr577pjDPA"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7Lt3Q55MEeWKBr577pjDPA" name="roomID">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7Lt3RJ5MEeWKBr577pjDPA"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDOyQp5ZEeWKBr577pjDPA"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_7LyvwJ5MEeWKBr577pjDPA" name="unassignGuestsFromRoom">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7LyvwZ5MEeWKBr577pjDPA" name="bookingID">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eDQAYJ5ZEeWKBr577pjDPA" name="bookConferenceRoom">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDQAYZ5ZEeWKBr577pjDPA" name="roomID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7Lyvwp5MEeWKBr577pjDPA"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDQAYp5ZEeWKBr577pjDPA"/>
       </ownedParameter>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_7Lyvw55MEeWKBr577pjDPA" name="getAvailableRooms">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7LyvxJ5MEeWKBr577pjDPA" name="availableRooms" type="_r01s4JwoEeWs7qnn26dFxw" direction="return">
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7LyvxZ5MEeWKBr577pjDPA"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7Lyvxp5MEeWKBr577pjDPA" name="bookingID">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7Lyvx55MEeWKBr577pjDPA"/>
-      </ownedParameter>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_7LzW0J5MEeWKBr577pjDPA" name="updateRoomStatus">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7LzW0Z5MEeWKBr577pjDPA" name="roomID">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7LzW0p5MEeWKBr577pjDPA"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7LzW055MEeWKBr577pjDPA" name="status" type="_btS4MJxBEeWs7qnn26dFxw">
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7LzW1J5MEeWKBr577pjDPA"/>
-      </ownedParameter>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_7LzW1Z5MEeWKBr577pjDPA" name="removeBill">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7LzW1p5MEeWKBr577pjDPA" name="bookingID">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7LzW155MEeWKBr577pjDPA"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7LzW2J5MEeWKBr577pjDPA" name="bill" type="_poxd8JwoEeWs7qnn26dFxw">
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7LzW2Z5MEeWKBr577pjDPA"/>
-      </ownedParameter>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_7LzW2p5MEeWKBr577pjDPA" name="createRoom">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7LzW255MEeWKBr577pjDPA" name="roomID">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7LzW3J5MEeWKBr577pjDPA"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7LzW3Z5MEeWKBr577pjDPA" name="roomType" type="_ujtG4JwoEeWs7qnn26dFxw">
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7LzW3p5MEeWKBr577pjDPA"/>
-      </ownedParameter>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_7LzW355MEeWKBr577pjDPA" name="checkIn">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7LzW4J5MEeWKBr577pjDPA" name="bookingID">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7LzW4Z5MEeWKBr577pjDPA"/>
-      </ownedParameter>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_7LzW4p5MEeWKBr577pjDPA" name="updateRoom">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7LzW455MEeWKBr577pjDPA" name="roomID">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7LzW5J5MEeWKBr577pjDPA"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7LzW5Z5MEeWKBr577pjDPA" name="roomType" type="_ujtG4JwoEeWs7qnn26dFxw">
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7LzW5p5MEeWKBr577pjDPA"/>
-      </ownedParameter>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_7LzW555MEeWKBr577pjDPA" name="bookConferenceRoom">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7LzW6J5MEeWKBr577pjDPA" name="roomID">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7LzW6Z5MEeWKBr577pjDPA"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7LzW6p5MEeWKBr577pjDPA" name="startTime">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDQAY55ZEeWKBr577pjDPA" name="startTime">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7LzW655MEeWKBr577pjDPA"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDQAZJ5ZEeWKBr577pjDPA"/>
       </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7LzW7J5MEeWKBr577pjDPA" name="endTime">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDQAZZ5ZEeWKBr577pjDPA" name="endTime">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7LzW7Z5MEeWKBr577pjDPA"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDQAZp5ZEeWKBr577pjDPA"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_7Lz94J5MEeWKBr577pjDPA" name="assignKeysToRoom">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7Lz94Z5MEeWKBr577pjDPA" name="roomID">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eDQAZ55ZEeWKBr577pjDPA" name="unassignGuestsFromRoom">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDQAaJ5ZEeWKBr577pjDPA" name="bookingID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7Lz94p5MEeWKBr577pjDPA"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7Lz9455MEeWKBr577pjDPA" name="key1" type="_hqagQJwoEeWs7qnn26dFxw">
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7Lz95J5MEeWKBr577pjDPA"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7Lz95Z5MEeWKBr577pjDPA" name="key2" type="_hqagQJwoEeWs7qnn26dFxw">
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7Lz95p5MEeWKBr577pjDPA"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDQAaZ5ZEeWKBr577pjDPA"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_7Lz9555MEeWKBr577pjDPA" name="addBill">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7Lz96J5MEeWKBr577pjDPA" name="bookingID">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eDQncJ5ZEeWKBr577pjDPA" name="checkOut">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDQncZ5ZEeWKBr577pjDPA" name="bookingID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7Lz96Z5MEeWKBr577pjDPA"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7Lz96p5MEeWKBr577pjDPA" name="bill" type="_poxd8JwoEeWs7qnn26dFxw">
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7Lz9655MEeWKBr577pjDPA"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDQncp5ZEeWKBr577pjDPA"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_7Lz97J5MEeWKBr577pjDPA" name="checkOut">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7Lz97Z5MEeWKBr577pjDPA" name="bookingID">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eDQnc55ZEeWKBr577pjDPA" name="removeRoom">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDQndJ5ZEeWKBr577pjDPA" name="roomID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7Lz97p5MEeWKBr577pjDPA"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDQndZ5ZEeWKBr577pjDPA"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_7Lz9755MEeWKBr577pjDPA" name="getFinalBill">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7Lz98J5MEeWKBr577pjDPA" name="bookingID">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eDQndp5ZEeWKBr577pjDPA" name="addBill">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDQnd55ZEeWKBr577pjDPA" name="bookingID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7Lz98Z5MEeWKBr577pjDPA"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDQneJ5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDQneZ5ZEeWKBr577pjDPA" name="bill">
+        <type xmi:type="uml:Class" href="#_poxd8JwoEeWs7qnn26dFxw"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDQnep5ZEeWKBr577pjDPA"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_7Lz98p5MEeWKBr577pjDPA" name="makePayment">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7Lz9855MEeWKBr577pjDPA" name="cardDetails">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eDROgJ5ZEeWKBr577pjDPA" name="deactivateKeysFromRoom">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDROgZ5ZEeWKBr577pjDPA" name="bookingID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDROgp5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eDROg55ZEeWKBr577pjDPA" name="updateRoom">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDROhJ5ZEeWKBr577pjDPA" name="roomID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDROhZ5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDROhp5ZEeWKBr577pjDPA" name="roomType">
+        <type xmi:type="uml:Class" href="#_ujtG4JwoEeWs7qnn26dFxw"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDROh55ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eDROiJ5ZEeWKBr577pjDPA" name="removeBill">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDROiZ5ZEeWKBr577pjDPA" name="bookingID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDROip5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDROi55ZEeWKBr577pjDPA" name="bill">
+        <type xmi:type="uml:Class" href="#_poxd8JwoEeWs7qnn26dFxw"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDROjJ5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eDR1kJ5ZEeWKBr577pjDPA" name="updateRoomStatus">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDR1kZ5ZEeWKBr577pjDPA" name="roomID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDR1kp5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDR1k55ZEeWKBr577pjDPA" name="status">
+        <type xmi:type="uml:Enumeration" href="#_btS4MJxBEeWs7qnn26dFxw"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDR1lJ5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eDR1lZ5ZEeWKBr577pjDPA" name="makePayment">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDR1lp5ZEeWKBr577pjDPA" name="cardDetails">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7Lz99J5MEeWKBr577pjDPA"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDR1l55ZEeWKBr577pjDPA"/>
       </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7Lz99Z5MEeWKBr577pjDPA" name="amount">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDR1mJ5ZEeWKBr577pjDPA" name="amount">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7Lz99p5MEeWKBr577pjDPA"/>
-      </ownedParameter>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_7Lz9955MEeWKBr577pjDPA" name="removeRoom">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7Lz9-J5MEeWKBr577pjDPA" name="roomID">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7Lz9-Z5MEeWKBr577pjDPA"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDR1mZ5ZEeWKBr577pjDPA"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_7L0k8J5MEeWKBr577pjDPA" name="deactivateKeysFromRoom">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_7L0k8Z5MEeWKBr577pjDPA" name="bookingID">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eDR1mp5ZEeWKBr577pjDPA" name="assignKeysToRoom">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDR1m55ZEeWKBr577pjDPA" name="roomID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_7L0k8p5MEeWKBr577pjDPA"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDR1nJ5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDR1nZ5ZEeWKBr577pjDPA" name="key1">
+        <type xmi:type="uml:Class" href="#_hqagQJwoEeWs7qnn26dFxw"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDR1np5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDR1n55ZEeWKBr577pjDPA" name="key2">
+        <type xmi:type="uml:Class" href="#_hqagQJwoEeWs7qnn26dFxw"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDR1oJ5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eDScoJ5ZEeWKBr577pjDPA" name="getFinalBill">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDScoZ5ZEeWKBr577pjDPA" name="bookingID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDScop5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eDSco55ZEeWKBr577pjDPA" name="assignGuestsToRoom">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDScpJ5ZEeWKBr577pjDPA" name="guests">
+        <type xmi:type="uml:Class" href="#_FyjzIJwpEeWs7qnn26dFxw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eDScpZ5ZEeWKBr577pjDPA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eDScpp5ZEeWKBr577pjDPA" value="*"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDScp55ZEeWKBr577pjDPA" name="roomID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDScqJ5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eDScqZ5ZEeWKBr577pjDPA" name="createRoom">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDScqp5ZEeWKBr577pjDPA" name="roomID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDScq55ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDScrJ5ZEeWKBr577pjDPA" name="roomType">
+        <type xmi:type="uml:Class" href="#_ujtG4JwoEeWs7qnn26dFxw"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDScrZ5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eDTDsJ5ZEeWKBr577pjDPA" name="getAvailableRooms">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDTDsZ5ZEeWKBr577pjDPA" name="availableRooms" direction="return">
+        <type xmi:type="uml:Class" href="#_r01s4JwoEeWs7qnn26dFxw"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDTDsp5ZEeWKBr577pjDPA"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDTDs55ZEeWKBr577pjDPA" name="roomType">
+        <type xmi:type="uml:Class" href="#_ujtG4JwoEeWs7qnn26dFxw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eDTDtJ5ZEeWKBr577pjDPA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eDTDtZ5ZEeWKBr577pjDPA" value="*"/>
       </ownedParameter>
     </ownedOperation>
   </packagedElement>
