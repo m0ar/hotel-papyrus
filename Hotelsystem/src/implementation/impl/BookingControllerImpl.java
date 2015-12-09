@@ -166,12 +166,24 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EList findAvailableRoomTypes(int nbrOfGuests, String startDate, String endDate, int nbrOfRooms) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList availableRooms = getAvaiableRooms(startDate, endDate);
+		return summarizeRooms(availableRooms);
+	}
+
+	private List<Tuple<RoomTypeImpl, Integer>> summarizeRooms(EList rooms) {
+		List<Tuple<RoomTypeImpl, Integer>> summarize = new List<Tuple<RoomTypeImpl, Integer>>;
+
+		for(RoomImpl room : rooms) {
+			int index = summarize.indexOf(room);
+			if(index == -1)
+				summarize.add(new Tuple<RoomTypeImpl, Integer>(room, 1));
+			else
+				summarize.get(index).y++;
+		}
+
+		return summarize;
 	}
 
 	/**
@@ -261,5 +273,14 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		}
 		return super.eIsSet(featureID);
 	}
+
+	public class Tuple<X, Y> { 
+		public final X x; 
+		public final Y y; 
+		public Tuple(X x, Y y) { 
+		this.x = x; 
+		this.y = y; 
+		} 
+	} 
 
 } //BookingControllerImpl
