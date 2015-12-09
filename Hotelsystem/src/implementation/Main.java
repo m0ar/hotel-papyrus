@@ -1,0 +1,95 @@
+/**
+ */
+package implementation;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Main</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link implementation.Main#getIadministration <em>Iadministration</em>}</li>
+ *   <li>{@link implementation.Main#getIbooking <em>Ibooking</em>}</li>
+ * </ul>
+ *
+ * @see implementation.ImplementationPackage#getMain()
+ * @model
+ * @generated
+ */
+public interface Main extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Iadministration</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Iadministration</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Iadministration</em>' reference.
+	 * @see #setIadministration(IAdministration)
+	 * @see implementation.ImplementationPackage#getMain_Iadministration()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	IAdministration getIadministration();
+
+	/**
+	 * Sets the value of the '{@link implementation.Main#getIadministration <em>Iadministration</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Iadministration</em>' reference.
+	 * @see #getIadministration()
+	 * @generated
+	 */
+	void setIadministration(IAdministration value);
+
+	/**
+	 * Returns the value of the '<em><b>Ibooking</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Ibooking</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ibooking</em>' reference.
+	 * @see #setIbooking(IBooking)
+	 * @see implementation.ImplementationPackage#getMain_Ibooking()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	IBooking getIbooking();
+
+	/**
+	 * Sets the value of the '{@link implementation.Main#getIbooking <em>Ibooking</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Ibooking</em>' reference.
+	 * @see #getIbooking()
+	 * @generated
+	 */
+	void setIbooking(IBooking value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model argsDataType="org.eclipse.uml2.types.String" argsMany="true" argsOrdered="false"
+	 * @generated
+	 */
+	void main(EList args);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void init();
+
+} // Main
