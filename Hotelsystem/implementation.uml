@@ -137,6 +137,10 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BfAFQJzDEeWXM95eiB_1bQ" value="1"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BfBTYJzDEeWXM95eiB_1bQ" value="*"/>
     </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_OW3tcJ5hEeWKBr577pjDPA" name="room" type="_r01s4JwoEeWs7qnn26dFxw" association="_OW0qIJ5hEeWKBr577pjDPA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SKOqUJ5hEeWKBr577pjDPA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SKQfgJ5hEeWKBr577pjDPA" value="*"/>
+    </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_AH6kgJwpEeWs7qnn26dFxw" name="Person" isAbstract="true">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_HqYuEJxCEeWs7qnn26dFxw" name="name" visibility="private">
@@ -605,5 +609,14 @@
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_J8KIkJ5UEeWKBr577pjDPA" key="nature" value="UML_Nature"/>
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_J8KvoJ5UEeWKBr577pjDPA" name="main" type="_CXyqIJ5SEeWKBr577pjDPA" association="_J8I6cJ5UEeWKBr577pjDPA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_OW0qIJ5hEeWKBr577pjDPA" memberEnd="_OW3tcJ5hEeWKBr577pjDPA _OW3tcZ5hEeWKBr577pjDPA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_OW2fUJ5hEeWKBr577pjDPA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OW3GYJ5hEeWKBr577pjDPA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_OW3tcZ5hEeWKBr577pjDPA" name="roombooking" type="_-d1BQJwoEeWs7qnn26dFxw" association="_OW0qIJ5hEeWKBr577pjDPA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_S40OoJ5hEeWKBr577pjDPA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_S42D0J5hEeWKBr577pjDPA" value="*"/>
+    </ownedEnd>
   </packagedElement>
 </uml:Package>

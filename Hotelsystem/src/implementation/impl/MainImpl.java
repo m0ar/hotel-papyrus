@@ -7,7 +7,7 @@ import implementation.IBooking;
 import implementation.ImplementationPackage;
 import implementation.Main;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -171,19 +171,23 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		}
 	}
 	
-/*	private EList initRoomTypes(){
+	private EList initRoomTypes(){
 		EList roomTypes = new BasicEList();
 		RoomTypeImpl type1 = new RoomTypeImpl();
-		type1.setBalcony(newBalcony);
-		type1.setDescription(newDescription);
-		type1.setMaxNbrOfExtraBeds(newMaxNbrOfExtraBeds);
-		type1.setMiniBar(newMiniBar);
-		type1.setName(newName);
-		type1.setNonSmoking(newNonSmoking);
-		type1.setPrice(newPrice);
-		type1.setTv(newTv);
-		type1.setWifi(newWifi);
-		type1.set
+		type1.setBalcony(false);
+		type1.setDescription("Standard room with single bed");
+		type1.setMaxNbrOfExtraBeds(1);
+		type1.setMiniBar(true);
+		type1.setName("Single room");
+		type1.setNonSmoking(true);
+		type1.setPrice(300);
+		type1.setTv(true);
+		type1.setWifi(true);
+		BedImpl singleBed = new BedImpl();
+		singleBed.setNbrOfSpots(1);
+		singleBed.setType("Single bed");
+		type1.getBed().add(singleBed);
+		
 		
 		RoomTypeImpl type2 = new RoomTypeImpl();
 		RoomTypeImpl type3 = new RoomTypeImpl();
@@ -194,10 +198,10 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		return roomTypes;
 	}
 	
-	private EList initRooms(EList roomTypes){
-		
-	}
-*/
+//	private EList initRooms(EList roomTypes){
+//		
+//	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -5,6 +5,7 @@ package implementation.impl;
 import implementation.Guest;
 import implementation.ImplementationPackage;
 import implementation.PensionType;
+import implementation.Room;
 import implementation.RoomBooking;
 import implementation.RoomType;
 
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link implementation.impl.RoomBookingImpl#getPension <em>Pension</em>}</li>
  *   <li>{@link implementation.impl.RoomBookingImpl#getRoomtype <em>Roomtype</em>}</li>
  *   <li>{@link implementation.impl.RoomBookingImpl#getGuest <em>Guest</em>}</li>
+ *   <li>{@link implementation.impl.RoomBookingImpl#getRoom <em>Room</em>}</li>
  * </ul>
  *
  * @generated
@@ -96,6 +98,16 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 	 * @ordered
 	 */
 	protected EList guest;
+
+	/**
+	 * The cached value of the '{@link #getRoom() <em>Room</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRoom()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList room;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -186,6 +198,18 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList getRoom() {
+		if (room == null) {
+			room = new EObjectResolvingEList(Room.class, this, ImplementationPackage.ROOM_BOOKING__ROOM);
+		}
+		return room;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ImplementationPackage.ROOM_BOOKING__DEPOSIT:
@@ -196,6 +220,8 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 				return getRoomtype();
 			case ImplementationPackage.ROOM_BOOKING__GUEST:
 				return getGuest();
+			case ImplementationPackage.ROOM_BOOKING__ROOM:
+				return getRoom();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -221,6 +247,10 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 				getGuest().clear();
 				getGuest().addAll((Collection)newValue);
 				return;
+			case ImplementationPackage.ROOM_BOOKING__ROOM:
+				getRoom().clear();
+				getRoom().addAll((Collection)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -244,6 +274,9 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 			case ImplementationPackage.ROOM_BOOKING__GUEST:
 				getGuest().clear();
 				return;
+			case ImplementationPackage.ROOM_BOOKING__ROOM:
+				getRoom().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -263,6 +296,8 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 				return roomtype != null && !roomtype.isEmpty();
 			case ImplementationPackage.ROOM_BOOKING__GUEST:
 				return guest != null && !guest.isEmpty();
+			case ImplementationPackage.ROOM_BOOKING__ROOM:
+				return room != null && !room.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

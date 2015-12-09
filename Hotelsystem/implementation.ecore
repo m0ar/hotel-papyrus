@@ -116,6 +116,8 @@
         lowerBound="1" upperBound="-1" eType="#//RoomType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="guest" ordered="false"
         lowerBound="1" upperBound="-1" eType="#//Guest"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="room" ordered="false" lowerBound="1"
+        upperBound="-1" eType="#//Room"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PensionType">
     <eLiterals name="HalfPension"/>

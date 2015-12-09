@@ -763,13 +763,22 @@ public interface ImplementationPackage extends EPackage {
 	int ROOM_BOOKING__GUEST = BOOKING_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Room</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_BOOKING__ROOM = BOOKING_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Room Booking</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_BOOKING_FEATURE_COUNT = BOOKING_FEATURE_COUNT + 4;
+	int ROOM_BOOKING_FEATURE_COUNT = BOOKING_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link implementation.impl.KeyImpl <em>Key</em>}' class.
@@ -1653,6 +1662,17 @@ public interface ImplementationPackage extends EPackage {
 	EReference getRoomBooking_Guest();
 
 	/**
+	 * Returns the meta object for the reference list '{@link implementation.RoomBooking#getRoom <em>Room</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Room</em>'.
+	 * @see implementation.RoomBooking#getRoom()
+	 * @see #getRoomBooking()
+	 * @generated
+	 */
+	EReference getRoomBooking_Room();
+
+	/**
 	 * Returns the meta object for class '{@link implementation.Key <em>Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2382,6 +2402,14 @@ public interface ImplementationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ROOM_BOOKING__GUEST = eINSTANCE.getRoomBooking_Guest();
+
+		/**
+		 * The meta object literal for the '<em><b>Room</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROOM_BOOKING__ROOM = eINSTANCE.getRoomBooking_Room();
 
 		/**
 		 * The meta object literal for the '{@link implementation.impl.KeyImpl <em>Key</em>}' class.
