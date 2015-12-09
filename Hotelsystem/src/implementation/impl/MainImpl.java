@@ -9,6 +9,8 @@ import implementation.Main;
 import implementation.RoomStatus;
 
 import java.util.Random;
+import java.util.Scanner;
+import java.util.regex.Pattern;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
@@ -18,6 +20,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import com.sun.javafx.scene.EnteredExitedHandler;
 
 /**
  * <!-- begin-user-doc -->
@@ -151,6 +155,106 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	public static void main(String[] args) {
 		MainImpl main = new MainImpl();
 		main.init();
+		System.out.println("Welcome to Hotel-Papyrus!!");
+		Scanner in = new Scanner(System.in);
+		//in.useDelimiter(Pattern.compile("\\n"));
+		main.displayModeMenu(in);
+	}
+	
+	private void displayModeMenu(Scanner in){
+		while (true) {
+			System.out.println("Press 0 to exit program.");
+			System.out.println("Press 1 to enter booking mode.");
+			System.out.println("Press 2 to enter administration mode.");
+			int mode = in.nextInt();
+			in.nextLine();
+			if(mode == 0){
+				in.close();
+				System.exit(0);
+			}else if(mode == 1){
+				enterBookingMode(in);
+			}else if(mode == 2){
+				enterAdminMode(in);
+			}else{
+				System.out.println("Didn't understand input. Please try again.");
+			}
+			
+		}
+		
+	}
+	
+	private void enterBookingMode(Scanner in){
+		System.out.println("Booking mode");
+		while(true){
+			System.out.println("Press 1 to go back.");
+			System.out.println("Choose operation (book room, book conference, edit booking, remove booking)");
+			if(in.hasNextInt()){
+				int i = in.nextInt();
+				in.nextLine();
+				if(i==0){
+					in.close();
+					System.exit(0);
+				}else if(i==1){
+					displayModeMenu(in);
+				}else{
+					System.out.println("Didn't understand input. Please try again.");					
+				}
+			}else{
+				String operation = in.nextLine();
+				if(operation.equalsIgnoreCase("book room")){
+					
+				}else if(operation.equalsIgnoreCase("book conference")){
+					
+				}else if(operation.equalsIgnoreCase("edit booking")){
+					
+				}else if(operation.equalsIgnoreCase("remove booking")){
+					
+				}else{
+					System.out.println("Didn't understand input. Please try again.");										
+				}
+			}
+		}
+	}
+
+	private void enterAdminMode(Scanner in){
+		System.out.println("Administration mode");
+		while(true){
+			System.out.println("Press 1 to go back.");
+			System.out.println("Choose operation (check in, check out, update tab, edit customer, remove customer, create room, remove room, edit room)");
+			if(in.hasNextInt()){
+				int i = in.nextInt();
+				in.nextLine();
+				if(i==0){
+					in.close();
+					System.exit(0);
+				}else if(i==1){
+					displayModeMenu(in);
+				}else{
+					System.out.println("Didn't understand input. Please try again.");					
+				}
+			}else{
+				String operation = in.nextLine();
+				if(operation.equalsIgnoreCase("check in")){
+					
+				}else if(operation.equalsIgnoreCase("check out")){
+					
+				}else if(operation.equalsIgnoreCase("update tab")){
+					
+				}else if(operation.equalsIgnoreCase("edit customer")){
+					
+				}else if(operation.equalsIgnoreCase("remove customer")){
+					
+				}else if(operation.equalsIgnoreCase("create room")){
+					
+				}else if(operation.equalsIgnoreCase("remove room")){
+					
+				}else if(operation.equalsIgnoreCase("edit room")){
+					
+				}else{
+					System.out.println("Didn't understand input. Please try again.");										
+				}
+			}
+		}
 	}
 
 	/**
