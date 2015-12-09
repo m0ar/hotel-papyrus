@@ -119,6 +119,8 @@
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_XOUCoJzJEeWApNmM4_vwcg" name="roomType" direction="return">
         <type xmi:type="uml:Class" href="implementation.uml#_ujtG4JwoEeWs7qnn26dFxw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_B1siUJ5VEeWCwbL52s1VlQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_B1vloJ5VEeWCwbL52s1VlQ" value="*"/>
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="_XOUCoZzJEeWApNmM4_vwcg"/>
       </ownedParameter>
     </ownedOperation>
@@ -145,6 +147,9 @@
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_SEEV4JzKEeWApNmM4_vwcg" name="amount">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="_SEEV4ZzKEeWApNmM4_vwcg"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_sfj1wJ5VEeWCwbL52s1VlQ" name="age">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_o8Y00JgREeWZP4jCg9EHDw" name="findAvailableConferenceRooms">
@@ -291,15 +296,17 @@
         <type xmi:type="uml:Class" href="implementation.uml#_r01s4JwoEeWs7qnn26dFxw"/>
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="__URBIZzEEeWApNmM4_vwcg"/>
       </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_cgnmkJzFEeWApNmM4_vwcg" name="bookingID">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_cgnmkZzFEeWApNmM4_vwcg"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_cgnmkJzFEeWApNmM4_vwcg" name="roomType">
+        <type xmi:type="uml:Class" href="implementation.uml#_ujtG4JwoEeWs7qnn26dFxw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Q_NCoJ5WEeWCwbL52s1VlQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Q_O30J5WEeWCwbL52s1VlQ" value="*"/>
       </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_PkKd4Jj5EeWosv5UAtOVww" name="assignGuestsToRoom">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_633R0JzFEeWApNmM4_vwcg" name="bookingID">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_633R0ZzFEeWApNmM4_vwcg"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_633R0JzFEeWApNmM4_vwcg" name="guests">
+        <type xmi:type="uml:Class" href="implementation.uml#_FyjzIJwpEeWs7qnn26dFxw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hPkSwJ5WEeWCwbL52s1VlQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hPk50J5WEeWCwbL52s1VlQ" value="*"/>
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_JJwDEJzGEeWApNmM4_vwcg" name="roomID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
@@ -390,8 +397,8 @@
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_mXDOkJjzEeWosv5UAtOVww" name="validateBookingData_MessageSend" covered="_AmWCcJjzEeWosv5UAtOVww" message="_mXCAcJjzEeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_mXDOkZjzEeWosv5UAtOVww" name="validateBookingData_MessageRecv" covered="_AmWCcJjzEeWosv5UAtOVww" message="_mXCAcJjzEeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Fz6BkJj1EeWosv5UAtOVww" name="MessageSend" covered="_AmWCcJjzEeWosv5UAtOVww" message="_Fz5agJj1EeWosv5UAtOVww"/>
-    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Fz6BkZj1EeWosv5UAtOVww" name="MessageRecv" covered="_Dt_I0JjzEeWosv5UAtOVww" message="_Fz5agJj1EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_DGKB4Jj1EeWosv5UAtOVww" name="BehaviorExecSpecStart" covered="_AmWCcJjzEeWosv5UAtOVww" execution="_iSl6oZjzEeWosv5UAtOVww"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Fz6BkZj1EeWosv5UAtOVww" name="MessageRecv" covered="_Dt_I0JjzEeWosv5UAtOVww" message="_Fz5agJj1EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_iSmhsJjzEeWosv5UAtOVww" name="BehaviorExecSpecFinish" covered="_AmWCcJjzEeWosv5UAtOVww" execution="_iSl6oZjzEeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Y4tvQJj1EeWosv5UAtOVww" name="reserveRoomtype_MessageSend" covered="_Dt_I0JjzEeWosv5UAtOVww" message="_Y4tIMJj1EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_EH5BIJj0EeWosv5UAtOVww" name="BehaviorExecSpec0" covered="_AmWCcJjzEeWosv5UAtOVww" finish="_EH5BIZj0EeWosv5UAtOVww" start="_Y4tvQZj1EeWosv5UAtOVww"/>
@@ -407,8 +414,8 @@
     <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_lZGRMZj2EeWosv5UAtOVww" name="BehaviorExecSpec1" covered="_AmWCcJjzEeWosv5UAtOVww" finish="_lZG4QJj2EeWosv5UAtOVww" start="_ztot0Jj2EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_hdGVsZj2EeWosv5UAtOVww" name="finishBooking_MessageRecv" covered="_AmWCcJjzEeWosv5UAtOVww" message="_hdFuoJj2EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_ztot0Jj2EeWosv5UAtOVww" name="MessageSend1" covered="_AmWCcJjzEeWosv5UAtOVww" message="_ztoGwJj2EeWosv5UAtOVww"/>
-    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_ztot0Zj2EeWosv5UAtOVww" name="MessageRecv1" covered="_Dt_I0JjzEeWosv5UAtOVww" message="_ztoGwJj2EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_lZG4QJj2EeWosv5UAtOVww" name="BehaviorExecSpec1Finish" covered="_AmWCcJjzEeWosv5UAtOVww" execution="_lZGRMZj2EeWosv5UAtOVww"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_ztot0Zj2EeWosv5UAtOVww" name="MessageRecv1" covered="_Dt_I0JjzEeWosv5UAtOVww" message="_ztoGwJj2EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_9PJgUJj2EeWosv5UAtOVww" name="makePayment_MessageSend" covered="_Dt_I0JjzEeWosv5UAtOVww" message="_9PI5QJj2EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_De3x8Jj3EeWosv5UAtOVww" name="BehaviorExecSpec2" covered="_AmWCcJjzEeWosv5UAtOVww" finish="_S0XVQJj3EeWosv5UAtOVww" start="_9PKHYJj2EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_9PKHYJj2EeWosv5UAtOVww" name="makePayment_MessageRecv" covered="_AmWCcJjzEeWosv5UAtOVww" message="_9PI5QJj2EeWosv5UAtOVww"/>
@@ -443,7 +450,6 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_olm-kZj4EeWosv5UAtOVww" name="" type="_oKIOQJgNEeWZP4jCg9EHDw"/>
     <lifeline xmi:type="uml:Lifeline" xmi:id="_Z1NsYJj4EeWosv5UAtOVww" name="" represents="_Z1OTcJj4EeWosv5UAtOVww" coveredBy="_sFPHIZj4EeWosv5UAtOVww _EN4FoZj6EeWosv5UAtOVww _OnbTYJj6EeWosv5UAtOVww _WyDLcZj6EeWosv5UAtOVww"/>
     <lifeline xmi:type="uml:Lifeline" xmi:id="_olm-kJj4EeWosv5UAtOVww" name="" represents="_olm-kZj4EeWosv5UAtOVww" coveredBy="_sFPHIpj4EeWosv5UAtOVww _vbFBkJj4EeWosv5UAtOVww _vbFBkpj4EeWosv5UAtOVww _vbFBkZj4EeWosv5UAtOVww _Gq3h8Jj5EeWosv5UAtOVww _Gq3h8Zj5EeWosv5UAtOVww _YJt-cJj5EeWosv5UAtOVww _YJt-cZj5EeWosv5UAtOVww _qNUt0Jj5EeWosv5UAtOVww _qNUt0Zj5EeWosv5UAtOVww _EN4FoJj6EeWosv5UAtOVww _OnbTYZj6EeWosv5UAtOVww _PwiQgJj6EeWosv5UAtOVww _Pwi3kJj6EeWosv5UAtOVww _PwiQgZj6EeWosv5UAtOVww _WyDLcJj6EeWosv5UAtOVww"/>
-    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_WyDLcZj6EeWosv5UAtOVww" name="MessageRecv0" covered="_Z1NsYJj4EeWosv5UAtOVww" message="_WyCkYJj6EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_sFPHIZj4EeWosv5UAtOVww" name="checkIn_MessageSend" covered="_Z1NsYJj4EeWosv5UAtOVww" message="_sFPHIJj4EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_sFPHIpj4EeWosv5UAtOVww" name="checkIn_MessageRecv" covered="_olm-kJj4EeWosv5UAtOVww" message="_sFPHIJj4EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_vbFBkJj4EeWosv5UAtOVww" name="BehaviorExecSpecStart" covered="_olm-kJj4EeWosv5UAtOVww" execution="_vbFBkZj4EeWosv5UAtOVww"/>
@@ -455,14 +461,15 @@
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_qNUt0Jj5EeWosv5UAtOVww" name="updateRoomStatus_MessageSend" covered="_olm-kJj4EeWosv5UAtOVww" message="_qNUGwJj5EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_qNUt0Zj5EeWosv5UAtOVww" name="updateRoomStatus_MessageRecv" covered="_olm-kJj4EeWosv5UAtOVww" message="_qNUGwJj5EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_EN4FoJj6EeWosv5UAtOVww" name="MessageSend" covered="_olm-kJj4EeWosv5UAtOVww" message="_EN3ekJj6EeWosv5UAtOVww"/>
-    <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_vbFBkpj4EeWosv5UAtOVww" name="BehaviorExecSpecFinish" covered="_olm-kJj4EeWosv5UAtOVww" execution="_vbFBkZj4EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_EN4FoZj6EeWosv5UAtOVww" name="MessageRecv" covered="_Z1NsYJj4EeWosv5UAtOVww" message="_EN3ekJj6EeWosv5UAtOVww"/>
+    <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_vbFBkpj4EeWosv5UAtOVww" name="BehaviorExecSpecFinish" covered="_olm-kJj4EeWosv5UAtOVww" execution="_vbFBkZj4EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_OnbTYJj6EeWosv5UAtOVww" name="assignKeysToRoom_MessageSend" covered="_Z1NsYJj4EeWosv5UAtOVww" message="_OnasUJj6EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_PwiQgJj6EeWosv5UAtOVww" name="BehaviorExecSpec0Start" covered="_olm-kJj4EeWosv5UAtOVww" execution="_PwiQgZj6EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_OnbTYZj6EeWosv5UAtOVww" name="assignKeysToRoom_MessageRecv" covered="_olm-kJj4EeWosv5UAtOVww" message="_OnasUJj6EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_PwiQgZj6EeWosv5UAtOVww" name="BehaviorExecSpec0" covered="_olm-kJj4EeWosv5UAtOVww" finish="_Pwi3kJj6EeWosv5UAtOVww" start="_PwiQgJj6EeWosv5UAtOVww"/>
-    <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_Pwi3kJj6EeWosv5UAtOVww" name="BehaviorExecSpec0Finish" covered="_olm-kJj4EeWosv5UAtOVww" execution="_PwiQgZj6EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_WyDLcJj6EeWosv5UAtOVww" name="MessageSend0" covered="_olm-kJj4EeWosv5UAtOVww" message="_WyCkYJj6EeWosv5UAtOVww"/>
+    <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_Pwi3kJj6EeWosv5UAtOVww" name="BehaviorExecSpec0Finish" covered="_olm-kJj4EeWosv5UAtOVww" execution="_PwiQgZj6EeWosv5UAtOVww"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_WyDLcZj6EeWosv5UAtOVww" name="MessageRecv0" covered="_Z1NsYJj4EeWosv5UAtOVww" message="_WyCkYJj6EeWosv5UAtOVww"/>
     <message xmi:type="uml:Message" xmi:id="_sFPHIJj4EeWosv5UAtOVww" name="checkIn_Message" messageSort="asynchCall" receiveEvent="_sFPHIpj4EeWosv5UAtOVww" sendEvent="_sFPHIZj4EeWosv5UAtOVww" signature="_jGEXIJgQEeWZP4jCg9EHDw"/>
     <message xmi:type="uml:Message" xmi:id="_Gq264Jj5EeWosv5UAtOVww" name="availableRooms_Message" messageSort="asynchCall" receiveEvent="_Gq3h8Zj5EeWosv5UAtOVww" sendEvent="_Gq3h8Jj5EeWosv5UAtOVww" signature="_A3z-MJj5EeWosv5UAtOVww"/>
     <message xmi:type="uml:Message" xmi:id="_YJtXYJj5EeWosv5UAtOVww" name="assignGuestsToRoom_Message" messageSort="asynchCall" receiveEvent="_YJt-cZj5EeWosv5UAtOVww" sendEvent="_YJt-cJj5EeWosv5UAtOVww" signature="_PkKd4Jj5EeWosv5UAtOVww"/>
@@ -483,7 +490,6 @@
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_ymN18pj6EeWosv5UAtOVww" name="checkOut_MessageRecv" covered="_w34E0Jj6EeWosv5UAtOVww" message="_ymN18Jj6EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_H2CCoJj7EeWosv5UAtOVww" name="deactivateKeysFromRoom_MessageSend" covered="_w34E0Jj6EeWosv5UAtOVww" message="_H2BbkJj7EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_H2CCoZj7EeWosv5UAtOVww" name="deactivateKeysFromRoom_MessageRecv" covered="_w34E0Jj6EeWosv5UAtOVww" message="_H2BbkJj7EeWosv5UAtOVww"/>
-    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_rjaaMZj9EeWosv5UAtOVww" name="MessageRecv1" covered="_uemgUJj6EeWosv5UAtOVww" message="_rjZzIJj9EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_2AK-4Zj7EeWosv5UAtOVww" name="updateRoomStatus_MessageSend" covered="_w34E0Jj6EeWosv5UAtOVww" message="_2AK-4Jj7EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_2AK-4pj7EeWosv5UAtOVww" name="updateRoomStatus_MessageRecv" covered="_w34E0Jj6EeWosv5UAtOVww" message="_2AK-4Jj7EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_LRfncJj8EeWosv5UAtOVww" name="unassignGuestsFromRoom_MessageSend" covered="_w34E0Jj6EeWosv5UAtOVww" message="_LRfAYJj8EeWosv5UAtOVww"/>
@@ -505,6 +511,7 @@
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_crinAZj9EeWosv5UAtOVww" name="removeBill_MessageSend" covered="_w34E0Jj6EeWosv5UAtOVww" message="_crinAJj9EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_crjOEJj9EeWosv5UAtOVww" name="removeBill_MessageRecv" covered="_w34E0Jj6EeWosv5UAtOVww" message="_crinAJj9EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_rjaaMJj9EeWosv5UAtOVww" name="MessageSend1" covered="_w34E0Jj6EeWosv5UAtOVww" message="_rjZzIJj9EeWosv5UAtOVww"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_rjaaMZj9EeWosv5UAtOVww" name="MessageRecv1" covered="_uemgUJj6EeWosv5UAtOVww" message="_rjZzIJj9EeWosv5UAtOVww"/>
     <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_DriGMJj9EeWosv5UAtOVww" name="BehaviorExecSpec0Finish" covered="_w34E0Jj6EeWosv5UAtOVww" execution="_DrhfIZj9EeWosv5UAtOVww"/>
     <message xmi:type="uml:Message" xmi:id="_ymN18Jj6EeWosv5UAtOVww" name="checkOut_Message" messageSort="asynchCall" receiveEvent="_ymN18pj6EeWosv5UAtOVww" sendEvent="_ymN18Zj6EeWosv5UAtOVww" signature="_pxo3QJgQEeWZP4jCg9EHDw"/>
     <message xmi:type="uml:Message" xmi:id="_H2BbkJj7EeWosv5UAtOVww" name="deactivateKeysFromRoom_Message" messageSort="asynchCall" receiveEvent="_H2CCoZj7EeWosv5UAtOVww" sendEvent="_H2CCoJj7EeWosv5UAtOVww" signature="_6xkt0Jj6EeWosv5UAtOVww"/>
