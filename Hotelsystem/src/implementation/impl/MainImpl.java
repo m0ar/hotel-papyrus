@@ -144,21 +144,24 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.MAIN__IBOOKING, oldIbooking, ibooking));
 	}
 
+	public static void main(String[] args) {
+		init();
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
 	public void init() {
 		ModelImpl model = new ModelImpl();
-		
-				
-		
+
 		BookingControllerImpl bc = new BookingControllerImpl();
 		bc.setModel(model);
 		ibooking = bc;
+
 		AdminControllerImpl ac = new AdminControllerImpl();
 		ac.setModel(model);
-		iadministration = ac;	
+		iadministration = ac;
 	}
 	
 	private void initModel(ModelImpl model){
