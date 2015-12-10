@@ -461,6 +461,13 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
+	
+	public int foogetNbrOfGuests() {
+		int count = 0;
+		for(int i = 0; i < bed.size(); i++)
+			count += ((BedImpl)bed.get(i)).getNbrOfSpots();
+		return count + maxNbrOfExtraBeds;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -623,13 +630,6 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 		result += "\tHas balcony: " + balcony + "\n";
 		result += "\tNumber of extra beds: " + maxNbrOfExtraBeds + "\n";
 		return result + "\n";
-	}
-	
-	public int foogetNbrOfGuests() {
-		int count = 0;
-		for(int i = 0; i < bed.size(); i++)
-			count += ((BedImpl)bed.get(i)).getNbrOfSpots();
-		return count + maxNbrOfExtraBeds;
 	}
 
 } //RoomTypeImpl
