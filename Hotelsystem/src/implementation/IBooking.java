@@ -76,10 +76,10 @@ public interface IBooking extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model startDateDataType="org.eclipse.uml2.types.String" startDateRequired="true" startDateOrdered="false" endDateDataType="org.eclipse.uml2.types.String" endDateRequired="true" endDateOrdered="false" selectedRoomTypesType="implementation.RoomType" selectedRoomTypesMany="true" selectedRoomTypesOrdered="false"
+	 * @model required="true" ordered="false" startDateDataType="org.eclipse.uml2.types.String" startDateRequired="true" startDateOrdered="false" endDateDataType="org.eclipse.uml2.types.String" endDateRequired="true" endDateOrdered="false" selectedRoomTypesType="implementation.RoomType" selectedRoomTypesMany="true" selectedRoomTypesOrdered="false"
 	 * @generated
 	 */
-	void reserveRoomtype(String startDate, String endDate, EList selectedRoomTypes);
+	RoomBooking reserveRoomtype(String startDate, String endDate, EList selectedRoomTypes);
 
 	/**
 	 * <!-- begin-user-doc -->

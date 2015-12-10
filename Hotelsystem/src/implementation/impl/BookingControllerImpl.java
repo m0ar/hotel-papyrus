@@ -6,6 +6,7 @@ import implementation.BookingController;
 import implementation.ConferenceRoom;
 import implementation.ImplementationPackage;
 import implementation.Model;
+import implementation.RoomBooking;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -271,7 +272,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void reserveRoomtype(String startDate, String endDate, EList selectedRoomTypes) {
+	public RoomBooking reserveRoomtype(String startDate, String endDate, EList selectedRoomTypes) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

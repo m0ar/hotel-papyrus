@@ -114,7 +114,11 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TBgE8Jy-EeWXM95eiB_1bQ" value="1"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TBgE8Zy-EeWXM95eiB_1bQ" value="*"/>
     </ownedAttribute>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_1rgw0J96EeWc454k3Kk58Q" name="getNbrOfGuests"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_1rgw0J96EeWc454k3Kk58Q" name="getNbrOfGuests">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_t4FaUJ-GEeWHbcWG3Q8b6g" name="return" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_wTlwIJwoEeWs7qnn26dFxw" name="Bed">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_uCZh4JwuEeWs7qnn26dFxw" name="type" visibility="private">
@@ -263,6 +267,7 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OK0esJ-DEeWHbcWG3Q8b6g" value="*"/>
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2_TVp5ZEeWKBr577pjDPA"/>
       </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_XCaDEJ-GEeWHbcWG3Q8b6g" name="return" type="_-d1BQJwoEeWs7qnn26dFxw" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_g2_TV55ZEeWKBr577pjDPA" name="findAvailableRoomTypes">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2_TWJ5ZEeWKBr577pjDPA" name="nbrOfGuests">

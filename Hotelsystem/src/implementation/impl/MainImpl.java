@@ -286,8 +286,9 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	
 	private int calculateMaxNbrOfGuests(RoomTypeImpl[] roomTypes) {
 		int count = 0;
-		for(RoomTypeImpl rt : roomTypes)
+		for(int i = 0; i < roomTypes.length; i++){
 			count += 2;//rt.getMaxNbrOfGuests(); TODO
+		}
 		return count;
 	}
 	
