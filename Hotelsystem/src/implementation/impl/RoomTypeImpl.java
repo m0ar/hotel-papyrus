@@ -599,32 +599,19 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", description: ");
-		result.append(description);
-		result.append(", price: ");
-		result.append(price);
-		result.append(", nonSmoking: ");
-		result.append(nonSmoking);
-		result.append(", wifi: ");
-		result.append(wifi);
-		result.append(", miniBar: ");
-		result.append(miniBar);
-		result.append(", tv: ");
-		result.append(tv);
-		result.append(", balcony: ");
-		result.append(balcony);
-		result.append(", maxNbrOfExtraBeds: ");
-		result.append(maxNbrOfExtraBeds);
-		result.append(')');
-		return result.toString();
+		String result = "\t---------------- Room type ----------------\n";
+		result += "\tName: " + name + "\n";
+		result += "\tDescription: " + description + "\n";
+		result += "\tPrice per day: " + price + "\n";
+		result += "\tNone smoking: " + nonSmoking + "\n";
+		result += "\tHas wifi: " + wifi + "\n";
+		result += "\tHas mini bar: " + miniBar + "\n";
+		result += "\tHas tv: " + tv + "\n";
+		result += "\tHas balcony: " + balcony + "\n";
+		result += "\tNumber of extra beds: " + maxNbrOfExtraBeds + "\n";
+		return result + "\n";
 	}
 
 } //RoomTypeImpl

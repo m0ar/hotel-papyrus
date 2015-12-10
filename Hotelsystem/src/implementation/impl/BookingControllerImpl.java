@@ -9,6 +9,8 @@ import implementation.Model;
 
 import implementation.RoomType;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -171,31 +173,55 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 */
 	public EList findAvailableRoomTypes(int nbrOfGuests, String startDate, String endDate, int nbrOfRooms) {
+		Log.log("-------------------- Find available room types --------------------");
+		
 		EList availableRooms = getAvaiableRooms(startDate, endDate);
-		return summarizeRooms(availableRooms);
+		EList<Tuple<RoomTypeImpl, Integer>> summary = summarizeRooms(availableRooms);
+		
+		Log.log("Room type summaries:");
+		for(Tuple<RoomTypeImpl, Integer> o : summary)
+			Log.log(o.x + "\tNumber of available: " + o.y + "\n\n");
+		
+		return summary;
 	}
 
 	private EList<Tuple<RoomTypeImpl, Integer>> summarizeRooms(EList rooms) {
 		EList<Tuple<RoomTypeImpl, Integer>> summarize = new BasicEList<Tuple<RoomTypeImpl, Integer>>();
 
 		for(RoomImpl room : (EList<RoomImpl>)model.getRoom()) {
-			int index = summarize.indexOf(room);
-			if(index == -1)
+			if(!tryIncRoomType(summarize, (RoomTypeImpl)room.getRoomtype()))
 				summarize.add(new Tuple<RoomTypeImpl, Integer>((RoomTypeImpl)room.getRoomtype(), 1));
-			else
-				summarize.get(index).y = summarize.get(index).y + 1;
 		}
 
 		return summarize;
 	}
 	
+	private boolean tryIncRoomType(EList<Tuple<RoomTypeImpl, Integer>> list, RoomTypeImpl roomType) {
+		for(Tuple<RoomTypeImpl, Integer> t : list) {
+			if(t.x.equals(roomType)) {
+				t.y = t.y + 1;
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public EList getAvaiableRooms(String startDate, String endDate) {
-		Date sd = new Date(startDate);
-		Date ed = new Date(endDate);
-
+		Date sd = parseDate(startDate);
+		Date ed = parseDate(endDate);
+		
+		Log.log("Requested start date: " + sd);
+		Log.log("Requested end date: " + ed);
+		
 		EList unavailableRooms = getUnavailableRooms(sd, ed);
+		
+		Log.log("Number of unavailable rooms:" + unavailableRooms.size());
+		
 		EList roomClone = new BasicEList(model.getRoom());
 		roomClone.removeAll(unavailableRooms);
+		
+		Log.log("Available rooms: " + roomClone.size());
+		
 		return roomClone;
 	}
 
@@ -203,8 +229,8 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		EList unavailableRooms = new BasicEList();
 
 		for(RoomBookingImpl booking : (EList<RoomBookingImpl>)model.getRoombooking()) {
-			Date bookingSd = new Date(booking.startDate);
-			Date bookingEd = new Date(booking.endDate);
+			Date bookingSd = parseDate(booking.startDate);
+			Date bookingEd = parseDate(booking.endDate);
 
 			// sd	bookingSd	  ed		=== overlap
 			boolean overlapBookingSd = sd.before(bookingSd) && ed.after(bookingSd);
@@ -220,7 +246,14 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 
 		return unavailableRooms;
 	}
-
+	
+	private Date parseDate(String dateString) {
+		try {
+			return new SimpleDateFormat("yyyy-MM-dd").parse(dateString);
+		} catch (ParseException e) {
+			return null;
+		}
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

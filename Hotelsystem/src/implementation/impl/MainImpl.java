@@ -7,7 +7,11 @@ import implementation.IBooking;
 import implementation.ImplementationPackage;
 import implementation.Main;
 import implementation.RoomStatus;
+import implementation.impl.BookingControllerImpl.Tuple;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -181,6 +185,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			
 		}
 		
+		//ibooking.findAvailableRoomTypes(2, "2015-12-12", "2015-12-14", 1);
 	}
 	
 	private void enterBookingMode(Scanner in){
@@ -202,7 +207,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			}else{
 				String operation = in.nextLine();
 				if(operation.equalsIgnoreCase("book room")){
-					
+					bookRoom(in);
 				}else if(operation.equalsIgnoreCase("book conference")){
 					
 				}else if(operation.equalsIgnoreCase("edit booking")){
@@ -213,6 +218,85 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 					System.out.println("Didn't understand input. Please try again.");										
 				}
 			}
+		}
+	}
+	
+	private void bookRoom(Scanner in) {
+		System.out.println("Enter parameters number of guests (number >= 1), start date (YYYY-MM-DD), end date (YYYY-MM-DD) and number of rooms (number >= 1) separated by a comma. Example input: '2,2015-12-13,2015-12-15,1'.");
+		String params = in.nextLine();
+		String[] split = params.split(",");
+		if(split.length == 4) {
+			int nbrOfGuests = parseInt(split[0]);
+			Date startDate = parseDate(split[1]);
+			Date endDate = parseDate(split[2]);
+			int nbrOfRooms = parseInt(split[3]);
+			
+			if(startDate.after(endDate))
+				System.out.println("The start date must be before the end date.");
+			else {
+				if(nbrOfGuests >= 1 && nbrOfRooms >= 1 && startDate != null && endDate != null) {
+					EList availableRoomTypes = ibooking.findAvailableRoomTypes(nbrOfGuests, split[1], split[2], nbrOfRooms);
+					if(availableRoomTypes != null) {
+						System.out.println("Found the following available room types:\n");
+						
+						int count = 1;
+						for(Object o : availableRoomTypes) {
+							Tuple<RoomTypeImpl, Integer> t = (Tuple<RoomTypeImpl, Integer>)o;
+							System.out.println(t.x + "\tNumber of available rooms: " + t.y + "   [" + count + "]\n\n");
+							count++;
+						}
+						
+						System.out.println("Please select room types by entering numbers 1 to " + count + " one by one. Enter the number 0 if you want to abort.");
+						RoomTypeImpl[] selectedRoomTypes = new RoomTypeImpl[nbrOfRooms];
+						
+						for(int i = 0; i < nbrOfRooms; i++) {
+							String roomType = in.nextLine();
+							int parsed = parseInt(roomType);
+							if(parsed == -1) {
+								System.out.println("Invalid parameters.");
+								break;
+							} else if(parsed == 0) {
+								System.out.println("Aborted.");
+								break;
+							} else if(parsed > count || parsed < 1) {
+								
+							} else
+								selectedRoomTypes[i] = ((Tuple<RoomTypeImpl, Integer>)availableRoomTypes.get(parsed - 1)).x;
+						}
+						
+						if(selectedRoomTypes.length == nbrOfRooms) {
+							int maxNbrOfGuests = calculateMaxNbrOfGuests(selectedRoomTypes);
+							System.out.println("Done..." + selectedRoomTypes.length);
+						}
+					} else
+						System.out.println("Couldn't find any available rooms.");
+				} else
+					System.out.println("Invalid parameters.");
+			}
+		} else
+			System.out.println("Invalid parameters.");
+	}
+	
+	private int calculateMaxNbrOfGuests(RoomTypeImpl[] roomTypes) {
+		int count = 0;
+		/*for(RoomTypeImpl rt : roomTypes)
+			count += rt.getMaxNbrOfGuests();*/
+		return count;
+	}
+	
+	private Date parseDate(String dateString) {
+		try {
+			return new SimpleDateFormat("yyyy-MM-dd").parse(dateString);
+		} catch (ParseException e) {
+			return null;
+		}
+	}
+	
+	private int parseInt(String integerString) {
+		try {
+			return Integer.parseInt(integerString);
+		} catch(NumberFormatException e) {
+			return -1;
 		}
 	}
 
