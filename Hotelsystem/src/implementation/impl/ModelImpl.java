@@ -12,8 +12,6 @@ import implementation.RoomBooking;
 import implementation.RoomType;
 
 import java.util.Collection;
-import java.util.*;
-
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 

@@ -613,5 +613,12 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 		result += "\tNumber of extra beds: " + maxNbrOfExtraBeds + "\n";
 		return result + "\n";
 	}
+	
+	public int foogetNbrOfGuests() {
+		int count = 0;
+		for(int i = 0; i < bed.size(); i++)
+			count += ((BedImpl)bed.get(i)).getNbrOfSpots();
+		return count + maxNbrOfExtraBeds;
+	}
 
 } //RoomTypeImpl

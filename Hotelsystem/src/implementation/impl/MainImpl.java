@@ -14,8 +14,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.regex.Pattern;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -24,8 +22,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import com.sun.javafx.scene.EnteredExitedHandler;
 
 /**
  * <!-- begin-user-doc -->
@@ -240,8 +236,8 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 						System.out.println("Found the following available room types:\n");
 						
 						int count = 1;
-						for(Object o : availableRoomTypes) {
-							Tuple<RoomTypeImpl, Integer> t = (Tuple<RoomTypeImpl, Integer>)o;
+						for(int i = 0; i < availableRoomTypes.size(); i++) {
+							Tuple t = (Tuple)availableRoomTypes.get(i);
 							System.out.println(t.x + "\tNumber of available rooms: " + t.y + "   [" + count + "]\n\n");
 							count++;
 						}
@@ -261,7 +257,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 							} else if(parsed > count || parsed < 1) {
 								
 							} else
-								selectedRoomTypes[i] = ((Tuple<RoomTypeImpl, Integer>)availableRoomTypes.get(parsed - 1)).x;
+								selectedRoomTypes[i] = (RoomTypeImpl)((Tuple)availableRoomTypes.get(parsed - 1)).x;
 						}
 						
 						if(selectedRoomTypes.length == nbrOfRooms) {

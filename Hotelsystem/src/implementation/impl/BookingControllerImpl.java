@@ -176,30 +176,33 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		Log.log("-------------------- Find available room types --------------------");
 		
 		EList availableRooms = getAvaiableRooms(startDate, endDate);
-		EList<Tuple<RoomTypeImpl, Integer>> summary = summarizeRooms(availableRooms);
+		EList summary = summarizeRooms(availableRooms);
 		
 		Log.log("Room type summaries:");
-		for(Tuple<RoomTypeImpl, Integer> o : summary)
-			Log.log(o.x + "\tNumber of available: " + o.y + "\n\n");
+		for(int i = 0; i< summary.size(); i++) {
+			Tuple t = ((Tuple)summary.get(i));
+			Log.log(t.x + "\tNumber of available: " + t.y + "\n\n");
+		}
 		
 		return summary;
 	}
 
-	private EList<Tuple<RoomTypeImpl, Integer>> summarizeRooms(EList rooms) {
-		EList<Tuple<RoomTypeImpl, Integer>> summarize = new BasicEList<Tuple<RoomTypeImpl, Integer>>();
-
-		for(RoomImpl room : (EList<RoomImpl>)model.getRoom()) {
-			if(!tryIncRoomType(summarize, (RoomTypeImpl)room.getRoomtype()))
-				summarize.add(new Tuple<RoomTypeImpl, Integer>((RoomTypeImpl)room.getRoomtype(), 1));
+	private EList summarizeRooms(EList rooms) {
+		EList summarize = new BasicEList();
+		
+		for(int i = 0; i < rooms.size(); i++) {
+			if(!tryIncRoomType(summarize, (RoomTypeImpl)((RoomImpl)rooms.get(i)).getRoomtype()))
+				summarize.add(new Tuple((RoomTypeImpl)((RoomImpl)rooms.get(i)).getRoomtype(), 1));
 		}
 
 		return summarize;
 	}
 	
-	private boolean tryIncRoomType(EList<Tuple<RoomTypeImpl, Integer>> list, RoomTypeImpl roomType) {
-		for(Tuple<RoomTypeImpl, Integer> t : list) {
+	private boolean tryIncRoomType(EList list, RoomTypeImpl roomType) {
+		for(int i = 0; i < list.size(); i++) { //Tuple<RoomTypeImpl, Integer> t : list) {
+			Tuple t = (Tuple)list.get(i);
 			if(t.x.equals(roomType)) {
-				t.y = t.y + 1;
+				t.y = (int)t.y + 1;
 				return true;
 			}
 		}
@@ -228,7 +231,8 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	private EList getUnavailableRooms(Date sd, Date ed) {
 		EList unavailableRooms = new BasicEList();
 
-		for(RoomBookingImpl booking : (EList<RoomBookingImpl>)model.getRoombooking()) {
+		for(int i = 0; i < model.getRoombooking().size(); i++) { //RoomBookingImpl booking : (EList<RoomBookingImpl>)model.getRoombooking()) {
+			RoomBookingImpl booking = (RoomBookingImpl)model.getRoombooking().get(i);
 			Date bookingSd = parseDate(booking.startDate);
 			Date bookingEd = parseDate(booking.endDate);
 
@@ -239,11 +243,11 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			boolean overlapBookingEd = sd.before(bookingEd) && ed.after(bookingEd);
 
 			if(overlapBookingEd || overlapBookingSd) {
-				for(RoomImpl room : (EList<RoomImpl>)booking.getRoom())
-					unavailableRooms.add(room);
+				for(int j = 0; j < booking.getRoom().size(); j++)
+					unavailableRooms.add(booking.getRoom().get(j));
 			}
 		}
-
+		
 		return unavailableRooms;
 	}
 	
@@ -343,12 +347,12 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		return super.eIsSet(featureID);
 	}
 
-	public class Tuple<X, Y> { 
-		public X x; 
-		public Y y; 
-		public Tuple(X x, Y y) { 
-		this.x = x; 
-		this.y = y; 
+	public class Tuple { 
+		public Object x; 
+		public Object y; 
+		public Tuple(Object x, Object y) { 
+			this.x = x; 
+			this.y = y; 
 		} 
 	} 
 
