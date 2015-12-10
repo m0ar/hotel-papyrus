@@ -218,7 +218,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	}
 	
 	private void bookRoom(Scanner in) {
-		System.out.println("Enter parameters number of guests (number >= 1), start date (YYYY-MM-DD), end date (YYYY-MM-DD) and number of rooms (number >= 1) separated by a comma. Example input: '2,2015-12-13,2015-12-15,1'.");
+		System.out.println("Enter parameters number of guests (1 <= number), start date (YYYY-MM-DD), end date (YYYY-MM-DD) and number of rooms (1 <= number <= 5) separated by a comma. Example input: '2,2015-12-13,2015-12-15,1'.");
 		String params = in.nextLine();
 		String[] split = params.split(",");
 		if(split.length == 4) {
@@ -227,7 +227,9 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			Date endDate = parseDate(split[2]);
 			int nbrOfRooms = parseInt(split[3]);
 			
-			if(startDate.after(endDate))
+			if(nbrOfRooms > 5)
+				System.out.println("If you want to book more than 5 rooms, please contact an employee.");
+			else if(startDate.after(endDate))
 				System.out.println("The start date must be before the end date.");
 			else {
 				if(nbrOfGuests >= 1 && nbrOfRooms >= 1 && startDate != null && endDate != null) {
