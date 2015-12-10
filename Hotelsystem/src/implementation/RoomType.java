@@ -285,9 +285,9 @@ public interface RoomType extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @model kind="operation" dataType="org.eclipse.uml2.types.Integer" required="true" ordered="false"
 	 * @generated
 	 */
-	void getNbrOfGuests();
+	int getNbrOfGuests();
 
 } // RoomType
