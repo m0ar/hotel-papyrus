@@ -1265,7 +1265,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		op = addEOperation(iBookingEClass, null, "reserveRoomtype");
 		addEParameter(op, theTypesPackage.getString(), "startDate", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "endDate", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, this.getRoomType(), "roomType", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getRoomType(), "selectedRoomTypes", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
 		op = addEOperation(iBookingEClass, this.getRoomType(), "findAvailableRoomTypes", 0, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getInteger(), "nbrOfGuests", 1, 1, IS_UNIQUE, !IS_ORDERED);

@@ -258,7 +258,9 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2_TVJ5ZEeWKBr577pjDPA"/>
       </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2_TVZ5ZEeWKBr577pjDPA" name="roomType" type="_ujtG4JwoEeWs7qnn26dFxw">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2_TVZ5ZEeWKBr577pjDPA" name="selectedRoomTypes" type="_ujtG4JwoEeWs7qnn26dFxw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OKK-cJ-DEeWHbcWG3Q8b6g"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OK0esJ-DEeWHbcWG3Q8b6g" value="*"/>
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2_TVp5ZEeWKBr577pjDPA"/>
       </ownedParameter>
     </ownedOperation>

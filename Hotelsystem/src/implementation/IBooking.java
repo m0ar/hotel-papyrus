@@ -20,14 +20,6 @@ public interface IBooking extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model startDateDataType="org.eclipse.uml2.types.String" startDateRequired="true" startDateOrdered="false" endDateDataType="org.eclipse.uml2.types.String" endDateRequired="true" endDateOrdered="false" roomTypeRequired="true" roomTypeOrdered="false"
-	 * @generated
-	 */
-	void reserveRoomtype(String startDate, String endDate, RoomType roomType);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model extrasListDataType="org.eclipse.uml2.types.String" extrasListRequired="true" extrasListOrdered="false"
 	 * @generated
 	 */
@@ -80,6 +72,14 @@ public interface IBooking extends EObject {
 	 * @generated
 	 */
 	void requestConferenceRoom(ConferenceRoom conferenceRoom);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model startDateDataType="org.eclipse.uml2.types.String" startDateRequired="true" startDateOrdered="false" endDateDataType="org.eclipse.uml2.types.String" endDateRequired="true" endDateOrdered="false" selectedRoomTypesType="implementation.RoomType" selectedRoomTypesMany="true" selectedRoomTypesOrdered="false"
+	 * @generated
+	 */
+	void reserveRoomtype(String startDate, String endDate, EList selectedRoomTypes);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -175,7 +175,7 @@
     <eOperations name="reserveRoomtype" ordered="false" lowerBound="1">
       <eParameters name="startDate" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
       <eParameters name="endDate" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-      <eParameters name="roomType" ordered="false" lowerBound="1" eType="#//RoomType"/>
+      <eParameters name="selectedRoomTypes" ordered="false" upperBound="-1" eType="#//RoomType"/>
     </eOperations>
     <eOperations name="findAvailableRoomTypes" ordered="false" upperBound="-1" eType="#//RoomType">
       <eParameters name="nbrOfGuests" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
