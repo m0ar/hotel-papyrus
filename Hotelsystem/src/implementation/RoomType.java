@@ -282,4 +282,12 @@ public interface RoomType extends EObject {
 	 */
 	EList getBed();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	void getNbrOfGuests();
+
 } // RoomType

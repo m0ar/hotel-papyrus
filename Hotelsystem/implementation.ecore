@@ -20,6 +20,7 @@
         upperBound="-1" eType="#//ConferenceRoom"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RoomType">
+    <eOperations name="getNbrOfGuests" ordered="false" lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
         eType="ecore:EDataType types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false"

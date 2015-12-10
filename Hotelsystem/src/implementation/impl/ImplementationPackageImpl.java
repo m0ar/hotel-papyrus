@@ -1176,6 +1176,8 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		initEAttribute(getRoomType_MaxNbrOfExtraBeds(), theTypesPackage.getInteger(), "maxNbrOfExtraBeds", null, 1, 1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRoomType_Bed(), this.getBed(), null, "bed", null, 1, -1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
+		addEOperation(roomTypeEClass, null, "getNbrOfGuests");
+
 		initEClass(bedEClass, Bed.class, "Bed", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBed_Type(), theTypesPackage.getString(), "type", null, 1, 1, Bed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getBed_NbrOfSpots(), theTypesPackage.getInteger(), "nbrOfSpots", null, 1, 1, Bed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
