@@ -235,34 +235,43 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 					if(availableRoomTypes != null) {
 						System.out.println("Found the following available room types:\n");
 						
-						int count = 1;
+						int count = 0;
 						for(int i = 0; i < availableRoomTypes.size(); i++) {
+							count++;
 							Tuple t = (Tuple)availableRoomTypes.get(i);
 							System.out.println(t.x + "\tNumber of available rooms: " + t.y + "   [" + count + "]\n\n");
-							count++;
 						}
 						
 						System.out.println("Please select room types by entering numbers 1 to " + count + " one by one. Enter the number 0 if you want to abort.");
 						RoomTypeImpl[] selectedRoomTypes = new RoomTypeImpl[nbrOfRooms];
+						boolean failure = false;
 						
 						for(int i = 0; i < nbrOfRooms; i++) {
 							String roomType = in.nextLine();
 							int parsed = parseInt(roomType);
-							if(parsed == -1) {
+							if(parsed > count || parsed < 1) {
 								System.out.println("Invalid parameters.");
+								failure = true;
 								break;
 							} else if(parsed == 0) {
 								System.out.println("Aborted.");
+								failure = true;
 								break;
-							} else if(parsed > count || parsed < 1) {
-								
-							} else
+							} else {
+								System.out.println("Adding...");
 								selectedRoomTypes[i] = (RoomTypeImpl)((Tuple)availableRoomTypes.get(parsed - 1)).x;
+								System.out.println((i + 1) + "/" + nbrOfRooms + " room types selected.");
+							}
 						}
 						
-						if(selectedRoomTypes.length == nbrOfRooms) {
+						if(!failure) {
 							int maxNbrOfGuests = calculateMaxNbrOfGuests(selectedRoomTypes);
-							System.out.println("Done..." + selectedRoomTypes.length);
+							
+							if(nbrOfGuests > maxNbrOfGuests)
+								System.out.println("The rooms you have chosen cannot have more than " + maxNbrOfGuests + " guests.");
+							else {
+								System.out.println("Done!");
+							}
 						}
 					} else
 						System.out.println("Couldn't find any available rooms.");
@@ -275,8 +284,8 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	
 	private int calculateMaxNbrOfGuests(RoomTypeImpl[] roomTypes) {
 		int count = 0;
-		/*for(RoomTypeImpl rt : roomTypes)
-			count += rt.getMaxNbrOfGuests();*/
+		for(RoomTypeImpl rt : roomTypes)
+			count += 2;//rt.getMaxNbrOfGuests(); TODO
 		return count;
 	}
 	

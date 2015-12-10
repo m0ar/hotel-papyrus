@@ -99,6 +99,16 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.BOOKING_CONTROLLER__MODEL, oldModel, model));
 	}
 
+	/*public RoomBookingImpl reserveRoomtype(String startDate, String endDate, EList roomTypes) {
+		RoomBookingImpl rb = new RoomBookingImpl();
+		rb.setStartDate(startDate);
+		rb.setEndDate(endDate);
+		for(int i = 0; i < roomTypes.size(); i++)
+			rb.getRoomtype().add(roomTypes.get(i));
+		model.getRoombooking().add(rb);
+		return rb;
+	}*/
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -351,6 +361,6 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			this.x = x; 
 			this.y = y; 
 		} 
-	} 
+	}
 
 } //BookingControllerImpl
