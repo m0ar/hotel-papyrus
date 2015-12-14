@@ -361,6 +361,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		int bookingNr = in.nextInt();
 		in.nextLine();
 		iadministration.checkIn(bookingNr);
+		/* loopa genom alla bokade rum och sätt nycklar, admin anger nyckelID */
 	}
 
 	/**

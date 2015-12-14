@@ -329,6 +329,7 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDOyQp5ZEeWKBr577pjDPA"/>
       </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_o9Ub8KJkEeWohO-JmYzXlA" name="rooms" type="_r01s4JwoEeWs7qnn26dFxw" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_eDQAYJ5ZEeWKBr577pjDPA" name="bookConferenceRoom">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDQAYZ5ZEeWKBr577pjDPA" name="roomID">

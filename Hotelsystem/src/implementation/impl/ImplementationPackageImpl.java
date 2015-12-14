@@ -1425,7 +1425,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 
 		initEClass(iAdministrationEClass, IAdministration.class, "IAdministration", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(iAdministrationEClass, null, "checkIn");
+		op = addEOperation(iAdministrationEClass, this.getRoom(), "checkIn", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getInteger(), "bookingID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = addEOperation(iAdministrationEClass, null, "bookConferenceRoom");

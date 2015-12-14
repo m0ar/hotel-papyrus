@@ -10,6 +10,7 @@ import implementation.Key;
 import implementation.Model;
 
 import implementation.Room;
+import implementation.RoomBooking;
 import implementation.RoomStatus;
 import implementation.RoomType;
 import org.eclipse.emf.common.notify.Notification;
@@ -209,10 +210,31 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void checkIn(int bookingID) {
-		//RoomType roomType = 
-		//model.getRoombooking();
+	public void checkIn2(int bookingID) {
+		RoomBooking roomBooking = (RoomBooking )model.getBooking(bookingID);
+		
+		/* get the guests for each room */
+		
+		/* assign the guests for each room */
+		
+		/* update all room statuses */
+		
+		
+		// roomBooking.getRoom();
+		// roomBooking.getGuest();
+		//EList roomTypes = roomBooking.getRoomtype(); 
+		//Room[] rooms = new Room[roomTypes.size()];
 		//getAvailableRooms(roomType)
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Room checkIn(int bookingID) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
