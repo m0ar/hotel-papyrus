@@ -66,6 +66,15 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Model/conferenceroom"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Model/customer"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//Model/findCustomer">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//Model/findCustomer/ssn"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//Model/findBooking">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//Model/findBooking/bookingID"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//Model/findsRoom">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//Model/findsRoom/roomNr"/>
+      </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//RoomType">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute implementation.ecore#//RoomType/name"/>
