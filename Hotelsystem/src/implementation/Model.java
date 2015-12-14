@@ -155,7 +155,7 @@ public interface Model extends EObject {
 	 * @model required="true" ordered="false" bookingIDDataType="org.eclipse.uml2.types.Integer" bookingIDRequired="true" bookingIDOrdered="false"
 	 * @generated
 	 */
-	Booking getBooking(int bookingID);
+	RoomBooking getRoomBooking(int bookingID);
 
 	/**
 	 * <!-- begin-user-doc -->

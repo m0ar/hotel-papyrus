@@ -10,6 +10,7 @@ import implementation.Key;
 import implementation.Model;
 
 import implementation.Room;
+import implementation.RoomBooking;
 import implementation.RoomStatus;
 import implementation.RoomType;
 import org.eclipse.emf.common.notify.Notification;
@@ -266,7 +267,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public Bill checkOut(int bookingID) {
 		deactivateKeysFromRoom(bookingID);
-		//RoomBooking booking = 
+		RoomBooking booking = model.getBooking(bookingID); 
 		//updateRoomStatus(roomID, status);
 		return null;
 	}

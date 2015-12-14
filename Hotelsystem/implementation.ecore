@@ -9,7 +9,7 @@
     <eOperations name="getCustomer" ordered="false" lowerBound="1" eType="#//Customer">
       <eParameters name="ssn" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
-    <eOperations name="getBooking" ordered="false" lowerBound="1" eType="#//Booking">
+    <eOperations name="getRoomBooking" ordered="false" lowerBound="1" eType="#//RoomBooking">
       <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
     <eOperations name="getRoom" ordered="false" lowerBound="1" eType="#//Room">

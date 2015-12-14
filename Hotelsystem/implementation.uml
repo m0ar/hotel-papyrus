@@ -39,8 +39,8 @@
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_Gp5h8KJXEeWohO-JmYzXlA" name="customer" type="_GK_hQJwpEeWs7qnn26dFxw" direction="return"/>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_IKt0cKJXEeWohO-JmYzXlA" name="getBooking">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_OxQqoKJXEeWohO-JmYzXlA" name="booking" type="_feji4Jy7EeWXM95eiB_1bQ" direction="return"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_IKt0cKJXEeWohO-JmYzXlA" name="getRoomBooking">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_OxQqoKJXEeWohO-JmYzXlA" name="booking" type="_-d1BQJwoEeWs7qnn26dFxw" direction="return"/>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_T1nVUKJXEeWohO-JmYzXlA" name="bookingID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>

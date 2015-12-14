@@ -1286,7 +1286,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		EOperation op = addEOperation(modelEClass, this.getCustomer(), "getCustomer", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "ssn", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = addEOperation(modelEClass, this.getBooking(), "getBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = addEOperation(modelEClass, this.getRoomBooking(), "getRoomBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getInteger(), "bookingID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = addEOperation(modelEClass, this.getRoom(), "getRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);

@@ -69,8 +69,8 @@
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//Model/getCustomer">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//Model/getCustomer/ssn"/>
       </genOperations>
-      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//Model/getBooking">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//Model/getBooking/bookingID"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//Model/getRoomBooking">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//Model/getRoomBooking/bookingID"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//Model/getRoom">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//Model/getRoom/roomNr"/>
