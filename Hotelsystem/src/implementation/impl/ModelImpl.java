@@ -224,45 +224,57 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public Customer getCustomer(String ssn) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		for(int i = 0; i < customer.size(); i++){
+			Customer c = (Customer)customer.get(i);
+			if(c.getSocialSecurityNumber() == ssn){
+				return c;
+			}
+		}
+		return null;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public Booking getBooking(int bookingID) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		for(int i = 0; i < roombooking.size(); i++){
+			RoomBooking b = (RoomBooking)roombooking.get(i);
+			if(b.getBookingNr() == bookingID){
+				return b;
+			}
+		}
+		return null;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public Room getRoom(int roomNr) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		for(int i = 0; i < room.size(); i++){
+			Room r = (Room)room.get(i);
+			if(r.getNumber() == roomNr){
+				return r;
+			}
+		}
+		return null;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public RoomType getRoomType(String name) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		for(int i = 0; i < roomtype.size(); i++){
+			RoomType r = (RoomType)roomtype.get(i);
+			if(r.getName() == name){
+				return r;
+			}
+		}
+		return null;
 	}
 
 	/**
