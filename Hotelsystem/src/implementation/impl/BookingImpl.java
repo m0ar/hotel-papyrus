@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link implementation.impl.BookingImpl#getPaymentOption <em>Payment Option</em>}</li>
  *   <li>{@link implementation.impl.BookingImpl#getStartDate <em>Start Date</em>}</li>
  *   <li>{@link implementation.impl.BookingImpl#getEndDate <em>End Date</em>}</li>
+ *   <li>{@link implementation.impl.BookingImpl#getBookingNr <em>Booking Nr</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,7 +59,7 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected static final PaymentOption PAYMENT_OPTION_EDEFAULT = PaymentOption.ENUMERATION_LITERAL1_LITERAL;
+	protected static final PaymentOption PAYMENT_OPTION_EDEFAULT = PaymentOption.NOW_LITERAL;
 
 	/**
 	 * The cached value of the '{@link #getPaymentOption() <em>Payment Option</em>}' attribute.
@@ -109,6 +110,26 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected String endDate = END_DATE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getBookingNr() <em>Booking Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBookingNr()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int BOOKING_NR_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getBookingNr() <em>Booking Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBookingNr()
+	 * @generated
+	 * @ordered
+	 */
+	protected int bookingNr = BOOKING_NR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -217,6 +238,27 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getBookingNr() {
+		return bookingNr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBookingNr(int newBookingNr) {
+		int oldBookingNr = bookingNr;
+		bookingNr = newBookingNr;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.BOOKING__BOOKING_NR, oldBookingNr, bookingNr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ImplementationPackage.BOOKING__COST:
@@ -227,6 +269,8 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 				return getStartDate();
 			case ImplementationPackage.BOOKING__END_DATE:
 				return getEndDate();
+			case ImplementationPackage.BOOKING__BOOKING_NR:
+				return new Integer(getBookingNr());
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -249,6 +293,9 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 				return;
 			case ImplementationPackage.BOOKING__END_DATE:
 				setEndDate((String)newValue);
+				return;
+			case ImplementationPackage.BOOKING__BOOKING_NR:
+				setBookingNr(((Integer)newValue).intValue());
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -273,6 +320,9 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 			case ImplementationPackage.BOOKING__END_DATE:
 				setEndDate(END_DATE_EDEFAULT);
 				return;
+			case ImplementationPackage.BOOKING__BOOKING_NR:
+				setBookingNr(BOOKING_NR_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -292,6 +342,8 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 				return START_DATE_EDEFAULT == null ? startDate != null : !START_DATE_EDEFAULT.equals(startDate);
 			case ImplementationPackage.BOOKING__END_DATE:
 				return END_DATE_EDEFAULT == null ? endDate != null : !END_DATE_EDEFAULT.equals(endDate);
+			case ImplementationPackage.BOOKING__BOOKING_NR:
+				return bookingNr != BOOKING_NR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -313,6 +365,8 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 		result.append(startDate);
 		result.append(", endDate: ");
 		result.append(endDate);
+		result.append(", bookingNr: ");
+		result.append(bookingNr);
 		result.append(')');
 		return result.toString();
 	}

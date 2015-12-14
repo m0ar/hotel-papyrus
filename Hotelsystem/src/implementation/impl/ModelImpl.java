@@ -4,6 +4,7 @@ package implementation.impl;
 
 import implementation.ConferenceRoom;
 import implementation.ConferenceRoomBooking;
+import implementation.Customer;
 import implementation.ImplementationPackage;
 import implementation.Key;
 import implementation.Model;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link implementation.impl.ModelImpl#getRoombooking <em>Roombooking</em>}</li>
  *   <li>{@link implementation.impl.ModelImpl#getKey <em>Key</em>}</li>
  *   <li>{@link implementation.impl.ModelImpl#getConferenceroom <em>Conferenceroom</em>}</li>
+ *   <li>{@link implementation.impl.ModelImpl#getCustomer <em>Customer</em>}</li>
  * </ul>
  *
  * @generated
@@ -99,6 +101,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * @ordered
 	 */
 	protected EList conferenceroom;
+
+	/**
+	 * The cached value of the '{@link #getCustomer() <em>Customer</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCustomer()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList customer;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -201,6 +213,18 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList getCustomer() {
+		if (customer == null) {
+			customer = new EObjectResolvingEList(Customer.class, this, ImplementationPackage.MODEL__CUSTOMER);
+		}
+		return customer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ImplementationPackage.MODEL__ROOMTYPE:
@@ -215,6 +239,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 				return getKey();
 			case ImplementationPackage.MODEL__CONFERENCEROOM:
 				return getConferenceroom();
+			case ImplementationPackage.MODEL__CUSTOMER:
+				return getCustomer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -250,6 +276,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 				getConferenceroom().clear();
 				getConferenceroom().addAll((Collection)newValue);
 				return;
+			case ImplementationPackage.MODEL__CUSTOMER:
+				getCustomer().clear();
+				getCustomer().addAll((Collection)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -279,6 +309,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 			case ImplementationPackage.MODEL__CONFERENCEROOM:
 				getConferenceroom().clear();
 				return;
+			case ImplementationPackage.MODEL__CUSTOMER:
+				getCustomer().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -302,6 +335,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 				return key != null && !key.isEmpty();
 			case ImplementationPackage.MODEL__CONFERENCEROOM:
 				return conferenceroom != null && !conferenceroom.isEmpty();
+			case ImplementationPackage.MODEL__CUSTOMER:
+				return customer != null && !customer.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

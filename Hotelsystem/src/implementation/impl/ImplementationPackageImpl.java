@@ -3,6 +3,8 @@
 package implementation.impl;
 
 import implementation.AdminController;
+import implementation.Bank;
+import implementation.BankProvides;
 import implementation.Bed;
 import implementation.Bill;
 import implementation.Booking;
@@ -13,6 +15,7 @@ import implementation.Customer;
 import implementation.Guest;
 import implementation.IAdministration;
 import implementation.IBooking;
+import implementation.IProfile;
 import implementation.ImplementationFactory;
 import implementation.ImplementationPackage;
 import implementation.Key;
@@ -22,6 +25,7 @@ import implementation.ModelFactory;
 import implementation.PaymentOption;
 import implementation.PensionType;
 import implementation.Person;
+import implementation.ProfileHandler;
 import implementation.Room;
 import implementation.RoomBooking;
 import implementation.RoomIssue;
@@ -174,6 +178,13 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass bankProvidesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass iAdministrationEClass = null;
 
 	/**
@@ -189,6 +200,27 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * @generated
 	 */
 	private EClass mainEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bankEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass profileHandlerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iProfileEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -356,6 +388,15 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 */
 	public EReference getModel_Conferenceroom() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModel_Customer() {
+		return (EReference)modelEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -723,6 +764,15 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getBooking_BookingNr() {
+		return (EAttribute)bookingEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRoomBooking() {
 		return roomBookingEClass;
 	}
@@ -921,6 +971,24 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAdminController_Bankprovides() {
+		return (EReference)adminControllerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBankProvides() {
+		return bankProvidesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIAdministration() {
 		return iAdministrationEClass;
 	}
@@ -959,6 +1027,33 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 */
 	public EReference getMain_Ibooking() {
 		return (EReference)mainEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBank() {
+		return bankEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProfileHandler() {
+		return profileHandlerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIProfile() {
+		return iProfileEClass;
 	}
 
 	/**
@@ -1026,6 +1121,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		createEReference(modelEClass, MODEL__ROOMBOOKING);
 		createEReference(modelEClass, MODEL__KEY);
 		createEReference(modelEClass, MODEL__CONFERENCEROOM);
+		createEReference(modelEClass, MODEL__CUSTOMER);
 
 		roomTypeEClass = createEClass(ROOM_TYPE);
 		createEAttribute(roomTypeEClass, ROOM_TYPE__NAME);
@@ -1075,6 +1171,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		createEAttribute(bookingEClass, BOOKING__PAYMENT_OPTION);
 		createEAttribute(bookingEClass, BOOKING__START_DATE);
 		createEAttribute(bookingEClass, BOOKING__END_DATE);
+		createEAttribute(bookingEClass, BOOKING__BOOKING_NR);
 
 		roomBookingEClass = createEClass(ROOM_BOOKING);
 		createEAttribute(roomBookingEClass, ROOM_BOOKING__DEPOSIT);
@@ -1093,16 +1190,19 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		createEAttribute(conferenceRoomEClass, CONFERENCE_ROOM__COST_PER_HOUR);
 		createEAttribute(conferenceRoomEClass, CONFERENCE_ROOM__EQUIPMENT);
 
-		iBookingEClass = createEClass(IBOOKING);
-
 		customerEClass = createEClass(CUSTOMER);
 		createEAttribute(customerEClass, CUSTOMER__ADDRESS);
 		createEAttribute(customerEClass, CUSTOMER__PHONE_NBR);
 		createEAttribute(customerEClass, CUSTOMER__MEMBER);
 		createEReference(customerEClass, CUSTOMER__ROOMBOOKING);
 
+		iBookingEClass = createEClass(IBOOKING);
+
 		adminControllerEClass = createEClass(ADMIN_CONTROLLER);
 		createEReference(adminControllerEClass, ADMIN_CONTROLLER__MODEL);
+		createEReference(adminControllerEClass, ADMIN_CONTROLLER__BANKPROVIDES);
+
+		bankProvidesEClass = createEClass(BANK_PROVIDES);
 
 		iAdministrationEClass = createEClass(IADMINISTRATION);
 
@@ -1111,6 +1211,12 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		mainEClass = createEClass(MAIN);
 		createEReference(mainEClass, MAIN__IADMINISTRATION);
 		createEReference(mainEClass, MAIN__IBOOKING);
+
+		bankEClass = createEClass(BANK);
+
+		profileHandlerEClass = createEClass(PROFILE_HANDLER);
+
+		iProfileEClass = createEClass(IPROFILE);
 
 		// Create enums
 		roomStatusEEnum = createEEnum(ROOM_STATUS);
@@ -1151,6 +1257,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		roomBookingEClass.getESuperTypes().add(this.getBooking());
 		customerEClass.getESuperTypes().add(this.getPerson());
 		adminControllerEClass.getESuperTypes().add(this.getIAdministration());
+		bankEClass.getESuperTypes().add(this.getBankProvides());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(bookingControllerEClass, BookingController.class, "BookingController", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1163,6 +1270,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		initEReference(getModel_Roombooking(), this.getRoomBooking(), null, "roombooking", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getModel_Key(), this.getKey(), null, "key", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getModel_Conferenceroom(), this.getConferenceRoom(), null, "conferenceroom", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getModel_Customer(), this.getCustomer(), null, "customer", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(roomTypeEClass, RoomType.class, "RoomType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRoomType_Name(), theTypesPackage.getString(), "name", null, 1, 1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1214,6 +1322,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		initEAttribute(getBooking_PaymentOption(), this.getPaymentOption(), "paymentOption", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getBooking_StartDate(), theTypesPackage.getString(), "startDate", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getBooking_EndDate(), theTypesPackage.getString(), "endDate", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getBooking_BookingNr(), theTypesPackage.getInteger(), "bookingNr", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(roomBookingEClass, RoomBooking.class, "RoomBooking", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRoomBooking_Deposit(), theTypesPackage.getReal(), "deposit", null, 1, 1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1231,6 +1340,12 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		initEAttribute(getConferenceRoom_Size(), theTypesPackage.getInteger(), "size", null, 1, 1, ConferenceRoom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getConferenceRoom_CostPerHour(), theTypesPackage.getInteger(), "costPerHour", null, 1, 1, ConferenceRoom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getConferenceRoom_Equipment(), theTypesPackage.getString(), "equipment", null, 1, 1, ConferenceRoom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(customerEClass, Customer.class, "Customer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCustomer_Address(), theTypesPackage.getString(), "address", null, 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getCustomer_PhoneNbr(), theTypesPackage.getString(), "phoneNbr", null, 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getCustomer_Member(), theTypesPackage.getBoolean(), "member", null, 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCustomer_Roombooking(), this.getRoomBooking(), null, "roombooking", null, 0, -1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(iBookingEClass, IBooking.class, "IBooking", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1275,14 +1390,16 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 
 		addEOperation(iBookingEClass, null, "confirmBooking");
 
-		initEClass(customerEClass, Customer.class, "Customer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCustomer_Address(), theTypesPackage.getString(), "address", null, 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getCustomer_PhoneNbr(), theTypesPackage.getString(), "phoneNbr", null, 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getCustomer_Member(), theTypesPackage.getBoolean(), "member", null, 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getCustomer_Roombooking(), this.getRoomBooking(), null, "roombooking", null, 0, -1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
 		initEClass(adminControllerEClass, AdminController.class, "AdminController", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAdminController_Model(), this.getModel(), null, "model", null, 1, 1, AdminController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAdminController_Bankprovides(), this.getBankProvides(), null, "bankprovides", null, 1, 1, AdminController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(bankProvidesEClass, BankProvides.class, "BankProvides", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(bankProvidesEClass, null, "makePayment");
+		addEParameter(op, theTypesPackage.getReal(), "amount", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "cardDetails", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getBoolean(), "return_", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(iAdministrationEClass, IAdministration.class, "IAdministration", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1353,6 +1470,24 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 
 		addEOperation(mainEClass, null, "init");
 
+		initEClass(bankEClass, Bank.class, "Bank", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(profileHandlerEClass, ProfileHandler.class, "ProfileHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(iProfileEClass, IProfile.class, "IProfile", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(iProfileEClass, null, "editInformation");
+		addEParameter(op, this.getCustomer(), "customer", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = addEOperation(iProfileEClass, null, "removeProfile");
+		addEParameter(op, this.getCustomer(), "customer", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = addEOperation(iProfileEClass, this.getCustomer(), "getCustomerDetails", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "ssn", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = addEOperation(iProfileEClass, null, "createProfile");
+		addEParameter(op, this.getCustomer(), "customer", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(roomStatusEEnum, RoomStatus.class, "RoomStatus");
 		addEEnumLiteral(roomStatusEEnum, RoomStatus.OCCUPIED_LITERAL);
@@ -1361,7 +1496,8 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		addEEnumLiteral(roomStatusEEnum, RoomStatus.REPAIR_LITERAL);
 
 		initEEnum(paymentOptionEEnum, PaymentOption.class, "PaymentOption");
-		addEEnumLiteral(paymentOptionEEnum, PaymentOption.ENUMERATION_LITERAL1_LITERAL);
+		addEEnumLiteral(paymentOptionEEnum, PaymentOption.NOW_LITERAL);
+		addEEnumLiteral(paymentOptionEEnum, PaymentOption.LATER_LITERAL);
 
 		initEEnum(pensionTypeEEnum, PensionType.class, "PensionType");
 		addEEnumLiteral(pensionTypeEEnum, PensionType.HALF_PENSION_LITERAL);

@@ -166,6 +166,24 @@ public interface ImplementationFactory extends EFactory {
 	Main createMain();
 
 	/**
+	 * Returns a new object of class '<em>Bank</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bank</em>'.
+	 * @generated
+	 */
+	Bank createBank();
+
+	/**
+	 * Returns a new object of class '<em>Profile Handler</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Profile Handler</em>'.
+	 * @generated
+	 */
+	ProfileHandler createProfileHandler();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

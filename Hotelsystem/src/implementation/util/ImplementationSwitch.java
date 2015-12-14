@@ -171,12 +171,6 @@ public class ImplementationSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ImplementationPackage.IBOOKING: {
-				IBooking iBooking = (IBooking)theEObject;
-				Object result = caseIBooking(iBooking);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ImplementationPackage.CUSTOMER: {
 				Customer customer = (Customer)theEObject;
 				Object result = caseCustomer(customer);
@@ -184,10 +178,22 @@ public class ImplementationSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ImplementationPackage.IBOOKING: {
+				IBooking iBooking = (IBooking)theEObject;
+				Object result = caseIBooking(iBooking);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ImplementationPackage.ADMIN_CONTROLLER: {
 				AdminController adminController = (AdminController)theEObject;
 				Object result = caseAdminController(adminController);
 				if (result == null) result = caseIAdministration(adminController);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ImplementationPackage.BANK_PROVIDES: {
+				BankProvides bankProvides = (BankProvides)theEObject;
+				Object result = caseBankProvides(bankProvides);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -206,6 +212,25 @@ public class ImplementationSwitch {
 			case ImplementationPackage.MAIN: {
 				Main main = (Main)theEObject;
 				Object result = caseMain(main);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ImplementationPackage.BANK: {
+				Bank bank = (Bank)theEObject;
+				Object result = caseBank(bank);
+				if (result == null) result = caseBankProvides(bank);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ImplementationPackage.PROFILE_HANDLER: {
+				ProfileHandler profileHandler = (ProfileHandler)theEObject;
+				Object result = caseProfileHandler(profileHandler);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ImplementationPackage.IPROFILE: {
+				IProfile iProfile = (IProfile)theEObject;
+				Object result = caseIProfile(iProfile);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -469,6 +494,21 @@ public class ImplementationSwitch {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bank Provides</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bank Provides</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseBankProvides(BankProvides object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IAdministration</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -510,6 +550,51 @@ public class ImplementationSwitch {
 	 * @generated
 	 */
 	public Object caseMain(Main object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bank</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bank</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseBank(Bank object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Profile Handler</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Profile Handler</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseProfileHandler(ProfileHandler object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IProfile</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IProfile</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseIProfile(IProfile object) {
 		return null;
 	}
 

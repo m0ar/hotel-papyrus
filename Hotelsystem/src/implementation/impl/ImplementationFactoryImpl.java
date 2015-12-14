@@ -72,6 +72,8 @@ public class ImplementationFactoryImpl extends EFactoryImpl implements Implement
 			case ImplementationPackage.ADMIN_CONTROLLER: return createAdminController();
 			case ImplementationPackage.MODEL_FACTORY: return createModelFactory();
 			case ImplementationPackage.MAIN: return createMain();
+			case ImplementationPackage.BANK: return createBank();
+			case ImplementationPackage.PROFILE_HANDLER: return createProfileHandler();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -271,6 +273,26 @@ public class ImplementationFactoryImpl extends EFactoryImpl implements Implement
 	public Main createMain() {
 		MainImpl main = new MainImpl();
 		return main;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Bank createBank() {
+		BankImpl bank = new BankImpl();
+		return bank;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProfileHandler createProfileHandler() {
+		ProfileHandlerImpl profileHandler = new ProfileHandlerImpl();
+		return profileHandler;
 	}
 
 	/**
