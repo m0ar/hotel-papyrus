@@ -2,7 +2,6 @@
  */
 package implementation.impl;
 
-import implementation.Booking;
 import implementation.ConferenceRoom;
 import implementation.ConferenceRoomBooking;
 import implementation.Customer;

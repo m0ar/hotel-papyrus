@@ -5,6 +5,7 @@ package implementation.impl;
 import implementation.Bill;
 import implementation.Guest;
 import implementation.ImplementationPackage;
+import implementation.Key;
 import implementation.Room;
 import implementation.RoomIssue;
 import implementation.RoomStatus;
@@ -38,6 +39,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link implementation.impl.RoomImpl#getBill <em>Bill</em>}</li>
  *   <li>{@link implementation.impl.RoomImpl#getRoomissue <em>Roomissue</em>}</li>
  *   <li>{@link implementation.impl.RoomImpl#getGuest <em>Guest</em>}</li>
+ *   <li>{@link implementation.impl.RoomImpl#getKey <em>Key</em>}</li>
  * </ul>
  *
  * @generated
@@ -122,6 +124,16 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	 * @ordered
 	 */
 	protected EList guest;
+
+	/**
+	 * The cached value of the '{@link #getKey() <em>Key</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList key;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -264,6 +276,31 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList getKey() {
+		if (key == null) {
+			key = new EObjectResolvingEList(Key.class, this, ImplementationPackage.ROOM__KEY);
+		}
+		return key;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public double getTotalBill() {
+		double cost = 0;
+		for(int i = 0; i < bill.size(); i++){
+			Bill b = (Bill)bill.get(i);
+			cost += b.getCost();
+		}
+		return cost;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ImplementationPackage.ROOM__NUMBER:
@@ -279,6 +316,8 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 				return getRoomissue();
 			case ImplementationPackage.ROOM__GUEST:
 				return getGuest();
+			case ImplementationPackage.ROOM__KEY:
+				return getKey();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -311,6 +350,10 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 				getGuest().clear();
 				getGuest().addAll((Collection)newValue);
 				return;
+			case ImplementationPackage.ROOM__KEY:
+				getKey().clear();
+				getKey().addAll((Collection)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -340,6 +383,9 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 			case ImplementationPackage.ROOM__GUEST:
 				getGuest().clear();
 				return;
+			case ImplementationPackage.ROOM__KEY:
+				getKey().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -363,6 +409,8 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 				return roomissue != null && !roomissue.isEmpty();
 			case ImplementationPackage.ROOM__GUEST:
 				return guest != null && !guest.isEmpty();
+			case ImplementationPackage.ROOM__KEY:
+				return key != null && !key.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link implementation.Room#getBill <em>Bill</em>}</li>
  *   <li>{@link implementation.Room#getRoomissue <em>Roomissue</em>}</li>
  *   <li>{@link implementation.Room#getGuest <em>Guest</em>}</li>
+ *   <li>{@link implementation.Room#getKey <em>Key</em>}</li>
  * </ul>
  *
  * @see implementation.ImplementationPackage#getRoom()
@@ -156,5 +157,29 @@ public interface Room extends EObject {
 	 * @generated
 	 */
 	EList getGuest();
+
+	/**
+	 * Returns the value of the '<em><b>Key</b></em>' reference list.
+	 * The list contents are of type {@link implementation.Key}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Key</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Key</em>' reference list.
+	 * @see implementation.ImplementationPackage#getRoom_Key()
+	 * @model type="implementation.Key" ordered="false"
+	 * @generated
+	 */
+	EList getKey();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="org.eclipse.uml2.types.Real" required="true" ordered="false"
+	 * @generated
+	 */
+	double getTotalBill();
 
 } // Room

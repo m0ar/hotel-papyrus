@@ -2,6 +2,8 @@
  */
 package implementation.impl;
 
+import implementation.BankProvides;
+import implementation.Bill;
 import implementation.IAdministration;
 import implementation.IBooking;
 import implementation.ImplementationPackage;
@@ -9,6 +11,7 @@ import implementation.Main;
 import implementation.RoomStatus;
 import implementation.impl.BookingControllerImpl.Tuple;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,6 +36,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link implementation.impl.MainImpl#getIadministration <em>Iadministration</em>}</li>
  *   <li>{@link implementation.impl.MainImpl#getIbooking <em>Ibooking</em>}</li>
+ *   <li>{@link implementation.impl.MainImpl#getBankprovides <em>Bankprovides</em>}</li>
  * </ul>
  *
  * @generated
@@ -57,6 +61,16 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	 * @ordered
 	 */
 	protected IBooking ibooking;
+
+	/**
+	 * The cached value of the '{@link #getBankprovides() <em>Bankprovides</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBankprovides()
+	 * @generated
+	 * @ordered
+	 */
+	protected BankProvides bankprovides;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -150,6 +164,44 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		ibooking = newIbooking;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.MAIN__IBOOKING, oldIbooking, ibooking));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BankProvides getBankprovides() {
+		if (bankprovides != null && bankprovides.eIsProxy()) {
+			InternalEObject oldBankprovides = (InternalEObject)bankprovides;
+			bankprovides = (BankProvides)eResolveProxy(oldBankprovides);
+			if (bankprovides != oldBankprovides) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImplementationPackage.MAIN__BANKPROVIDES, oldBankprovides, bankprovides));
+			}
+		}
+		return bankprovides;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BankProvides basicGetBankprovides() {
+		return bankprovides;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBankprovides(BankProvides newBankprovides) {
+		BankProvides oldBankprovides = bankprovides;
+		bankprovides = newBankprovides;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.MAIN__BANKPROVIDES, oldBankprovides, bankprovides));
 	}
 
 	public static void main(String[] args) {
@@ -350,10 +402,28 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	}
 	
 	private void checkOut(Scanner in){
-		System.out.println("Enter booking number");
-		int bookingNr = in.nextInt();
-		in.nextLine();
-		iadministration.checkOut(bookingNr);
+		while(true){
+			System.out.println("Enter booking number");
+			int bookingNr = in.nextInt();
+			in.nextLine();
+			Bill finalBill = iadministration.checkOut(bookingNr);
+			if(finalBill == null){
+				System.out.println("Could not find booking, please try again");				
+			}else{
+				DecimalFormat df = new DecimalFormat("#.##");
+				while(true){
+					System.out.println("The total cost is " + df.format(finalBill.getCost()));
+					System.out.println("Please enter credit card details");
+					String creditCard = in.nextLine();
+					if(bankprovides.makePayment(finalBill.getCost(), creditCard)){
+						System.out.println("Check out was successfull");
+						return;
+					}else{
+						System.out.println("Payment faild, please try again");
+					}
+				}
+			}
+		}
 	}
 	
 	private void checkIn(Scanner in) {
@@ -472,6 +542,9 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			case ImplementationPackage.MAIN__IBOOKING:
 				if (resolve) return getIbooking();
 				return basicGetIbooking();
+			case ImplementationPackage.MAIN__BANKPROVIDES:
+				if (resolve) return getBankprovides();
+				return basicGetBankprovides();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -488,6 +561,9 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				return;
 			case ImplementationPackage.MAIN__IBOOKING:
 				setIbooking((IBooking)newValue);
+				return;
+			case ImplementationPackage.MAIN__BANKPROVIDES:
+				setBankprovides((BankProvides)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -506,6 +582,9 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			case ImplementationPackage.MAIN__IBOOKING:
 				setIbooking((IBooking)null);
 				return;
+			case ImplementationPackage.MAIN__BANKPROVIDES:
+				setBankprovides((BankProvides)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -521,6 +600,8 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				return iadministration != null;
 			case ImplementationPackage.MAIN__IBOOKING:
 				return ibooking != null;
+			case ImplementationPackage.MAIN__BANKPROVIDES:
+				return bankprovides != null;
 		}
 		return super.eIsSet(featureID);
 	}
