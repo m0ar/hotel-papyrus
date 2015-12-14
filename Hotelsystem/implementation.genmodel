@@ -66,14 +66,17 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Model/conferenceroom"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Model/customer"/>
-      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//Model/findCustomer">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//Model/findCustomer/ssn"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//Model/getCustomer">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//Model/getCustomer/ssn"/>
       </genOperations>
-      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//Model/findBooking">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//Model/findBooking/bookingID"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//Model/getBooking">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//Model/getBooking/bookingID"/>
       </genOperations>
-      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//Model/findsRoom">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//Model/findsRoom/roomNr"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//Model/getRoom">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//Model/getRoom/roomNr"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//Model/getRoomType">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//Model/getRoomType/name"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//RoomType">

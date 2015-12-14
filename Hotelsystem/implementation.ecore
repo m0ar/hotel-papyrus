@@ -6,14 +6,17 @@
         lowerBound="1" eType="#//Model"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Model">
-    <eOperations name="findCustomer" ordered="false" lowerBound="1" eType="#//Customer">
+    <eOperations name="getCustomer" ordered="false" lowerBound="1" eType="#//Customer">
       <eParameters name="ssn" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
-    <eOperations name="findBooking" ordered="false" lowerBound="1" eType="#//Booking">
+    <eOperations name="getBooking" ordered="false" lowerBound="1" eType="#//Booking">
       <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
-    <eOperations name="findsRoom" ordered="false" lowerBound="1" eType="#//Room">
+    <eOperations name="getRoom" ordered="false" lowerBound="1" eType="#//Room">
       <eParameters name="roomNr" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+    </eOperations>
+    <eOperations name="getRoomType" ordered="false" lowerBound="1" eType="#//RoomType">
+      <eParameters name="name" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="roomtype" ordered="false"
         upperBound="-1" eType="#//RoomType"/>
