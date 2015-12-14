@@ -18,9 +18,9 @@ public interface BankProvides extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model amountDataType="org.eclipse.uml2.types.Real" amountRequired="true" amountOrdered="false" cardDetailsDataType="org.eclipse.uml2.types.String" cardDetailsRequired="true" cardDetailsOrdered="false" returnDataType="org.eclipse.uml2.types.Boolean" returnRequired="true" returnOrdered="false"
+	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" amountDataType="org.eclipse.uml2.types.Real" amountRequired="true" amountOrdered="false" cardDetailsDataType="org.eclipse.uml2.types.String" cardDetailsRequired="true" cardDetailsOrdered="false"
 	 * @generated
 	 */
-	void makePayment(double amount, String cardDetails, boolean return_);
+	boolean makePayment(double amount, String cardDetails);
 
 } // BankProvides

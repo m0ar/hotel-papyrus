@@ -201,7 +201,6 @@
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//BankProvides/makePayment">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//BankProvides/makePayment/amount"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//BankProvides/makePayment/cardDetails"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//BankProvides/makePayment/return"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="implementation.ecore#//IAdministration">

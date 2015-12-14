@@ -207,10 +207,9 @@
         lowerBound="1" eType="#//BankProvides"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BankProvides" abstract="true" interface="true">
-    <eOperations name="makePayment" ordered="false" lowerBound="1">
+    <eOperations name="makePayment" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
       <eParameters name="amount" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Real"/>
       <eParameters name="cardDetails" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-      <eParameters name="return" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IAdministration" abstract="true" interface="true">
@@ -225,7 +224,7 @@
     <eOperations name="unassignGuestsFromRoom" ordered="false" lowerBound="1">
       <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
-    <eOperations name="checkOut" ordered="false" lowerBound="1">
+    <eOperations name="checkOut" ordered="false" lowerBound="1" eType="#//Bill">
       <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
     <eOperations name="removeRoom" ordered="false" lowerBound="1">

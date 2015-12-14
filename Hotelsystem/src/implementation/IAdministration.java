@@ -100,10 +100,10 @@ public interface IAdministration extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model bookingIDDataType="org.eclipse.uml2.types.Integer" bookingIDRequired="true" bookingIDOrdered="false"
+	 * @model required="true" ordered="false" bookingIDDataType="org.eclipse.uml2.types.Integer" bookingIDRequired="true" bookingIDOrdered="false"
 	 * @generated
 	 */
-	void checkOut(int bookingID);
+	Bill checkOut(int bookingID);
 
 	/**
 	 * <!-- begin-user-doc -->

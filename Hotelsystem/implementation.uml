@@ -331,6 +331,7 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDQncp5ZEeWKBr577pjDPA"/>
       </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_-IGd0KJHEeWAQJjLrsDRkQ" name="return" type="_poxd8JwoEeWs7qnn26dFxw" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_eDQnc55ZEeWKBr577pjDPA" name="removeRoom">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDQndJ5ZEeWKBr577pjDPA" name="roomID">
@@ -639,7 +640,7 @@
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_NnRwUKJCEeWAQJjLrsDRkQ" name="cardDetails">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_RSJfkKJCEeWAQJjLrsDRkQ" name="return">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_RSJfkKJCEeWAQJjLrsDRkQ" name="return" direction="return">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
       </ownedParameter>
     </ownedOperation>
@@ -655,27 +656,19 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_r8IO4KJCEeWAQJjLrsDRkQ" name="IProfile">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_iqyb0qJBEeWAQJjLrsDRkQ" name="editInformation">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_iqyb06JBEeWAQJjLrsDRkQ" name="customer">
-        <type xmi:type="uml:Class" href="#_GK_hQJwpEeWs7qnn26dFxw"/>
-      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_iqyb06JBEeWAQJjLrsDRkQ" name="customer" type="_GK_hQJwpEeWs7qnn26dFxw"/>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_iqzC4KJBEeWAQJjLrsDRkQ" name="removeProfile">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_iqzC4aJBEeWAQJjLrsDRkQ" name="customer">
-        <type xmi:type="uml:Class" href="#_GK_hQJwpEeWs7qnn26dFxw"/>
-      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_iqzC4aJBEeWAQJjLrsDRkQ" name="customer" type="_GK_hQJwpEeWs7qnn26dFxw"/>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_iqzC4qJBEeWAQJjLrsDRkQ" name="getCustomerDetails">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_iqzC46JBEeWAQJjLrsDRkQ" name="ssn">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_iqzC5KJBEeWAQJjLrsDRkQ" name="customer" direction="return">
-        <type xmi:type="uml:Class" href="#_GK_hQJwpEeWs7qnn26dFxw"/>
-      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_iqzC5KJBEeWAQJjLrsDRkQ" name="customer" type="_GK_hQJwpEeWs7qnn26dFxw" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_iqyb0KJBEeWAQJjLrsDRkQ" name="createProfile">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_iqyb0aJBEeWAQJjLrsDRkQ" name="customer">
-        <type xmi:type="uml:Class" href="#_GK_hQJwpEeWs7qnn26dFxw"/>
-      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_iqyb0aJBEeWAQJjLrsDRkQ" name="customer" type="_GK_hQJwpEeWs7qnn26dFxw"/>
     </ownedOperation>
   </packagedElement>
 </uml:Package>

@@ -329,7 +329,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				if(operation.equalsIgnoreCase("check in")){
 					
 				}else if(operation.equalsIgnoreCase("check out")){
-					
+					checkOut(in);
 				}else if(operation.equalsIgnoreCase("update tab")){
 					
 				}else if(operation.equalsIgnoreCase("edit customer")){
@@ -347,6 +347,13 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				}
 			}
 		}
+	}
+	
+	private void checkOut(Scanner in){
+		System.out.println("Enter booking number");
+		int bookingNr = in.nextInt();
+		in.nextLine();
+		iadministration.checkOut(bookingNr);
 	}
 
 	/**

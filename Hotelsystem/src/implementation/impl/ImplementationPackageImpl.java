@@ -1396,10 +1396,9 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 
 		initEClass(bankProvidesEClass, BankProvides.class, "BankProvides", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(bankProvidesEClass, null, "makePayment");
+		op = addEOperation(bankProvidesEClass, theTypesPackage.getBoolean(), "makePayment", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getReal(), "amount", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "cardDetails", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getBoolean(), "return_", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(iAdministrationEClass, IAdministration.class, "IAdministration", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1414,7 +1413,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		op = addEOperation(iAdministrationEClass, null, "unassignGuestsFromRoom");
 		addEParameter(op, theTypesPackage.getInteger(), "bookingID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = addEOperation(iAdministrationEClass, null, "checkOut");
+		op = addEOperation(iAdministrationEClass, this.getBill(), "checkOut", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getInteger(), "bookingID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = addEOperation(iAdministrationEClass, null, "removeRoom");
