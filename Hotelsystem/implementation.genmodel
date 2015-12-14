@@ -273,7 +273,10 @@
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//Main/init"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//Bank"/>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//ProfileHandler"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//ProfileHandler">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//ProfileHandler/model"/>
+    </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="implementation.ecore#//IProfile">
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IProfile/editInformation">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IProfile/editInformation/customer"/>

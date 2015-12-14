@@ -225,6 +225,7 @@ public class ImplementationSwitch {
 			case ImplementationPackage.PROFILE_HANDLER: {
 				ProfileHandler profileHandler = (ProfileHandler)theEObject;
 				Object result = caseProfileHandler(profileHandler);
+				if (result == null) result = caseIProfile(profileHandler);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

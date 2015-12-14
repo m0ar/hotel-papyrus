@@ -1142,15 +1142,6 @@ public interface ImplementationPackage extends EPackage {
 	int PROFILE_HANDLER = 22;
 
 	/**
-	 * The number of structural features of the '<em>Profile Handler</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROFILE_HANDLER_FEATURE_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link implementation.IProfile <em>IProfile</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1168,6 +1159,24 @@ public interface ImplementationPackage extends EPackage {
 	 * @ordered
 	 */
 	int IPROFILE_FEATURE_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROFILE_HANDLER__MODEL = IPROFILE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Profile Handler</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROFILE_HANDLER_FEATURE_COUNT = IPROFILE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link implementation.RoomStatus <em>Room Status</em>}' enum.
@@ -2080,6 +2089,17 @@ public interface ImplementationPackage extends EPackage {
 	EClass getProfileHandler();
 
 	/**
+	 * Returns the meta object for the reference '{@link implementation.ProfileHandler#getModel <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Model</em>'.
+	 * @see implementation.ProfileHandler#getModel()
+	 * @see #getProfileHandler()
+	 * @generated
+	 */
+	EReference getProfileHandler_Model();
+
+	/**
 	 * Returns the meta object for class '{@link implementation.IProfile <em>IProfile</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2842,6 +2862,14 @@ public interface ImplementationPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PROFILE_HANDLER = eINSTANCE.getProfileHandler();
+
+		/**
+		 * The meta object literal for the '<em><b>Model</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROFILE_HANDLER__MODEL = eINSTANCE.getProfileHandler_Model();
 
 		/**
 		 * The meta object literal for the '{@link implementation.IProfile <em>IProfile</em>}' class.

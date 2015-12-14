@@ -646,7 +646,8 @@
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="__1FLwKJBEeWAQJjLrsDRkQ" name="ProfileHandler">
-    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_DyT2UKJCEeWAQJjLrsDRkQ" client="__1FLwKJBEeWAQJjLrsDRkQ" supplier="_r8IO4KJCEeWAQJjLrsDRkQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_tBtD8qJPEeWAQJjLrsDRkQ" name="model" type="_gz-AcJwoEeWs7qnn26dFxw" association="_tBr10KJPEeWAQJjLrsDRkQ"/>
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_gWLaQKJUEeWAQJjLrsDRkQ" client="__1FLwKJBEeWAQJjLrsDRkQ" supplier="_r8IO4KJCEeWAQJjLrsDRkQ" contract="_r8IO4KJCEeWAQJjLrsDRkQ"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_XqkaMKJCEeWAQJjLrsDRkQ" visibility="private" memberEnd="_XqlBQqJCEeWAQJjLrsDRkQ _XqlBQ6JCEeWAQJjLrsDRkQ">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_XqlBQKJCEeWAQJjLrsDRkQ" source="org.eclipse.papyrus">
@@ -670,5 +671,11 @@
     <ownedOperation xmi:type="uml:Operation" xmi:id="_iqyb0KJBEeWAQJjLrsDRkQ" name="createProfile">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_iqyb0aJBEeWAQJjLrsDRkQ" name="customer" type="_GK_hQJwpEeWs7qnn26dFxw"/>
     </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_tBr10KJPEeWAQJjLrsDRkQ" visibility="private" memberEnd="_tBtD8qJPEeWAQJjLrsDRkQ _tBtD86JPEeWAQJjLrsDRkQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tBtD8KJPEeWAQJjLrsDRkQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_tBtD8aJPEeWAQJjLrsDRkQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_tBtD86JPEeWAQJjLrsDRkQ" name="profilehandler" type="__1FLwKJBEeWAQJjLrsDRkQ" association="_tBr10KJPEeWAQJjLrsDRkQ"/>
   </packagedElement>
 </uml:Package>

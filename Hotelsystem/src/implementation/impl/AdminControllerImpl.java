@@ -263,12 +263,12 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public Bill checkOut(int bookingID) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		deactivateKeysFromRoom(bookingID);
+		//RoomBooking booking = 
+		//updateRoomStatus(roomID, status);
+		return null;
 	}
 
 	/**
