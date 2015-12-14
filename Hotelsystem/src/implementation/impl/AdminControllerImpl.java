@@ -208,11 +208,11 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void checkIn(int bookingID) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
+		//RoomType roomType = 
+		//model.getRoombooking();
+		//getAvailableRooms(roomType)
 		throw new UnsupportedOperationException();
 	}
 

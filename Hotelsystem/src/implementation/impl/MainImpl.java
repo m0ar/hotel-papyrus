@@ -327,7 +327,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			}else{
 				String operation = in.nextLine();
 				if(operation.equalsIgnoreCase("check in")){
-					
+					checkIn(in);
 				}else if(operation.equalsIgnoreCase("check out")){
 					checkOut(in);
 				}else if(operation.equalsIgnoreCase("update tab")){
@@ -354,6 +354,13 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		int bookingNr = in.nextInt();
 		in.nextLine();
 		iadministration.checkOut(bookingNr);
+	}
+	
+	private void checkIn(Scanner in) {
+		System.out.println("Enter booking number");
+		int bookingNr = in.nextInt();
+		in.nextLine();
+		iadministration.checkIn(bookingNr);
 	}
 
 	/**
