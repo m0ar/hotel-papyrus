@@ -2,7 +2,6 @@
  */
 package implementation.impl;
 
-import implementation.Booking;
 import implementation.ConferenceRoom;
 import implementation.ConferenceRoomBooking;
 import implementation.Customer;
@@ -239,7 +238,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public Booking getBooking(int bookingID) {
+	public RoomBooking getRoomBooking(int bookingID) {
 		for(int i = 0; i < roombooking.size(); i++){
 			RoomBooking b = (RoomBooking)roombooking.get(i);
 			if(b.getBookingNr() == bookingID){
@@ -248,6 +247,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		}
 		return null;
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -64,9 +64,9 @@ public class ImplementationFactoryImpl extends EFactoryImpl implements Implement
 			case ImplementationPackage.BILL: return createBill();
 			case ImplementationPackage.ROOM_ISSUE: return createRoomIssue();
 			case ImplementationPackage.GUEST: return createGuest();
+			case ImplementationPackage.KEY: return createKey();
 			case ImplementationPackage.CONFERENCE_ROOM_BOOKING: return createConferenceRoomBooking();
 			case ImplementationPackage.ROOM_BOOKING: return createRoomBooking();
-			case ImplementationPackage.KEY: return createKey();
 			case ImplementationPackage.CONFERENCE_ROOM: return createConferenceRoom();
 			case ImplementationPackage.CUSTOMER: return createCustomer();
 			case ImplementationPackage.ADMIN_CONTROLLER: return createAdminController();

@@ -139,6 +139,12 @@ public class ImplementationSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ImplementationPackage.KEY: {
+				Key key = (Key)theEObject;
+				Object result = caseKey(key);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ImplementationPackage.CONFERENCE_ROOM_BOOKING: {
 				ConferenceRoomBooking conferenceRoomBooking = (ConferenceRoomBooking)theEObject;
 				Object result = caseConferenceRoomBooking(conferenceRoomBooking);
@@ -156,12 +162,6 @@ public class ImplementationSwitch {
 				RoomBooking roomBooking = (RoomBooking)theEObject;
 				Object result = caseRoomBooking(roomBooking);
 				if (result == null) result = caseBooking(roomBooking);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ImplementationPackage.KEY: {
-				Key key = (Key)theEObject;
-				Object result = caseKey(key);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -191,12 +191,6 @@ public class ImplementationSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ImplementationPackage.BANK_PROVIDES: {
-				BankProvides bankProvides = (BankProvides)theEObject;
-				Object result = caseBankProvides(bankProvides);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ImplementationPackage.IADMINISTRATION: {
 				IAdministration iAdministration = (IAdministration)theEObject;
 				Object result = caseIAdministration(iAdministration);
@@ -212,6 +206,12 @@ public class ImplementationSwitch {
 			case ImplementationPackage.MAIN: {
 				Main main = (Main)theEObject;
 				Object result = caseMain(main);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ImplementationPackage.BANK_PROVIDES: {
+				BankProvides bankProvides = (BankProvides)theEObject;
+				Object result = caseBankProvides(bankProvides);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

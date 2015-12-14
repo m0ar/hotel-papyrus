@@ -93,6 +93,9 @@ public class ImplementationAdapterFactory extends AdapterFactoryImpl {
 			public Object casePerson(Person object) {
 				return createPersonAdapter();
 			}
+			public Object caseKey(Key object) {
+				return createKeyAdapter();
+			}
 			public Object caseConferenceRoomBooking(ConferenceRoomBooking object) {
 				return createConferenceRoomBookingAdapter();
 			}
@@ -101,9 +104,6 @@ public class ImplementationAdapterFactory extends AdapterFactoryImpl {
 			}
 			public Object caseRoomBooking(RoomBooking object) {
 				return createRoomBookingAdapter();
-			}
-			public Object caseKey(Key object) {
-				return createKeyAdapter();
 			}
 			public Object caseConferenceRoom(ConferenceRoom object) {
 				return createConferenceRoomAdapter();
@@ -117,9 +117,6 @@ public class ImplementationAdapterFactory extends AdapterFactoryImpl {
 			public Object caseAdminController(AdminController object) {
 				return createAdminControllerAdapter();
 			}
-			public Object caseBankProvides(BankProvides object) {
-				return createBankProvidesAdapter();
-			}
 			public Object caseIAdministration(IAdministration object) {
 				return createIAdministrationAdapter();
 			}
@@ -128,6 +125,9 @@ public class ImplementationAdapterFactory extends AdapterFactoryImpl {
 			}
 			public Object caseMain(Main object) {
 				return createMainAdapter();
+			}
+			public Object caseBankProvides(BankProvides object) {
+				return createBankProvidesAdapter();
 			}
 			public Object caseBank(Bank object) {
 				return createBankAdapter();
