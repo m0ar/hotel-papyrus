@@ -1052,6 +1052,15 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getProfileHandler_Model() {
+		return (EReference)profileHandlerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIProfile() {
 		return iProfileEClass;
 	}
@@ -1215,6 +1224,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		bankEClass = createEClass(BANK);
 
 		profileHandlerEClass = createEClass(PROFILE_HANDLER);
+		createEReference(profileHandlerEClass, PROFILE_HANDLER__MODEL);
 
 		iProfileEClass = createEClass(IPROFILE);
 
@@ -1258,6 +1268,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		customerEClass.getESuperTypes().add(this.getPerson());
 		adminControllerEClass.getESuperTypes().add(this.getIAdministration());
 		bankEClass.getESuperTypes().add(this.getBankProvides());
+		profileHandlerEClass.getESuperTypes().add(this.getIProfile());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(bookingControllerEClass, BookingController.class, "BookingController", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1472,6 +1483,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		initEClass(bankEClass, Bank.class, "Bank", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(profileHandlerEClass, ProfileHandler.class, "ProfileHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProfileHandler_Model(), this.getModel(), null, "model", null, 1, 1, ProfileHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(iProfileEClass, IProfile.class, "IProfile", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -283,7 +283,10 @@
         lowerBound="1" eType="#//IBooking"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Bank" eSuperTypes="#//BankProvides"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ProfileHandler"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProfileHandler" eSuperTypes="#//IProfile">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" ordered="false"
+        lowerBound="1" eType="#//Model"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IProfile" abstract="true" interface="true">
     <eOperations name="editInformation" ordered="false" lowerBound="1">
       <eParameters name="customer" ordered="false" lowerBound="1" eType="#//Customer"/>
