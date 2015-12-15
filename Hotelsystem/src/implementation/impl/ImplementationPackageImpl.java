@@ -1470,7 +1470,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 
 		op = addEOperation(iBookingEClass, null, "enterResidentialsCredentials");
 		addEParameter(op, theTypesPackage.getString(), "names", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getInteger(), "SSNs", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "SSNs", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getInteger(), "reservationId", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = addEOperation(iBookingEClass, theTypesPackage.getBoolean(), "validateBookingData", 1, 1, IS_UNIQUE, !IS_ORDERED);

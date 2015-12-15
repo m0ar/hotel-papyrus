@@ -214,7 +214,7 @@
     </eOperations>
     <eOperations name="enterResidentialsCredentials" ordered="false" lowerBound="1">
       <eParameters name="names" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-      <eParameters name="SSNs" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="SSNs" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
       <eParameters name="reservationId" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
     <eOperations name="validateBookingData" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">

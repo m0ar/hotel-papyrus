@@ -336,7 +336,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void enterResidentialsCredentials(String names, int SSNs, int reservationId) {
+	public void enterResidentialsCredentials(String names, String SSNs, int reservationId) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
