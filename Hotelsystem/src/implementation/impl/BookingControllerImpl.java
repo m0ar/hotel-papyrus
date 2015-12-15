@@ -330,7 +330,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			boolean foundRoom = false;
 			
 			for(int j = 0; j < rooms.size(); j++) {
-				if(((RoomTypeImpl)rooms.get(j)).getName() == ((RoomTypeImpl)selectedRoomTypes.get(i)).getName()) {
+				if(((RoomImpl)rooms.get(j)).getRoomtype().getName() == ((RoomTypeImpl)selectedRoomTypes.get(i)).getName()) {
 					rb.getRoom().add((RoomImpl)rooms.get(j));
 					rb.getRoomtype().add(selectedRoomTypes.get(i));
 					foundRoom = true;
