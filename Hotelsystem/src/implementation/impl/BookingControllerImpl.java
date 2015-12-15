@@ -174,12 +174,12 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void createBooking(int reservationID) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList bookings = model.getRoombooking();
+		for(int i = 0; i < bookings.size(); i++)
+			if(((RoomBookingImpl)bookings.get(i)).isReservation() && ((RoomBookingImpl)bookings.get(i)).getBookingNr() == reservationID)
+				((RoomBookingImpl)bookings.get(i)).setReservation(false);
 	}
 
 	/**
@@ -196,23 +196,20 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void confirmBooking() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		// TODO:
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void removeReservation(int reservationId) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList bookings = model.getRoombooking();
+		for(int i = 0; i < bookings.size(); i++)
+			if(((RoomBookingImpl)bookings.get(i)).isReservation() && ((RoomBookingImpl)bookings.get(i)).getBookingNr() == reservationId)
+				bookings.remove(i);
 	}
 
 	/**
@@ -325,8 +322,25 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		RoomBookingImpl rb = new RoomBookingImpl();
 		rb.setStartDate(startDate);
 		rb.setEndDate(endDate);
-		for(int i = 0; i < selectedRoomTypes.size(); i++)
-			rb.getRoomtype().add(selectedRoomTypes.get(i));
+		rb.setReservation(true);
+		
+		EList rooms = getAvaiableRooms(startDate, endDate);
+		
+		for(int i = 0; i < selectedRoomTypes.size(); i++) {
+			boolean foundRoom = false;
+			
+			for(int j = 0; j < rooms.size(); j++) {
+				if(((RoomTypeImpl)rooms.get(j)).getName() == ((RoomTypeImpl)selectedRoomTypes.get(i)).getName()) {
+					rb.getRoom().add((RoomImpl)rooms.get(j));
+					rb.getRoomtype().add(selectedRoomTypes.get(i));
+					foundRoom = true;
+					break;
+				}
+			}
+			
+			if(!foundRoom)
+				return -1;
+		}
 		model.getRoombooking().add(rb);
 		return rb.getBookingNr();
 	}
@@ -345,12 +359,15 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void enterResidentialsCredentials(String names, String SSNs, int reservationId) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList bookings = model.getRoombooking();
+		GuestImpl guest = new GuestImpl();
+		guest.setName(names);
+		guest.setSocialSecurityNumber(SSNs);
+		for(int i = 0; i < bookings.size(); i++)
+			if(((RoomBookingImpl)bookings.get(i)).isReservation() && ((RoomBookingImpl)bookings.get(i)).getBookingNr() == reservationId)
+				((RoomBookingImpl)bookings.get(i)).getGuest().add(guest);
 	}
 
 	/**

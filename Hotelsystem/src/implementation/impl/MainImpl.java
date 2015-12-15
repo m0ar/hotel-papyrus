@@ -321,96 +321,181 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	}
 	
 	private void bookRoom(Scanner in) {
-		System.out.println("Enter parameters number of guests (1 <= number), start date (YYYY-MM-DD), end date (YYYY-MM-DD) and number of rooms (1 <= number <= 5) separated by a comma. Example input: '2,2015-12-13,2015-12-15,1'.");
-		String params = in.nextLine();
-		String[] split = params.split(",");
-		if(split.length == 4) {
-			int nbrOfGuests = parseInt(split[0]);
-			Date startDate = parseDate(split[1]);
-			Date endDate = parseDate(split[2]);
-			int nbrOfRooms = parseInt(split[3]);
-			
-			if(nbrOfRooms > 5)
-				System.out.println("If you want to book more than 5 rooms, please contact an employee.");
-			else if(startDate.after(endDate))
-				System.out.println("The start date must be before the end date.");
-			else {
-				if(nbrOfGuests >= 1 && nbrOfRooms >= 1 && startDate != null && endDate != null) {
-					EList availableRoomTypes = ibooking.findAvailableRoomTypes(nbrOfGuests, split[1], split[2], nbrOfRooms);
-					if(availableRoomTypes != null) {
-						System.out.println("Found the following available room types:\n");
-						
-						int count = 0;
-						for(int i = 0; i < availableRoomTypes.size(); i++) {
-							count++;
-							Tuple t = (Tuple)availableRoomTypes.get(i);
-							System.out.println(t.x + "\tNumber of available rooms: " + t.y + "   [" + count + "]\n\n");
+		System.out.println("Enter start date (YYYY-MM-DD):");
+		String originalStartDate = in.nextLine();
+		System.out.println("Enter end date (YYYY-MM-DD):");
+		String originalEndDate = in.nextLine();
+		System.out.println("Enter nuber of guests:");
+		int nbrOfGuests = parseInt(in.nextLine());
+		System.out.println("Enter number of rooms:");
+		int nbrOfRooms = parseInt(in.nextLine());
+		
+		Date startDate = parseDate(originalStartDate);
+		Date endDate = parseDate(originalEndDate);
+		
+		if(startDate == null || endDate == null || nbrOfGuests < 0 || nbrOfRooms < 0) {
+			System.out.println("Invalid parameters");
+			return;
+		}
+		
+		if(nbrOfRooms > 5)
+			System.out.println("If you want to book more than 5 rooms, please contact an employee.");
+		else if(startDate.after(endDate))
+			System.out.println("The start date must be before the end date.");
+		else {
+			if(nbrOfGuests >= 1 && nbrOfRooms >= 1 && startDate != null && endDate != null) {
+				EList availableRoomTypes = ibooking.findAvailableRoomTypes(nbrOfGuests, originalStartDate, originalEndDate, nbrOfRooms);
+				if(availableRoomTypes != null) {
+					System.out.println("Found the following available room types:\n");
+					
+					int count = 0;
+					for(int i = 0; i < availableRoomTypes.size(); i++) {
+						count++;
+						Tuple t = (Tuple)availableRoomTypes.get(i);
+						System.out.println(t.x + "\tNumber of available rooms: " + t.y + "   [" + count + "]\n\n");
+					}
+					
+					System.out.println("Please select room types by entering numbers 1 to " + count + " one by one. Enter the number 0 if you want to abort.");
+					RoomTypeImpl[] selectedRoomTypes = new RoomTypeImpl[nbrOfRooms];
+					boolean failure = false;
+					
+					for(int i = 0; i < nbrOfRooms; i++) {
+						String roomType = in.nextLine();
+						int parsed = parseInt(roomType);
+						if(parsed > count || parsed < 1) {
+							System.out.println("Invalid parameters.");
+							failure = true;
+							break;
+						} else if(parsed == 0) {
+							System.out.println("Aborted.");
+							failure = true;
+							break;
+						} else {
+							selectedRoomTypes[i] = (RoomTypeImpl)((Tuple)availableRoomTypes.get(parsed - 1)).x;
+							System.out.println((i + 1) + "/" + nbrOfRooms + " room types selected.");
 						}
+					}
+					
+					if(!failure) {
+						int maxNbrOfGuests = calculateMaxNbrOfGuests(selectedRoomTypes);
 						
-						System.out.println("Please select room types by entering numbers 1 to " + count + " one by one. Enter the number 0 if you want to abort.");
-						RoomTypeImpl[] selectedRoomTypes = new RoomTypeImpl[nbrOfRooms];
-						boolean failure = false;
-						
-						for(int i = 0; i < nbrOfRooms; i++) {
-							String roomType = in.nextLine();
-							int parsed = parseInt(roomType);
-							if(parsed > count || parsed < 1) {
-								System.out.println("Invalid parameters.");
-								failure = true;
-								break;
-							} else if(parsed == 0) {
-								System.out.println("Aborted.");
-								failure = true;
-								break;
-							} else {
-								System.out.println("Adding...");
-								selectedRoomTypes[i] = (RoomTypeImpl)((Tuple)availableRoomTypes.get(parsed - 1)).x;
-								System.out.println((i + 1) + "/" + nbrOfRooms + " room types selected.");
-							}
-						}
-						
-						if(!failure) {
-							int maxNbrOfGuests = calculateMaxNbrOfGuests(selectedRoomTypes);
+						if(nbrOfGuests > maxNbrOfGuests)
+							System.out.println("The rooms you have chosen cannot have more than " + maxNbrOfGuests + " guests.");
+						else {
+							int reservationId = ibooking.reserveRoomtype(originalStartDate, originalEndDate, getEListFromArray(selectedRoomTypes));
 							
-							if(nbrOfGuests > maxNbrOfGuests)
-								System.out.println("The rooms you have chosen cannot have more than " + maxNbrOfGuests + " guests.");
-							else {
-								int reservationId = ibooking.reserveRoomtype(split[1], split[2], (EList)Arrays.asList(selectedRoomTypes));
-								
-								System.out.println("The rooms you have selected has temporarily been reserved.");
-								
-								//TODO: EXTRAS
-								/*System.out.println("Select extras:");
-								
-								for(int i = 0; i < selectedRoomTypes.length; i++) {
-									System.out.println("Select extras for room type " + selectedRoomTypes[i].name + " by entering the name of the extras separated by commas.");
-									System.out.println("The room has the following available extras: " + getExtras(selectedRoomTypes[i]));
-								}*/
-								
-								System.out.println("What is your full name?");
-								String name = in.nextLine();
-								System.out.println("What is your social security number?");
-								String social = in.nextLine();
-								System.out.println("What is your address?");
-								String address = in.nextLine();
-								System.out.println("What is your phone number?");
-								String phone = in.nextLine();
-								
-								CustomerImpl customer = (CustomerImpl)iprofile.getCustomerDetails(social);
-								customer.setAddress(address);
-								customer.setName(name);
-								customer.setPhoneNbr(phone);
-								
-								
+							if(reservationId == -1) {
+								System.out.println("The rooms are now longer available. Please try again.");
+								return;
+							}
+							
+							System.out.println("The rooms you have selected has temporarily been reserved.");
+							
+							//TODO: EXTRAS
+							/*System.out.println("Select extras:");
+							
+							for(int i = 0; i < selectedRoomTypes.length; i++) {
+								System.out.println("Select extras for room type " + selectedRoomTypes[i].name + " by entering the name of the extras separated by commas.");
+								System.out.println("The room has the following available extras: " + getExtras(selectedRoomTypes[i]));
+							}*/
+							
+							System.out.println("What is your full name?");
+							String name = in.nextLine();
+							System.out.println("What is your social security number?");
+							String social = in.nextLine();
+							System.out.println("What is your address?");
+							String address = in.nextLine();
+							System.out.println("What is your phone number?");
+							String phone = in.nextLine();
+							
+							CustomerImpl customer = (CustomerImpl)iprofile.getCustomerDetails(social);
+							customer.setAddress(address);
+							customer.setName(name);
+							customer.setPhoneNbr(phone);
+							
+							EList guestNames = new BasicEList();
+							EList guestSocials = new BasicEList();
+							
+							if(nbrOfGuests > 1) {
+								int otherGuests = nbrOfGuests - 1;
+								System.out.println("------ Enter the name of the other guests: ------");
+								for(int i = 0; i < otherGuests; i++) {
+									System.out.println("Enter name of guest " + (i+1) + ":");
+									String guestName = in.nextLine();
+									System.out.println("Enter social of guest " + (i+1) + ":");
+									String guestSocial = in.nextLine();
+									ibooking.enterResidentialsCredentials(guestName, guestSocial, reservationId);
+									
+									guestNames.add(guestName);
+									guestSocials.add(guestSocial);
+								}
+							}
+							
+							System.out.println("---------- Summary of your booking: ----------");
+							System.out.println("\tStart date: " + startDate);
+							System.out.println("\tEnd date: " + endDate);
+							System.out.println("\tNumber of rooms: " + nbrOfRooms);
+							System.out.println("\tNumber of guests: " + nbrOfGuests);
+							System.out.println("\tSelected room types:");
+							for(int i = 0; i < selectedRoomTypes.length; i++)
+								System.out.println(selectedRoomTypes[i].toString());
+							//TODO print extras
+							System.out.println("\tYour name: " + name);
+							System.out.println("\tYour social: " + social);
+							System.out.println("\tYour address: " + address);
+							System.out.println("\tYour phone: " + phone);
+							if(guestNames.size() > 0) {
+								System.out.println("\tGuests:");
+								for(int i = 0; i < guestNames.size(); i++)
+									System.out.println("\t" + guestNames.get(i) + " - " + guestSocials.get(i));
+							}
+							
+							System.out.println("Do you want to confirm the booking?");
+							String confirmation = in.nextLine();
+							if(confirmation.toLowerCase().equals("yes")) {
+								ibooking.confirmBooking();
+								System.out.println("Do you want to pay now or later?");
+								String payment = in.nextLine();
+								if(payment.toLowerCase().equals("now")) {
+									System.out.println("Please enter your card details:");
+									String paymentInfo = in.nextLine();
+									System.out.println("What is your age?");
+									String age = in.nextLine();
+									
+									if(parseInt(age) >= 18) {
+										bankprovides.makePayment(getTotalCost(selectedRoomTypes), paymentInfo);
+										ibooking.createBooking(reservationId);
+										System.out.println("Your booking was completed!");
+									}
+								} else {
+									ibooking.createBooking(reservationId);
+									System.out.println("Your booking was completed!");
+								}
+							} else {
+								System.out.println("Aborting booking..");
+								ibooking.removeReservation(reservationId);
 							}
 						}
-					} else
-						System.out.println("Couldn't find any available rooms.");
+					}
 				} else
-					System.out.println("Invalid parameters.");
-			}
-		} else
-			System.out.println("Invalid parameters.");
+					System.out.println("Couldn't find any available rooms.");
+			} else
+				System.out.println("Invalid parameters.");
+		}
+	}
+	
+	private EList getEListFromArray(Object[] array) {
+		EList list = new BasicEList();
+		for(int i = 0; i < array.length; i++)
+			list.add(array[i]);
+		return list;
+	}
+	
+	private double getTotalCost(RoomTypeImpl[] roomTypes) {
+		double totalCost = 0;
+		for(int i = 0; i < roomTypes.length; i++)
+			totalCost += roomTypes[i].getPrice();
+		return totalCost;
 	}
 	
 	private int calculateMaxNbrOfGuests(RoomTypeImpl[] roomTypes) {
@@ -519,9 +604,10 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		ModelImpl model = new ModelImpl();
 		initModel(model);
 		
-		//TODO needs remake
 		iprofile = new ProfileHandlerImpl();
 		((ProfileHandlerImpl)iprofile).setModel(model);
+		
+		bankprovides = new BankImpl();
 
 		BookingControllerImpl bc = new BookingControllerImpl();
 		bc.setModel(model);
