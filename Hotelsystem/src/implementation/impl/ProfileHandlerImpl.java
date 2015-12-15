@@ -171,7 +171,10 @@ public class ProfileHandlerImpl extends MinimalEObjectImpl.Container implements 
 		for(int i = 0; i < customers.size(); i++)
 			if(((CustomerImpl)customers.get(i)).getSocialSecurityNumber() == ssn)
 				return (CustomerImpl)customers.get(i);
-		return null;
+		CustomerImpl newCustomer = new CustomerImpl();
+		newCustomer.setSocialSecurityNumber(ssn);
+		model.getCustomer().add(newCustomer);
+		return newCustomer;
 	}
 
 	/**

@@ -396,6 +396,12 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 								System.out.println("What is your phone number?");
 								String phone = in.nextLine();
 								
+								CustomerImpl customer = (CustomerImpl)iprofile.getCustomerDetails(social);
+								customer.setAddress(address);
+								customer.setName(name);
+								customer.setPhoneNbr(phone);
+								
+								
 							}
 						}
 					} else
@@ -512,6 +518,10 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	public void init() {
 		ModelImpl model = new ModelImpl();
 		initModel(model);
+		
+		//TODO needs remake
+		iprofile = new ProfileHandlerImpl();
+		((ProfileHandlerImpl)iprofile).setModel(model);
 
 		BookingControllerImpl bc = new BookingControllerImpl();
 		bc.setModel(model);
@@ -520,7 +530,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		AdminControllerImpl ac = new AdminControllerImpl();
 		ac.setModel(model);
 		iadministration = ac;
-
 	}
 	
 	private void initModel(ModelImpl model){
