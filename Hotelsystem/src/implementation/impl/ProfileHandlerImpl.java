@@ -8,6 +8,7 @@ import implementation.Model;
 import implementation.ProfileHandler;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
@@ -118,6 +119,10 @@ public class ProfileHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 */
 	public Customer getCustomerDetails(String ssn) {
+		EList customers = model.getCustomer();
+		for(int i = 0; i < customers.size(); i++)
+			if(((CustomerImpl)customers.get(i)).getSocialSecurityNumber() == ssn)
+				return (CustomerImpl)customers.get(i);
 		return null;
 	}
 

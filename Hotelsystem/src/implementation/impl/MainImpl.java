@@ -326,6 +326,26 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 								System.out.println("The rooms you have chosen cannot have more than " + maxNbrOfGuests + " guests.");
 							else {
 								int reservationId = ibooking.reserveRoomtype(split[1], split[2], (EList)Arrays.asList(selectedRoomTypes));
+								
+								System.out.println("The rooms you have selected has temporarily been reserved.");
+								
+								//TODO: EXTRAS
+								/*System.out.println("Select extras:");
+								
+								for(int i = 0; i < selectedRoomTypes.length; i++) {
+									System.out.println("Select extras for room type " + selectedRoomTypes[i].name + " by entering the name of the extras separated by commas.");
+									System.out.println("The room has the following available extras: " + getExtras(selectedRoomTypes[i]));
+								}*/
+								
+								System.out.println("What is your full name?");
+								String name = in.nextLine();
+								System.out.println("What is your social security number?");
+								String social = in.nextLine();
+								System.out.println("What is your address?");
+								String address = in.nextLine();
+								System.out.println("What is your phone number?");
+								String phone = in.nextLine();
+								
 							}
 						}
 					} else
