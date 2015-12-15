@@ -166,7 +166,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 */
 	public void checkIn2(int bookingID) {
-		RoomBooking roomBooking = (RoomBooking )model.getBooking(bookingID);
+		//RoomBooking roomBooking = (RoomBooking )model.getBooking(bookingID);
 		
 		/* get the guests for each room */
 		
