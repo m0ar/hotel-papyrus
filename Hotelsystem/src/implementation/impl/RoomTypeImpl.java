@@ -454,15 +454,8 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public int getNbrOfGuests() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-	
-	public int foogetNbrOfGuests() {
 		int count = 0;
 		for(int i = 0; i < bed.size(); i++)
 			count += ((BedImpl)bed.get(i)).getNbrOfSpots();

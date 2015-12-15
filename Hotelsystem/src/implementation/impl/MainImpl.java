@@ -6,11 +6,13 @@ import implementation.IAdministration;
 import implementation.IBooking;
 import implementation.ImplementationPackage;
 import implementation.Main;
+import implementation.RoomBooking;
 import implementation.RoomStatus;
 import implementation.impl.BookingControllerImpl.Tuple;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
@@ -272,7 +274,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 							if(nbrOfGuests > maxNbrOfGuests)
 								System.out.println("The rooms you have chosen cannot have more than " + maxNbrOfGuests + " guests.");
 							else {
-								System.out.println("Done!");
+								RoomBooking reservation = ibooking.reserveRoomtype(split[1], split[2], (EList)Arrays.asList(selectedRoomTypes));
 							}
 						}
 					} else
@@ -287,7 +289,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	private int calculateMaxNbrOfGuests(RoomTypeImpl[] roomTypes) {
 		int count = 0;
 		for(int i = 0; i < roomTypes.length; i++){
-			count += 2;//rt.getMaxNbrOfGuests(); TODO
+			count += roomTypes[i].getNbrOfGuests();
 		}
 		return count;
 	}
