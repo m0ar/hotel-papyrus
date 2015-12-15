@@ -294,7 +294,7 @@
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2-sT55ZEeWKBr577pjDPA"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_g2_TUJ5ZEeWKBr577pjDPA" name="reserveRoomtype">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_g2_TUJ5ZEeWKBr577pjDPA" name="reserveRoomtype" visibility="package">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2_TUZ5ZEeWKBr577pjDPA" name="startDate">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2_TUp5ZEeWKBr577pjDPA"/>
@@ -308,7 +308,9 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OK0esJ-DEeWHbcWG3Q8b6g" value="*"/>
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2_TVp5ZEeWKBr577pjDPA"/>
       </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_XCaDEJ-GEeWHbcWG3Q8b6g" name="return" type="_-d1BQJwoEeWs7qnn26dFxw" direction="return"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_XCaDEJ-GEeWHbcWG3Q8b6g" name="return" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_g2_TV55ZEeWKBr577pjDPA" name="findAvailableRoomTypes">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2_TWJ5ZEeWKBr577pjDPA" name="nbrOfGuests">
