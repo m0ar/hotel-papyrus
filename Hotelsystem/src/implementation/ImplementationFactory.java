@@ -139,15 +139,6 @@ public interface ImplementationFactory extends EFactory {
 	Customer createCustomer();
 
 	/**
-	 * Returns a new object of class '<em>Reservation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Reservation</em>'.
-	 * @generated
-	 */
-	Reservation createReservation();
-
-	/**
 	 * Returns a new object of class '<em>Admin Controller</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

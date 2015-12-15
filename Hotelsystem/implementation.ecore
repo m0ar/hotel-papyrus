@@ -32,8 +32,6 @@
         upperBound="-1" eType="#//ConferenceRoom"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="customer" ordered="false"
         upperBound="-1" eType="#//Customer"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="reservation" ordered="false"
-        upperBound="-1" eType="#//Reservation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RoomType">
     <eOperations name="getNbrOfGuests" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
@@ -119,6 +117,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ConferenceRoomBooking" eSuperTypes="#//Booking">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nbrOfPeople" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reservation" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Booking" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cost" ordered="false" lowerBound="1"
@@ -147,6 +147,8 @@
         lowerBound="1" upperBound="-1" eType="#//Guest"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="room" ordered="false" lowerBound="1"
         upperBound="-1" eType="#//Room"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reservation" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PensionType">
     <eLiterals name="HalfPension"/>
@@ -174,7 +176,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="roombooking" ordered="false"
         upperBound="-1" eType="#//RoomBooking"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Reservation" eSuperTypes="#//Booking"/>
   <eClassifiers xsi:type="ecore:EClass" name="IBooking" abstract="true" interface="true">
     <eOperations name="selectExtras" ordered="false" lowerBound="1">
       <eParameters name="extrasList" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>

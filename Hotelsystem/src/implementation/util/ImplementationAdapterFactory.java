@@ -111,9 +111,6 @@ public class ImplementationAdapterFactory extends AdapterFactoryImpl {
 			public Object caseCustomer(Customer object) {
 				return createCustomerAdapter();
 			}
-			public Object caseReservation(Reservation object) {
-				return createReservationAdapter();
-			}
 			public Object caseIBooking(IBooking object) {
 				return createIBookingAdapter();
 			}
@@ -380,20 +377,6 @@ public class ImplementationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCustomerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link implementation.Reservation <em>Reservation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see implementation.Reservation
-	 * @generated
-	 */
-	public Adapter createReservationAdapter() {
 		return null;
 	}
 

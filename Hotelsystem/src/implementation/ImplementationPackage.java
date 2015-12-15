@@ -64,7 +64,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @see implementation.impl.ImplementationPackageImpl#getIBooking()
 	 * @generated
 	 */
-	int IBOOKING = 16;
+	int IBOOKING = 15;
 
 	/**
 	 * The number of structural features of the '<em>IBooking</em>' class.
@@ -177,22 +177,13 @@ public interface ImplementationPackage extends EPackage {
 	int MODEL__CUSTOMER = 6;
 
 	/**
-	 * The feature id for the '<em><b>Reservation</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__RESERVATION = 7;
-
-	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = 8;
+	int MODEL_FEATURE_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link implementation.impl.RoomTypeImpl <em>Room Type</em>}' class.
@@ -764,13 +755,22 @@ public interface ImplementationPackage extends EPackage {
 	int CONFERENCE_ROOM_BOOKING__NBR_OF_PEOPLE = BOOKING_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Reservation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFERENCE_ROOM_BOOKING__RESERVATION = BOOKING_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Conference Room Booking</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFERENCE_ROOM_BOOKING_FEATURE_COUNT = BOOKING_FEATURE_COUNT + 1;
+	int CONFERENCE_ROOM_BOOKING_FEATURE_COUNT = BOOKING_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Cost</b></em>' attribute.
@@ -863,13 +863,22 @@ public interface ImplementationPackage extends EPackage {
 	int ROOM_BOOKING__ROOM = BOOKING_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Reservation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_BOOKING__RESERVATION = BOOKING_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Room Booking</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_BOOKING_FEATURE_COUNT = BOOKING_FEATURE_COUNT + 5;
+	int ROOM_BOOKING_FEATURE_COUNT = BOOKING_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link implementation.impl.ConferenceRoomImpl <em>Conference Room</em>}' class.
@@ -1000,70 +1009,6 @@ public interface ImplementationPackage extends EPackage {
 	int CUSTOMER_FEATURE_COUNT = PERSON_FEATURE_COUNT + 4;
 
 	/**
-	 * The meta object id for the '{@link implementation.impl.ReservationImpl <em>Reservation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see implementation.impl.ReservationImpl
-	 * @see implementation.impl.ImplementationPackageImpl#getReservation()
-	 * @generated
-	 */
-	int RESERVATION = 15;
-
-	/**
-	 * The feature id for the '<em><b>Cost</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESERVATION__COST = BOOKING__COST;
-
-	/**
-	 * The feature id for the '<em><b>Payment Option</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESERVATION__PAYMENT_OPTION = BOOKING__PAYMENT_OPTION;
-
-	/**
-	 * The feature id for the '<em><b>Start Date</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESERVATION__START_DATE = BOOKING__START_DATE;
-
-	/**
-	 * The feature id for the '<em><b>End Date</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESERVATION__END_DATE = BOOKING__END_DATE;
-
-	/**
-	 * The feature id for the '<em><b>Booking Nr</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESERVATION__BOOKING_NR = BOOKING__BOOKING_NR;
-
-	/**
-	 * The number of structural features of the '<em>Reservation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESERVATION_FEATURE_COUNT = BOOKING_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link implementation.IAdministration <em>IAdministration</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1071,7 +1016,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @see implementation.impl.ImplementationPackageImpl#getIAdministration()
 	 * @generated
 	 */
-	int IADMINISTRATION = 18;
+	int IADMINISTRATION = 17;
 
 	/**
 	 * The number of structural features of the '<em>IAdministration</em>' class.
@@ -1090,7 +1035,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @see implementation.impl.ImplementationPackageImpl#getAdminController()
 	 * @generated
 	 */
-	int ADMIN_CONTROLLER = 17;
+	int ADMIN_CONTROLLER = 16;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' reference.
@@ -1118,7 +1063,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @see implementation.impl.ImplementationPackageImpl#getBankProvides()
 	 * @generated
 	 */
-	int BANK_PROVIDES = 21;
+	int BANK_PROVIDES = 20;
 
 	/**
 	 * The meta object id for the '{@link implementation.impl.ModelFactoryImpl <em>Model Factory</em>}' class.
@@ -1128,7 +1073,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @see implementation.impl.ImplementationPackageImpl#getModelFactory()
 	 * @generated
 	 */
-	int MODEL_FACTORY = 19;
+	int MODEL_FACTORY = 18;
 
 	/**
 	 * The meta object id for the '{@link implementation.impl.MainImpl <em>Main</em>}' class.
@@ -1138,7 +1083,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @see implementation.impl.ImplementationPackageImpl#getMain()
 	 * @generated
 	 */
-	int MAIN = 20;
+	int MAIN = 19;
 
 	/**
 	 * The number of structural features of the '<em>Model Factory</em>' class.
@@ -1202,7 +1147,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @see implementation.impl.ImplementationPackageImpl#getBank()
 	 * @generated
 	 */
-	int BANK = 22;
+	int BANK = 21;
 
 	/**
 	 * The number of structural features of the '<em>Bank</em>' class.
@@ -1221,7 +1166,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @see implementation.impl.ImplementationPackageImpl#getProfileHandler()
 	 * @generated
 	 */
-	int PROFILE_HANDLER = 23;
+	int PROFILE_HANDLER = 22;
 
 	/**
 	 * The meta object id for the '{@link implementation.IProfile <em>IProfile</em>}' class.
@@ -1231,7 +1176,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @see implementation.impl.ImplementationPackageImpl#getIProfile()
 	 * @generated
 	 */
-	int IPROFILE = 24;
+	int IPROFILE = 23;
 
 	/**
 	 * The number of structural features of the '<em>IProfile</em>' class.
@@ -1268,7 +1213,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @see implementation.impl.ImplementationPackageImpl#getRoomStatus()
 	 * @generated
 	 */
-	int ROOM_STATUS = 25;
+	int ROOM_STATUS = 24;
 
 	/**
 	 * The meta object id for the '{@link implementation.PaymentOption <em>Payment Option</em>}' enum.
@@ -1278,7 +1223,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @see implementation.impl.ImplementationPackageImpl#getPaymentOption()
 	 * @generated
 	 */
-	int PAYMENT_OPTION = 26;
+	int PAYMENT_OPTION = 25;
 
 	/**
 	 * The meta object id for the '{@link implementation.PensionType <em>Pension Type</em>}' enum.
@@ -1288,7 +1233,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @see implementation.impl.ImplementationPackageImpl#getPensionType()
 	 * @generated
 	 */
-	int PENSION_TYPE = 27;
+	int PENSION_TYPE = 26;
 
 
 	/**
@@ -1398,17 +1343,6 @@ public interface ImplementationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getModel_Customer();
-
-	/**
-	 * Returns the meta object for the reference list '{@link implementation.Model#getReservation <em>Reservation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Reservation</em>'.
-	 * @see implementation.Model#getReservation()
-	 * @see #getModel()
-	 * @generated
-	 */
-	EReference getModel_Reservation();
 
 	/**
 	 * Returns the meta object for class '{@link implementation.RoomType <em>Room Type</em>}'.
@@ -1799,6 +1733,17 @@ public interface ImplementationPackage extends EPackage {
 	EAttribute getConferenceRoomBooking_NbrOfPeople();
 
 	/**
+	 * Returns the meta object for the attribute '{@link implementation.ConferenceRoomBooking#isReservation <em>Reservation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reservation</em>'.
+	 * @see implementation.ConferenceRoomBooking#isReservation()
+	 * @see #getConferenceRoomBooking()
+	 * @generated
+	 */
+	EAttribute getConferenceRoomBooking_Reservation();
+
+	/**
 	 * Returns the meta object for class '{@link implementation.Booking <em>Booking</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1927,6 +1872,17 @@ public interface ImplementationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRoomBooking_Room();
+
+	/**
+	 * Returns the meta object for the attribute '{@link implementation.RoomBooking#isReservation <em>Reservation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reservation</em>'.
+	 * @see implementation.RoomBooking#isReservation()
+	 * @see #getRoomBooking()
+	 * @generated
+	 */
+	EAttribute getRoomBooking_Reservation();
 
 	/**
 	 * Returns the meta object for class '{@link implementation.Key <em>Key</em>}'.
@@ -2077,16 +2033,6 @@ public interface ImplementationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCustomer_Roombooking();
-
-	/**
-	 * Returns the meta object for class '{@link implementation.Reservation <em>Reservation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Reservation</em>'.
-	 * @see implementation.Reservation
-	 * @generated
-	 */
-	EClass getReservation();
 
 	/**
 	 * Returns the meta object for class '{@link implementation.AdminController <em>Admin Controller</em>}'.
@@ -2358,14 +2304,6 @@ public interface ImplementationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODEL__CUSTOMER = eINSTANCE.getModel_Customer();
-
-		/**
-		 * The meta object literal for the '<em><b>Reservation</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL__RESERVATION = eINSTANCE.getModel_Reservation();
 
 		/**
 		 * The meta object literal for the '{@link implementation.impl.RoomTypeImpl <em>Room Type</em>}' class.
@@ -2672,6 +2610,14 @@ public interface ImplementationPackage extends EPackage {
 		EAttribute CONFERENCE_ROOM_BOOKING__NBR_OF_PEOPLE = eINSTANCE.getConferenceRoomBooking_NbrOfPeople();
 
 		/**
+		 * The meta object literal for the '<em><b>Reservation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFERENCE_ROOM_BOOKING__RESERVATION = eINSTANCE.getConferenceRoomBooking_Reservation();
+
+		/**
 		 * The meta object literal for the '{@link implementation.impl.BookingImpl <em>Booking</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2770,6 +2716,14 @@ public interface ImplementationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ROOM_BOOKING__ROOM = eINSTANCE.getRoomBooking_Room();
+
+		/**
+		 * The meta object literal for the '<em><b>Reservation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROOM_BOOKING__RESERVATION = eINSTANCE.getRoomBooking_Reservation();
 
 		/**
 		 * The meta object literal for the '{@link implementation.impl.KeyImpl <em>Key</em>}' class.
@@ -2890,16 +2844,6 @@ public interface ImplementationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CUSTOMER__ROOMBOOKING = eINSTANCE.getCustomer_Roombooking();
-
-		/**
-		 * The meta object literal for the '{@link implementation.impl.ReservationImpl <em>Reservation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see implementation.impl.ReservationImpl
-		 * @see implementation.impl.ImplementationPackageImpl#getReservation()
-		 * @generated
-		 */
-		EClass RESERVATION = eINSTANCE.getReservation();
 
 		/**
 		 * The meta object literal for the '{@link implementation.impl.AdminControllerImpl <em>Admin Controller</em>}' class.

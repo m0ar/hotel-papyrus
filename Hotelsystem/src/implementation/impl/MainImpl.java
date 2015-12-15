@@ -8,7 +8,6 @@ import implementation.IAdministration;
 import implementation.IBooking;
 import implementation.ImplementationPackage;
 import implementation.Main;
-import implementation.RoomBooking;
 import implementation.RoomStatus;
 import implementation.impl.BookingControllerImpl.Tuple;
 

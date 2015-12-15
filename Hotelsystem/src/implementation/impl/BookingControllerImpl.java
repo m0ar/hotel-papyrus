@@ -6,7 +6,6 @@ import implementation.BookingController;
 import implementation.ConferenceRoom;
 import implementation.ImplementationPackage;
 import implementation.Model;
-import implementation.RoomBooking;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
