@@ -69,6 +69,7 @@ public class ImplementationFactoryImpl extends EFactoryImpl implements Implement
 			case ImplementationPackage.ROOM_BOOKING: return createRoomBooking();
 			case ImplementationPackage.CONFERENCE_ROOM: return createConferenceRoom();
 			case ImplementationPackage.CUSTOMER: return createCustomer();
+			case ImplementationPackage.RESERVATION: return createReservation();
 			case ImplementationPackage.ADMIN_CONTROLLER: return createAdminController();
 			case ImplementationPackage.MODEL_FACTORY: return createModelFactory();
 			case ImplementationPackage.MAIN: return createMain();
@@ -243,6 +244,16 @@ public class ImplementationFactoryImpl extends EFactoryImpl implements Implement
 	public Customer createCustomer() {
 		CustomerImpl customer = new CustomerImpl();
 		return customer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reservation createReservation() {
+		ReservationImpl reservation = new ReservationImpl();
+		return reservation;
 	}
 
 	/**

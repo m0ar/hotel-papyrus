@@ -66,6 +66,8 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Model/conferenceroom"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Model/customer"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Model/reservation"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//Model/getCustomer">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//Model/getCustomer/ssn"/>
       </genOperations>
@@ -164,6 +166,7 @@
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Customer/roombooking"/>
     </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//Reservation"/>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="implementation.ecore#//IBooking">
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IBooking/selectExtras">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IBooking/selectExtras/extrasList"/>

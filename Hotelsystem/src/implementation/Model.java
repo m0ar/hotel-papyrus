@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link implementation.Model#getKey <em>Key</em>}</li>
  *   <li>{@link implementation.Model#getConferenceroom <em>Conferenceroom</em>}</li>
  *   <li>{@link implementation.Model#getCustomer <em>Customer</em>}</li>
+ *   <li>{@link implementation.Model#getReservation <em>Reservation</em>}</li>
  * </ul>
  *
  * @see implementation.ImplementationPackage#getModel()
@@ -140,6 +141,22 @@ public interface Model extends EObject {
 	 * @generated
 	 */
 	EList getCustomer();
+
+	/**
+	 * Returns the value of the '<em><b>Reservation</b></em>' reference list.
+	 * The list contents are of type {@link implementation.Reservation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reservation</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reservation</em>' reference list.
+	 * @see implementation.ImplementationPackage#getModel_Reservation()
+	 * @model type="implementation.Reservation" ordered="false"
+	 * @generated
+	 */
+	EList getReservation();
 
 	/**
 	 * <!-- begin-user-doc -->

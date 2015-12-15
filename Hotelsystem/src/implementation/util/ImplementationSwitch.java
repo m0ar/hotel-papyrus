@@ -178,6 +178,13 @@ public class ImplementationSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ImplementationPackage.RESERVATION: {
+				Reservation reservation = (Reservation)theEObject;
+				Object result = caseReservation(reservation);
+				if (result == null) result = caseBooking(reservation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ImplementationPackage.IBOOKING: {
 				IBooking iBooking = (IBooking)theEObject;
 				Object result = caseIBooking(iBooking);
@@ -476,6 +483,21 @@ public class ImplementationSwitch {
 	 * @generated
 	 */
 	public Object caseCustomer(Customer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Reservation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Reservation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseReservation(Reservation object) {
 		return null;
 	}
 

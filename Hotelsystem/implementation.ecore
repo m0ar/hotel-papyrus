@@ -32,6 +32,8 @@
         upperBound="-1" eType="#//ConferenceRoom"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="customer" ordered="false"
         upperBound="-1" eType="#//Customer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reservation" ordered="false"
+        upperBound="-1" eType="#//Reservation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RoomType">
     <eOperations name="getNbrOfGuests" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
@@ -172,6 +174,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="roombooking" ordered="false"
         upperBound="-1" eType="#//RoomBooking"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Reservation" eSuperTypes="#//Booking"/>
   <eClassifiers xsi:type="ecore:EClass" name="IBooking" abstract="true" interface="true">
     <eOperations name="selectExtras" ordered="false" lowerBound="1">
       <eParameters name="extrasList" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
@@ -202,7 +205,7 @@
     <eOperations name="requestConferenceRoom" ordered="false" lowerBound="1">
       <eParameters name="conferenceRoom" ordered="false" lowerBound="1" eType="#//ConferenceRoom"/>
     </eOperations>
-    <eOperations name="reserveRoomtype" ordered="false" lowerBound="1" eType="#//RoomBooking">
+    <eOperations name="reserveRoomtype" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer">
       <eParameters name="startDate" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
       <eParameters name="endDate" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
       <eParameters name="selectedRoomTypes" ordered="false" upperBound="-1" eType="#//RoomType"/>
