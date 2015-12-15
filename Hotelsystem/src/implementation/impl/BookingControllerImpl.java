@@ -261,14 +261,14 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public RoomBooking reserveRoomtype(String startDate, String endDate, EList selectedRoomTypes) {
-		RoomBookingImpl rb = new RoomBookingImpl();
-		rb.setStartDate(startDate);
-		rb.setEndDate(endDate);
+	public int reserveRoomtype(String startDate, String endDate, EList selectedRoomTypes) {
+		ReservationImpl r = new ReservationImpl();
+		r.setStartDate(startDate);
+		r.setEndDate(endDate);
 		for(int i = 0; i < selectedRoomTypes.size(); i++)
-			rb.getRoomtype().add(selectedRoomTypes.get(i));
-		model.getRoombooking().add(rb);
-		return rb;
+			r.getRoomtype().add(selectedRoomTypes.get(i));
+		model.getReservation().add(r);
+		return r.getBookingNr();
 	}
 
 	/**

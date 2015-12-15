@@ -326,7 +326,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 							if(nbrOfGuests > maxNbrOfGuests)
 								System.out.println("The rooms you have chosen cannot have more than " + maxNbrOfGuests + " guests.");
 							else {
-								RoomBooking reservation = ibooking.reserveRoomtype(split[1], split[2], (EList)Arrays.asList(selectedRoomTypes));
+								int reservationId = ibooking.reserveRoomtype(split[1], split[2], (EList)Arrays.asList(selectedRoomTypes));
 							}
 						}
 					} else

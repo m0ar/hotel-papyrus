@@ -33,10 +33,6 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RLf3QKI9EeWAQJjLrsDRkQ"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RLhscKI9EeWAQJjLrsDRkQ" value="*"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_pzFEYKMWEeWc454k3Kk58Q" name="reservation" type="_Zj3q0KMWEeWc454k3Kk58Q" association="_py_k0KMWEeWc454k3Kk58Q">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rp3m4KMWEeWc454k3Kk58Q"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rp41AKMWEeWc454k3Kk58Q" value="*"/>
-    </ownedAttribute>
     <ownedOperation xmi:type="uml:Operation" xmi:id="__nOwcKJWEeWohO-JmYzXlA" name="getCustomer">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_EfhVEKJXEeWohO-JmYzXlA" name="ssn">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -186,6 +182,9 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_OW3tcJ5hEeWKBr577pjDPA" name="room" type="_r01s4JwoEeWs7qnn26dFxw" association="_OW0qIJ5hEeWKBr577pjDPA">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SKOqUJ5hEeWKBr577pjDPA" value="1"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SKQfgJ5hEeWKBr577pjDPA" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_HQ6IcKMkEeWc454k3Kk58Q" name="reservation" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
     </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_AH6kgJwpEeWs7qnn26dFxw" name="Person" isAbstract="true">
@@ -498,6 +497,9 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lh2FkJy8EeWXM95eiB_1bQ" value="1"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lh_PgJy8EeWXM95eiB_1bQ" value="1"/>
     </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_NMsxcKMkEeWc454k3Kk58Q" name="reservation" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+    </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:Enumeration" xmi:id="_SfBMwJwrEeWs7qnn26dFxw" name="PensionType">
     <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_DPbJMJxDEeWs7qnn26dFxw" name="HalfPension"/>
@@ -726,14 +728,5 @@
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_U8F0MaJiEeWAQJjLrsDRkQ" key="nature" value="UML_Nature"/>
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_U8GbQKJiEeWAQJjLrsDRkQ" name="main" type="_CXyqIJ5SEeWKBr577pjDPA" association="_U8EmEKJiEeWAQJjLrsDRkQ"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_Zj3q0KMWEeWc454k3Kk58Q" name="Reservation">
-    <generalization xmi:type="uml:Generalization" xmi:id="_izh4UKMWEeWc454k3Kk58Q" general="_feji4Jy7EeWXM95eiB_1bQ"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_py_k0KMWEeWc454k3Kk58Q" memberEnd="_pzFEYKMWEeWc454k3Kk58Q _pzFrcKMWEeWc454k3Kk58Q">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pzCoIKMWEeWc454k3Kk58Q" source="org.eclipse.papyrus">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pzDPMKMWEeWc454k3Kk58Q" key="nature" value="UML_Nature"/>
-    </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_pzFrcKMWEeWc454k3Kk58Q" name="model" type="_gz-AcJwoEeWs7qnn26dFxw" association="_py_k0KMWEeWc454k3Kk58Q"/>
   </packagedElement>
 </uml:Package>
