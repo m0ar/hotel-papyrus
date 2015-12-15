@@ -111,6 +111,12 @@ public class ImplementationAdapterFactory extends AdapterFactoryImpl {
 			public Object caseCustomer(Customer object) {
 				return createCustomerAdapter();
 			}
+			public Object caseIProfile(IProfile object) {
+				return createIProfileAdapter();
+			}
+			public Object caseProfileHandler(ProfileHandler object) {
+				return createProfileHandlerAdapter();
+			}
 			public Object caseIBooking(IBooking object) {
 				return createIBookingAdapter();
 			}
@@ -131,12 +137,6 @@ public class ImplementationAdapterFactory extends AdapterFactoryImpl {
 			}
 			public Object caseBank(Bank object) {
 				return createBankAdapter();
-			}
-			public Object caseProfileHandler(ProfileHandler object) {
-				return createProfileHandlerAdapter();
-			}
-			public Object caseIProfile(IProfile object) {
-				return createIProfileAdapter();
 			}
 			public Object defaultCase(EObject object) {
 				return createEObjectAdapter();

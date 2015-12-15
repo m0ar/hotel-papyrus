@@ -332,6 +332,15 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getBookingController_Iprofile() {
+		return (EReference)bookingControllerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getModel() {
 		return modelEClass;
 	}
@@ -1061,6 +1070,15 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getMain_Iprofile() {
+		return (EReference)mainEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBank() {
 		return bankEClass;
 	}
@@ -1090,6 +1108,15 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 */
 	public EClass getIProfile() {
 		return iProfileEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIProfile_Profilehandler() {
+		return (EReference)iProfileEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1149,6 +1176,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		// Create classes and their features
 		bookingControllerEClass = createEClass(BOOKING_CONTROLLER);
 		createEReference(bookingControllerEClass, BOOKING_CONTROLLER__MODEL);
+		createEReference(bookingControllerEClass, BOOKING_CONTROLLER__IPROFILE);
 
 		modelEClass = createEClass(MODEL);
 		createEReference(modelEClass, MODEL__ROOMTYPE);
@@ -1235,6 +1263,12 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		createEAttribute(customerEClass, CUSTOMER__MEMBER);
 		createEReference(customerEClass, CUSTOMER__ROOMBOOKING);
 
+		iProfileEClass = createEClass(IPROFILE);
+		createEReference(iProfileEClass, IPROFILE__PROFILEHANDLER);
+
+		profileHandlerEClass = createEClass(PROFILE_HANDLER);
+		createEReference(profileHandlerEClass, PROFILE_HANDLER__MODEL);
+
 		iBookingEClass = createEClass(IBOOKING);
 
 		adminControllerEClass = createEClass(ADMIN_CONTROLLER);
@@ -1248,15 +1282,11 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		createEReference(mainEClass, MAIN__IADMINISTRATION);
 		createEReference(mainEClass, MAIN__IBOOKING);
 		createEReference(mainEClass, MAIN__BANKPROVIDES);
+		createEReference(mainEClass, MAIN__IPROFILE);
 
 		bankProvidesEClass = createEClass(BANK_PROVIDES);
 
 		bankEClass = createEClass(BANK);
-
-		profileHandlerEClass = createEClass(PROFILE_HANDLER);
-		createEReference(profileHandlerEClass, PROFILE_HANDLER__MODEL);
-
-		iProfileEClass = createEClass(IPROFILE);
 
 		// Create enums
 		roomStatusEEnum = createEEnum(ROOM_STATUS);
@@ -1296,13 +1326,14 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		conferenceRoomBookingEClass.getESuperTypes().add(this.getBooking());
 		roomBookingEClass.getESuperTypes().add(this.getBooking());
 		customerEClass.getESuperTypes().add(this.getPerson());
+		profileHandlerEClass.getESuperTypes().add(this.getIProfile());
 		adminControllerEClass.getESuperTypes().add(this.getIAdministration());
 		bankEClass.getESuperTypes().add(this.getBankProvides());
-		profileHandlerEClass.getESuperTypes().add(this.getIProfile());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(bookingControllerEClass, BookingController.class, "BookingController", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBookingController_Model(), this.getModel(), null, "model", null, 1, 1, BookingController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBookingController_Iprofile(), this.getIProfile(), null, "iprofile", null, 1, 1, BookingController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModel_Roomtype(), this.getRoomType(), null, "roomtype", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1404,6 +1435,24 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		initEAttribute(getCustomer_PhoneNbr(), theTypesPackage.getString(), "phoneNbr", null, 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getCustomer_Member(), theTypesPackage.getBoolean(), "member", null, 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getCustomer_Roombooking(), this.getRoomBooking(), null, "roombooking", null, 0, -1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(iProfileEClass, IProfile.class, "IProfile", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIProfile_Profilehandler(), this.getProfileHandler(), null, "profilehandler", null, 1, 1, IProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = addEOperation(iProfileEClass, null, "editInformation");
+		addEParameter(op, this.getCustomer(), "customer", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = addEOperation(iProfileEClass, null, "removeProfile");
+		addEParameter(op, this.getCustomer(), "customer", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = addEOperation(iProfileEClass, this.getCustomer(), "getCustomerDetails", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "ssn", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = addEOperation(iProfileEClass, null, "createProfile");
+		addEParameter(op, this.getCustomer(), "customer", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		initEClass(profileHandlerEClass, ProfileHandler.class, "ProfileHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProfileHandler_Model(), this.getModel(), null, "model", null, 1, 1, ProfileHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(iBookingEClass, IBooking.class, "IBooking", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1518,6 +1567,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		initEReference(getMain_Iadministration(), this.getIAdministration(), null, "iadministration", null, 1, 1, Main.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getMain_Ibooking(), this.getIBooking(), null, "ibooking", null, 1, 1, Main.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getMain_Bankprovides(), this.getBankProvides(), null, "bankprovides", null, 1, 1, Main.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getMain_Iprofile(), this.getIProfile(), null, "iprofile", null, 1, 1, Main.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		addEOperation(mainEClass, null, "init");
 
@@ -1528,23 +1578,6 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		addEParameter(op, theTypesPackage.getString(), "cardDetails", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(bankEClass, Bank.class, "Bank", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(profileHandlerEClass, ProfileHandler.class, "ProfileHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProfileHandler_Model(), this.getModel(), null, "model", null, 1, 1, ProfileHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(iProfileEClass, IProfile.class, "IProfile", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = addEOperation(iProfileEClass, null, "editInformation");
-		addEParameter(op, this.getCustomer(), "customer", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		op = addEOperation(iProfileEClass, null, "removeProfile");
-		addEParameter(op, this.getCustomer(), "customer", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		op = addEOperation(iProfileEClass, this.getCustomer(), "getCustomerDetails", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "ssn", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		op = addEOperation(iProfileEClass, null, "createProfile");
-		addEParameter(op, this.getCustomer(), "customer", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(roomStatusEEnum, RoomStatus.class, "RoomStatus");

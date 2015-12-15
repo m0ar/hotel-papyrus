@@ -4,6 +4,7 @@ package implementation.impl;
 
 import implementation.BookingController;
 import implementation.ConferenceRoom;
+import implementation.IProfile;
 import implementation.ImplementationPackage;
 import implementation.Model;
 import java.text.ParseException;
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link implementation.impl.BookingControllerImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link implementation.impl.BookingControllerImpl#getIprofile <em>Iprofile</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,6 +44,16 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected Model model;
+
+	/**
+	 * The cached value of the '{@link #getIprofile() <em>Iprofile</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIprofile()
+	 * @generated
+	 * @ordered
+	 */
+	protected IProfile iprofile;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,6 +109,44 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		model = newModel;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.BOOKING_CONTROLLER__MODEL, oldModel, model));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IProfile getIprofile() {
+		if (iprofile != null && iprofile.eIsProxy()) {
+			InternalEObject oldIprofile = (InternalEObject)iprofile;
+			iprofile = (IProfile)eResolveProxy(oldIprofile);
+			if (iprofile != oldIprofile) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImplementationPackage.BOOKING_CONTROLLER__IPROFILE, oldIprofile, iprofile));
+			}
+		}
+		return iprofile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IProfile basicGetIprofile() {
+		return iprofile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIprofile(IProfile newIprofile) {
+		IProfile oldIprofile = iprofile;
+		iprofile = newIprofile;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.BOOKING_CONTROLLER__IPROFILE, oldIprofile, iprofile));
 	}
 
 	/**
@@ -302,6 +352,9 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			case ImplementationPackage.BOOKING_CONTROLLER__MODEL:
 				if (resolve) return getModel();
 				return basicGetModel();
+			case ImplementationPackage.BOOKING_CONTROLLER__IPROFILE:
+				if (resolve) return getIprofile();
+				return basicGetIprofile();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -315,6 +368,9 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case ImplementationPackage.BOOKING_CONTROLLER__MODEL:
 				setModel((Model)newValue);
+				return;
+			case ImplementationPackage.BOOKING_CONTROLLER__IPROFILE:
+				setIprofile((IProfile)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -330,6 +386,9 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			case ImplementationPackage.BOOKING_CONTROLLER__MODEL:
 				setModel((Model)null);
 				return;
+			case ImplementationPackage.BOOKING_CONTROLLER__IPROFILE:
+				setIprofile((IProfile)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -343,6 +402,8 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case ImplementationPackage.BOOKING_CONTROLLER__MODEL:
 				return model != null;
+			case ImplementationPackage.BOOKING_CONTROLLER__IPROFILE:
+				return iprofile != null;
 		}
 		return super.eIsSet(featureID);
 	}

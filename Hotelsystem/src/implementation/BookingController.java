@@ -13,6 +13,7 @@ package implementation;
  * </p>
  * <ul>
  *   <li>{@link implementation.BookingController#getModel <em>Model</em>}</li>
+ *   <li>{@link implementation.BookingController#getIprofile <em>Iprofile</em>}</li>
  * </ul>
  *
  * @see implementation.ImplementationPackage#getBookingController()
@@ -45,5 +46,31 @@ public interface BookingController extends IBooking {
 	 * @generated
 	 */
 	void setModel(Model value);
+
+	/**
+	 * Returns the value of the '<em><b>Iprofile</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Iprofile</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Iprofile</em>' reference.
+	 * @see #setIprofile(IProfile)
+	 * @see implementation.ImplementationPackage#getBookingController_Iprofile()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	IProfile getIprofile();
+
+	/**
+	 * Sets the value of the '{@link implementation.BookingController#getIprofile <em>Iprofile</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Iprofile</em>' reference.
+	 * @see #getIprofile()
+	 * @generated
+	 */
+	void setIprofile(IProfile value);
 
 } // BookingController

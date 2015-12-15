@@ -6,6 +6,7 @@ import implementation.BankProvides;
 import implementation.Bill;
 import implementation.IAdministration;
 import implementation.IBooking;
+import implementation.IProfile;
 import implementation.ImplementationPackage;
 import implementation.Main;
 import implementation.RoomStatus;
@@ -38,6 +39,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link implementation.impl.MainImpl#getIadministration <em>Iadministration</em>}</li>
  *   <li>{@link implementation.impl.MainImpl#getIbooking <em>Ibooking</em>}</li>
  *   <li>{@link implementation.impl.MainImpl#getBankprovides <em>Bankprovides</em>}</li>
+ *   <li>{@link implementation.impl.MainImpl#getIprofile <em>Iprofile</em>}</li>
  * </ul>
  *
  * @generated
@@ -72,6 +74,16 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	 * @ordered
 	 */
 	protected BankProvides bankprovides;
+
+	/**
+	 * The cached value of the '{@link #getIprofile() <em>Iprofile</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIprofile()
+	 * @generated
+	 * @ordered
+	 */
+	protected IProfile iprofile;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -203,6 +215,44 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		bankprovides = newBankprovides;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.MAIN__BANKPROVIDES, oldBankprovides, bankprovides));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IProfile getIprofile() {
+		if (iprofile != null && iprofile.eIsProxy()) {
+			InternalEObject oldIprofile = (InternalEObject)iprofile;
+			iprofile = (IProfile)eResolveProxy(oldIprofile);
+			if (iprofile != oldIprofile) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImplementationPackage.MAIN__IPROFILE, oldIprofile, iprofile));
+			}
+		}
+		return iprofile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IProfile basicGetIprofile() {
+		return iprofile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIprofile(IProfile newIprofile) {
+		IProfile oldIprofile = iprofile;
+		iprofile = newIprofile;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.MAIN__IPROFILE, oldIprofile, iprofile));
 	}
 
 	public static void main(String[] args) {
@@ -567,6 +617,9 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			case ImplementationPackage.MAIN__BANKPROVIDES:
 				if (resolve) return getBankprovides();
 				return basicGetBankprovides();
+			case ImplementationPackage.MAIN__IPROFILE:
+				if (resolve) return getIprofile();
+				return basicGetIprofile();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -586,6 +639,9 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				return;
 			case ImplementationPackage.MAIN__BANKPROVIDES:
 				setBankprovides((BankProvides)newValue);
+				return;
+			case ImplementationPackage.MAIN__IPROFILE:
+				setIprofile((IProfile)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -607,6 +663,9 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			case ImplementationPackage.MAIN__BANKPROVIDES:
 				setBankprovides((BankProvides)null);
 				return;
+			case ImplementationPackage.MAIN__IPROFILE:
+				setIprofile((IProfile)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -624,6 +683,8 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				return ibooking != null;
 			case ImplementationPackage.MAIN__BANKPROVIDES:
 				return bankprovides != null;
+			case ImplementationPackage.MAIN__IPROFILE:
+				return iprofile != null;
 		}
 		return super.eIsSet(featureID);
 	}

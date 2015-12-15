@@ -50,6 +50,8 @@
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//BookingController">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//BookingController/model"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//BookingController/iprofile"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//Model">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
@@ -166,6 +168,26 @@
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Customer/roombooking"/>
     </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="implementation.ecore#//IProfile">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//IProfile/profilehandler"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IProfile/editInformation">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IProfile/editInformation/customer"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IProfile/removeProfile">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IProfile/removeProfile/customer"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IProfile/getCustomerDetails">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IProfile/getCustomerDetails/ssn"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IProfile/createProfile">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IProfile/createProfile/customer"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//ProfileHandler">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//ProfileHandler/model"/>
+    </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="implementation.ecore#//IBooking">
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IBooking/selectExtras">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IBooking/selectExtras/extrasList"/>
@@ -281,6 +303,8 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Main/ibooking"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Main/bankprovides"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Main/iprofile"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//Main/init"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="implementation.ecore#//BankProvides">
@@ -290,24 +314,6 @@
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//Bank"/>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//ProfileHandler">
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//ProfileHandler/model"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="implementation.ecore#//IProfile">
-      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IProfile/editInformation">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IProfile/editInformation/customer"/>
-      </genOperations>
-      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IProfile/removeProfile">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IProfile/removeProfile/customer"/>
-      </genOperations>
-      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IProfile/getCustomerDetails">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IProfile/getCustomerDetails/ssn"/>
-      </genOperations>
-      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IProfile/createProfile">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IProfile/createProfile/customer"/>
-      </genOperations>
-    </genClasses>
   </genPackages>
   <genPackages xsi:type="genmodel:GenPackage" prefix="Types" basePackage="org.eclipse.uml2"
       disposableProviderFactory="true" ecorePackage="types.ecore#/">

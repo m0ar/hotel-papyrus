@@ -69,11 +69,11 @@ public class ImplementationFactoryImpl extends EFactoryImpl implements Implement
 			case ImplementationPackage.ROOM_BOOKING: return createRoomBooking();
 			case ImplementationPackage.CONFERENCE_ROOM: return createConferenceRoom();
 			case ImplementationPackage.CUSTOMER: return createCustomer();
+			case ImplementationPackage.PROFILE_HANDLER: return createProfileHandler();
 			case ImplementationPackage.ADMIN_CONTROLLER: return createAdminController();
 			case ImplementationPackage.MODEL_FACTORY: return createModelFactory();
 			case ImplementationPackage.MAIN: return createMain();
 			case ImplementationPackage.BANK: return createBank();
-			case ImplementationPackage.PROFILE_HANDLER: return createProfileHandler();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

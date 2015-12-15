@@ -23,12 +23,22 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link implementation.impl.ProfileHandlerImpl#getProfilehandler <em>Profilehandler</em>}</li>
  *   <li>{@link implementation.impl.ProfileHandlerImpl#getModel <em>Model</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ProfileHandlerImpl extends MinimalEObjectImpl.Container implements ProfileHandler {
+	/**
+	 * The cached value of the '{@link #getProfilehandler() <em>Profilehandler</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProfilehandler()
+	 * @generated
+	 * @ordered
+	 */
+	protected ProfileHandler profilehandler;
 	/**
 	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -55,6 +65,44 @@ public class ProfileHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	protected EClass eStaticClass() {
 		return ImplementationPackage.Literals.PROFILE_HANDLER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProfileHandler getProfilehandler() {
+		if (profilehandler != null && profilehandler.eIsProxy()) {
+			InternalEObject oldProfilehandler = (InternalEObject)profilehandler;
+			profilehandler = (ProfileHandler)eResolveProxy(oldProfilehandler);
+			if (profilehandler != oldProfilehandler) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImplementationPackage.PROFILE_HANDLER__PROFILEHANDLER, oldProfilehandler, profilehandler));
+			}
+		}
+		return profilehandler;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProfileHandler basicGetProfilehandler() {
+		return profilehandler;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProfilehandler(ProfileHandler newProfilehandler) {
+		ProfileHandler oldProfilehandler = profilehandler;
+		profilehandler = newProfilehandler;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.PROFILE_HANDLER__PROFILEHANDLER, oldProfilehandler, profilehandler));
 	}
 
 	/**
@@ -144,6 +192,9 @@ public class ProfileHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ImplementationPackage.PROFILE_HANDLER__PROFILEHANDLER:
+				if (resolve) return getProfilehandler();
+				return basicGetProfilehandler();
 			case ImplementationPackage.PROFILE_HANDLER__MODEL:
 				if (resolve) return getModel();
 				return basicGetModel();
@@ -158,6 +209,9 @@ public class ProfileHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ImplementationPackage.PROFILE_HANDLER__PROFILEHANDLER:
+				setProfilehandler((ProfileHandler)newValue);
+				return;
 			case ImplementationPackage.PROFILE_HANDLER__MODEL:
 				setModel((Model)newValue);
 				return;
@@ -172,6 +226,9 @@ public class ProfileHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ImplementationPackage.PROFILE_HANDLER__PROFILEHANDLER:
+				setProfilehandler((ProfileHandler)null);
+				return;
 			case ImplementationPackage.PROFILE_HANDLER__MODEL:
 				setModel((Model)null);
 				return;
@@ -186,6 +243,8 @@ public class ProfileHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ImplementationPackage.PROFILE_HANDLER__PROFILEHANDLER:
+				return profilehandler != null;
 			case ImplementationPackage.PROFILE_HANDLER__MODEL:
 				return model != null;
 		}

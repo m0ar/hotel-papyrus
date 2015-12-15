@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link implementation.Main#getIadministration <em>Iadministration</em>}</li>
  *   <li>{@link implementation.Main#getIbooking <em>Ibooking</em>}</li>
  *   <li>{@link implementation.Main#getBankprovides <em>Bankprovides</em>}</li>
+ *   <li>{@link implementation.Main#getIprofile <em>Iprofile</em>}</li>
  * </ul>
  *
  * @see implementation.ImplementationPackage#getMain()
@@ -100,6 +101,32 @@ public interface Main extends EObject {
 	 * @generated
 	 */
 	void setBankprovides(BankProvides value);
+
+	/**
+	 * Returns the value of the '<em><b>Iprofile</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Iprofile</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Iprofile</em>' reference.
+	 * @see #setIprofile(IProfile)
+	 * @see implementation.ImplementationPackage#getMain_Iprofile()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	IProfile getIprofile();
+
+	/**
+	 * Sets the value of the '{@link implementation.Main#getIprofile <em>Iprofile</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Iprofile</em>' reference.
+	 * @see #getIprofile()
+	 * @generated
+	 */
+	void setIprofile(IProfile value);
 
 	/**
 	 * <!-- begin-user-doc -->

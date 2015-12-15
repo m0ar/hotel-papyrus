@@ -178,6 +178,19 @@ public class ImplementationSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ImplementationPackage.IPROFILE: {
+				IProfile iProfile = (IProfile)theEObject;
+				Object result = caseIProfile(iProfile);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ImplementationPackage.PROFILE_HANDLER: {
+				ProfileHandler profileHandler = (ProfileHandler)theEObject;
+				Object result = caseProfileHandler(profileHandler);
+				if (result == null) result = caseIProfile(profileHandler);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ImplementationPackage.IBOOKING: {
 				IBooking iBooking = (IBooking)theEObject;
 				Object result = caseIBooking(iBooking);
@@ -219,19 +232,6 @@ public class ImplementationSwitch {
 				Bank bank = (Bank)theEObject;
 				Object result = caseBank(bank);
 				if (result == null) result = caseBankProvides(bank);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ImplementationPackage.PROFILE_HANDLER: {
-				ProfileHandler profileHandler = (ProfileHandler)theEObject;
-				Object result = caseProfileHandler(profileHandler);
-				if (result == null) result = caseIProfile(profileHandler);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ImplementationPackage.IPROFILE: {
-				IProfile iProfile = (IProfile)theEObject;
-				Object result = caseIProfile(iProfile);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
