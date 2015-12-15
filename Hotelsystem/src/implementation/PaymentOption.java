@@ -19,29 +19,54 @@ import org.eclipse.emf.common.util.AbstractEnumerator;
  */
 public final class PaymentOption extends AbstractEnumerator {
 	/**
-	 * The '<em><b>Enumeration Literal1</b></em>' literal value.
+	 * The '<em><b>Now</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Enumeration Literal1</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Now</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ENUMERATION_LITERAL1_LITERAL
-	 * @model name="EnumerationLiteral1"
+	 * @see #NOW_LITERAL
+	 * @model name="Now"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENUMERATION_LITERAL1 = 0;
+	public static final int NOW = 0;
 
 	/**
-	 * The '<em><b>Enumeration Literal1</b></em>' literal object.
+	 * The '<em><b>Later</b></em>' literal value.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Later</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ENUMERATION_LITERAL1
+	 * @see #LATER_LITERAL
+	 * @model name="Later"
 	 * @generated
 	 * @ordered
 	 */
-	public static final PaymentOption ENUMERATION_LITERAL1_LITERAL = new PaymentOption(ENUMERATION_LITERAL1, "EnumerationLiteral1", "EnumerationLiteral1");
+	public static final int LATER = 1;
+
+	/**
+	 * The '<em><b>Now</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NOW
+	 * @generated
+	 * @ordered
+	 */
+	public static final PaymentOption NOW_LITERAL = new PaymentOption(NOW, "Now", "Now");
+
+	/**
+	 * The '<em><b>Later</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #LATER
+	 * @generated
+	 * @ordered
+	 */
+	public static final PaymentOption LATER_LITERAL = new PaymentOption(LATER, "Later", "Later");
 
 	/**
 	 * An array of all the '<em><b>Payment Option</b></em>' enumerators.
@@ -51,7 +76,8 @@ public final class PaymentOption extends AbstractEnumerator {
 	 */
 	private static final PaymentOption[] VALUES_ARRAY =
 		new PaymentOption[] {
-			ENUMERATION_LITERAL1_LITERAL,
+			NOW_LITERAL,
+			LATER_LITERAL,
 		};
 
 	/**
@@ -108,7 +134,8 @@ public final class PaymentOption extends AbstractEnumerator {
 	 */
 	public static PaymentOption get(int value) {
 		switch (value) {
-			case ENUMERATION_LITERAL1: return ENUMERATION_LITERAL1_LITERAL;
+			case NOW: return NOW_LITERAL;
+			case LATER: return LATER_LITERAL;
 		}
 		return null;
 	}

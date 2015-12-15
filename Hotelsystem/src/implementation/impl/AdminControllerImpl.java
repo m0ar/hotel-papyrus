@@ -7,10 +7,16 @@ import implementation.Bill;
 import implementation.ImplementationPackage;
 import implementation.Key;
 import implementation.Model;
-
+import implementation.PaymentOption;
 import implementation.Room;
+import implementation.RoomBooking;
 import implementation.RoomStatus;
 import implementation.RoomType;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.EList;
@@ -158,9 +164,30 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public void checkIn2(int bookingID) {
+		RoomBooking roomBooking = (RoomBooking )model.getBooking(bookingID);
+		
+		/* get the guests for each room */
+		
+		/* assign the guests for each room */
+		
+		/* update all room statuses */
+		
+		
+		// roomBooking.getRoom();
+		// roomBooking.getGuest();
+		//EList roomTypes = roomBooking.getRoomtype(); 
+		//Room[] rooms = new Room[roomTypes.size()];
+		//getAvailableRooms(roomType)
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void checkIn(int bookingID) {
+	public Room checkIn(int bookingID) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -213,12 +240,28 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public void checkOut(int bookingID) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public Bill checkOut(int bookingID) {
+		deactivateKeysFromRoom(bookingID);
+		RoomBooking booking = model.getRoomBooking(bookingID);		
+		double cost = 0;
+		if(booking.getPaymentOption() == PaymentOption.LATER_LITERAL){
+			cost += booking.getCost();
+		}
+		EList rooms = booking.getRoom();
+		for(int i = 0; i < rooms.size(); i++){
+			Room r = (Room)rooms.get(i);
+			r.setStatus(RoomStatus.CLEANING_LITERAL);
+			r.getGuest().clear();
+			cost += r.getTotalBill();
+		}
+		Bill finalBill = new BillImpl();
+		finalBill.setCost(cost);
+		finalBill.setDescription("final bill of booking " + bookingID);
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd : HH:mm");
+		Date date = new Date();
+		finalBill.setDate(dateFormat.format(date));
+		return finalBill;
 	}
 
 	/**

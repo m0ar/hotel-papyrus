@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link implementation.Model#getRoombooking <em>Roombooking</em>}</li>
  *   <li>{@link implementation.Model#getKey <em>Key</em>}</li>
  *   <li>{@link implementation.Model#getConferenceroom <em>Conferenceroom</em>}</li>
+ *   <li>{@link implementation.Model#getCustomer <em>Customer</em>}</li>
  * </ul>
  *
  * @see implementation.ImplementationPackage#getModel()
@@ -123,5 +124,53 @@ public interface Model extends EObject {
 	 * @generated
 	 */
 	EList getConferenceroom();
+
+	/**
+	 * Returns the value of the '<em><b>Customer</b></em>' reference list.
+	 * The list contents are of type {@link implementation.Customer}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Customer</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Customer</em>' reference list.
+	 * @see implementation.ImplementationPackage#getModel_Customer()
+	 * @model type="implementation.Customer" ordered="false"
+	 * @generated
+	 */
+	EList getCustomer();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" ordered="false" ssnDataType="org.eclipse.uml2.types.String" ssnRequired="true" ssnOrdered="false"
+	 * @generated
+	 */
+	Customer getCustomer(String ssn);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" ordered="false" bookingIDDataType="org.eclipse.uml2.types.Integer" bookingIDRequired="true" bookingIDOrdered="false"
+	 * @generated
+	 */
+	RoomBooking getRoomBooking(int bookingID);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" ordered="false" roomNrDataType="org.eclipse.uml2.types.Integer" roomNrRequired="true" roomNrOrdered="false"
+	 * @generated
+	 */
+	Room getRoom(int roomNr);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" ordered="false" nameDataType="org.eclipse.uml2.types.String" nameRequired="true" nameOrdered="false"
+	 * @generated
+	 */
+	RoomType getRoomType(String name);
 
 } // Model

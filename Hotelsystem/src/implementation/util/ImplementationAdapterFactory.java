@@ -93,6 +93,9 @@ public class ImplementationAdapterFactory extends AdapterFactoryImpl {
 			public Object casePerson(Person object) {
 				return createPersonAdapter();
 			}
+			public Object caseKey(Key object) {
+				return createKeyAdapter();
+			}
 			public Object caseConferenceRoomBooking(ConferenceRoomBooking object) {
 				return createConferenceRoomBookingAdapter();
 			}
@@ -102,17 +105,14 @@ public class ImplementationAdapterFactory extends AdapterFactoryImpl {
 			public Object caseRoomBooking(RoomBooking object) {
 				return createRoomBookingAdapter();
 			}
-			public Object caseKey(Key object) {
-				return createKeyAdapter();
-			}
 			public Object caseConferenceRoom(ConferenceRoom object) {
 				return createConferenceRoomAdapter();
 			}
-			public Object caseIBooking(IBooking object) {
-				return createIBookingAdapter();
-			}
 			public Object caseCustomer(Customer object) {
 				return createCustomerAdapter();
+			}
+			public Object caseIBooking(IBooking object) {
+				return createIBookingAdapter();
 			}
 			public Object caseAdminController(AdminController object) {
 				return createAdminControllerAdapter();
@@ -125,6 +125,18 @@ public class ImplementationAdapterFactory extends AdapterFactoryImpl {
 			}
 			public Object caseMain(Main object) {
 				return createMainAdapter();
+			}
+			public Object caseBankProvides(BankProvides object) {
+				return createBankProvidesAdapter();
+			}
+			public Object caseBank(Bank object) {
+				return createBankAdapter();
+			}
+			public Object caseProfileHandler(ProfileHandler object) {
+				return createProfileHandlerAdapter();
+			}
+			public Object caseIProfile(IProfile object) {
+				return createIProfileAdapter();
 			}
 			public Object defaultCase(EObject object) {
 				return createEObjectAdapter();
@@ -383,6 +395,20 @@ public class ImplementationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link implementation.BankProvides <em>Bank Provides</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see implementation.BankProvides
+	 * @generated
+	 */
+	public Adapter createBankProvidesAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link implementation.IAdministration <em>IAdministration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -421,6 +447,48 @@ public class ImplementationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMainAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link implementation.Bank <em>Bank</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see implementation.Bank
+	 * @generated
+	 */
+	public Adapter createBankAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link implementation.ProfileHandler <em>Profile Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see implementation.ProfileHandler
+	 * @generated
+	 */
+	public Adapter createProfileHandlerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link implementation.IProfile <em>IProfile</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see implementation.IProfile
+	 * @generated
+	 */
+	public Adapter createIProfileAdapter() {
 		return null;
 	}
 

@@ -4,6 +4,7 @@ package implementation.impl;
 
 import implementation.ConferenceRoom;
 import implementation.ConferenceRoomBooking;
+import implementation.Customer;
 import implementation.ImplementationPackage;
 import implementation.Key;
 import implementation.Model;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link implementation.impl.ModelImpl#getRoombooking <em>Roombooking</em>}</li>
  *   <li>{@link implementation.impl.ModelImpl#getKey <em>Key</em>}</li>
  *   <li>{@link implementation.impl.ModelImpl#getConferenceroom <em>Conferenceroom</em>}</li>
+ *   <li>{@link implementation.impl.ModelImpl#getCustomer <em>Customer</em>}</li>
  * </ul>
  *
  * @generated
@@ -99,6 +101,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * @ordered
 	 */
 	protected EList conferenceroom;
+
+	/**
+	 * The cached value of the '{@link #getCustomer() <em>Customer</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCustomer()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList customer;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -201,6 +213,75 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList getCustomer() {
+		if (customer == null) {
+			customer = new EObjectResolvingEList(Customer.class, this, ImplementationPackage.MODEL__CUSTOMER);
+		}
+		return customer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Customer getCustomer(String ssn) {
+		for(int i = 0; i < customer.size(); i++){
+			Customer c = (Customer)customer.get(i);
+			if(c.getSocialSecurityNumber() == ssn){
+				return c;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public RoomBooking getRoomBooking(int bookingID) {
+		for(int i = 0; i < roombooking.size(); i++){
+			RoomBooking b = (RoomBooking)roombooking.get(i);
+			if(b.getBookingNr() == bookingID){
+				return b;
+			}
+		}
+		return null;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Room getRoom(int roomNr) {
+		for(int i = 0; i < room.size(); i++){
+			Room r = (Room)room.get(i);
+			if(r.getNumber() == roomNr){
+				return r;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public RoomType getRoomType(String name) {
+		for(int i = 0; i < roomtype.size(); i++){
+			RoomType r = (RoomType)roomtype.get(i);
+			if(r.getName() == name){
+				return r;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ImplementationPackage.MODEL__ROOMTYPE:
@@ -215,6 +296,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 				return getKey();
 			case ImplementationPackage.MODEL__CONFERENCEROOM:
 				return getConferenceroom();
+			case ImplementationPackage.MODEL__CUSTOMER:
+				return getCustomer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -250,6 +333,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 				getConferenceroom().clear();
 				getConferenceroom().addAll((Collection)newValue);
 				return;
+			case ImplementationPackage.MODEL__CUSTOMER:
+				getCustomer().clear();
+				getCustomer().addAll((Collection)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -279,6 +366,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 			case ImplementationPackage.MODEL__CONFERENCEROOM:
 				getConferenceroom().clear();
 				return;
+			case ImplementationPackage.MODEL__CUSTOMER:
+				getCustomer().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -302,6 +392,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 				return key != null && !key.isEmpty();
 			case ImplementationPackage.MODEL__CONFERENCEROOM:
 				return conferenceroom != null && !conferenceroom.isEmpty();
+			case ImplementationPackage.MODEL__CUSTOMER:
+				return customer != null && !customer.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
