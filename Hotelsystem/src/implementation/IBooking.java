@@ -92,8 +92,8 @@ public interface IBooking extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model namesDataType="org.eclipse.uml2.types.String" namesRequired="true" namesOrdered="false" SSNsDataType="org.eclipse.uml2.types.Integer" SSNsRequired="true" SSNsOrdered="false"
+	 * @model namesDataType="org.eclipse.uml2.types.String" namesRequired="true" namesOrdered="false" SSNsDataType="org.eclipse.uml2.types.Integer" SSNsRequired="true" SSNsOrdered="false" reservationIdDataType="org.eclipse.uml2.types.Integer" reservationIdRequired="true" reservationIdOrdered="false"
 	 * @generated
 	 */
-	void enterResidentialsCredentials(String names, int SSNs);
+	void enterResidentialsCredentials(String names, int SSNs, int reservationId);
 } // IBooking

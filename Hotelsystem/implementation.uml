@@ -261,6 +261,9 @@
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2-FO55ZEeWKBr577pjDPA" name="SSNs">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_xkLKsKMtEeWAJfzXoMYKZQ" name="reservationId">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_g2-sQJ5ZEeWKBr577pjDPA" name="validateBookingData">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2-sQZ5ZEeWKBr577pjDPA" name="nbrOfGuests">
