@@ -241,6 +241,9 @@
       <eParameters name="nbrOfRooms" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
     <eOperations name="confirmBooking" ordered="false" lowerBound="1"/>
+    <eOperations name="removeReservation" ordered="false" lowerBound="1">
+      <eParameters name="reservationId" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AdminController" eSuperTypes="#//IAdministration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="model" ordered="false"

@@ -339,6 +339,11 @@
       </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_g2_6YJ5ZEeWKBr577pjDPA" name="confirmBooking"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_JICLsKMwEeWAJfzXoMYKZQ" name="removeReservation">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_M4K1cKMwEeWAJfzXoMYKZQ" name="reservationId">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_X_2C8JwpEeWs7qnn26dFxw" name="IAdministration">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_eDOyQJ5ZEeWKBr577pjDPA" name="checkIn">
