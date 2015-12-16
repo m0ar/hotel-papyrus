@@ -8,6 +8,7 @@ import implementation.IBooking;
 import implementation.IProfile;
 import implementation.ImplementationPackage;
 import implementation.Main;
+import implementation.PensionType;
 import implementation.RoomStatus;
 import implementation.RoomType;
 import implementation.impl.BookingControllerImpl.Tuple;
@@ -275,7 +276,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		String originalStartDate = in.nextLine();
 		System.out.println("Enter end date (YYYY-MM-DD):");
 		String originalEndDate = in.nextLine();
-		System.out.println("Enter nuber of guests:");
+		System.out.println("Enter number of guests:");
 		int nbrOfGuests = parseInt(in.nextLine());
 		System.out.println("Enter number of rooms:");
 		int nbrOfRooms = parseInt(in.nextLine());
@@ -340,14 +341,12 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 							}
 							
 							System.out.println("The rooms you have selected has temporarily been reserved.");
+
+							System.out.println("Which pension type do you want?");
+							System.out.println("Select from: " + getPensionTypes());
 							
-							//TODO: EXTRAS
-							/*System.out.println("Select extras:");
-							
-							for(int i = 0; i < selectedRoomTypes.length; i++) {
-								System.out.println("Select extras for room type " + selectedRoomTypes[i].name + " by entering the name of the extras separated by commas.");
-								System.out.println("The room has the following available extras: " + getExtras(selectedRoomTypes[i]));
-							}*/
+							String selectedPensionType = in.nextLine();
+							ibooking.selectExtras(selectedPensionType, reservationId);
 							
 							System.out.println("What is your full name?");
 							String name = in.nextLine();
@@ -389,7 +388,9 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 							System.out.println("\tSelected room types:");
 							for(int i = 0; i < selectedRoomTypes.length; i++)
 								System.out.println(selectedRoomTypes[i].toString());
-							//TODO print extras
+							
+							System.out.println("\tPension type: " + selectedPensionType);
+							
 							System.out.println("\tYour name: " + name);
 							System.out.println("\tYour social: " + social);
 							System.out.println("\tYour address: " + address);
@@ -399,6 +400,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 								for(int i = 0; i < guestNames.size(); i++)
 									System.out.println("\t" + guestNames.get(i) + " - " + guestSocials.get(i));
 							}
+							System.out.println("Total cost: " + getTotalCost(selectedRoomTypes) + " kr");
 							
 							System.out.println("Do you want to confirm the booking?");
 							String confirmation = in.nextLine();
@@ -433,6 +435,22 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			} else
 				System.out.println("Invalid parameters.");
 		}
+	}
+	
+	private PensionType parsePensionType(String pt) {
+		for(int i = 0; i < PensionType.VALUES.size(); i++)
+			if(PensionType.VALUES.get(i).toString().toLowerCase().equals(pt.toLowerCase()))
+				return (PensionType)PensionType.VALUES.get(i);
+		return PensionType.NONE_LITERAL;
+	}
+	
+	private String getPensionTypes() {
+		String result = "";
+		for(int i = 0; i < PensionType.VALUES.size(); i++)
+			result += "" + PensionType.VALUES.get(i) + ",";
+		if(result.endsWith(","))
+			result = result.substring(0, result.length() - 1);
+		return result;
 	}
 	
 	private EList getEListFromArray(Object[] array) {
