@@ -52,6 +52,8 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//BookingController/model"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//BookingController/iprofile"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//BookingController/bankprovides"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//Model">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
@@ -188,9 +190,16 @@
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//ProfileHandler/model"/>
     </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="implementation.ecore#//BankProvides">
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//BankProvides/makePayment">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//BankProvides/makePayment/amount"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//BankProvides/makePayment/cardDetails"/>
+      </genOperations>
+    </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="implementation.ecore#//IBooking">
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IBooking/selectExtras">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IBooking/selectExtras/extrasList"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IBooking/selectExtras/reservationId"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IBooking/makePayment">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IBooking/makePayment/cardDetails"/>
@@ -229,7 +238,6 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IBooking/findAvailableRoomTypes/endDate"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IBooking/findAvailableRoomTypes/nbrOfRooms"/>
       </genOperations>
-      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IBooking/confirmBooking"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IBooking/removeReservation">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IBooking/removeReservation/reservationId"/>
       </genOperations>
@@ -237,6 +245,8 @@
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//AdminController">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//AdminController/model"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//AdminController/bankprovides"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="implementation.ecore#//IAdministration">
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IAdministration/checkIn">
@@ -306,16 +316,8 @@
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Main/ibooking"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Main/bankprovides"/>
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Main/iprofile"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//Main/init"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="implementation.ecore#//BankProvides">
-      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//BankProvides/makePayment">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//BankProvides/makePayment/amount"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//BankProvides/makePayment/cardDetails"/>
-      </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//Bank"/>
   </genPackages>

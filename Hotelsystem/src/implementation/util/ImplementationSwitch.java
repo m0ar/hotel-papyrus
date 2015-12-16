@@ -191,6 +191,12 @@ public class ImplementationSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ImplementationPackage.BANK_PROVIDES: {
+				BankProvides bankProvides = (BankProvides)theEObject;
+				Object result = caseBankProvides(bankProvides);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ImplementationPackage.IBOOKING: {
 				IBooking iBooking = (IBooking)theEObject;
 				Object result = caseIBooking(iBooking);
@@ -219,12 +225,6 @@ public class ImplementationSwitch {
 			case ImplementationPackage.MAIN: {
 				Main main = (Main)theEObject;
 				Object result = caseMain(main);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ImplementationPackage.BANK_PROVIDES: {
-				BankProvides bankProvides = (BankProvides)theEObject;
-				Object result = caseBankProvides(bankProvides);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

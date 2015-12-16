@@ -117,6 +117,9 @@ public class ImplementationAdapterFactory extends AdapterFactoryImpl {
 			public Object caseProfileHandler(ProfileHandler object) {
 				return createProfileHandlerAdapter();
 			}
+			public Object caseBankProvides(BankProvides object) {
+				return createBankProvidesAdapter();
+			}
 			public Object caseIBooking(IBooking object) {
 				return createIBookingAdapter();
 			}
@@ -131,9 +134,6 @@ public class ImplementationAdapterFactory extends AdapterFactoryImpl {
 			}
 			public Object caseMain(Main object) {
 				return createMainAdapter();
-			}
-			public Object caseBankProvides(BankProvides object) {
-				return createBankProvidesAdapter();
 			}
 			public Object caseBank(Bank object) {
 				return createBankAdapter();

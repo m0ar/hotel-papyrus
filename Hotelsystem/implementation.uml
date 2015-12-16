@@ -227,6 +227,9 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g29eIp5ZEeWKBr577pjDPA"/>
       </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_j6YhsKPREeWrsJl42mvD_Q" name="reservationId">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_g29eI55ZEeWKBr577pjDPA" name="makePayment">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_g29eJJ5ZEeWKBr577pjDPA" name="cardDetails">

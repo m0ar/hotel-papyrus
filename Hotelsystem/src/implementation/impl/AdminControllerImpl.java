@@ -3,6 +3,7 @@
 package implementation.impl;
 
 import implementation.AdminController;
+import implementation.BankProvides;
 import implementation.Bill;
 import implementation.ImplementationPackage;
 import implementation.Key;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link implementation.impl.AdminControllerImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link implementation.impl.AdminControllerImpl#getBankprovides <em>Bankprovides</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,6 +51,15 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected Model model;
+	/**
+	 * The cached value of the '{@link #getBankprovides() <em>Bankprovides</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBankprovides()
+	 * @generated
+	 * @ordered
+	 */
+	protected BankProvides bankprovides;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,6 +121,44 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BankProvides getBankprovides() {
+		if (bankprovides != null && bankprovides.eIsProxy()) {
+			InternalEObject oldBankprovides = (InternalEObject)bankprovides;
+			bankprovides = (BankProvides)eResolveProxy(oldBankprovides);
+			if (bankprovides != oldBankprovides) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImplementationPackage.ADMIN_CONTROLLER__BANKPROVIDES, oldBankprovides, bankprovides));
+			}
+		}
+		return bankprovides;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BankProvides basicGetBankprovides() {
+		return bankprovides;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBankprovides(BankProvides newBankprovides) {
+		BankProvides oldBankprovides = bankprovides;
+		bankprovides = newBankprovides;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.ADMIN_CONTROLLER__BANKPROVIDES, oldBankprovides, bankprovides));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void unassignGuestsFromRoom(int bookingID) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -143,13 +192,10 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void createRoom(int roomID, RoomType roomType) {		
-		RoomImpl i = new RoomImpl();
-		i.setRoomtype(roomType);
-		i.setNumber(roomID);
-		System.out.println(model.getRoom().size());
-		model.getRoom().add(i);
-		System.out.println(model.getRoom().size());
+	public void createRoom(int roomID, RoomType roomType) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -331,6 +377,9 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 			case ImplementationPackage.ADMIN_CONTROLLER__MODEL:
 				if (resolve) return getModel();
 				return basicGetModel();
+			case ImplementationPackage.ADMIN_CONTROLLER__BANKPROVIDES:
+				if (resolve) return getBankprovides();
+				return basicGetBankprovides();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -344,6 +393,9 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case ImplementationPackage.ADMIN_CONTROLLER__MODEL:
 				setModel((Model)newValue);
+				return;
+			case ImplementationPackage.ADMIN_CONTROLLER__BANKPROVIDES:
+				setBankprovides((BankProvides)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -359,6 +411,9 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 			case ImplementationPackage.ADMIN_CONTROLLER__MODEL:
 				setModel((Model)null);
 				return;
+			case ImplementationPackage.ADMIN_CONTROLLER__BANKPROVIDES:
+				setBankprovides((BankProvides)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -372,6 +427,8 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case ImplementationPackage.ADMIN_CONTROLLER__MODEL:
 				return model != null;
+			case ImplementationPackage.ADMIN_CONTROLLER__BANKPROVIDES:
+				return bankprovides != null;
 		}
 		return super.eIsSet(featureID);
 	}

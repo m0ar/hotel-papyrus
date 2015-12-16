@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link implementation.Main#getIadministration <em>Iadministration</em>}</li>
  *   <li>{@link implementation.Main#getIbooking <em>Ibooking</em>}</li>
- *   <li>{@link implementation.Main#getBankprovides <em>Bankprovides</em>}</li>
  *   <li>{@link implementation.Main#getIprofile <em>Iprofile</em>}</li>
  * </ul>
  *
@@ -75,32 +74,6 @@ public interface Main extends EObject {
 	 * @generated
 	 */
 	void setIbooking(IBooking value);
-
-	/**
-	 * Returns the value of the '<em><b>Bankprovides</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Bankprovides</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Bankprovides</em>' reference.
-	 * @see #setBankprovides(BankProvides)
-	 * @see implementation.ImplementationPackage#getMain_Bankprovides()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	BankProvides getBankprovides();
-
-	/**
-	 * Sets the value of the '{@link implementation.Main#getBankprovides <em>Bankprovides</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Bankprovides</em>' reference.
-	 * @see #getBankprovides()
-	 * @generated
-	 */
-	void setBankprovides(BankProvides value);
 
 	/**
 	 * Returns the value of the '<em><b>Iprofile</b></em>' reference.

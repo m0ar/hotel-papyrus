@@ -2,7 +2,6 @@
  */
 package implementation.impl;
 
-import implementation.BankProvides;
 import implementation.Bill;
 import implementation.IAdministration;
 import implementation.IBooking;
@@ -16,7 +15,6 @@ import implementation.impl.BookingControllerImpl.Tuple;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
@@ -39,7 +37,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link implementation.impl.MainImpl#getIadministration <em>Iadministration</em>}</li>
  *   <li>{@link implementation.impl.MainImpl#getIbooking <em>Ibooking</em>}</li>
- *   <li>{@link implementation.impl.MainImpl#getBankprovides <em>Bankprovides</em>}</li>
  *   <li>{@link implementation.impl.MainImpl#getIprofile <em>Iprofile</em>}</li>
  * </ul>
  *
@@ -65,16 +62,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	 * @ordered
 	 */
 	protected IBooking ibooking;
-
-	/**
-	 * The cached value of the '{@link #getBankprovides() <em>Bankprovides</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBankprovides()
-	 * @generated
-	 * @ordered
-	 */
-	protected BankProvides bankprovides;
 
 	/**
 	 * The cached value of the '{@link #getIprofile() <em>Iprofile</em>}' reference.
@@ -178,44 +165,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		ibooking = newIbooking;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.MAIN__IBOOKING, oldIbooking, ibooking));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BankProvides getBankprovides() {
-		if (bankprovides != null && bankprovides.eIsProxy()) {
-			InternalEObject oldBankprovides = (InternalEObject)bankprovides;
-			bankprovides = (BankProvides)eResolveProxy(oldBankprovides);
-			if (bankprovides != oldBankprovides) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImplementationPackage.MAIN__BANKPROVIDES, oldBankprovides, bankprovides));
-			}
-		}
-		return bankprovides;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BankProvides basicGetBankprovides() {
-		return bankprovides;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBankprovides(BankProvides newBankprovides) {
-		BankProvides oldBankprovides = bankprovides;
-		bankprovides = newBankprovides;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.MAIN__BANKPROVIDES, oldBankprovides, bankprovides));
 	}
 
 	/**
@@ -783,9 +732,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			case ImplementationPackage.MAIN__IBOOKING:
 				if (resolve) return getIbooking();
 				return basicGetIbooking();
-			case ImplementationPackage.MAIN__BANKPROVIDES:
-				if (resolve) return getBankprovides();
-				return basicGetBankprovides();
 			case ImplementationPackage.MAIN__IPROFILE:
 				if (resolve) return getIprofile();
 				return basicGetIprofile();
@@ -805,9 +751,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				return;
 			case ImplementationPackage.MAIN__IBOOKING:
 				setIbooking((IBooking)newValue);
-				return;
-			case ImplementationPackage.MAIN__BANKPROVIDES:
-				setBankprovides((BankProvides)newValue);
 				return;
 			case ImplementationPackage.MAIN__IPROFILE:
 				setIprofile((IProfile)newValue);
@@ -829,9 +772,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			case ImplementationPackage.MAIN__IBOOKING:
 				setIbooking((IBooking)null);
 				return;
-			case ImplementationPackage.MAIN__BANKPROVIDES:
-				setBankprovides((BankProvides)null);
-				return;
 			case ImplementationPackage.MAIN__IPROFILE:
 				setIprofile((IProfile)null);
 				return;
@@ -850,8 +790,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				return iadministration != null;
 			case ImplementationPackage.MAIN__IBOOKING:
 				return ibooking != null;
-			case ImplementationPackage.MAIN__BANKPROVIDES:
-				return bankprovides != null;
 			case ImplementationPackage.MAIN__IPROFILE:
 				return iprofile != null;
 		}

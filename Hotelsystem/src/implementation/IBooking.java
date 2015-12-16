@@ -20,10 +20,10 @@ public interface IBooking extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model extrasListDataType="org.eclipse.uml2.types.String" extrasListRequired="true" extrasListOrdered="false"
+	 * @model extrasListDataType="org.eclipse.uml2.types.String" extrasListRequired="true" extrasListOrdered="false" reservationIdDataType="org.eclipse.uml2.types.Integer" reservationIdRequired="true" reservationIdOrdered="false"
 	 * @generated
 	 */
-	void selectExtras(String extrasList);
+	void selectExtras(String extrasList, int reservationId);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -48,14 +48,6 @@ public interface IBooking extends EObject {
 	 * @generated
 	 */
 	boolean validateBookingData(int nbrOfGuests, int nbrOfRooms, String startDate, String endDate);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void confirmBooking();
 
 	/**
 	 * <!-- begin-user-doc -->
