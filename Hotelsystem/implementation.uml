@@ -246,6 +246,9 @@
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_ufkiQKPSEeWrsJl42mvD_Q" name="return" direction="return">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
       </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_JNwC0KPYEeWrsJl42mvD_Q" name="reservationId">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_g2-FMJ5ZEeWKBr577pjDPA" name="findAvailableConferenceRooms">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2-FMZ5ZEeWKBr577pjDPA" name="startTime">
@@ -702,6 +705,17 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_RSJfkKJCEeWAQJjLrsDRkQ" name="return" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_VyIisKPTEeWrsJl42mvD_Q" name="reservePayment">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ifj3kKPTEeWrsJl42mvD_Q" name="amount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_laSjUKPTEeWrsJl42mvD_Q" name="cardDetails">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_oeEdYKPTEeWrsJl42mvD_Q" name="return" direction="return">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
       </ownedParameter>
     </ownedOperation>

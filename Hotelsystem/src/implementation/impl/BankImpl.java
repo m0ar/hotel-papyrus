@@ -43,4 +43,15 @@ public class BankImpl extends MinimalEObjectImpl.Container implements Bank {
 		return true;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean reservePayment(double amount, String cardDetails) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
 } //BankImpl
