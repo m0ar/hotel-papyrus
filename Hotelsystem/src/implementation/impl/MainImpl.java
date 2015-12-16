@@ -333,7 +333,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		Date startDate = parseDate(originalStartDate);
 		Date endDate = parseDate(originalEndDate);
 		
-		if(startDate == null || endDate == null || nbrOfGuests < 0 || nbrOfRooms < 0) {
+		if(!ibooking.validateBookingData(nbrOfGuests, nbrOfRooms, originalStartDate, originalEndDate)) {
 			System.out.println("Invalid parameters");
 			return;
 		}

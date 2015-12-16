@@ -152,12 +152,9 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void selectExtras(String extrasList) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		
 	}
 
 	/**
@@ -185,20 +182,11 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public boolean validateBookingData(int nbrOfGuests, int nbrOfRooms, String startDate, String endDate) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void confirmBooking() {
-		// TODO:
+		Date sd = parseDate(startDate);
+		Date ed = parseDate(startDate);
+		return nbrOfGuests >= 1 && nbrOfRooms >= 1 && sd != null && ed != null && sd.before(ed); 
 	}
 
 	/**
@@ -217,6 +205,9 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 */
 	public EList findAvailableRoomTypes(int nbrOfGuests, String startDate, String endDate, int nbrOfRooms) {
+		if(!validateBookingData(1,1,startDate,endDate))
+			return new BasicEList();
+		
 		Log.log("-------------------- Find available room types --------------------");
 		
 		EList availableRooms = getAvaiableRooms(startDate, endDate);
