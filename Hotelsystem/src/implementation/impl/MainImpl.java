@@ -512,7 +512,8 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 					if(j.equalsIgnoreCase("y")){
 						System.out.println("What room type is it? (Single room / Double Room / Suit");
 						j = in.nextLine();
-						r = model.getRoomType(name);					
+						
+						
 					}
 					
 					System.out.println("Enter room type name");
