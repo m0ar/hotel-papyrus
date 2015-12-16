@@ -165,10 +165,6 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-<<<<<<< HEAD
-	public void selectExtras(String extrasList) {
-		
-=======
 	public BankProvides getBankprovides() {
 		if (bankprovides != null && bankprovides.eIsProxy()) {
 			InternalEObject oldBankprovides = (InternalEObject)bankprovides;
@@ -211,7 +207,6 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
->>>>>>> 20338488cdd3d8f4e3eb838dea094a2a012de096
 	}
 
 	/**

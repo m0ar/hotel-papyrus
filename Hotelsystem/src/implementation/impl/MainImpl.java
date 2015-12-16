@@ -403,7 +403,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 							System.out.println("Do you want to confirm the booking?");
 							String confirmation = in.nextLine();
 							if(confirmation.toLowerCase().equals("yes")) {
-								ibooking.confirmBooking();
 								System.out.println("Do you want to pay now or later?");
 								String payment = in.nextLine();
 								if(payment.toLowerCase().equals("now")) {
@@ -413,9 +412,11 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 									String age = in.nextLine();
 									
 									if(parseInt(age) >= 18) {
-										bankprovides.makePayment(getTotalCost(selectedRoomTypes), paymentInfo);
-										ibooking.createBooking(reservationId);
-										System.out.println("Your booking was completed!");
+										if(ibooking.makePayment(paymentInfo, (int)getTotalCost(selectedRoomTypes), parseInt(age))) {
+											ibooking.createBooking(reservationId);
+											System.out.println("Your booking was completed!");
+										} else
+											System.out.println("Payment failed.");
 									}
 								} else {
 									ibooking.createBooking(reservationId);
@@ -512,7 +513,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 					if(j.equalsIgnoreCase("y")){
 						System.out.println("What room type is it? (Single room / Double Room / Suit");
 						j = in.nextLine();
-						r = model.getRoomType(name);					
+						//r = model.getRoomType(name);					
 					}
 					
 					System.out.println("Enter room type name");
@@ -600,12 +601,12 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 					System.out.println("The total cost is " + df.format(finalBill.getCost()));
 					System.out.println("Please enter credit card details");
 					String creditCard = in.nextLine();
-					if(bankprovides.makePayment(finalBill.getCost(), creditCard)){
+					/*if(bankprovides.makePayment(finalBill.getCost(), creditCard)){
 						System.out.println("Check out was successfull");
 						return;
 					}else{
 						System.out.println("Payment faild, please try again");
-					}
+					}*/
 				}
 			}
 		}
@@ -630,7 +631,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		iprofile = new ProfileHandlerImpl();
 		((ProfileHandlerImpl)iprofile).setModel(model);
 		
-		bankprovides = new BankImpl();
+		//bankprovides = new BankImpl();
 
 		BookingControllerImpl bc = new BookingControllerImpl();
 		bc.setModel(model);
