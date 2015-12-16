@@ -188,6 +188,7 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_Ipw6EKPaEeWrsJl42mvD_Q" name="rentPayed">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
     </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_x8sqdJzBEeWXM95eiB_1bQ" name="customer" type="_GK_hQJwpEeWs7qnn26dFxw" association="_x8sqcJzBEeWXM95eiB_1bQ"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_AH6kgJwpEeWs7qnn26dFxw" name="Person" isAbstract="true">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_HqYuEJxCEeWs7qnn26dFxw" name="name" visibility="private">
@@ -210,10 +211,6 @@
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_-CoUMJxCEeWs7qnn26dFxw" name="member" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-    </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_x8sqc5zBEeWXM95eiB_1bQ" name="roombooking" type="_-d1BQJwoEeWs7qnn26dFxw" association="_x8sqcJzBEeWXM95eiB_1bQ">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MM7dAJzCEeWXM95eiB_1bQ"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MM95QJzCEeWXM95eiB_1bQ" value="*"/>
     </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_SWoXsJwpEeWs7qnn26dFxw" name="AdminController">
@@ -643,7 +640,10 @@
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_x8sqcZzBEeWXM95eiB_1bQ" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_x8sqcpzBEeWXM95eiB_1bQ" key="nature" value="UML_Nature"/>
     </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_x8sqdJzBEeWXM95eiB_1bQ" name="customer" type="_GK_hQJwpEeWs7qnn26dFxw" association="_x8sqcJzBEeWXM95eiB_1bQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_x8sqc5zBEeWXM95eiB_1bQ" name="roombooking" type="_-d1BQJwoEeWs7qnn26dFxw" association="_x8sqcJzBEeWXM95eiB_1bQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MM7dAJzCEeWXM95eiB_1bQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MM95QJzCEeWXM95eiB_1bQ" value="*"/>
+    </ownedEnd>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_bIO-sJzCEeWXM95eiB_1bQ" visibility="private" memberEnd="_bIPlwJzCEeWXM95eiB_1bQ _bIPlwZzCEeWXM95eiB_1bQ">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bIO-sZzCEeWXM95eiB_1bQ" source="org.eclipse.papyrus">
