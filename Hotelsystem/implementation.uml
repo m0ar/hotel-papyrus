@@ -311,7 +311,7 @@
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2-sT55ZEeWKBr577pjDPA"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_g2_TUJ5ZEeWKBr577pjDPA" name="reserveRoomtype" visibility="package">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_g2_TUJ5ZEeWKBr577pjDPA" name="reserveRoomtype" visibility="public">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2_TUZ5ZEeWKBr577pjDPA" name="startDate">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2_TUp5ZEeWKBr577pjDPA"/>
