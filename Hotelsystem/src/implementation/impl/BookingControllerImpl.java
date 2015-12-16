@@ -227,7 +227,11 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			return false;
 		
 		if(bankprovides.makePayment(amount, cardDetails)) {
-			
+			EList bookings = model.getRoombooking();
+			for(int i = 0; i < bookings.size(); i++)
+				if(((RoomBookingImpl)bookings.get(i)).isReservation() && ((RoomBookingImpl)bookings.get(i)).getBookingNr() == reservationId)
+					((RoomBookingImpl)bookings.get(i)).setRentPayed(true);
+			return true;
 		}
 		
 		return false;
@@ -385,6 +389,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		rb.setStartDate(startDate);
 		rb.setEndDate(endDate);
 		rb.setReservation(true);
+		rb.setRentPayed(false);
 		
 		EList rooms = getAvaiableRooms(startDate, endDate);
 		

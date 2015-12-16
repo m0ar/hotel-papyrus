@@ -293,7 +293,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 		deactivateKeysFromRoom(bookingID);
 		RoomBooking booking = model.getRoomBooking(bookingID);		
 		double cost = 0;
-		if(booking.getPaymentOption() == PaymentOption.LATER_LITERAL){
+		if(!booking.isRentPayed()){
 			cost += booking.getCost();
 		}
 		EList rooms = booking.getRoom();

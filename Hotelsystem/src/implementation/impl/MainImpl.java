@@ -414,7 +414,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 									String age = in.nextLine();
 									
 									if(parseInt(age) >= 18) {
-										if(ibooking.makePayment(paymentInfo, (int)getTotalCost(selectedRoomTypes), parseInt(age))) {
+										if(ibooking.makePayment(paymentInfo, (int)getTotalCost(selectedRoomTypes), parseInt(age), reservationId)) {
 											ibooking.createBooking(reservationId);
 											System.out.println("Your booking was completed!");
 										} else
