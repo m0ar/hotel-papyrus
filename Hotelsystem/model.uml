@@ -541,6 +541,11 @@
     <message xmi:type="uml:Message" xmi:id="_rjZzIJj9EeWosv5UAtOVww" name="success" messageSort="asynchCall" receiveEvent="_rjaaMZj9EeWosv5UAtOVww" sendEvent="_rjaaMJj9EeWosv5UAtOVww"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" href="implementation.uml#_QZUL4JwoEeWs7qnn26dFxw"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_qVQH0KPbEeWRc8lKHaH_aQ" name="Testing">
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_xtPpEKPbEeWRc8lKHaH_aQ" client="_qVQH0KPbEeWRc8lKHaH_aQ" supplier="_oKIOQJgNEeWZP4jCg9EHDw" contract="_oKIOQJgNEeWZP4jCg9EHDw"/>
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_yrrnQKPbEeWRc8lKHaH_aQ" client="_qVQH0KPbEeWRc8lKHaH_aQ" supplier="_gfihIJgNEeWZP4jCg9EHDw" contract="_gfihIJgNEeWZP4jCg9EHDw"/>
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_zUjlIKPbEeWRc8lKHaH_aQ" client="_qVQH0KPbEeWRc8lKHaH_aQ" supplier="_E4GHMJgREeWZP4jCg9EHDw" contract="_E4GHMJgREeWZP4jCg9EHDw"/>
+  </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_w9FOsJxMEeWs7qnn26dFxw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_w9Gc0JxMEeWs7qnn26dFxw" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
