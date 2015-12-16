@@ -211,6 +211,17 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 				((RoomBookingImpl)bookings.get(i)).pension = parsePensionType(extrasList);
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean makePayment(String cardDetails, double amount, int age, int reservationId) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
 	private PensionType parsePensionType(String pt) {
 		for(int i = 0; i < PensionType.VALUES.size(); i++)
 			if(PensionType.VALUES.get(i).toString().toLowerCase().equals(pt.toLowerCase()))
@@ -426,12 +437,13 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
-	public void enterResidentialsCredentials(String names, String SSNs, int reservationId) {
+	public void addGuest(String name, String ssn, int reservationId) {
 		EList bookings = model.getRoombooking();
 		GuestImpl guest = new GuestImpl();
-		guest.setName(names);
-		guest.setSocialSecurityNumber(SSNs);
+		guest.setName(name);
+		guest.setSocialSecurityNumber(ssn);
 		for(int i = 0; i < bookings.size(); i++)
 			if(((RoomBookingImpl)bookings.get(i)).isReservation() && ((RoomBookingImpl)bookings.get(i)).getBookingNr() == reservationId)
 				((RoomBookingImpl)bookings.get(i)).getGuest().add(guest);

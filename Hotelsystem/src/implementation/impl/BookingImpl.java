@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link implementation.impl.BookingImpl#getStartDate <em>Start Date</em>}</li>
  *   <li>{@link implementation.impl.BookingImpl#getEndDate <em>End Date</em>}</li>
  *   <li>{@link implementation.impl.BookingImpl#getBookingNr <em>Booking Nr</em>}</li>
+ *   <li>{@link implementation.impl.BookingImpl#isReservation <em>Reservation</em>}</li>
  * </ul>
  *
  * @generated
@@ -107,6 +108,26 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected int bookingNr = BOOKING_NR_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isReservation() <em>Reservation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReservation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean RESERVATION_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReservation() <em>Reservation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReservation()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean reservation = RESERVATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -215,6 +236,27 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isReservation() {
+		return reservation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReservation(boolean newReservation) {
+		boolean oldReservation = reservation;
+		reservation = newReservation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.BOOKING__RESERVATION, oldReservation, reservation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ImplementationPackage.BOOKING__COST:
@@ -225,6 +267,8 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 				return getEndDate();
 			case ImplementationPackage.BOOKING__BOOKING_NR:
 				return new Integer(getBookingNr());
+			case ImplementationPackage.BOOKING__RESERVATION:
+				return isReservation() ? Boolean.TRUE : Boolean.FALSE;
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -247,6 +291,9 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 				return;
 			case ImplementationPackage.BOOKING__BOOKING_NR:
 				setBookingNr(((Integer)newValue).intValue());
+				return;
+			case ImplementationPackage.BOOKING__RESERVATION:
+				setReservation(((Boolean)newValue).booleanValue());
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -271,6 +318,9 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 			case ImplementationPackage.BOOKING__BOOKING_NR:
 				setBookingNr(BOOKING_NR_EDEFAULT);
 				return;
+			case ImplementationPackage.BOOKING__RESERVATION:
+				setReservation(RESERVATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -290,6 +340,8 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 				return END_DATE_EDEFAULT == null ? endDate != null : !END_DATE_EDEFAULT.equals(endDate);
 			case ImplementationPackage.BOOKING__BOOKING_NR:
 				return bookingNr != BOOKING_NR_EDEFAULT;
+			case ImplementationPackage.BOOKING__RESERVATION:
+				return reservation != RESERVATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -311,6 +363,8 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 		result.append(endDate);
 		result.append(", bookingNr: ");
 		result.append(bookingNr);
+		result.append(", reservation: ");
+		result.append(reservation);
 		result.append(')');
 		return result.toString();
 	}

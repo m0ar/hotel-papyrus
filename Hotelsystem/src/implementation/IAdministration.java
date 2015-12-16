@@ -20,18 +20,18 @@ public interface IAdministration extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model bookingIDDataType="org.eclipse.uml2.types.Integer" bookingIDRequired="true" bookingIDOrdered="false"
-	 * @generated
-	 */
-	void unassignGuestsFromRoom(int bookingID);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model roomIDDataType="org.eclipse.uml2.types.Integer" roomIDRequired="true" roomIDOrdered="false" statusRequired="true" statusOrdered="false"
 	 * @generated
 	 */
 	void updateRoomStatus(int roomID, RoomStatus status);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" cardDetailsDataType="org.eclipse.uml2.types.String" cardDetailsRequired="true" cardDetailsOrdered="false" amountDataType="org.eclipse.uml2.types.Real" amountRequired="true" amountOrdered="false"
+	 * @generated
+	 */
+	boolean makePayment(String cardDetails, double amount);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -52,10 +52,10 @@ public interface IAdministration extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" roomTypeType="implementation.RoomType" roomTypeRequired="true" roomTypeMany="true" roomTypeOrdered="false"
+	 * @model required="true" ordered="false" roomBookingRequired="true" roomBookingOrdered="false"
 	 * @generated
 	 */
-	Room getAvailableRooms(EList roomType);
+	Room getAvailableRooms(RoomBooking roomBooking);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -84,10 +84,34 @@ public interface IAdministration extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model roomBookingRequired="true" roomBookingOrdered="false"
+	 * @generated
+	 */
+	void unassignGuestsFromRooms(RoomBooking roomBooking);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model roomIDDataType="org.eclipse.uml2.types.Integer" roomIDRequired="true" roomIDOrdered="false" key1Required="true" key1Ordered="false" key2Required="true" key2Ordered="false"
 	 * @generated
 	 */
 	void assignKeysToRoom(int roomID, Key key1, Key key2);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model roomBookingRequired="true" roomBookingOrdered="false"
+	 * @generated
+	 */
+	void getFinalBill(RoomBooking roomBooking);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model guestsType="implementation.Guest" guestsRequired="true" guestsMany="true" guestsOrdered="false" roomsType="implementation.Room" roomsRequired="true" roomsMany="true" roomsOrdered="false"
+	 * @generated
+	 */
+	void assignGuestsToRoom(EList guests, EList rooms);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -100,6 +124,14 @@ public interface IAdministration extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model roomBookingRequired="true" roomBookingOrdered="false"
+	 * @generated
+	 */
+	void deactivateKeysFromRoom(RoomBooking roomBooking);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model required="true" ordered="false" bookingIDDataType="org.eclipse.uml2.types.Integer" bookingIDRequired="true" bookingIDOrdered="false"
 	 * @generated
 	 */
@@ -108,40 +140,8 @@ public interface IAdministration extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model bookingIDDataType="org.eclipse.uml2.types.Integer" bookingIDRequired="true" bookingIDOrdered="false"
-	 * @generated
-	 */
-	void getFinalBill(int bookingID);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model guestsType="implementation.Guest" guestsRequired="true" guestsMany="true" guestsOrdered="false" roomIDDataType="org.eclipse.uml2.types.Integer" roomIDRequired="true" roomIDOrdered="false"
-	 * @generated
-	 */
-	void assignGuestsToRoom(EList guests, int roomID);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" cardDetailsDataType="org.eclipse.uml2.types.String" cardDetailsRequired="true" cardDetailsOrdered="false" amountDataType="org.eclipse.uml2.types.Integer" amountRequired="true" amountOrdered="false"
-	 * @generated
-	 */
-	boolean makePayment(String cardDetails, int amount);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model roomIDDataType="org.eclipse.uml2.types.Integer" roomIDRequired="true" roomIDOrdered="false"
 	 * @generated
 	 */
 	void removeRoom(int roomID);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model bookingIDDataType="org.eclipse.uml2.types.Integer" bookingIDRequired="true" bookingIDOrdered="false"
-	 * @generated
-	 */
-	void deactivateKeysFromRoom(int bookingID);
 } // IAdministration

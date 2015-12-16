@@ -224,11 +224,11 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_QZecoJj2EeWosv5UAtOVww" name="enterResidentialsCredentials">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_1Mb74JzMEeWApNmM4_vwcg" name="names">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_QZecoJj2EeWosv5UAtOVww" name="addGuest">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_1Mb74JzMEeWApNmM4_vwcg" name="name">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_B4fXwJzNEeWApNmM4_vwcg" name="SSNs">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_B4fXwJzNEeWApNmM4_vwcg" name="ssn">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
     </ownedOperation>

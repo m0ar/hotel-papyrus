@@ -15,4 +15,12 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface ModelFactory extends EObject {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true" ordered="false"
+	 * @generated
+	 */
+	Model getModel();
 } // ModelFactory

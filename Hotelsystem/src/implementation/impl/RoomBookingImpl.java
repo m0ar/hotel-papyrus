@@ -34,7 +34,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link implementation.impl.RoomBookingImpl#getRoomtype <em>Roomtype</em>}</li>
  *   <li>{@link implementation.impl.RoomBookingImpl#getGuest <em>Guest</em>}</li>
  *   <li>{@link implementation.impl.RoomBookingImpl#getRoom <em>Room</em>}</li>
- *   <li>{@link implementation.impl.RoomBookingImpl#isReservation <em>Reservation</em>}</li>
  *   <li>{@link implementation.impl.RoomBookingImpl#isRentPayed <em>Rent Payed</em>}</li>
  * </ul>
  *
@@ -110,26 +109,6 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 	 * @ordered
 	 */
 	protected EList room;
-
-	/**
-	 * The default value of the '{@link #isReservation() <em>Reservation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isReservation()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean RESERVATION_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isReservation() <em>Reservation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isReservation()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean reservation = RESERVATION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isRentPayed() <em>Rent Payed</em>}' attribute.
@@ -252,27 +231,6 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isReservation() {
-		return reservation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setReservation(boolean newReservation) {
-		boolean oldReservation = reservation;
-		reservation = newReservation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.ROOM_BOOKING__RESERVATION, oldReservation, reservation));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean isRentPayed() {
 		return rentPayed;
 	}
@@ -306,8 +264,6 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 				return getGuest();
 			case ImplementationPackage.ROOM_BOOKING__ROOM:
 				return getRoom();
-			case ImplementationPackage.ROOM_BOOKING__RESERVATION:
-				return isReservation() ? Boolean.TRUE : Boolean.FALSE;
 			case ImplementationPackage.ROOM_BOOKING__RENT_PAYED:
 				return isRentPayed() ? Boolean.TRUE : Boolean.FALSE;
 		}
@@ -339,9 +295,6 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 				getRoom().clear();
 				getRoom().addAll((Collection)newValue);
 				return;
-			case ImplementationPackage.ROOM_BOOKING__RESERVATION:
-				setReservation(((Boolean)newValue).booleanValue());
-				return;
 			case ImplementationPackage.ROOM_BOOKING__RENT_PAYED:
 				setRentPayed(((Boolean)newValue).booleanValue());
 				return;
@@ -371,9 +324,6 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 			case ImplementationPackage.ROOM_BOOKING__ROOM:
 				getRoom().clear();
 				return;
-			case ImplementationPackage.ROOM_BOOKING__RESERVATION:
-				setReservation(RESERVATION_EDEFAULT);
-				return;
 			case ImplementationPackage.ROOM_BOOKING__RENT_PAYED:
 				setRentPayed(RENT_PAYED_EDEFAULT);
 				return;
@@ -398,8 +348,6 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 				return guest != null && !guest.isEmpty();
 			case ImplementationPackage.ROOM_BOOKING__ROOM:
 				return room != null && !room.isEmpty();
-			case ImplementationPackage.ROOM_BOOKING__RESERVATION:
-				return reservation != RESERVATION_EDEFAULT;
 			case ImplementationPackage.ROOM_BOOKING__RENT_PAYED:
 				return rentPayed != RENT_PAYED_EDEFAULT;
 		}
@@ -419,8 +367,6 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 		result.append(deposit);
 		result.append(", pension: ");
 		result.append(pension);
-		result.append(", reservation: ");
-		result.append(reservation);
 		result.append(", rentPayed: ");
 		result.append(rentPayed);
 		result.append(')');

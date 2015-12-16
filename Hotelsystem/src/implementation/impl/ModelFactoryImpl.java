@@ -3,6 +3,7 @@
 package implementation.impl;
 
 import implementation.ImplementationPackage;
+import implementation.Model;
 import implementation.ModelFactory;
 
 import org.eclipse.emf.ecore.EClass;
@@ -33,6 +34,17 @@ public class ModelFactoryImpl extends MinimalEObjectImpl.Container implements Mo
 	 */
 	protected EClass eStaticClass() {
 		return ImplementationPackage.Literals.MODEL_FACTORY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Model getModel() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 } //ModelFactoryImpl

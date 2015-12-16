@@ -373,7 +373,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 									String guestName = in.nextLine();
 									System.out.println("Enter social of guest " + (i+1) + ":");
 									String guestSocial = in.nextLine();
-									ibooking.enterResidentialsCredentials(guestName, guestSocial, reservationId);
+									ibooking.addGuest(guestName, guestSocial, reservationId);
 									
 									guestNames.add(guestName);
 									guestSocials.add(guestSocial);

@@ -13,7 +13,6 @@ package implementation;
  * </p>
  * <ul>
  *   <li>{@link implementation.ConferenceRoomBooking#getNbrOfPeople <em>Nbr Of People</em>}</li>
- *   <li>{@link implementation.ConferenceRoomBooking#isReservation <em>Reservation</em>}</li>
  * </ul>
  *
  * @see implementation.ImplementationPackage#getConferenceRoomBooking()
@@ -46,31 +45,5 @@ public interface ConferenceRoomBooking extends Booking {
 	 * @generated
 	 */
 	void setNbrOfPeople(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Reservation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Reservation</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reservation</em>' attribute.
-	 * @see #setReservation(boolean)
-	 * @see implementation.ImplementationPackage#getConferenceRoomBooking_Reservation()
-	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false"
-	 * @generated
-	 */
-	boolean isReservation();
-
-	/**
-	 * Sets the value of the '{@link implementation.ConferenceRoomBooking#isReservation <em>Reservation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reservation</em>' attribute.
-	 * @see #isReservation()
-	 * @generated
-	 */
-	void setReservation(boolean value);
 
 } // ConferenceRoomBooking

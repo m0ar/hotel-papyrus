@@ -28,10 +28,10 @@ public interface IBooking extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" cardDetailsDataType="org.eclipse.uml2.types.String" cardDetailsRequired="true" cardDetailsOrdered="false" amountDataType="org.eclipse.uml2.types.Integer" amountRequired="true" amountOrdered="false" ageDataType="org.eclipse.uml2.types.Integer" ageRequired="true" ageOrdered="false" reservationIdDataType="org.eclipse.uml2.types.Integer" reservationIdRequired="true" reservationIdOrdered="false"
+	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" cardDetailsDataType="org.eclipse.uml2.types.String" cardDetailsRequired="true" cardDetailsOrdered="false" amountDataType="org.eclipse.uml2.types.Real" amountRequired="true" amountOrdered="false" ageDataType="org.eclipse.uml2.types.Integer" ageRequired="true" ageOrdered="false" reservationIdDataType="org.eclipse.uml2.types.Integer" reservationIdRequired="true" reservationIdOrdered="false"
 	 * @generated
 	 */
-	boolean makePayment(String cardDetails, int amount, int age, int reservationId);
+	boolean makePayment(String cardDetails, double amount, int age, int reservationId);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,8 +92,8 @@ public interface IBooking extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model namesDataType="org.eclipse.uml2.types.String" namesRequired="true" namesOrdered="false" SSNsDataType="org.eclipse.uml2.types.String" SSNsRequired="true" SSNsOrdered="false" reservationIdDataType="org.eclipse.uml2.types.Integer" reservationIdRequired="true" reservationIdOrdered="false"
+	 * @model nameDataType="org.eclipse.uml2.types.String" nameRequired="true" nameOrdered="false" ssnDataType="org.eclipse.uml2.types.String" ssnRequired="true" ssnOrdered="false" reservationIdDataType="org.eclipse.uml2.types.Integer" reservationIdRequired="true" reservationIdOrdered="false"
 	 * @generated
 	 */
-	void enterResidentialsCredentials(String names, String SSNs, int reservationId);
+	void addGuest(String name, String ssn, int reservationId);
 } // IBooking

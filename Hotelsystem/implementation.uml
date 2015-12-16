@@ -185,9 +185,6 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SKOqUJ5hEeWKBr577pjDPA" value="1"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SKQfgJ5hEeWKBr577pjDPA" value="*"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_HQ6IcKMkEeWc454k3Kk58Q" name="reservation" visibility="private">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-    </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_Ipw6EKPaEeWrsJl42mvD_Q" name="rentPayed">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
     </ownedAttribute>
@@ -268,11 +265,11 @@
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g2-FOJ5ZEeWKBr577pjDPA"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_g2-FOZ5ZEeWKBr577pjDPA" name="enterResidentialsCredentials">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2-FOp5ZEeWKBr577pjDPA" name="names">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_g2-FOZ5ZEeWKBr577pjDPA" name="addGuest">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2-FOp5ZEeWKBr577pjDPA" name="name">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2-FO55ZEeWKBr577pjDPA" name="SSNs">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_g2-FO55ZEeWKBr577pjDPA" name="ssn">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_xkLKsKMtEeWAJfzXoMYKZQ" name="reservationId">
@@ -520,9 +517,6 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lh2FkJy8EeWXM95eiB_1bQ" value="1"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lh_PgJy8EeWXM95eiB_1bQ" value="1"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_NMsxcKMkEeWc454k3Kk58Q" name="reservation" visibility="private">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-    </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:Enumeration" xmi:id="_SfBMwJwrEeWs7qnn26dFxw" name="PensionType">
     <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_DPbJMJxDEeWs7qnn26dFxw" name="HalfPension"/>
@@ -562,6 +556,9 @@
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_uYqm8KI7EeWAQJjLrsDRkQ" name="bookingNr" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_NMsxcKMkEeWc454k3Kk58Q" name="reservation" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
     </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_EKEzIJy9EeWXM95eiB_1bQ" visibility="private" memberEnd="_EMyv8Jy9EeWXM95eiB_1bQ _EMyv8Zy9EeWXM95eiB_1bQ">

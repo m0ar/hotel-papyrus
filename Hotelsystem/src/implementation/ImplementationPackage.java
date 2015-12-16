@@ -701,13 +701,22 @@ public interface ImplementationPackage extends EPackage {
 	int BOOKING__BOOKING_NR = 3;
 
 	/**
+	 * The feature id for the '<em><b>Reservation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING__RESERVATION = 4;
+
+	/**
 	 * The number of structural features of the '<em>Booking</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_FEATURE_COUNT = 4;
+	int BOOKING_FEATURE_COUNT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Cost</b></em>' attribute.
@@ -746,6 +755,15 @@ public interface ImplementationPackage extends EPackage {
 	int CONFERENCE_ROOM_BOOKING__BOOKING_NR = BOOKING__BOOKING_NR;
 
 	/**
+	 * The feature id for the '<em><b>Reservation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFERENCE_ROOM_BOOKING__RESERVATION = BOOKING__RESERVATION;
+
+	/**
 	 * The feature id for the '<em><b>Nbr Of People</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -755,22 +773,13 @@ public interface ImplementationPackage extends EPackage {
 	int CONFERENCE_ROOM_BOOKING__NBR_OF_PEOPLE = BOOKING_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Reservation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFERENCE_ROOM_BOOKING__RESERVATION = BOOKING_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Conference Room Booking</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFERENCE_ROOM_BOOKING_FEATURE_COUNT = BOOKING_FEATURE_COUNT + 2;
+	int CONFERENCE_ROOM_BOOKING_FEATURE_COUNT = BOOKING_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Cost</b></em>' attribute.
@@ -807,6 +816,15 @@ public interface ImplementationPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROOM_BOOKING__BOOKING_NR = BOOKING__BOOKING_NR;
+
+	/**
+	 * The feature id for the '<em><b>Reservation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_BOOKING__RESERVATION = BOOKING__RESERVATION;
 
 	/**
 	 * The feature id for the '<em><b>Deposit</b></em>' attribute.
@@ -854,22 +872,13 @@ public interface ImplementationPackage extends EPackage {
 	int ROOM_BOOKING__ROOM = BOOKING_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Reservation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROOM_BOOKING__RESERVATION = BOOKING_FEATURE_COUNT + 5;
-
-	/**
 	 * The feature id for the '<em><b>Rent Payed</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_BOOKING__RENT_PAYED = BOOKING_FEATURE_COUNT + 6;
+	int ROOM_BOOKING__RENT_PAYED = BOOKING_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Room Booking</em>' class.
@@ -878,7 +887,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_BOOKING_FEATURE_COUNT = BOOKING_FEATURE_COUNT + 7;
+	int ROOM_BOOKING_FEATURE_COUNT = BOOKING_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link implementation.impl.ConferenceRoomImpl <em>Conference Room</em>}' class.
@@ -1772,17 +1781,6 @@ public interface ImplementationPackage extends EPackage {
 	EAttribute getConferenceRoomBooking_NbrOfPeople();
 
 	/**
-	 * Returns the meta object for the attribute '{@link implementation.ConferenceRoomBooking#isReservation <em>Reservation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Reservation</em>'.
-	 * @see implementation.ConferenceRoomBooking#isReservation()
-	 * @see #getConferenceRoomBooking()
-	 * @generated
-	 */
-	EAttribute getConferenceRoomBooking_Reservation();
-
-	/**
 	 * Returns the meta object for class '{@link implementation.Booking <em>Booking</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1835,6 +1833,17 @@ public interface ImplementationPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBooking_BookingNr();
+
+	/**
+	 * Returns the meta object for the attribute '{@link implementation.Booking#isReservation <em>Reservation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reservation</em>'.
+	 * @see implementation.Booking#isReservation()
+	 * @see #getBooking()
+	 * @generated
+	 */
+	EAttribute getBooking_Reservation();
 
 	/**
 	 * Returns the meta object for class '{@link implementation.RoomBooking <em>Room Booking</em>}'.
@@ -1900,17 +1909,6 @@ public interface ImplementationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRoomBooking_Room();
-
-	/**
-	 * Returns the meta object for the attribute '{@link implementation.RoomBooking#isReservation <em>Reservation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Reservation</em>'.
-	 * @see implementation.RoomBooking#isReservation()
-	 * @see #getRoomBooking()
-	 * @generated
-	 */
-	EAttribute getRoomBooking_Reservation();
 
 	/**
 	 * Returns the meta object for the attribute '{@link implementation.RoomBooking#isRentPayed <em>Rent Payed</em>}'.
@@ -2677,14 +2675,6 @@ public interface ImplementationPackage extends EPackage {
 		EAttribute CONFERENCE_ROOM_BOOKING__NBR_OF_PEOPLE = eINSTANCE.getConferenceRoomBooking_NbrOfPeople();
 
 		/**
-		 * The meta object literal for the '<em><b>Reservation</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONFERENCE_ROOM_BOOKING__RESERVATION = eINSTANCE.getConferenceRoomBooking_Reservation();
-
-		/**
 		 * The meta object literal for the '{@link implementation.impl.BookingImpl <em>Booking</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2725,6 +2715,14 @@ public interface ImplementationPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BOOKING__BOOKING_NR = eINSTANCE.getBooking_BookingNr();
+
+		/**
+		 * The meta object literal for the '<em><b>Reservation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOKING__RESERVATION = eINSTANCE.getBooking_Reservation();
 
 		/**
 		 * The meta object literal for the '{@link implementation.impl.RoomBookingImpl <em>Room Booking</em>}' class.
@@ -2775,14 +2773,6 @@ public interface ImplementationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ROOM_BOOKING__ROOM = eINSTANCE.getRoomBooking_Room();
-
-		/**
-		 * The meta object literal for the '<em><b>Reservation</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ROOM_BOOKING__RESERVATION = eINSTANCE.getRoomBooking_Reservation();
 
 		/**
 		 * The meta object literal for the '<em><b>Rent Payed</b></em>' attribute feature.

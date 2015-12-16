@@ -18,7 +18,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link implementation.RoomBooking#getRoomtype <em>Roomtype</em>}</li>
  *   <li>{@link implementation.RoomBooking#getGuest <em>Guest</em>}</li>
  *   <li>{@link implementation.RoomBooking#getRoom <em>Room</em>}</li>
- *   <li>{@link implementation.RoomBooking#isReservation <em>Reservation</em>}</li>
  *   <li>{@link implementation.RoomBooking#isRentPayed <em>Rent Payed</em>}</li>
  * </ul>
  *
@@ -129,32 +128,6 @@ public interface RoomBooking extends Booking {
 	 * @generated
 	 */
 	EList getRoom();
-
-	/**
-	 * Returns the value of the '<em><b>Reservation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Reservation</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reservation</em>' attribute.
-	 * @see #setReservation(boolean)
-	 * @see implementation.ImplementationPackage#getRoomBooking_Reservation()
-	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false"
-	 * @generated
-	 */
-	boolean isReservation();
-
-	/**
-	 * Sets the value of the '{@link implementation.RoomBooking#isReservation <em>Reservation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reservation</em>' attribute.
-	 * @see #isReservation()
-	 * @generated
-	 */
-	void setReservation(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Rent Payed</b></em>' attribute.
