@@ -88,8 +88,6 @@ public class ImplementationFactoryImpl extends EFactoryImpl implements Implement
 		switch (eDataType.getClassifierID()) {
 			case ImplementationPackage.ROOM_STATUS:
 				return createRoomStatusFromString(eDataType, initialValue);
-			case ImplementationPackage.PAYMENT_OPTION:
-				return createPaymentOptionFromString(eDataType, initialValue);
 			case ImplementationPackage.PENSION_TYPE:
 				return createPensionTypeFromString(eDataType, initialValue);
 			default:
@@ -106,8 +104,6 @@ public class ImplementationFactoryImpl extends EFactoryImpl implements Implement
 		switch (eDataType.getClassifierID()) {
 			case ImplementationPackage.ROOM_STATUS:
 				return convertRoomStatusToString(eDataType, instanceValue);
-			case ImplementationPackage.PAYMENT_OPTION:
-				return convertPaymentOptionToString(eDataType, instanceValue);
 			case ImplementationPackage.PENSION_TYPE:
 				return convertPensionTypeToString(eDataType, instanceValue);
 			default:
@@ -312,26 +308,6 @@ public class ImplementationFactoryImpl extends EFactoryImpl implements Implement
 	 * @generated
 	 */
 	public String convertRoomStatusToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PaymentOption createPaymentOptionFromString(EDataType eDataType, String initialValue) {
-		PaymentOption result = PaymentOption.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertPaymentOptionToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

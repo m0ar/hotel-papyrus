@@ -4,8 +4,6 @@ package implementation.impl;
 
 import implementation.Booking;
 import implementation.ImplementationPackage;
-import implementation.PaymentOption;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -22,7 +20,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link implementation.impl.BookingImpl#getCost <em>Cost</em>}</li>
- *   <li>{@link implementation.impl.BookingImpl#getPaymentOption <em>Payment Option</em>}</li>
  *   <li>{@link implementation.impl.BookingImpl#getStartDate <em>Start Date</em>}</li>
  *   <li>{@link implementation.impl.BookingImpl#getEndDate <em>End Date</em>}</li>
  *   <li>{@link implementation.impl.BookingImpl#getBookingNr <em>Booking Nr</em>}</li>
@@ -50,26 +47,6 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected double cost = COST_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getPaymentOption() <em>Payment Option</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPaymentOption()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final PaymentOption PAYMENT_OPTION_EDEFAULT = PaymentOption.NOW_LITERAL;
-
-	/**
-	 * The cached value of the '{@link #getPaymentOption() <em>Payment Option</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPaymentOption()
-	 * @generated
-	 * @ordered
-	 */
-	protected PaymentOption paymentOption = PAYMENT_OPTION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getStartDate() <em>Start Date</em>}' attribute.
@@ -175,27 +152,6 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PaymentOption getPaymentOption() {
-		return paymentOption;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPaymentOption(PaymentOption newPaymentOption) {
-		PaymentOption oldPaymentOption = paymentOption;
-		paymentOption = newPaymentOption == null ? PAYMENT_OPTION_EDEFAULT : newPaymentOption;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.BOOKING__PAYMENT_OPTION, oldPaymentOption, paymentOption));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getStartDate() {
 		return startDate;
 	}
@@ -263,8 +219,6 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 			case ImplementationPackage.BOOKING__COST:
 				return new Double(getCost());
-			case ImplementationPackage.BOOKING__PAYMENT_OPTION:
-				return getPaymentOption();
 			case ImplementationPackage.BOOKING__START_DATE:
 				return getStartDate();
 			case ImplementationPackage.BOOKING__END_DATE:
@@ -284,9 +238,6 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 			case ImplementationPackage.BOOKING__COST:
 				setCost(((Double)newValue).doubleValue());
-				return;
-			case ImplementationPackage.BOOKING__PAYMENT_OPTION:
-				setPaymentOption((PaymentOption)newValue);
 				return;
 			case ImplementationPackage.BOOKING__START_DATE:
 				setStartDate((String)newValue);
@@ -311,9 +262,6 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 			case ImplementationPackage.BOOKING__COST:
 				setCost(COST_EDEFAULT);
 				return;
-			case ImplementationPackage.BOOKING__PAYMENT_OPTION:
-				setPaymentOption(PAYMENT_OPTION_EDEFAULT);
-				return;
 			case ImplementationPackage.BOOKING__START_DATE:
 				setStartDate(START_DATE_EDEFAULT);
 				return;
@@ -336,8 +284,6 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 			case ImplementationPackage.BOOKING__COST:
 				return cost != COST_EDEFAULT;
-			case ImplementationPackage.BOOKING__PAYMENT_OPTION:
-				return paymentOption != PAYMENT_OPTION_EDEFAULT;
 			case ImplementationPackage.BOOKING__START_DATE:
 				return START_DATE_EDEFAULT == null ? startDate != null : !START_DATE_EDEFAULT.equals(startDate);
 			case ImplementationPackage.BOOKING__END_DATE:
@@ -359,8 +305,6 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (cost: ");
 		result.append(cost);
-		result.append(", paymentOption: ");
-		result.append(paymentOption);
 		result.append(", startDate: ");
 		result.append(startDate);
 		result.append(", endDate: ");

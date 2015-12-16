@@ -674,22 +674,13 @@ public interface ImplementationPackage extends EPackage {
 	int BOOKING__COST = 0;
 
 	/**
-	 * The feature id for the '<em><b>Payment Option</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOKING__PAYMENT_OPTION = 1;
-
-	/**
 	 * The feature id for the '<em><b>Start Date</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING__START_DATE = 2;
+	int BOOKING__START_DATE = 1;
 
 	/**
 	 * The feature id for the '<em><b>End Date</b></em>' attribute.
@@ -698,7 +689,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING__END_DATE = 3;
+	int BOOKING__END_DATE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Booking Nr</b></em>' attribute.
@@ -707,7 +698,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING__BOOKING_NR = 4;
+	int BOOKING__BOOKING_NR = 3;
 
 	/**
 	 * The number of structural features of the '<em>Booking</em>' class.
@@ -716,7 +707,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_FEATURE_COUNT = 5;
+	int BOOKING_FEATURE_COUNT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Cost</b></em>' attribute.
@@ -726,15 +717,6 @@ public interface ImplementationPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONFERENCE_ROOM_BOOKING__COST = BOOKING__COST;
-
-	/**
-	 * The feature id for the '<em><b>Payment Option</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFERENCE_ROOM_BOOKING__PAYMENT_OPTION = BOOKING__PAYMENT_OPTION;
 
 	/**
 	 * The feature id for the '<em><b>Start Date</b></em>' attribute.
@@ -798,15 +780,6 @@ public interface ImplementationPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROOM_BOOKING__COST = BOOKING__COST;
-
-	/**
-	 * The feature id for the '<em><b>Payment Option</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROOM_BOOKING__PAYMENT_OPTION = BOOKING__PAYMENT_OPTION;
 
 	/**
 	 * The feature id for the '<em><b>Start Date</b></em>' attribute.
@@ -890,13 +863,22 @@ public interface ImplementationPackage extends EPackage {
 	int ROOM_BOOKING__RESERVATION = BOOKING_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Rent Payed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_BOOKING__RENT_PAYED = BOOKING_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Room Booking</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_BOOKING_FEATURE_COUNT = BOOKING_FEATURE_COUNT + 6;
+	int ROOM_BOOKING_FEATURE_COUNT = BOOKING_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link implementation.impl.ConferenceRoomImpl <em>Conference Room</em>}' class.
@@ -1261,16 +1243,6 @@ public interface ImplementationPackage extends EPackage {
 	int ROOM_STATUS = 24;
 
 	/**
-	 * The meta object id for the '{@link implementation.PaymentOption <em>Payment Option</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see implementation.PaymentOption
-	 * @see implementation.impl.ImplementationPackageImpl#getPaymentOption()
-	 * @generated
-	 */
-	int PAYMENT_OPTION = 25;
-
-	/**
 	 * The meta object id for the '{@link implementation.PensionType <em>Pension Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1278,7 +1250,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @see implementation.impl.ImplementationPackageImpl#getPensionType()
 	 * @generated
 	 */
-	int PENSION_TYPE = 26;
+	int PENSION_TYPE = 25;
 
 
 	/**
@@ -1832,17 +1804,6 @@ public interface ImplementationPackage extends EPackage {
 	EAttribute getBooking_Cost();
 
 	/**
-	 * Returns the meta object for the attribute '{@link implementation.Booking#getPaymentOption <em>Payment Option</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Payment Option</em>'.
-	 * @see implementation.Booking#getPaymentOption()
-	 * @see #getBooking()
-	 * @generated
-	 */
-	EAttribute getBooking_PaymentOption();
-
-	/**
 	 * Returns the meta object for the attribute '{@link implementation.Booking#getStartDate <em>Start Date</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1950,6 +1911,17 @@ public interface ImplementationPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRoomBooking_Reservation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link implementation.RoomBooking#isRentPayed <em>Rent Payed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rent Payed</em>'.
+	 * @see implementation.RoomBooking#isRentPayed()
+	 * @see #getRoomBooking()
+	 * @generated
+	 */
+	EAttribute getRoomBooking_RentPayed();
 
 	/**
 	 * Returns the meta object for class '{@link implementation.Key <em>Key</em>}'.
@@ -2267,16 +2239,6 @@ public interface ImplementationPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getRoomStatus();
-
-	/**
-	 * Returns the meta object for enum '{@link implementation.PaymentOption <em>Payment Option</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Payment Option</em>'.
-	 * @see implementation.PaymentOption
-	 * @generated
-	 */
-	EEnum getPaymentOption();
 
 	/**
 	 * Returns the meta object for enum '{@link implementation.PensionType <em>Pension Type</em>}'.
@@ -2741,14 +2703,6 @@ public interface ImplementationPackage extends EPackage {
 		EAttribute BOOKING__COST = eINSTANCE.getBooking_Cost();
 
 		/**
-		 * The meta object literal for the '<em><b>Payment Option</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BOOKING__PAYMENT_OPTION = eINSTANCE.getBooking_PaymentOption();
-
-		/**
 		 * The meta object literal for the '<em><b>Start Date</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2829,6 +2783,14 @@ public interface ImplementationPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ROOM_BOOKING__RESERVATION = eINSTANCE.getRoomBooking_Reservation();
+
+		/**
+		 * The meta object literal for the '<em><b>Rent Payed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROOM_BOOKING__RENT_PAYED = eINSTANCE.getRoomBooking_RentPayed();
 
 		/**
 		 * The meta object literal for the '{@link implementation.impl.KeyImpl <em>Key</em>}' class.
@@ -3095,16 +3057,6 @@ public interface ImplementationPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ROOM_STATUS = eINSTANCE.getRoomStatus();
-
-		/**
-		 * The meta object literal for the '{@link implementation.PaymentOption <em>Payment Option</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see implementation.PaymentOption
-		 * @see implementation.impl.ImplementationPackageImpl#getPaymentOption()
-		 * @generated
-		 */
-		EEnum PAYMENT_OPTION = eINSTANCE.getPaymentOption();
 
 		/**
 		 * The meta object literal for the '{@link implementation.PensionType <em>Pension Type</em>}' enum.

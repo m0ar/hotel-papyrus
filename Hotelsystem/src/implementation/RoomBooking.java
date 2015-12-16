@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link implementation.RoomBooking#getGuest <em>Guest</em>}</li>
  *   <li>{@link implementation.RoomBooking#getRoom <em>Room</em>}</li>
  *   <li>{@link implementation.RoomBooking#isReservation <em>Reservation</em>}</li>
+ *   <li>{@link implementation.RoomBooking#isRentPayed <em>Rent Payed</em>}</li>
  * </ul>
  *
  * @see implementation.ImplementationPackage#getRoomBooking()
@@ -154,5 +155,31 @@ public interface RoomBooking extends Booking {
 	 * @generated
 	 */
 	void setReservation(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Rent Payed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Rent Payed</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rent Payed</em>' attribute.
+	 * @see #setRentPayed(boolean)
+	 * @see implementation.ImplementationPackage#getRoomBooking_RentPayed()
+	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false"
+	 * @generated
+	 */
+	boolean isRentPayed();
+
+	/**
+	 * Sets the value of the '{@link implementation.RoomBooking#isRentPayed <em>Rent Payed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rent Payed</em>' attribute.
+	 * @see #isRentPayed()
+	 * @generated
+	 */
+	void setRentPayed(boolean value);
 
 } // RoomBooking

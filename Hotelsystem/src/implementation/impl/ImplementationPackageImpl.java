@@ -22,7 +22,6 @@ import implementation.Key;
 import implementation.Main;
 import implementation.Model;
 import implementation.ModelFactory;
-import implementation.PaymentOption;
 import implementation.PensionType;
 import implementation.Person;
 import implementation.ProfileHandler;
@@ -228,13 +227,6 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * @generated
 	 */
 	private EEnum roomStatusEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum paymentOptionEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -773,7 +765,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBooking_PaymentOption() {
+	public EAttribute getBooking_StartDate() {
 		return (EAttribute)bookingEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -782,7 +774,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBooking_StartDate() {
+	public EAttribute getBooking_EndDate() {
 		return (EAttribute)bookingEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -791,17 +783,8 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBooking_EndDate() {
-		return (EAttribute)bookingEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getBooking_BookingNr() {
-		return (EAttribute)bookingEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)bookingEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -865,6 +848,15 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 */
 	public EAttribute getRoomBooking_Reservation() {
 		return (EAttribute)roomBookingEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRoomBooking_RentPayed() {
+		return (EAttribute)roomBookingEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1142,15 +1134,6 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getPaymentOption() {
-		return paymentOptionEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getPensionType() {
 		return pensionTypeEEnum;
 	}
@@ -1248,7 +1231,6 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 
 		bookingEClass = createEClass(BOOKING);
 		createEAttribute(bookingEClass, BOOKING__COST);
-		createEAttribute(bookingEClass, BOOKING__PAYMENT_OPTION);
 		createEAttribute(bookingEClass, BOOKING__START_DATE);
 		createEAttribute(bookingEClass, BOOKING__END_DATE);
 		createEAttribute(bookingEClass, BOOKING__BOOKING_NR);
@@ -1260,6 +1242,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		createEReference(roomBookingEClass, ROOM_BOOKING__GUEST);
 		createEReference(roomBookingEClass, ROOM_BOOKING__ROOM);
 		createEAttribute(roomBookingEClass, ROOM_BOOKING__RESERVATION);
+		createEAttribute(roomBookingEClass, ROOM_BOOKING__RENT_PAYED);
 
 		conferenceRoomEClass = createEClass(CONFERENCE_ROOM);
 		createEAttribute(conferenceRoomEClass, CONFERENCE_ROOM__TYPE);
@@ -1300,7 +1283,6 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 
 		// Create enums
 		roomStatusEEnum = createEEnum(ROOM_STATUS);
-		paymentOptionEEnum = createEEnum(PAYMENT_OPTION);
 		pensionTypeEEnum = createEEnum(PENSION_TYPE);
 	}
 
@@ -1422,7 +1404,6 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 
 		initEClass(bookingEClass, Booking.class, "Booking", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBooking_Cost(), theTypesPackage.getReal(), "cost", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getBooking_PaymentOption(), this.getPaymentOption(), "paymentOption", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getBooking_StartDate(), theTypesPackage.getString(), "startDate", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getBooking_EndDate(), theTypesPackage.getString(), "endDate", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getBooking_BookingNr(), theTypesPackage.getInteger(), "bookingNr", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1434,6 +1415,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		initEReference(getRoomBooking_Guest(), this.getGuest(), null, "guest", null, 1, -1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRoomBooking_Room(), this.getRoom(), null, "room", null, 1, -1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRoomBooking_Reservation(), theTypesPackage.getBoolean(), "reservation", null, 1, 1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRoomBooking_RentPayed(), theTypesPackage.getBoolean(), "rentPayed", null, 1, 1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(conferenceRoomEClass, ConferenceRoom.class, "ConferenceRoom", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConferenceRoom_Type(), theTypesPackage.getString(), "type", null, 1, 1, ConferenceRoom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1604,10 +1586,6 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		addEEnumLiteral(roomStatusEEnum, RoomStatus.AVAILABLE_LITERAL);
 		addEEnumLiteral(roomStatusEEnum, RoomStatus.CLEANING_LITERAL);
 		addEEnumLiteral(roomStatusEEnum, RoomStatus.REPAIR_LITERAL);
-
-		initEEnum(paymentOptionEEnum, PaymentOption.class, "PaymentOption");
-		addEEnumLiteral(paymentOptionEEnum, PaymentOption.NOW_LITERAL);
-		addEEnumLiteral(paymentOptionEEnum, PaymentOption.LATER_LITERAL);
 
 		initEEnum(pensionTypeEEnum, PensionType.class, "PensionType");
 		addEEnumLiteral(pensionTypeEEnum, PensionType.HALF_PENSION_LITERAL);
