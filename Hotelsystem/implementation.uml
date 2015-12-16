@@ -188,6 +188,9 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_HQ6IcKMkEeWc454k3Kk58Q" name="reservation" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
     </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Ipw6EKPaEeWrsJl42mvD_Q" name="rentPayed">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+    </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_AH6kgJwpEeWs7qnn26dFxw" name="Person" isAbstract="true">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_HqYuEJxCEeWs7qnn26dFxw" name="name" visibility="private">
@@ -245,6 +248,9 @@
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_ufkiQKPSEeWrsJl42mvD_Q" name="return" direction="return">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_JNwC0KPYEeWrsJl42mvD_Q" name="reservationId">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_g2-FMJ5ZEeWKBr577pjDPA" name="findAvailableConferenceRooms">
@@ -532,10 +538,6 @@
     <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_g4QhMJxBEeWs7qnn26dFxw" name="Cleaning"/>
     <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_k6oxgJxBEeWs7qnn26dFxw" name="Repair"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Enumeration" xmi:id="_8IAPAJxMEeWs7qnn26dFxw" name="PaymentOption">
-    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_-CPuIJxMEeWs7qnn26dFxw" name="Now"/>
-    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_9aY5sKI7EeWAQJjLrsDRkQ" name="Later"/>
-  </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_FyeTwJxOEeWs7qnn26dFxw" visibility="private" memberEnd="_FyeTw5xOEeWs7qnn26dFxw _Fye60JxOEeWs7qnn26dFxw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FyeTwZxOEeWs7qnn26dFxw" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FyeTwpxOEeWs7qnn26dFxw" key="nature" value="UML_Nature"/>
@@ -550,7 +552,6 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_uHHHsJy7EeWXM95eiB_1bQ" name="cost" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_xy9HUJy7EeWXM95eiB_1bQ" name="paymentOption" visibility="private" type="_8IAPAJxMEeWs7qnn26dFxw"/>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_M7OKAJxMEeWs7qnn26dFxw" name="startDate" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
@@ -702,6 +703,17 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_RSJfkKJCEeWAQJjLrsDRkQ" name="return" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_VyIisKPTEeWrsJl42mvD_Q" name="reservePayment">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ifj3kKPTEeWrsJl42mvD_Q" name="amount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_laSjUKPTEeWrsJl42mvD_Q" name="cardDetails">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_oeEdYKPTEeWrsJl42mvD_Q" name="return" direction="return">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
       </ownedParameter>
     </ownedOperation>

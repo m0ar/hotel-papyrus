@@ -127,18 +127,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="Booking" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cost" ordered="false" lowerBound="1"
         eType="ecore:EDataType types.ecore#//Real"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paymentOption" ordered="false"
-        lowerBound="1" eType="#//PaymentOption"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="startDate" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="endDate" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="bookingNr" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="PaymentOption">
-    <eLiterals name="Now"/>
-    <eLiterals name="Later" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RoomBooking" eSuperTypes="#//Booking">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deposit" ordered="false"
@@ -152,6 +146,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="room" ordered="false" lowerBound="1"
         upperBound="-1" eType="#//Room"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="reservation" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rentPayed" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PensionType">
@@ -205,6 +201,10 @@
       <eParameters name="amount" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Real"/>
       <eParameters name="cardDetails" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
+    <eOperations name="reservePayment" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
+      <eParameters name="amount" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Real"/>
+      <eParameters name="cardDetails" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IBooking" abstract="true" interface="true">
     <eOperations name="selectExtras" ordered="false" lowerBound="1">
@@ -215,6 +215,7 @@
       <eParameters name="cardDetails" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
       <eParameters name="amount" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
       <eParameters name="age" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="reservationId" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
     <eOperations name="findAvailableConferenceRooms" ordered="false" upperBound="-1"
         eType="#//ConferenceRoom">

@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link implementation.impl.RoomBookingImpl#getGuest <em>Guest</em>}</li>
  *   <li>{@link implementation.impl.RoomBookingImpl#getRoom <em>Room</em>}</li>
  *   <li>{@link implementation.impl.RoomBookingImpl#isReservation <em>Reservation</em>}</li>
+ *   <li>{@link implementation.impl.RoomBookingImpl#isRentPayed <em>Rent Payed</em>}</li>
  * </ul>
  *
  * @generated
@@ -129,6 +130,26 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 	 * @ordered
 	 */
 	protected boolean reservation = RESERVATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isRentPayed() <em>Rent Payed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRentPayed()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean RENT_PAYED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isRentPayed() <em>Rent Payed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRentPayed()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean rentPayed = RENT_PAYED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -252,6 +273,27 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isRentPayed() {
+		return rentPayed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRentPayed(boolean newRentPayed) {
+		boolean oldRentPayed = rentPayed;
+		rentPayed = newRentPayed;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.ROOM_BOOKING__RENT_PAYED, oldRentPayed, rentPayed));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ImplementationPackage.ROOM_BOOKING__DEPOSIT:
@@ -266,6 +308,8 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 				return getRoom();
 			case ImplementationPackage.ROOM_BOOKING__RESERVATION:
 				return isReservation() ? Boolean.TRUE : Boolean.FALSE;
+			case ImplementationPackage.ROOM_BOOKING__RENT_PAYED:
+				return isRentPayed() ? Boolean.TRUE : Boolean.FALSE;
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -298,6 +342,9 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 			case ImplementationPackage.ROOM_BOOKING__RESERVATION:
 				setReservation(((Boolean)newValue).booleanValue());
 				return;
+			case ImplementationPackage.ROOM_BOOKING__RENT_PAYED:
+				setRentPayed(((Boolean)newValue).booleanValue());
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -327,6 +374,9 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 			case ImplementationPackage.ROOM_BOOKING__RESERVATION:
 				setReservation(RESERVATION_EDEFAULT);
 				return;
+			case ImplementationPackage.ROOM_BOOKING__RENT_PAYED:
+				setRentPayed(RENT_PAYED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -350,6 +400,8 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 				return room != null && !room.isEmpty();
 			case ImplementationPackage.ROOM_BOOKING__RESERVATION:
 				return reservation != RESERVATION_EDEFAULT;
+			case ImplementationPackage.ROOM_BOOKING__RENT_PAYED:
+				return rentPayed != RENT_PAYED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -369,6 +421,8 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 		result.append(pension);
 		result.append(", reservation: ");
 		result.append(reservation);
+		result.append(", rentPayed: ");
+		result.append(rentPayed);
 		result.append(')');
 		return result.toString();
 	}

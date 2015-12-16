@@ -8,6 +8,8 @@ import implementation.ConferenceRoom;
 import implementation.IProfile;
 import implementation.ImplementationPackage;
 import implementation.Model;
+import implementation.PensionType;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -201,23 +203,38 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void selectExtras(String extrasList, int reservationId) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList bookings = model.getRoombooking();
+		for(int i = 0; i < bookings.size(); i++)
+			if(((RoomBookingImpl)bookings.get(i)).isReservation() && ((RoomBookingImpl)bookings.get(i)).getBookingNr() == reservationId)
+				((RoomBookingImpl)bookings.get(i)).pension = parsePensionType(extrasList);
+	}
+	
+	private PensionType parsePensionType(String pt) {
+		for(int i = 0; i < PensionType.VALUES.size(); i++)
+			if(PensionType.VALUES.get(i).toString().toLowerCase().equals(pt.toLowerCase()))
+				return (PensionType)PensionType.VALUES.get(i);
+		return PensionType.NONE_LITERAL;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public boolean makePayment(String cardDetails, int amount, int age) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public boolean makePayment(String cardDetails, int amount, int age, int reservationId) {
+		if(age < 18)
+			return false;
+		
+		if(bankprovides.makePayment(amount, cardDetails)) {
+			EList bookings = model.getRoombooking();
+			for(int i = 0; i < bookings.size(); i++)
+				if(((RoomBookingImpl)bookings.get(i)).isReservation() && ((RoomBookingImpl)bookings.get(i)).getBookingNr() == reservationId)
+					((RoomBookingImpl)bookings.get(i)).setRentPayed(true);
+			return true;
+		}
+		
+		return false;
 	}
 
 	/**
@@ -237,7 +254,13 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	public boolean validateBookingData(int nbrOfGuests, int nbrOfRooms, String startDate, String endDate) {
 		Date sd = parseDate(startDate);
-		Date ed = parseDate(startDate);
+		Date ed = parseDate(endDate);
+		
+		System.out.println(nbrOfGuests >= 1);
+		System.out.println(nbrOfRooms >= 1);
+		System.out.println(sd != null);
+		System.out.println(ed != null);
+		System.out.println(sd.before(ed));
 		return nbrOfGuests >= 1 && nbrOfRooms >= 1 && sd != null && ed != null && sd.before(ed); 
 	}
 
@@ -366,6 +389,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		rb.setStartDate(startDate);
 		rb.setEndDate(endDate);
 		rb.setReservation(true);
+		rb.setRentPayed(false);
 		
 		EList rooms = getAvaiableRooms(startDate, endDate);
 		

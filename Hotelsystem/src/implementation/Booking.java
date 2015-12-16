@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link implementation.Booking#getCost <em>Cost</em>}</li>
- *   <li>{@link implementation.Booking#getPaymentOption <em>Payment Option</em>}</li>
  *   <li>{@link implementation.Booking#getStartDate <em>Start Date</em>}</li>
  *   <li>{@link implementation.Booking#getEndDate <em>End Date</em>}</li>
  *   <li>{@link implementation.Booking#getBookingNr <em>Booking Nr</em>}</li>
@@ -50,35 +49,6 @@ public interface Booking extends EObject {
 	 * @generated
 	 */
 	void setCost(double value);
-
-	/**
-	 * Returns the value of the '<em><b>Payment Option</b></em>' attribute.
-	 * The literals are from the enumeration {@link implementation.PaymentOption}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Payment Option</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Payment Option</em>' attribute.
-	 * @see implementation.PaymentOption
-	 * @see #setPaymentOption(PaymentOption)
-	 * @see implementation.ImplementationPackage#getBooking_PaymentOption()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	PaymentOption getPaymentOption();
-
-	/**
-	 * Sets the value of the '{@link implementation.Booking#getPaymentOption <em>Payment Option</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Payment Option</em>' attribute.
-	 * @see implementation.PaymentOption
-	 * @see #getPaymentOption()
-	 * @generated
-	 */
-	void setPaymentOption(PaymentOption value);
 
 	/**
 	 * Returns the value of the '<em><b>Start Date</b></em>' attribute.
