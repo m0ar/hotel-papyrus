@@ -240,7 +240,7 @@
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g29eJZ5ZEeWKBr577pjDPA"/>
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_g29eJp5ZEeWKBr577pjDPA" name="amount">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="_g29eJ55ZEeWKBr577pjDPA"/>
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_g29eKJ5ZEeWKBr577pjDPA" name="age">
@@ -445,7 +445,7 @@
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDR1l55ZEeWKBr577pjDPA"/>
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDR1mJ5ZEeWKBr577pjDPA" name="amount">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDR1mZ5ZEeWKBr577pjDPA"/>
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_0d5h4KPSEeWrsJl42mvD_Q" name="return" direction="return">
@@ -545,7 +545,11 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KmdAIJxOEeWs7qnn26dFxw" value="*"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_JDPMYJy7EeWXM95eiB_1bQ" name="ModelFactory"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_JDPMYJy7EeWXM95eiB_1bQ" name="ModelFactory">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="__NpGcKPwEeWRc8lKHaH_aQ" name="getModel" isStatic="true">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_EzzdsKPxEeWRc8lKHaH_aQ" name="model" type="_gz-AcJwoEeWs7qnn26dFxw" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_feji4Jy7EeWXM95eiB_1bQ" name="Booking" isAbstract="true">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_uHHHsJy7EeWXM95eiB_1bQ" name="cost" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
