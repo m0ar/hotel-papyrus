@@ -49,7 +49,6 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected Model model;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -144,10 +143,13 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void createRoom(int roomID, RoomType roomType) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void createRoom(int roomID, RoomType roomType) {		
+		RoomImpl i = new RoomImpl();
+		i.setRoomtype(roomType);
+		i.setNumber(roomID);
+		System.out.println(model.getRoom().size());
+		model.getRoom().add(i);
+		System.out.println(model.getRoom().size());
 	}
 
 	/**

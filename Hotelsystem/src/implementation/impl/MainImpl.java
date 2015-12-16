@@ -10,6 +10,7 @@ import implementation.IProfile;
 import implementation.ImplementationPackage;
 import implementation.Main;
 import implementation.RoomStatus;
+import implementation.RoomType;
 import implementation.impl.BookingControllerImpl.Tuple;
 
 import java.text.DecimalFormat;
@@ -551,6 +552,79 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				}else if(operation.equalsIgnoreCase("remove customer")){
 					
 				}else if(operation.equalsIgnoreCase("create room")){
+					RoomType r = new RoomTypeImpl();
+					Boolean b = false;
+					System.out.println("Enter roomID");
+					int i = in.nextInt();
+					
+					System.out.println("Is it an existing room type?");
+					in.nextLine();
+					String j = in.nextLine();
+					if(j.equalsIgnoreCase("y")){
+						System.out.println("What room type is it? (Single room / Double Room / Suit");
+						j = in.nextLine();
+						r = model.getRoomType(name);					
+					}
+					
+					System.out.println("Enter room type name");
+					String name = in.nextLine();
+					r.setName(name);
+					
+					System.out.println("Add a description of the room.");
+					String d = in.nextLine();
+					r.setDescription(d);
+					
+					System.out.println("Does it have a balcony? (y/n)");
+					j = in.nextLine();
+					if(j.equalsIgnoreCase("y")){
+						b = true;
+					}else{
+						b = false;
+					}
+					r.setBalcony(b);
+
+					System.out.println("Enter the maximum number of extra beds in the room");
+					int n = in.nextInt();
+					r.setMaxNbrOfExtraBeds(n);
+					
+					System.out.println("Does the room have a minibar? (y/n)");
+					in.nextLine();
+					j = in.nextLine();
+					if(j.equalsIgnoreCase("y")){
+						b = true;
+					}else{
+						b = false;
+					}
+					r.setMiniBar(b);
+					
+					System.out.println("Is it nonsmoking? (y/n)");
+					j = in.nextLine();
+					if(j.equalsIgnoreCase("y")){
+						b = true;
+					}else{
+						b = false;
+					}
+					r.setNonSmoking(b);
+					
+					System.out.println("Does the room have a TV? (y/n)");
+					j = in.nextLine();
+					if(j.equalsIgnoreCase("y")){
+						b = true;
+					}else{
+						b = false;
+					}
+					r.setTv(b);
+					
+					System.out.println("Does the room have a WiFi? (y/n)");
+					j = in.nextLine();
+					if(j.equalsIgnoreCase("y")){
+						b = true;
+					}else{
+						b = false;
+					}
+					r.setWifi(b);
+					
+					getIadministration().createRoom(i, r);
 					
 				}else if(operation.equalsIgnoreCase("remove room")){
 					
