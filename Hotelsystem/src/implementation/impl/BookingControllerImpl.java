@@ -2,6 +2,7 @@
  */
 package implementation.impl;
 
+import implementation.BankProvides;
 import implementation.BookingController;
 import implementation.ConferenceRoom;
 import implementation.IProfile;
@@ -30,6 +31,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link implementation.impl.BookingControllerImpl#getModel <em>Model</em>}</li>
  *   <li>{@link implementation.impl.BookingControllerImpl#getIprofile <em>Iprofile</em>}</li>
+ *   <li>{@link implementation.impl.BookingControllerImpl#getBankprovides <em>Bankprovides</em>}</li>
  * </ul>
  *
  * @generated
@@ -54,6 +56,16 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected IProfile iprofile;
+
+	/**
+	 * The cached value of the '{@link #getBankprovides() <em>Bankprovides</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBankprovides()
+	 * @generated
+	 * @ordered
+	 */
+	protected BankProvides bankprovides;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -153,8 +165,53 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+<<<<<<< HEAD
 	public void selectExtras(String extrasList) {
 		
+=======
+	public BankProvides getBankprovides() {
+		if (bankprovides != null && bankprovides.eIsProxy()) {
+			InternalEObject oldBankprovides = (InternalEObject)bankprovides;
+			bankprovides = (BankProvides)eResolveProxy(oldBankprovides);
+			if (bankprovides != oldBankprovides) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImplementationPackage.BOOKING_CONTROLLER__BANKPROVIDES, oldBankprovides, bankprovides));
+			}
+		}
+		return bankprovides;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BankProvides basicGetBankprovides() {
+		return bankprovides;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBankprovides(BankProvides newBankprovides) {
+		BankProvides oldBankprovides = bankprovides;
+		bankprovides = newBankprovides;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.BOOKING_CONTROLLER__BANKPROVIDES, oldBankprovides, bankprovides));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void selectExtras(String extrasList, int reservationId) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+>>>>>>> 20338488cdd3d8f4e3eb838dea094a2a012de096
 	}
 
 	/**
@@ -374,6 +431,9 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			case ImplementationPackage.BOOKING_CONTROLLER__IPROFILE:
 				if (resolve) return getIprofile();
 				return basicGetIprofile();
+			case ImplementationPackage.BOOKING_CONTROLLER__BANKPROVIDES:
+				if (resolve) return getBankprovides();
+				return basicGetBankprovides();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -390,6 +450,9 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 				return;
 			case ImplementationPackage.BOOKING_CONTROLLER__IPROFILE:
 				setIprofile((IProfile)newValue);
+				return;
+			case ImplementationPackage.BOOKING_CONTROLLER__BANKPROVIDES:
+				setBankprovides((BankProvides)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -408,6 +471,9 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			case ImplementationPackage.BOOKING_CONTROLLER__IPROFILE:
 				setIprofile((IProfile)null);
 				return;
+			case ImplementationPackage.BOOKING_CONTROLLER__BANKPROVIDES:
+				setBankprovides((BankProvides)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -423,6 +489,8 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 				return model != null;
 			case ImplementationPackage.BOOKING_CONTROLLER__IPROFILE:
 				return iprofile != null;
+			case ImplementationPackage.BOOKING_CONTROLLER__BANKPROVIDES:
+				return bankprovides != null;
 		}
 		return super.eIsSet(featureID);
 	}

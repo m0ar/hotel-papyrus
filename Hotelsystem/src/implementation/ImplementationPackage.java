@@ -64,7 +64,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @see implementation.impl.ImplementationPackageImpl#getIBooking()
 	 * @generated
 	 */
-	int IBOOKING = 17;
+	int IBOOKING = 18;
 
 	/**
 	 * The number of structural features of the '<em>IBooking</em>' class.
@@ -104,13 +104,22 @@ public interface ImplementationPackage extends EPackage {
 	int BOOKING_CONTROLLER__IPROFILE = IBOOKING_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Bankprovides</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_CONTROLLER__BANKPROVIDES = IBOOKING_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Booking Controller</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_CONTROLLER_FEATURE_COUNT = IBOOKING_FEATURE_COUNT + 2;
+	int BOOKING_CONTROLLER_FEATURE_COUNT = IBOOKING_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link implementation.impl.ModelImpl <em>Model</em>}' class.
@@ -1025,7 +1034,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @see implementation.impl.ImplementationPackageImpl#getIAdministration()
 	 * @generated
 	 */
-	int IADMINISTRATION = 19;
+	int IADMINISTRATION = 20;
 
 	/**
 	 * The meta object id for the '{@link implementation.impl.AdminControllerImpl <em>Admin Controller</em>}' class.
@@ -1035,7 +1044,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @see implementation.impl.ImplementationPackageImpl#getAdminController()
 	 * @generated
 	 */
-	int ADMIN_CONTROLLER = 18;
+	int ADMIN_CONTROLLER = 19;
 
 	/**
 	 * The meta object id for the '{@link implementation.BankProvides <em>Bank Provides</em>}' class.
@@ -1045,7 +1054,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @see implementation.impl.ImplementationPackageImpl#getBankProvides()
 	 * @generated
 	 */
-	int BANK_PROVIDES = 22;
+	int BANK_PROVIDES = 17;
 
 	/**
 	 * The meta object id for the '{@link implementation.impl.ModelFactoryImpl <em>Model Factory</em>}' class.
@@ -1055,7 +1064,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @see implementation.impl.ImplementationPackageImpl#getModelFactory()
 	 * @generated
 	 */
-	int MODEL_FACTORY = 20;
+	int MODEL_FACTORY = 21;
 
 	/**
 	 * The meta object id for the '{@link implementation.impl.MainImpl <em>Main</em>}' class.
@@ -1065,7 +1074,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @see implementation.impl.ImplementationPackageImpl#getMain()
 	 * @generated
 	 */
-	int MAIN = 21;
+	int MAIN = 22;
 
 	/**
 	 * The meta object id for the '{@link implementation.impl.BankImpl <em>Bank</em>}' class.
@@ -1143,6 +1152,15 @@ public interface ImplementationPackage extends EPackage {
 	int PROFILE_HANDLER_FEATURE_COUNT = IPROFILE_FEATURE_COUNT + 1;
 
 	/**
+	 * The number of structural features of the '<em>Bank Provides</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BANK_PROVIDES_FEATURE_COUNT = 0;
+
+	/**
 	 * The number of structural features of the '<em>IAdministration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1161,13 +1179,22 @@ public interface ImplementationPackage extends EPackage {
 	int ADMIN_CONTROLLER__MODEL = IADMINISTRATION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Bankprovides</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER__BANKPROVIDES = IADMINISTRATION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Admin Controller</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADMIN_CONTROLLER_FEATURE_COUNT = IADMINISTRATION_FEATURE_COUNT + 1;
+	int ADMIN_CONTROLLER_FEATURE_COUNT = IADMINISTRATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Model Factory</em>' class.
@@ -1197,22 +1224,13 @@ public interface ImplementationPackage extends EPackage {
 	int MAIN__IBOOKING = 1;
 
 	/**
-	 * The feature id for the '<em><b>Bankprovides</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAIN__BANKPROVIDES = 2;
-
-	/**
 	 * The feature id for the '<em><b>Iprofile</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAIN__IPROFILE = 3;
+	int MAIN__IPROFILE = 2;
 
 	/**
 	 * The number of structural features of the '<em>Main</em>' class.
@@ -1221,16 +1239,7 @@ public interface ImplementationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAIN_FEATURE_COUNT = 4;
-
-	/**
-	 * The number of structural features of the '<em>Bank Provides</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BANK_PROVIDES_FEATURE_COUNT = 0;
+	int MAIN_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of structural features of the '<em>Bank</em>' class.
@@ -1303,6 +1312,17 @@ public interface ImplementationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBookingController_Iprofile();
+
+	/**
+	 * Returns the meta object for the reference '{@link implementation.BookingController#getBankprovides <em>Bankprovides</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Bankprovides</em>'.
+	 * @see implementation.BookingController#getBankprovides()
+	 * @see #getBookingController()
+	 * @generated
+	 */
+	EReference getBookingController_Bankprovides();
 
 	/**
 	 * Returns the meta object for class '{@link implementation.Model <em>Model</em>}'.
@@ -2103,6 +2123,17 @@ public interface ImplementationPackage extends EPackage {
 	EReference getAdminController_Model();
 
 	/**
+	 * Returns the meta object for the reference '{@link implementation.AdminController#getBankprovides <em>Bankprovides</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Bankprovides</em>'.
+	 * @see implementation.AdminController#getBankprovides()
+	 * @see #getAdminController()
+	 * @generated
+	 */
+	EReference getAdminController_Bankprovides();
+
+	/**
 	 * Returns the meta object for class '{@link implementation.BankProvides <em>Bank Provides</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2163,17 +2194,6 @@ public interface ImplementationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMain_Ibooking();
-
-	/**
-	 * Returns the meta object for the reference '{@link implementation.Main#getBankprovides <em>Bankprovides</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Bankprovides</em>'.
-	 * @see implementation.Main#getBankprovides()
-	 * @see #getMain()
-	 * @generated
-	 */
-	EReference getMain_Bankprovides();
 
 	/**
 	 * Returns the meta object for the reference '{@link implementation.Main#getIprofile <em>Iprofile</em>}'.
@@ -2315,6 +2335,14 @@ public interface ImplementationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BOOKING_CONTROLLER__IPROFILE = eINSTANCE.getBookingController_Iprofile();
+
+		/**
+		 * The meta object literal for the '<em><b>Bankprovides</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOKING_CONTROLLER__BANKPROVIDES = eINSTANCE.getBookingController_Bankprovides();
 
 		/**
 		 * The meta object literal for the '{@link implementation.impl.ModelImpl <em>Model</em>}' class.
@@ -2941,6 +2969,14 @@ public interface ImplementationPackage extends EPackage {
 		EReference ADMIN_CONTROLLER__MODEL = eINSTANCE.getAdminController_Model();
 
 		/**
+		 * The meta object literal for the '<em><b>Bankprovides</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ADMIN_CONTROLLER__BANKPROVIDES = eINSTANCE.getAdminController_Bankprovides();
+
+		/**
 		 * The meta object literal for the '{@link implementation.BankProvides <em>Bank Provides</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2995,14 +3031,6 @@ public interface ImplementationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MAIN__IBOOKING = eINSTANCE.getMain_Ibooking();
-
-		/**
-		 * The meta object literal for the '<em><b>Bankprovides</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MAIN__BANKPROVIDES = eINSTANCE.getMain_Bankprovides();
 
 		/**
 		 * The meta object literal for the '<em><b>Iprofile</b></em>' reference feature.

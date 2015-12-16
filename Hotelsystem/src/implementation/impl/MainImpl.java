@@ -2,7 +2,6 @@
  */
 package implementation.impl;
 
-import implementation.BankProvides;
 import implementation.Bill;
 import implementation.IAdministration;
 import implementation.IBooking;
@@ -10,12 +9,12 @@ import implementation.IProfile;
 import implementation.ImplementationPackage;
 import implementation.Main;
 import implementation.RoomStatus;
+import implementation.RoomType;
 import implementation.impl.BookingControllerImpl.Tuple;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
@@ -38,7 +37,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link implementation.impl.MainImpl#getIadministration <em>Iadministration</em>}</li>
  *   <li>{@link implementation.impl.MainImpl#getIbooking <em>Ibooking</em>}</li>
- *   <li>{@link implementation.impl.MainImpl#getBankprovides <em>Bankprovides</em>}</li>
  *   <li>{@link implementation.impl.MainImpl#getIprofile <em>Iprofile</em>}</li>
  * </ul>
  *
@@ -64,16 +62,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	 * @ordered
 	 */
 	protected IBooking ibooking;
-
-	/**
-	 * The cached value of the '{@link #getBankprovides() <em>Bankprovides</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBankprovides()
-	 * @generated
-	 * @ordered
-	 */
-	protected BankProvides bankprovides;
 
 	/**
 	 * The cached value of the '{@link #getIprofile() <em>Iprofile</em>}' reference.
@@ -177,44 +165,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		ibooking = newIbooking;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.MAIN__IBOOKING, oldIbooking, ibooking));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BankProvides getBankprovides() {
-		if (bankprovides != null && bankprovides.eIsProxy()) {
-			InternalEObject oldBankprovides = (InternalEObject)bankprovides;
-			bankprovides = (BankProvides)eResolveProxy(oldBankprovides);
-			if (bankprovides != oldBankprovides) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImplementationPackage.MAIN__BANKPROVIDES, oldBankprovides, bankprovides));
-			}
-		}
-		return bankprovides;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BankProvides basicGetBankprovides() {
-		return bankprovides;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBankprovides(BankProvides newBankprovides) {
-		BankProvides oldBankprovides = bankprovides;
-		bankprovides = newBankprovides;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.MAIN__BANKPROVIDES, oldBankprovides, bankprovides));
 	}
 
 	/**
@@ -551,6 +501,79 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				}else if(operation.equalsIgnoreCase("remove customer")){
 					
 				}else if(operation.equalsIgnoreCase("create room")){
+					RoomType r = new RoomTypeImpl();
+					Boolean b = false;
+					System.out.println("Enter roomID");
+					int i = in.nextInt();
+					
+					System.out.println("Is it an existing room type?");
+					in.nextLine();
+					String j = in.nextLine();
+					if(j.equalsIgnoreCase("y")){
+						System.out.println("What room type is it? (Single room / Double Room / Suit");
+						j = in.nextLine();
+						r = model.getRoomType(name);					
+					}
+					
+					System.out.println("Enter room type name");
+					String name = in.nextLine();
+					r.setName(name);
+					
+					System.out.println("Add a description of the room.");
+					String d = in.nextLine();
+					r.setDescription(d);
+					
+					System.out.println("Does it have a balcony? (y/n)");
+					j = in.nextLine();
+					if(j.equalsIgnoreCase("y")){
+						b = true;
+					}else{
+						b = false;
+					}
+					r.setBalcony(b);
+
+					System.out.println("Enter the maximum number of extra beds in the room");
+					int n = in.nextInt();
+					r.setMaxNbrOfExtraBeds(n);
+					
+					System.out.println("Does the room have a minibar? (y/n)");
+					in.nextLine();
+					j = in.nextLine();
+					if(j.equalsIgnoreCase("y")){
+						b = true;
+					}else{
+						b = false;
+					}
+					r.setMiniBar(b);
+					
+					System.out.println("Is it nonsmoking? (y/n)");
+					j = in.nextLine();
+					if(j.equalsIgnoreCase("y")){
+						b = true;
+					}else{
+						b = false;
+					}
+					r.setNonSmoking(b);
+					
+					System.out.println("Does the room have a TV? (y/n)");
+					j = in.nextLine();
+					if(j.equalsIgnoreCase("y")){
+						b = true;
+					}else{
+						b = false;
+					}
+					r.setTv(b);
+					
+					System.out.println("Does the room have a WiFi? (y/n)");
+					j = in.nextLine();
+					if(j.equalsIgnoreCase("y")){
+						b = true;
+					}else{
+						b = false;
+					}
+					r.setWifi(b);
+					
+					getIadministration().createRoom(i, r);
 					
 				}else if(operation.equalsIgnoreCase("remove room")){
 					
@@ -709,9 +732,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			case ImplementationPackage.MAIN__IBOOKING:
 				if (resolve) return getIbooking();
 				return basicGetIbooking();
-			case ImplementationPackage.MAIN__BANKPROVIDES:
-				if (resolve) return getBankprovides();
-				return basicGetBankprovides();
 			case ImplementationPackage.MAIN__IPROFILE:
 				if (resolve) return getIprofile();
 				return basicGetIprofile();
@@ -731,9 +751,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				return;
 			case ImplementationPackage.MAIN__IBOOKING:
 				setIbooking((IBooking)newValue);
-				return;
-			case ImplementationPackage.MAIN__BANKPROVIDES:
-				setBankprovides((BankProvides)newValue);
 				return;
 			case ImplementationPackage.MAIN__IPROFILE:
 				setIprofile((IProfile)newValue);
@@ -755,9 +772,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			case ImplementationPackage.MAIN__IBOOKING:
 				setIbooking((IBooking)null);
 				return;
-			case ImplementationPackage.MAIN__BANKPROVIDES:
-				setBankprovides((BankProvides)null);
-				return;
 			case ImplementationPackage.MAIN__IPROFILE:
 				setIprofile((IProfile)null);
 				return;
@@ -776,8 +790,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				return iadministration != null;
 			case ImplementationPackage.MAIN__IBOOKING:
 				return ibooking != null;
-			case ImplementationPackage.MAIN__BANKPROVIDES:
-				return bankprovides != null;
 			case ImplementationPackage.MAIN__IPROFILE:
 				return iprofile != null;
 		}
