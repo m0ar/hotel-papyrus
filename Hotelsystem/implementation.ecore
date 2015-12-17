@@ -22,7 +22,7 @@
     <eOperations name="getRoomType" ordered="false" lowerBound="1" eType="#//RoomType">
       <eParameters name="name" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="roomtype" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roomtypes" ordered="false"
         upperBound="-1" eType="#//RoomType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="room" ordered="false" upperBound="-1"
         eType="#//Room"/>
@@ -30,7 +30,7 @@
         ordered="false" upperBound="-1" eType="#//ConferenceRoomBooking"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="roombooking" ordered="false"
         upperBound="-1" eType="#//RoomBooking"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="key" ordered="false" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="keys" ordered="false" upperBound="-1"
         eType="#//Key"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="conferenceroom" ordered="false"
         upperBound="-1" eType="#//ConferenceRoom"/>
@@ -57,7 +57,7 @@
         lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxNbrOfExtraBeds" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bed" ordered="false" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="beds" ordered="false" lowerBound="1"
         upperBound="-1" eType="#//Bed"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Bed">
@@ -74,13 +74,13 @@
         lowerBound="1" eType="#//RoomStatus"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="roomtype" ordered="false"
         lowerBound="1" eType="#//RoomType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bill" ordered="false" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Tab" ordered="false" lowerBound="1"
         upperBound="-1" eType="#//Bill"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="roomissue" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roomissues" ordered="false"
         upperBound="-1" eType="#//RoomIssue"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="guest" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guests" ordered="false"
         upperBound="-1" eType="#//Guest"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="key" ordered="false" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="keys" ordered="false" upperBound="-1"
         eType="#//Key"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="RoomStatus">
@@ -139,20 +139,34 @@
         lowerBound="1" eType="ecore:EDataType types.ecore#//Real"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pension" ordered="false"
         lowerBound="1" eType="#//PensionType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="roomtype" ordered="false"
-        lowerBound="1" upperBound="-1" eType="#//RoomType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="guest" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chosenroomtypes" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//RoomType">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="chosen roomtypes"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guests" ordered="false"
         lowerBound="1" upperBound="-1" eType="#//Guest"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="room" ordered="false" lowerBound="1"
         upperBound="-1" eType="#//Room"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rentPayed" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customer" ordered="false"
+        lowerBound="1" eType="#//Customer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PensionType">
     <eLiterals name="HalfPension"/>
     <eLiterals name="FullPension" value="1"/>
     <eLiterals name="Breakfast" value="2"/>
     <eLiterals name="None" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Customer" eSuperTypes="#//Person">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="phoneNbr" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="member" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConferenceRoom">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false" lowerBound="1"
@@ -163,16 +177,6 @@
         lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="equipment" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Customer" eSuperTypes="#//Person">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" ordered="false"
-        lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="phoneNbr" ordered="false"
-        lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="member" ordered="false"
-        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="roombooking" ordered="false"
-        upperBound="-1" eType="#//RoomBooking"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IProfile" abstract="true" interface="true">
     <eOperations name="editInformation" ordered="false" lowerBound="1">
@@ -259,7 +263,7 @@
         lowerBound="1" eType="#//BankProvides"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IAdministration" abstract="true" interface="true">
-    <eOperations name="checkIn" ordered="false" lowerBound="1" eType="#//Room">
+    <eOperations name="checkIn" ordered="false" lowerBound="1" upperBound="-1" eType="#//Room">
       <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
     <eOperations name="bookConferenceRoom" ordered="false" lowerBound="1">

@@ -2,6 +2,7 @@
  */
 package implementation.impl;
 
+import implementation.Customer;
 import implementation.Guest;
 import implementation.ImplementationPackage;
 import implementation.PensionType;
@@ -17,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -31,10 +33,11 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  *   <li>{@link implementation.impl.RoomBookingImpl#getDeposit <em>Deposit</em>}</li>
  *   <li>{@link implementation.impl.RoomBookingImpl#getPension <em>Pension</em>}</li>
- *   <li>{@link implementation.impl.RoomBookingImpl#getRoomtype <em>Roomtype</em>}</li>
- *   <li>{@link implementation.impl.RoomBookingImpl#getGuest <em>Guest</em>}</li>
+ *   <li>{@link implementation.impl.RoomBookingImpl#getChosenroomtypes <em>Chosenroomtypes</em>}</li>
+ *   <li>{@link implementation.impl.RoomBookingImpl#getGuests <em>Guests</em>}</li>
  *   <li>{@link implementation.impl.RoomBookingImpl#getRoom <em>Room</em>}</li>
  *   <li>{@link implementation.impl.RoomBookingImpl#isRentPayed <em>Rent Payed</em>}</li>
+ *   <li>{@link implementation.impl.RoomBookingImpl#getCustomer <em>Customer</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,24 +84,24 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 	protected PensionType pension = PENSION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRoomtype() <em>Roomtype</em>}' reference list.
+	 * The cached value of the '{@link #getChosenroomtypes() <em>Chosenroomtypes</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRoomtype()
+	 * @see #getChosenroomtypes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList roomtype;
+	protected EList chosenroomtypes;
 
 	/**
-	 * The cached value of the '{@link #getGuest() <em>Guest</em>}' reference list.
+	 * The cached value of the '{@link #getGuests() <em>Guests</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGuest()
+	 * @see #getGuests()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList guest;
+	protected EList guests;
 
 	/**
 	 * The cached value of the '{@link #getRoom() <em>Room</em>}' reference list.
@@ -129,6 +132,16 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 	 * @ordered
 	 */
 	protected boolean rentPayed = RENT_PAYED_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCustomer() <em>Customer</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCustomer()
+	 * @generated
+	 * @ordered
+	 */
+	protected Customer customer;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -195,11 +208,11 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getRoomtype() {
-		if (roomtype == null) {
-			roomtype = new EObjectResolvingEList(RoomType.class, this, ImplementationPackage.ROOM_BOOKING__ROOMTYPE);
+	public EList getChosenroomtypes() {
+		if (chosenroomtypes == null) {
+			chosenroomtypes = new EObjectResolvingEList(RoomType.class, this, ImplementationPackage.ROOM_BOOKING__CHOSENROOMTYPES);
 		}
-		return roomtype;
+		return chosenroomtypes;
 	}
 
 	/**
@@ -207,11 +220,11 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getGuest() {
-		if (guest == null) {
-			guest = new EObjectResolvingEList(Guest.class, this, ImplementationPackage.ROOM_BOOKING__GUEST);
+	public EList getGuests() {
+		if (guests == null) {
+			guests = new EObjectResolvingEList(Guest.class, this, ImplementationPackage.ROOM_BOOKING__GUESTS);
 		}
-		return guest;
+		return guests;
 	}
 
 	/**
@@ -252,20 +265,61 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Customer getCustomer() {
+		if (customer != null && customer.eIsProxy()) {
+			InternalEObject oldCustomer = (InternalEObject)customer;
+			customer = (Customer)eResolveProxy(oldCustomer);
+			if (customer != oldCustomer) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImplementationPackage.ROOM_BOOKING__CUSTOMER, oldCustomer, customer));
+			}
+		}
+		return customer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Customer basicGetCustomer() {
+		return customer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCustomer(Customer newCustomer) {
+		Customer oldCustomer = customer;
+		customer = newCustomer;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.ROOM_BOOKING__CUSTOMER, oldCustomer, customer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ImplementationPackage.ROOM_BOOKING__DEPOSIT:
 				return new Double(getDeposit());
 			case ImplementationPackage.ROOM_BOOKING__PENSION:
 				return getPension();
-			case ImplementationPackage.ROOM_BOOKING__ROOMTYPE:
-				return getRoomtype();
-			case ImplementationPackage.ROOM_BOOKING__GUEST:
-				return getGuest();
+			case ImplementationPackage.ROOM_BOOKING__CHOSENROOMTYPES:
+				return getChosenroomtypes();
+			case ImplementationPackage.ROOM_BOOKING__GUESTS:
+				return getGuests();
 			case ImplementationPackage.ROOM_BOOKING__ROOM:
 				return getRoom();
 			case ImplementationPackage.ROOM_BOOKING__RENT_PAYED:
 				return isRentPayed() ? Boolean.TRUE : Boolean.FALSE;
+			case ImplementationPackage.ROOM_BOOKING__CUSTOMER:
+				if (resolve) return getCustomer();
+				return basicGetCustomer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -283,13 +337,13 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 			case ImplementationPackage.ROOM_BOOKING__PENSION:
 				setPension((PensionType)newValue);
 				return;
-			case ImplementationPackage.ROOM_BOOKING__ROOMTYPE:
-				getRoomtype().clear();
-				getRoomtype().addAll((Collection)newValue);
+			case ImplementationPackage.ROOM_BOOKING__CHOSENROOMTYPES:
+				getChosenroomtypes().clear();
+				getChosenroomtypes().addAll((Collection)newValue);
 				return;
-			case ImplementationPackage.ROOM_BOOKING__GUEST:
-				getGuest().clear();
-				getGuest().addAll((Collection)newValue);
+			case ImplementationPackage.ROOM_BOOKING__GUESTS:
+				getGuests().clear();
+				getGuests().addAll((Collection)newValue);
 				return;
 			case ImplementationPackage.ROOM_BOOKING__ROOM:
 				getRoom().clear();
@@ -297,6 +351,9 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 				return;
 			case ImplementationPackage.ROOM_BOOKING__RENT_PAYED:
 				setRentPayed(((Boolean)newValue).booleanValue());
+				return;
+			case ImplementationPackage.ROOM_BOOKING__CUSTOMER:
+				setCustomer((Customer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -315,17 +372,20 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 			case ImplementationPackage.ROOM_BOOKING__PENSION:
 				setPension(PENSION_EDEFAULT);
 				return;
-			case ImplementationPackage.ROOM_BOOKING__ROOMTYPE:
-				getRoomtype().clear();
+			case ImplementationPackage.ROOM_BOOKING__CHOSENROOMTYPES:
+				getChosenroomtypes().clear();
 				return;
-			case ImplementationPackage.ROOM_BOOKING__GUEST:
-				getGuest().clear();
+			case ImplementationPackage.ROOM_BOOKING__GUESTS:
+				getGuests().clear();
 				return;
 			case ImplementationPackage.ROOM_BOOKING__ROOM:
 				getRoom().clear();
 				return;
 			case ImplementationPackage.ROOM_BOOKING__RENT_PAYED:
 				setRentPayed(RENT_PAYED_EDEFAULT);
+				return;
+			case ImplementationPackage.ROOM_BOOKING__CUSTOMER:
+				setCustomer((Customer)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -342,14 +402,16 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 				return deposit != DEPOSIT_EDEFAULT;
 			case ImplementationPackage.ROOM_BOOKING__PENSION:
 				return pension != PENSION_EDEFAULT;
-			case ImplementationPackage.ROOM_BOOKING__ROOMTYPE:
-				return roomtype != null && !roomtype.isEmpty();
-			case ImplementationPackage.ROOM_BOOKING__GUEST:
-				return guest != null && !guest.isEmpty();
+			case ImplementationPackage.ROOM_BOOKING__CHOSENROOMTYPES:
+				return chosenroomtypes != null && !chosenroomtypes.isEmpty();
+			case ImplementationPackage.ROOM_BOOKING__GUESTS:
+				return guests != null && !guests.isEmpty();
 			case ImplementationPackage.ROOM_BOOKING__ROOM:
 				return room != null && !room.isEmpty();
 			case ImplementationPackage.ROOM_BOOKING__RENT_PAYED:
 				return rentPayed != RENT_PAYED_EDEFAULT;
+			case ImplementationPackage.ROOM_BOOKING__CUSTOMER:
+				return customer != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -663,7 +663,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	private void initModel(ModelImpl model){
 		EList roomTypes = initRoomTypes();
 		EList rooms = initRooms(roomTypes);
-		model.getRoomtype().addAll(roomTypes);
+		model.getRoomtypes().addAll(roomTypes);
 		model.getRoom().addAll(rooms);
 		
 	}
@@ -699,7 +699,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		BedImpl singleBed = new BedImpl();
 		singleBed.setNbrOfSpots(1);
 		singleBed.setType("Single bed");
-		type1.getBed().add(singleBed);
+		type1.getBeds().add(singleBed);
 		
 		
 		RoomTypeImpl type2 = new RoomTypeImpl();
@@ -715,7 +715,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		BedImpl doubleBed = new BedImpl();
 		doubleBed.setNbrOfSpots(2);
 		doubleBed.setType("Double bed");
-		type1.getBed().add(doubleBed);		
+		type1.getBeds().add(doubleBed);		
 
 		RoomTypeImpl type3 = new RoomTypeImpl();
 		type3.setBalcony(true);
@@ -727,7 +727,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		type3.setPrice(1500);
 		type3.setTv(true);
 		type3.setWifi(true);
-		type3.getBed().add(doubleBed);
+		type3.getBeds().add(doubleBed);
 		roomTypes.add(type1);
 		roomTypes.add(type2);
 		roomTypes.add(type3);

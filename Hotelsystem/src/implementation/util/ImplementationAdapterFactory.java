@@ -105,11 +105,11 @@ public class ImplementationAdapterFactory extends AdapterFactoryImpl {
 			public Object caseRoomBooking(RoomBooking object) {
 				return createRoomBookingAdapter();
 			}
-			public Object caseConferenceRoom(ConferenceRoom object) {
-				return createConferenceRoomAdapter();
-			}
 			public Object caseCustomer(Customer object) {
 				return createCustomerAdapter();
+			}
+			public Object caseConferenceRoom(ConferenceRoom object) {
+				return createConferenceRoomAdapter();
 			}
 			public Object caseIProfile(IProfile object) {
 				return createIProfileAdapter();

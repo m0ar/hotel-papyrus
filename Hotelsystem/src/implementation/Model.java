@@ -15,11 +15,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link implementation.Model#getRoomtype <em>Roomtype</em>}</li>
+ *   <li>{@link implementation.Model#getRoomtypes <em>Roomtypes</em>}</li>
  *   <li>{@link implementation.Model#getRoom <em>Room</em>}</li>
  *   <li>{@link implementation.Model#getConferenceroombooking <em>Conferenceroombooking</em>}</li>
  *   <li>{@link implementation.Model#getRoombooking <em>Roombooking</em>}</li>
- *   <li>{@link implementation.Model#getKey <em>Key</em>}</li>
+ *   <li>{@link implementation.Model#getKeys <em>Keys</em>}</li>
  *   <li>{@link implementation.Model#getConferenceroom <em>Conferenceroom</em>}</li>
  *   <li>{@link implementation.Model#getCustomer <em>Customer</em>}</li>
  * </ul>
@@ -30,20 +30,20 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Model extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Roomtype</b></em>' reference list.
+	 * Returns the value of the '<em><b>Roomtypes</b></em>' reference list.
 	 * The list contents are of type {@link implementation.RoomType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Roomtype</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Roomtypes</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Roomtype</em>' reference list.
-	 * @see implementation.ImplementationPackage#getModel_Roomtype()
+	 * @return the value of the '<em>Roomtypes</em>' reference list.
+	 * @see implementation.ImplementationPackage#getModel_Roomtypes()
 	 * @model type="implementation.RoomType" ordered="false"
 	 * @generated
 	 */
-	EList getRoomtype();
+	EList getRoomtypes();
 
 	/**
 	 * Returns the value of the '<em><b>Room</b></em>' reference list.
@@ -94,20 +94,20 @@ public interface Model extends EObject {
 	EList getRoombooking();
 
 	/**
-	 * Returns the value of the '<em><b>Key</b></em>' reference list.
+	 * Returns the value of the '<em><b>Keys</b></em>' reference list.
 	 * The list contents are of type {@link implementation.Key}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Key</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Keys</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Key</em>' reference list.
-	 * @see implementation.ImplementationPackage#getModel_Key()
+	 * @return the value of the '<em>Keys</em>' reference list.
+	 * @see implementation.ImplementationPackage#getModel_Keys()
 	 * @model type="implementation.Key" ordered="false"
 	 * @generated
 	 */
-	EList getKey();
+	EList getKeys();
 
 	/**
 	 * Returns the value of the '<em><b>Conferenceroom</b></em>' reference list.

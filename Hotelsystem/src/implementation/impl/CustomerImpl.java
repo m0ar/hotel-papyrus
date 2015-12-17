@@ -4,19 +4,10 @@ package implementation.impl;
 
 import implementation.Customer;
 import implementation.ImplementationPackage;
-import implementation.RoomBooking;
-
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +20,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link implementation.impl.CustomerImpl#getAddress <em>Address</em>}</li>
  *   <li>{@link implementation.impl.CustomerImpl#getPhoneNbr <em>Phone Nbr</em>}</li>
  *   <li>{@link implementation.impl.CustomerImpl#isMember <em>Member</em>}</li>
- *   <li>{@link implementation.impl.CustomerImpl#getRoombooking <em>Roombooking</em>}</li>
  * </ul>
  *
  * @generated
@@ -94,16 +84,6 @@ public class CustomerImpl extends PersonImpl implements Customer {
 	 * @ordered
 	 */
 	protected boolean member = MEMBER_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getRoombooking() <em>Roombooking</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRoombooking()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList roombooking;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -191,18 +171,6 @@ public class CustomerImpl extends PersonImpl implements Customer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getRoombooking() {
-		if (roombooking == null) {
-			roombooking = new EObjectResolvingEList(RoomBooking.class, this, ImplementationPackage.CUSTOMER__ROOMBOOKING);
-		}
-		return roombooking;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ImplementationPackage.CUSTOMER__ADDRESS:
@@ -211,8 +179,6 @@ public class CustomerImpl extends PersonImpl implements Customer {
 				return getPhoneNbr();
 			case ImplementationPackage.CUSTOMER__MEMBER:
 				return isMember() ? Boolean.TRUE : Boolean.FALSE;
-			case ImplementationPackage.CUSTOMER__ROOMBOOKING:
-				return getRoombooking();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -232,10 +198,6 @@ public class CustomerImpl extends PersonImpl implements Customer {
 				return;
 			case ImplementationPackage.CUSTOMER__MEMBER:
 				setMember(((Boolean)newValue).booleanValue());
-				return;
-			case ImplementationPackage.CUSTOMER__ROOMBOOKING:
-				getRoombooking().clear();
-				getRoombooking().addAll((Collection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -257,9 +219,6 @@ public class CustomerImpl extends PersonImpl implements Customer {
 			case ImplementationPackage.CUSTOMER__MEMBER:
 				setMember(MEMBER_EDEFAULT);
 				return;
-			case ImplementationPackage.CUSTOMER__ROOMBOOKING:
-				getRoombooking().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -277,8 +236,6 @@ public class CustomerImpl extends PersonImpl implements Customer {
 				return PHONE_NBR_EDEFAULT == null ? phoneNbr != null : !PHONE_NBR_EDEFAULT.equals(phoneNbr);
 			case ImplementationPackage.CUSTOMER__MEMBER:
 				return member != MEMBER_EDEFAULT;
-			case ImplementationPackage.CUSTOMER__ROOMBOOKING:
-				return roombooking != null && !roombooking.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -250,6 +250,9 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="_uzBEEZy-EeWApNmM4_vwcg"/>
       </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_MxXZAKTUEeWufoslkdDngA" name="rooms" direction="return">
+        <type xmi:type="uml:Class" href="implementation.uml#_r01s4JwoEeWs7qnn26dFxw"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_pxo3QJgQEeWZP4jCg9EHDw" name="checkOut">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_j9fPgJy_EeWApNmM4_vwcg" name="bookingID">

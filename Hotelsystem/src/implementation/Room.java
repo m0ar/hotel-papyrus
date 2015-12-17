@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link implementation.Room#getNumber <em>Number</em>}</li>
  *   <li>{@link implementation.Room#getStatus <em>Status</em>}</li>
  *   <li>{@link implementation.Room#getRoomtype <em>Roomtype</em>}</li>
- *   <li>{@link implementation.Room#getBill <em>Bill</em>}</li>
- *   <li>{@link implementation.Room#getRoomissue <em>Roomissue</em>}</li>
- *   <li>{@link implementation.Room#getGuest <em>Guest</em>}</li>
- *   <li>{@link implementation.Room#getKey <em>Key</em>}</li>
+ *   <li>{@link implementation.Room#getTab <em>Tab</em>}</li>
+ *   <li>{@link implementation.Room#getRoomissues <em>Roomissues</em>}</li>
+ *   <li>{@link implementation.Room#getGuests <em>Guests</em>}</li>
+ *   <li>{@link implementation.Room#getKeys <em>Keys</em>}</li>
  * </ul>
  *
  * @see implementation.ImplementationPackage#getRoom()
@@ -111,68 +111,68 @@ public interface Room extends EObject {
 	void setRoomtype(RoomType value);
 
 	/**
-	 * Returns the value of the '<em><b>Bill</b></em>' reference list.
+	 * Returns the value of the '<em><b>Tab</b></em>' reference list.
 	 * The list contents are of type {@link implementation.Bill}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Bill</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Tab</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Bill</em>' reference list.
-	 * @see implementation.ImplementationPackage#getRoom_Bill()
+	 * @return the value of the '<em>Tab</em>' reference list.
+	 * @see implementation.ImplementationPackage#getRoom_Tab()
 	 * @model type="implementation.Bill" required="true" ordered="false"
 	 * @generated
 	 */
-	EList getBill();
+	EList getTab();
 
 	/**
-	 * Returns the value of the '<em><b>Roomissue</b></em>' reference list.
+	 * Returns the value of the '<em><b>Roomissues</b></em>' reference list.
 	 * The list contents are of type {@link implementation.RoomIssue}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Roomissue</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Roomissues</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Roomissue</em>' reference list.
-	 * @see implementation.ImplementationPackage#getRoom_Roomissue()
+	 * @return the value of the '<em>Roomissues</em>' reference list.
+	 * @see implementation.ImplementationPackage#getRoom_Roomissues()
 	 * @model type="implementation.RoomIssue" ordered="false"
 	 * @generated
 	 */
-	EList getRoomissue();
+	EList getRoomissues();
 
 	/**
-	 * Returns the value of the '<em><b>Guest</b></em>' reference list.
+	 * Returns the value of the '<em><b>Guests</b></em>' reference list.
 	 * The list contents are of type {@link implementation.Guest}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Guest</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Guests</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Guest</em>' reference list.
-	 * @see implementation.ImplementationPackage#getRoom_Guest()
+	 * @return the value of the '<em>Guests</em>' reference list.
+	 * @see implementation.ImplementationPackage#getRoom_Guests()
 	 * @model type="implementation.Guest" ordered="false"
 	 * @generated
 	 */
-	EList getGuest();
+	EList getGuests();
 
 	/**
-	 * Returns the value of the '<em><b>Key</b></em>' reference list.
+	 * Returns the value of the '<em><b>Keys</b></em>' reference list.
 	 * The list contents are of type {@link implementation.Key}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Key</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Keys</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Key</em>' reference list.
-	 * @see implementation.ImplementationPackage#getRoom_Key()
+	 * @return the value of the '<em>Keys</em>' reference list.
+	 * @see implementation.ImplementationPackage#getRoom_Keys()
 	 * @model type="implementation.Key" ordered="false"
 	 * @generated
 	 */
-	EList getKey();
+	EList getKeys();
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -15,10 +15,11 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link implementation.RoomBooking#getDeposit <em>Deposit</em>}</li>
  *   <li>{@link implementation.RoomBooking#getPension <em>Pension</em>}</li>
- *   <li>{@link implementation.RoomBooking#getRoomtype <em>Roomtype</em>}</li>
- *   <li>{@link implementation.RoomBooking#getGuest <em>Guest</em>}</li>
+ *   <li>{@link implementation.RoomBooking#getChosenroomtypes <em>Chosenroomtypes</em>}</li>
+ *   <li>{@link implementation.RoomBooking#getGuests <em>Guests</em>}</li>
  *   <li>{@link implementation.RoomBooking#getRoom <em>Room</em>}</li>
  *   <li>{@link implementation.RoomBooking#isRentPayed <em>Rent Payed</em>}</li>
+ *   <li>{@link implementation.RoomBooking#getCustomer <em>Customer</em>}</li>
  * </ul>
  *
  * @see implementation.ImplementationPackage#getRoomBooking()
@@ -82,36 +83,37 @@ public interface RoomBooking extends Booking {
 	void setPension(PensionType value);
 
 	/**
-	 * Returns the value of the '<em><b>Roomtype</b></em>' reference list.
+	 * Returns the value of the '<em><b>Chosenroomtypes</b></em>' reference list.
 	 * The list contents are of type {@link implementation.RoomType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Roomtype</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Chosenroomtypes</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Roomtype</em>' reference list.
-	 * @see implementation.ImplementationPackage#getRoomBooking_Roomtype()
+	 * @return the value of the '<em>Chosenroomtypes</em>' reference list.
+	 * @see implementation.ImplementationPackage#getRoomBooking_Chosenroomtypes()
 	 * @model type="implementation.RoomType" required="true" ordered="false"
+	 *        annotation="http://www.eclipse.org/uml2/2.0.0/UML originalName='chosen roomtypes'"
 	 * @generated
 	 */
-	EList getRoomtype();
+	EList getChosenroomtypes();
 
 	/**
-	 * Returns the value of the '<em><b>Guest</b></em>' reference list.
+	 * Returns the value of the '<em><b>Guests</b></em>' reference list.
 	 * The list contents are of type {@link implementation.Guest}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Guest</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Guests</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Guest</em>' reference list.
-	 * @see implementation.ImplementationPackage#getRoomBooking_Guest()
+	 * @return the value of the '<em>Guests</em>' reference list.
+	 * @see implementation.ImplementationPackage#getRoomBooking_Guests()
 	 * @model type="implementation.Guest" required="true" ordered="false"
 	 * @generated
 	 */
-	EList getGuest();
+	EList getGuests();
 
 	/**
 	 * Returns the value of the '<em><b>Room</b></em>' reference list.
@@ -154,5 +156,31 @@ public interface RoomBooking extends Booking {
 	 * @generated
 	 */
 	void setRentPayed(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Customer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Customer</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Customer</em>' reference.
+	 * @see #setCustomer(Customer)
+	 * @see implementation.ImplementationPackage#getRoomBooking_Customer()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	Customer getCustomer();
+
+	/**
+	 * Sets the value of the '{@link implementation.RoomBooking#getCustomer <em>Customer</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Customer</em>' reference.
+	 * @see #getCustomer()
+	 * @generated
+	 */
+	void setCustomer(Customer value);
 
 } // RoomBooking

@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link implementation.impl.RoomTypeImpl#isTv <em>Tv</em>}</li>
  *   <li>{@link implementation.impl.RoomTypeImpl#isBalcony <em>Balcony</em>}</li>
  *   <li>{@link implementation.impl.RoomTypeImpl#getMaxNbrOfExtraBeds <em>Max Nbr Of Extra Beds</em>}</li>
- *   <li>{@link implementation.impl.RoomTypeImpl#getBed <em>Bed</em>}</li>
+ *   <li>{@link implementation.impl.RoomTypeImpl#getBeds <em>Beds</em>}</li>
  * </ul>
  *
  * @generated
@@ -223,14 +223,14 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	protected int maxNbrOfExtraBeds = MAX_NBR_OF_EXTRA_BEDS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getBed() <em>Bed</em>}' reference list.
+	 * The cached value of the '{@link #getBeds() <em>Beds</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBed()
+	 * @see #getBeds()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList bed;
+	protected EList beds;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -238,7 +238,7 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	 */
 	protected RoomTypeImpl() {
 		super();
-		bed = new BasicEList();
+		beds = new BasicEList();
 	}
 
 	/**
@@ -444,11 +444,11 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getBed() {
-		if (bed == null) {
-			bed = new EObjectResolvingEList(Bed.class, this, ImplementationPackage.ROOM_TYPE__BED);
+	public EList getBeds() {
+		if (beds == null) {
+			beds = new EObjectResolvingEList(Bed.class, this, ImplementationPackage.ROOM_TYPE__BEDS);
 		}
-		return bed;
+		return beds;
 	}
 
 	/**
@@ -457,8 +457,8 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	 */
 	public int getNbrOfGuests() {
 		int count = 0;
-		for(int i = 0; i < bed.size(); i++)
-			count += ((BedImpl)bed.get(i)).getNbrOfSpots();
+		for(int i = 0; i < beds.size(); i++)
+			count += ((BedImpl)beds.get(i)).getNbrOfSpots();
 		return count + maxNbrOfExtraBeds;
 	}
 
@@ -487,8 +487,8 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 				return isBalcony() ? Boolean.TRUE : Boolean.FALSE;
 			case ImplementationPackage.ROOM_TYPE__MAX_NBR_OF_EXTRA_BEDS:
 				return new Integer(getMaxNbrOfExtraBeds());
-			case ImplementationPackage.ROOM_TYPE__BED:
-				return getBed();
+			case ImplementationPackage.ROOM_TYPE__BEDS:
+				return getBeds();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -527,9 +527,9 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 			case ImplementationPackage.ROOM_TYPE__MAX_NBR_OF_EXTRA_BEDS:
 				setMaxNbrOfExtraBeds(((Integer)newValue).intValue());
 				return;
-			case ImplementationPackage.ROOM_TYPE__BED:
-				getBed().clear();
-				getBed().addAll((Collection)newValue);
+			case ImplementationPackage.ROOM_TYPE__BEDS:
+				getBeds().clear();
+				getBeds().addAll((Collection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -569,8 +569,8 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 			case ImplementationPackage.ROOM_TYPE__MAX_NBR_OF_EXTRA_BEDS:
 				setMaxNbrOfExtraBeds(MAX_NBR_OF_EXTRA_BEDS_EDEFAULT);
 				return;
-			case ImplementationPackage.ROOM_TYPE__BED:
-				getBed().clear();
+			case ImplementationPackage.ROOM_TYPE__BEDS:
+				getBeds().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -601,8 +601,8 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 				return balcony != BALCONY_EDEFAULT;
 			case ImplementationPackage.ROOM_TYPE__MAX_NBR_OF_EXTRA_BEDS:
 				return maxNbrOfExtraBeds != MAX_NBR_OF_EXTRA_BEDS_EDEFAULT;
-			case ImplementationPackage.ROOM_TYPE__BED:
-				return bed != null && !bed.isEmpty();
+			case ImplementationPackage.ROOM_TYPE__BEDS:
+				return beds != null && !beds.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

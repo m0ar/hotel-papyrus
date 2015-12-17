@@ -2,8 +2,6 @@
  */
 package implementation;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Customer</b></em>'.
@@ -16,7 +14,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link implementation.Customer#getAddress <em>Address</em>}</li>
  *   <li>{@link implementation.Customer#getPhoneNbr <em>Phone Nbr</em>}</li>
  *   <li>{@link implementation.Customer#isMember <em>Member</em>}</li>
- *   <li>{@link implementation.Customer#getRoombooking <em>Roombooking</em>}</li>
  * </ul>
  *
  * @see implementation.ImplementationPackage#getCustomer()
@@ -101,21 +98,5 @@ public interface Customer extends Person {
 	 * @generated
 	 */
 	void setMember(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Roombooking</b></em>' reference list.
-	 * The list contents are of type {@link implementation.RoomBooking}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Roombooking</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Roombooking</em>' reference list.
-	 * @see implementation.ImplementationPackage#getCustomer_Roombooking()
-	 * @model type="implementation.RoomBooking" ordered="false"
-	 * @generated
-	 */
-	EList getRoombooking();
 
 } // Customer

@@ -30,11 +30,11 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link implementation.impl.ModelImpl#getRoomtype <em>Roomtype</em>}</li>
+ *   <li>{@link implementation.impl.ModelImpl#getRoomtypes <em>Roomtypes</em>}</li>
  *   <li>{@link implementation.impl.ModelImpl#getRoom <em>Room</em>}</li>
  *   <li>{@link implementation.impl.ModelImpl#getConferenceroombooking <em>Conferenceroombooking</em>}</li>
  *   <li>{@link implementation.impl.ModelImpl#getRoombooking <em>Roombooking</em>}</li>
- *   <li>{@link implementation.impl.ModelImpl#getKey <em>Key</em>}</li>
+ *   <li>{@link implementation.impl.ModelImpl#getKeys <em>Keys</em>}</li>
  *   <li>{@link implementation.impl.ModelImpl#getConferenceroom <em>Conferenceroom</em>}</li>
  *   <li>{@link implementation.impl.ModelImpl#getCustomer <em>Customer</em>}</li>
  * </ul>
@@ -43,14 +43,14 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	/**
-	 * The cached value of the '{@link #getRoomtype() <em>Roomtype</em>}' reference list.
+	 * The cached value of the '{@link #getRoomtypes() <em>Roomtypes</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRoomtype()
+	 * @see #getRoomtypes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList roomtype;
+	protected EList roomtypes;
 
 	/**
 	 * The cached value of the '{@link #getRoom() <em>Room</em>}' reference list.
@@ -83,14 +83,14 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	protected EList roombooking;
 
 	/**
-	 * The cached value of the '{@link #getKey() <em>Key</em>}' reference list.
+	 * The cached value of the '{@link #getKeys() <em>Keys</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getKey()
+	 * @see #getKeys()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList key;
+	protected EList keys;
 
 	/**
 	 * The cached value of the '{@link #getConferenceroom() <em>Conferenceroom</em>}' reference list.
@@ -119,11 +119,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	protected ModelImpl() {
 		super();
 		conferenceroom = new BasicEList();
-		key = new BasicEList();
+		keys = new BasicEList();
 		roombooking = new BasicEList();
 		conferenceroombooking = new BasicEList();
 		room = new BasicEList();
-		roomtype = new BasicEList();
+		roomtypes = new BasicEList();
 	}
 
 	/**
@@ -140,11 +140,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getRoomtype() {
-		if (roomtype == null) {
-			roomtype = new EObjectResolvingEList(RoomType.class, this, ImplementationPackage.MODEL__ROOMTYPE);
+	public EList getRoomtypes() {
+		if (roomtypes == null) {
+			roomtypes = new EObjectResolvingEList(RoomType.class, this, ImplementationPackage.MODEL__ROOMTYPES);
 		}
-		return roomtype;
+		return roomtypes;
 	}
 
 	/**
@@ -188,11 +188,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getKey() {
-		if (key == null) {
-			key = new EObjectResolvingEList(Key.class, this, ImplementationPackage.MODEL__KEY);
+	public EList getKeys() {
+		if (keys == null) {
+			keys = new EObjectResolvingEList(Key.class, this, ImplementationPackage.MODEL__KEYS);
 		}
-		return key;
+		return keys;
 	}
 
 	/**
@@ -268,8 +268,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * <!-- end-user-doc -->
 	 */
 	public RoomType getRoomType(String name) {
-		for(int i = 0; i < roomtype.size(); i++){
-			RoomType r = (RoomType)roomtype.get(i);
+		for(int i = 0; i < roomtypes.size(); i++){
+			RoomType r = (RoomType)roomtypes.get(i);
 			if(r.getName() == name){
 				return r;
 			}
@@ -284,16 +284,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ImplementationPackage.MODEL__ROOMTYPE:
-				return getRoomtype();
+			case ImplementationPackage.MODEL__ROOMTYPES:
+				return getRoomtypes();
 			case ImplementationPackage.MODEL__ROOM:
 				return getRoom();
 			case ImplementationPackage.MODEL__CONFERENCEROOMBOOKING:
 				return getConferenceroombooking();
 			case ImplementationPackage.MODEL__ROOMBOOKING:
 				return getRoombooking();
-			case ImplementationPackage.MODEL__KEY:
-				return getKey();
+			case ImplementationPackage.MODEL__KEYS:
+				return getKeys();
 			case ImplementationPackage.MODEL__CONFERENCEROOM:
 				return getConferenceroom();
 			case ImplementationPackage.MODEL__CUSTOMER:
@@ -309,9 +309,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ImplementationPackage.MODEL__ROOMTYPE:
-				getRoomtype().clear();
-				getRoomtype().addAll((Collection)newValue);
+			case ImplementationPackage.MODEL__ROOMTYPES:
+				getRoomtypes().clear();
+				getRoomtypes().addAll((Collection)newValue);
 				return;
 			case ImplementationPackage.MODEL__ROOM:
 				getRoom().clear();
@@ -325,9 +325,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 				getRoombooking().clear();
 				getRoombooking().addAll((Collection)newValue);
 				return;
-			case ImplementationPackage.MODEL__KEY:
-				getKey().clear();
-				getKey().addAll((Collection)newValue);
+			case ImplementationPackage.MODEL__KEYS:
+				getKeys().clear();
+				getKeys().addAll((Collection)newValue);
 				return;
 			case ImplementationPackage.MODEL__CONFERENCEROOM:
 				getConferenceroom().clear();
@@ -348,8 +348,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ImplementationPackage.MODEL__ROOMTYPE:
-				getRoomtype().clear();
+			case ImplementationPackage.MODEL__ROOMTYPES:
+				getRoomtypes().clear();
 				return;
 			case ImplementationPackage.MODEL__ROOM:
 				getRoom().clear();
@@ -360,8 +360,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 			case ImplementationPackage.MODEL__ROOMBOOKING:
 				getRoombooking().clear();
 				return;
-			case ImplementationPackage.MODEL__KEY:
-				getKey().clear();
+			case ImplementationPackage.MODEL__KEYS:
+				getKeys().clear();
 				return;
 			case ImplementationPackage.MODEL__CONFERENCEROOM:
 				getConferenceroom().clear();
@@ -380,16 +380,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ImplementationPackage.MODEL__ROOMTYPE:
-				return roomtype != null && !roomtype.isEmpty();
+			case ImplementationPackage.MODEL__ROOMTYPES:
+				return roomtypes != null && !roomtypes.isEmpty();
 			case ImplementationPackage.MODEL__ROOM:
 				return room != null && !room.isEmpty();
 			case ImplementationPackage.MODEL__CONFERENCEROOMBOOKING:
 				return conferenceroombooking != null && !conferenceroombooking.isEmpty();
 			case ImplementationPackage.MODEL__ROOMBOOKING:
 				return roombooking != null && !roombooking.isEmpty();
-			case ImplementationPackage.MODEL__KEY:
-				return key != null && !key.isEmpty();
+			case ImplementationPackage.MODEL__KEYS:
+				return keys != null && !keys.isEmpty();
 			case ImplementationPackage.MODEL__CONFERENCEROOM:
 				return conferenceroom != null && !conferenceroom.isEmpty();
 			case ImplementationPackage.MODEL__CUSTOMER:

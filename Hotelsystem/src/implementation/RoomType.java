@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link implementation.RoomType#isTv <em>Tv</em>}</li>
  *   <li>{@link implementation.RoomType#isBalcony <em>Balcony</em>}</li>
  *   <li>{@link implementation.RoomType#getMaxNbrOfExtraBeds <em>Max Nbr Of Extra Beds</em>}</li>
- *   <li>{@link implementation.RoomType#getBed <em>Bed</em>}</li>
+ *   <li>{@link implementation.RoomType#getBeds <em>Beds</em>}</li>
  * </ul>
  *
  * @see implementation.ImplementationPackage#getRoomType()
@@ -267,20 +267,20 @@ public interface RoomType extends EObject {
 	void setMaxNbrOfExtraBeds(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Bed</b></em>' reference list.
+	 * Returns the value of the '<em><b>Beds</b></em>' reference list.
 	 * The list contents are of type {@link implementation.Bed}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Bed</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Beds</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Bed</em>' reference list.
-	 * @see implementation.ImplementationPackage#getRoomType_Bed()
+	 * @return the value of the '<em>Beds</em>' reference list.
+	 * @see implementation.ImplementationPackage#getRoomType_Beds()
 	 * @model type="implementation.Bed" required="true" ordered="false"
 	 * @generated
 	 */
-	EList getBed();
+	EList getBeds();
 
 	/**
 	 * <!-- begin-user-doc -->

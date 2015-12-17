@@ -232,12 +232,13 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public Room checkIn(int bookingID) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public EList checkIn(int bookingID) {
+		RoomBooking roomBooking = (RoomBooking) model.getRoomBooking(bookingID);
+		// EList rooms = 
+		
+		
+		return null;
 	}
 
 	/**
@@ -343,7 +344,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 		for(int i = 0; i < rooms.size(); i++){
 			Room r = (Room)rooms.get(i);
 			r.setStatus(RoomStatus.CLEANING_LITERAL);
-			r.getGuest().clear();
+			r.getGuests().clear();
 			cost += r.getTotalBill();
 		}
 		Bill finalBill = new BillImpl();

@@ -60,10 +60,10 @@ public interface IAdministration extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" bookingIDDataType="org.eclipse.uml2.types.Integer" bookingIDRequired="true" bookingIDOrdered="false"
+	 * @model type="implementation.Room" required="true" ordered="false" bookingIDDataType="org.eclipse.uml2.types.Integer" bookingIDRequired="true" bookingIDOrdered="false"
 	 * @generated
 	 */
-	Room checkIn(int bookingID);
+	EList checkIn(int bookingID);
 
 	/**
 	 * <!-- begin-user-doc -->

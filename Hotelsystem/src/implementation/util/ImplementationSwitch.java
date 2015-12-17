@@ -165,16 +165,16 @@ public class ImplementationSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ImplementationPackage.CONFERENCE_ROOM: {
-				ConferenceRoom conferenceRoom = (ConferenceRoom)theEObject;
-				Object result = caseConferenceRoom(conferenceRoom);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ImplementationPackage.CUSTOMER: {
 				Customer customer = (Customer)theEObject;
 				Object result = caseCustomer(customer);
 				if (result == null) result = casePerson(customer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ImplementationPackage.CONFERENCE_ROOM: {
+				ConferenceRoom conferenceRoom = (ConferenceRoom)theEObject;
+				Object result = caseConferenceRoom(conferenceRoom);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

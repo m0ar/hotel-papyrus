@@ -53,7 +53,7 @@
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//Model">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Model/roomtype"/>
+          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Model/roomtypes"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Model/room"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
@@ -61,7 +61,7 @@
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Model/roombooking"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Model/key"/>
+          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Model/keys"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Model/conferenceroom"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
@@ -90,7 +90,7 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute implementation.ecore#//RoomType/balcony"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute implementation.ecore#//RoomType/maxNbrOfExtraBeds"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//RoomType/bed"/>
+          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//RoomType/beds"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//RoomType/getNbrOfGuests"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//Bed">
@@ -103,13 +103,13 @@
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Room/roomtype"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Room/bill"/>
+          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Room/Tab"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Room/roomissue"/>
+          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Room/roomissues"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Room/guest"/>
+          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Room/guests"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Room/key"/>
+          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Room/keys"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//Room/getTotalBill"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//Bill">
@@ -145,25 +145,25 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute implementation.ecore#//RoomBooking/deposit"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute implementation.ecore#//RoomBooking/pension"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//RoomBooking/roomtype"/>
+          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//RoomBooking/chosenroomtypes"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//RoomBooking/guest"/>
+          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//RoomBooking/guests"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//RoomBooking/room"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute implementation.ecore#//RoomBooking/rentPayed"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//RoomBooking/customer"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//Customer">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute implementation.ecore#//Customer/address"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute implementation.ecore#//Customer/phoneNbr"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute implementation.ecore#//Customer/member"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//ConferenceRoom">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute implementation.ecore#//ConferenceRoom/type"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute implementation.ecore#//ConferenceRoom/size"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute implementation.ecore#//ConferenceRoom/costPerHour"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute implementation.ecore#//ConferenceRoom/equipment"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//Customer">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute implementation.ecore#//Customer/address"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute implementation.ecore#//Customer/phoneNbr"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute implementation.ecore#//Customer/member"/>
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//Customer/roombooking"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="implementation.ecore#//IProfile">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"

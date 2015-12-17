@@ -351,7 +351,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_Roomtype() {
+	public EReference getModel_Roomtypes() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -387,7 +387,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_Key() {
+	public EReference getModel_Keys() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -504,7 +504,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoomType_Bed() {
+	public EReference getRoomType_Beds() {
 		return (EReference)roomTypeEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -576,7 +576,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoom_Bill() {
+	public EReference getRoom_Tab() {
 		return (EReference)roomEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -585,7 +585,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoom_Roomissue() {
+	public EReference getRoom_Roomissues() {
 		return (EReference)roomEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -594,7 +594,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoom_Guest() {
+	public EReference getRoom_Guests() {
 		return (EReference)roomEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -603,7 +603,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoom_Key() {
+	public EReference getRoom_Keys() {
 		return (EReference)roomEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -819,7 +819,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoomBooking_Roomtype() {
+	public EReference getRoomBooking_Chosenroomtypes() {
 		return (EReference)roomBookingEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -828,7 +828,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoomBooking_Guest() {
+	public EReference getRoomBooking_Guests() {
 		return (EReference)roomBookingEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -848,6 +848,15 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 */
 	public EAttribute getRoomBooking_RentPayed() {
 		return (EAttribute)roomBookingEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRoomBooking_Customer() {
+		return (EReference)roomBookingEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -965,15 +974,6 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 */
 	public EAttribute getCustomer_Member() {
 		return (EAttribute)customerEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCustomer_Roombooking() {
-		return (EReference)customerEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1163,11 +1163,11 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		createEReference(bookingControllerEClass, BOOKING_CONTROLLER__BANKPROVIDES);
 
 		modelEClass = createEClass(MODEL);
-		createEReference(modelEClass, MODEL__ROOMTYPE);
+		createEReference(modelEClass, MODEL__ROOMTYPES);
 		createEReference(modelEClass, MODEL__ROOM);
 		createEReference(modelEClass, MODEL__CONFERENCEROOMBOOKING);
 		createEReference(modelEClass, MODEL__ROOMBOOKING);
-		createEReference(modelEClass, MODEL__KEY);
+		createEReference(modelEClass, MODEL__KEYS);
 		createEReference(modelEClass, MODEL__CONFERENCEROOM);
 		createEReference(modelEClass, MODEL__CUSTOMER);
 
@@ -1181,7 +1181,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		createEAttribute(roomTypeEClass, ROOM_TYPE__TV);
 		createEAttribute(roomTypeEClass, ROOM_TYPE__BALCONY);
 		createEAttribute(roomTypeEClass, ROOM_TYPE__MAX_NBR_OF_EXTRA_BEDS);
-		createEReference(roomTypeEClass, ROOM_TYPE__BED);
+		createEReference(roomTypeEClass, ROOM_TYPE__BEDS);
 
 		bedEClass = createEClass(BED);
 		createEAttribute(bedEClass, BED__TYPE);
@@ -1191,10 +1191,10 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		createEAttribute(roomEClass, ROOM__NUMBER);
 		createEAttribute(roomEClass, ROOM__STATUS);
 		createEReference(roomEClass, ROOM__ROOMTYPE);
-		createEReference(roomEClass, ROOM__BILL);
-		createEReference(roomEClass, ROOM__ROOMISSUE);
-		createEReference(roomEClass, ROOM__GUEST);
-		createEReference(roomEClass, ROOM__KEY);
+		createEReference(roomEClass, ROOM__TAB);
+		createEReference(roomEClass, ROOM__ROOMISSUES);
+		createEReference(roomEClass, ROOM__GUESTS);
+		createEReference(roomEClass, ROOM__KEYS);
 
 		billEClass = createEClass(BILL);
 		createEAttribute(billEClass, BILL__COST);
@@ -1229,22 +1229,22 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		roomBookingEClass = createEClass(ROOM_BOOKING);
 		createEAttribute(roomBookingEClass, ROOM_BOOKING__DEPOSIT);
 		createEAttribute(roomBookingEClass, ROOM_BOOKING__PENSION);
-		createEReference(roomBookingEClass, ROOM_BOOKING__ROOMTYPE);
-		createEReference(roomBookingEClass, ROOM_BOOKING__GUEST);
+		createEReference(roomBookingEClass, ROOM_BOOKING__CHOSENROOMTYPES);
+		createEReference(roomBookingEClass, ROOM_BOOKING__GUESTS);
 		createEReference(roomBookingEClass, ROOM_BOOKING__ROOM);
 		createEAttribute(roomBookingEClass, ROOM_BOOKING__RENT_PAYED);
+		createEReference(roomBookingEClass, ROOM_BOOKING__CUSTOMER);
+
+		customerEClass = createEClass(CUSTOMER);
+		createEAttribute(customerEClass, CUSTOMER__ADDRESS);
+		createEAttribute(customerEClass, CUSTOMER__PHONE_NBR);
+		createEAttribute(customerEClass, CUSTOMER__MEMBER);
 
 		conferenceRoomEClass = createEClass(CONFERENCE_ROOM);
 		createEAttribute(conferenceRoomEClass, CONFERENCE_ROOM__TYPE);
 		createEAttribute(conferenceRoomEClass, CONFERENCE_ROOM__SIZE);
 		createEAttribute(conferenceRoomEClass, CONFERENCE_ROOM__COST_PER_HOUR);
 		createEAttribute(conferenceRoomEClass, CONFERENCE_ROOM__EQUIPMENT);
-
-		customerEClass = createEClass(CUSTOMER);
-		createEAttribute(customerEClass, CUSTOMER__ADDRESS);
-		createEAttribute(customerEClass, CUSTOMER__PHONE_NBR);
-		createEAttribute(customerEClass, CUSTOMER__MEMBER);
-		createEReference(customerEClass, CUSTOMER__ROOMBOOKING);
 
 		iProfileEClass = createEClass(IPROFILE);
 		createEReference(iProfileEClass, IPROFILE__PROFILEHANDLER);
@@ -1319,11 +1319,11 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		initEReference(getBookingController_Bankprovides(), this.getBankProvides(), null, "bankprovides", null, 1, 1, BookingController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModel_Roomtype(), this.getRoomType(), null, "roomtype", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getModel_Roomtypes(), this.getRoomType(), null, "roomtypes", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getModel_Room(), this.getRoom(), null, "room", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getModel_Conferenceroombooking(), this.getConferenceRoomBooking(), null, "conferenceroombooking", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getModel_Roombooking(), this.getRoomBooking(), null, "roombooking", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getModel_Key(), this.getKey(), null, "key", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getModel_Keys(), this.getKey(), null, "keys", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getModel_Conferenceroom(), this.getConferenceRoom(), null, "conferenceroom", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getModel_Customer(), this.getCustomer(), null, "customer", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
@@ -1349,7 +1349,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		initEAttribute(getRoomType_Tv(), theTypesPackage.getBoolean(), "tv", null, 1, 1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRoomType_Balcony(), theTypesPackage.getBoolean(), "balcony", null, 1, 1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRoomType_MaxNbrOfExtraBeds(), theTypesPackage.getInteger(), "maxNbrOfExtraBeds", null, 1, 1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRoomType_Bed(), this.getBed(), null, "bed", null, 1, -1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRoomType_Beds(), this.getBed(), null, "beds", null, 1, -1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		addEOperation(roomTypeEClass, theTypesPackage.getInteger(), "getNbrOfGuests", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
@@ -1361,10 +1361,10 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		initEAttribute(getRoom_Number(), theTypesPackage.getInteger(), "number", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRoom_Status(), this.getRoomStatus(), "status", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRoom_Roomtype(), this.getRoomType(), null, "roomtype", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRoom_Bill(), this.getBill(), null, "bill", null, 1, -1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRoom_Roomissue(), this.getRoomIssue(), null, "roomissue", null, 0, -1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRoom_Guest(), this.getGuest(), null, "guest", null, 0, -1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRoom_Key(), this.getKey(), null, "key", null, 0, -1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRoom_Tab(), this.getBill(), null, "Tab", null, 1, -1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRoom_Roomissues(), this.getRoomIssue(), null, "roomissues", null, 0, -1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRoom_Guests(), this.getGuest(), null, "guests", null, 0, -1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRoom_Keys(), this.getKey(), null, "keys", null, 0, -1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		addEOperation(roomEClass, theTypesPackage.getReal(), "getTotalBill", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
@@ -1401,22 +1401,22 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		initEClass(roomBookingEClass, RoomBooking.class, "RoomBooking", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRoomBooking_Deposit(), theTypesPackage.getReal(), "deposit", null, 1, 1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRoomBooking_Pension(), this.getPensionType(), "pension", null, 1, 1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRoomBooking_Roomtype(), this.getRoomType(), null, "roomtype", null, 1, -1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRoomBooking_Guest(), this.getGuest(), null, "guest", null, 1, -1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRoomBooking_Chosenroomtypes(), this.getRoomType(), null, "chosenroomtypes", null, 1, -1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRoomBooking_Guests(), this.getGuest(), null, "guests", null, 1, -1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRoomBooking_Room(), this.getRoom(), null, "room", null, 1, -1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRoomBooking_RentPayed(), theTypesPackage.getBoolean(), "rentPayed", null, 1, 1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRoomBooking_Customer(), this.getCustomer(), null, "customer", null, 1, 1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(customerEClass, Customer.class, "Customer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCustomer_Address(), theTypesPackage.getString(), "address", null, 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getCustomer_PhoneNbr(), theTypesPackage.getString(), "phoneNbr", null, 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getCustomer_Member(), theTypesPackage.getBoolean(), "member", null, 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(conferenceRoomEClass, ConferenceRoom.class, "ConferenceRoom", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConferenceRoom_Type(), theTypesPackage.getString(), "type", null, 1, 1, ConferenceRoom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getConferenceRoom_Size(), theTypesPackage.getInteger(), "size", null, 1, 1, ConferenceRoom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getConferenceRoom_CostPerHour(), theTypesPackage.getInteger(), "costPerHour", null, 1, 1, ConferenceRoom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getConferenceRoom_Equipment(), theTypesPackage.getString(), "equipment", null, 1, 1, ConferenceRoom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(customerEClass, Customer.class, "Customer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCustomer_Address(), theTypesPackage.getString(), "address", null, 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getCustomer_PhoneNbr(), theTypesPackage.getString(), "phoneNbr", null, 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getCustomer_Member(), theTypesPackage.getBoolean(), "member", null, 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getCustomer_Roombooking(), this.getRoomBooking(), null, "roombooking", null, 0, -1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(iProfileEClass, IProfile.class, "IProfile", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIProfile_Profilehandler(), this.getProfileHandler(), null, "profilehandler", null, 1, 1, IProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1499,7 +1499,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 
 		initEClass(iAdministrationEClass, IAdministration.class, "IAdministration", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(iAdministrationEClass, this.getRoom(), "checkIn", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = addEOperation(iAdministrationEClass, this.getRoom(), "checkIn", 1, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getInteger(), "bookingID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = addEOperation(iAdministrationEClass, null, "bookConferenceRoom");
@@ -1586,6 +1586,26 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/uml2/2.0.0/UML
+		createUMLAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/uml2/2.0.0/UML</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createUMLAnnotations() {
+		String source = "http://www.eclipse.org/uml2/2.0.0/UML";	
+		addAnnotation
+		  (getRoomBooking_Chosenroomtypes(), 
+		   source, 
+		   new String[] {
+			 "originalName", "chosen roomtypes"
+		   });
 	}
 
 	/**

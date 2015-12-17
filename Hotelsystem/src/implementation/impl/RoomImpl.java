@@ -36,10 +36,10 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link implementation.impl.RoomImpl#getNumber <em>Number</em>}</li>
  *   <li>{@link implementation.impl.RoomImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link implementation.impl.RoomImpl#getRoomtype <em>Roomtype</em>}</li>
- *   <li>{@link implementation.impl.RoomImpl#getBill <em>Bill</em>}</li>
- *   <li>{@link implementation.impl.RoomImpl#getRoomissue <em>Roomissue</em>}</li>
- *   <li>{@link implementation.impl.RoomImpl#getGuest <em>Guest</em>}</li>
- *   <li>{@link implementation.impl.RoomImpl#getKey <em>Key</em>}</li>
+ *   <li>{@link implementation.impl.RoomImpl#getTab <em>Tab</em>}</li>
+ *   <li>{@link implementation.impl.RoomImpl#getRoomissues <em>Roomissues</em>}</li>
+ *   <li>{@link implementation.impl.RoomImpl#getGuests <em>Guests</em>}</li>
+ *   <li>{@link implementation.impl.RoomImpl#getKeys <em>Keys</em>}</li>
  * </ul>
  *
  * @generated
@@ -96,44 +96,44 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	protected RoomType roomtype;
 
 	/**
-	 * The cached value of the '{@link #getBill() <em>Bill</em>}' reference list.
+	 * The cached value of the '{@link #getTab() <em>Tab</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBill()
+	 * @see #getTab()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList bill;
+	protected EList tab;
 
 	/**
-	 * The cached value of the '{@link #getRoomissue() <em>Roomissue</em>}' reference list.
+	 * The cached value of the '{@link #getRoomissues() <em>Roomissues</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRoomissue()
+	 * @see #getRoomissues()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList roomissue;
+	protected EList roomissues;
 
 	/**
-	 * The cached value of the '{@link #getGuest() <em>Guest</em>}' reference list.
+	 * The cached value of the '{@link #getGuests() <em>Guests</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGuest()
+	 * @see #getGuests()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList guest;
+	protected EList guests;
 
 	/**
-	 * The cached value of the '{@link #getKey() <em>Key</em>}' reference list.
+	 * The cached value of the '{@link #getKeys() <em>Keys</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getKey()
+	 * @see #getKeys()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList key;
+	protected EList keys;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -141,9 +141,9 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	 */
 	protected RoomImpl() {
 		super();
-		bill = new BasicEList();
-		roomissue = new BasicEList();
-		guest = new BasicEList();
+		tab = new BasicEList();
+		roomissues = new BasicEList();
+		guests = new BasicEList();
 	}
 
 	/**
@@ -240,11 +240,11 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getBill() {
-		if (bill == null) {
-			bill = new EObjectResolvingEList(Bill.class, this, ImplementationPackage.ROOM__BILL);
+	public EList getTab() {
+		if (tab == null) {
+			tab = new EObjectResolvingEList(Bill.class, this, ImplementationPackage.ROOM__TAB);
 		}
-		return bill;
+		return tab;
 	}
 
 	/**
@@ -252,11 +252,11 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getRoomissue() {
-		if (roomissue == null) {
-			roomissue = new EObjectResolvingEList(RoomIssue.class, this, ImplementationPackage.ROOM__ROOMISSUE);
+	public EList getRoomissues() {
+		if (roomissues == null) {
+			roomissues = new EObjectResolvingEList(RoomIssue.class, this, ImplementationPackage.ROOM__ROOMISSUES);
 		}
-		return roomissue;
+		return roomissues;
 	}
 
 	/**
@@ -264,11 +264,11 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getGuest() {
-		if (guest == null) {
-			guest = new EObjectResolvingEList(Guest.class, this, ImplementationPackage.ROOM__GUEST);
+	public EList getGuests() {
+		if (guests == null) {
+			guests = new EObjectResolvingEList(Guest.class, this, ImplementationPackage.ROOM__GUESTS);
 		}
-		return guest;
+		return guests;
 	}
 
 	/**
@@ -276,11 +276,11 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getKey() {
-		if (key == null) {
-			key = new EObjectResolvingEList(Key.class, this, ImplementationPackage.ROOM__KEY);
+	public EList getKeys() {
+		if (keys == null) {
+			keys = new EObjectResolvingEList(Key.class, this, ImplementationPackage.ROOM__KEYS);
 		}
-		return key;
+		return keys;
 	}
 
 	/**
@@ -289,8 +289,8 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	 */
 	public double getTotalBill() {
 		double cost = 0;
-		for(int i = 0; i < bill.size(); i++){
-			Bill b = (Bill)bill.get(i);
+		for(int i = 0; i < tab.size(); i++){
+			Bill b = (Bill)tab.get(i);
 			cost += b.getCost();
 		}
 		return cost;
@@ -310,14 +310,14 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 			case ImplementationPackage.ROOM__ROOMTYPE:
 				if (resolve) return getRoomtype();
 				return basicGetRoomtype();
-			case ImplementationPackage.ROOM__BILL:
-				return getBill();
-			case ImplementationPackage.ROOM__ROOMISSUE:
-				return getRoomissue();
-			case ImplementationPackage.ROOM__GUEST:
-				return getGuest();
-			case ImplementationPackage.ROOM__KEY:
-				return getKey();
+			case ImplementationPackage.ROOM__TAB:
+				return getTab();
+			case ImplementationPackage.ROOM__ROOMISSUES:
+				return getRoomissues();
+			case ImplementationPackage.ROOM__GUESTS:
+				return getGuests();
+			case ImplementationPackage.ROOM__KEYS:
+				return getKeys();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -338,21 +338,21 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 			case ImplementationPackage.ROOM__ROOMTYPE:
 				setRoomtype((RoomType)newValue);
 				return;
-			case ImplementationPackage.ROOM__BILL:
-				getBill().clear();
-				getBill().addAll((Collection)newValue);
+			case ImplementationPackage.ROOM__TAB:
+				getTab().clear();
+				getTab().addAll((Collection)newValue);
 				return;
-			case ImplementationPackage.ROOM__ROOMISSUE:
-				getRoomissue().clear();
-				getRoomissue().addAll((Collection)newValue);
+			case ImplementationPackage.ROOM__ROOMISSUES:
+				getRoomissues().clear();
+				getRoomissues().addAll((Collection)newValue);
 				return;
-			case ImplementationPackage.ROOM__GUEST:
-				getGuest().clear();
-				getGuest().addAll((Collection)newValue);
+			case ImplementationPackage.ROOM__GUESTS:
+				getGuests().clear();
+				getGuests().addAll((Collection)newValue);
 				return;
-			case ImplementationPackage.ROOM__KEY:
-				getKey().clear();
-				getKey().addAll((Collection)newValue);
+			case ImplementationPackage.ROOM__KEYS:
+				getKeys().clear();
+				getKeys().addAll((Collection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -374,17 +374,17 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 			case ImplementationPackage.ROOM__ROOMTYPE:
 				setRoomtype((RoomType)null);
 				return;
-			case ImplementationPackage.ROOM__BILL:
-				getBill().clear();
+			case ImplementationPackage.ROOM__TAB:
+				getTab().clear();
 				return;
-			case ImplementationPackage.ROOM__ROOMISSUE:
-				getRoomissue().clear();
+			case ImplementationPackage.ROOM__ROOMISSUES:
+				getRoomissues().clear();
 				return;
-			case ImplementationPackage.ROOM__GUEST:
-				getGuest().clear();
+			case ImplementationPackage.ROOM__GUESTS:
+				getGuests().clear();
 				return;
-			case ImplementationPackage.ROOM__KEY:
-				getKey().clear();
+			case ImplementationPackage.ROOM__KEYS:
+				getKeys().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -403,14 +403,14 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 				return status != STATUS_EDEFAULT;
 			case ImplementationPackage.ROOM__ROOMTYPE:
 				return roomtype != null;
-			case ImplementationPackage.ROOM__BILL:
-				return bill != null && !bill.isEmpty();
-			case ImplementationPackage.ROOM__ROOMISSUE:
-				return roomissue != null && !roomissue.isEmpty();
-			case ImplementationPackage.ROOM__GUEST:
-				return guest != null && !guest.isEmpty();
-			case ImplementationPackage.ROOM__KEY:
-				return key != null && !key.isEmpty();
+			case ImplementationPackage.ROOM__TAB:
+				return tab != null && !tab.isEmpty();
+			case ImplementationPackage.ROOM__ROOMISSUES:
+				return roomissues != null && !roomissues.isEmpty();
+			case ImplementationPackage.ROOM__GUESTS:
+				return guests != null && !guests.isEmpty();
+			case ImplementationPackage.ROOM__KEYS:
+				return keys != null && !keys.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
