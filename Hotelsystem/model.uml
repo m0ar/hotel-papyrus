@@ -326,6 +326,8 @@
     <ownedOperation xmi:type="uml:Operation" xmi:id="_A3z-MJj5EeWosv5UAtOVww" name="getAvailableRooms" visibility="public">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="__URBIJzEEeWApNmM4_vwcg" name="availableRooms" direction="return">
         <type xmi:type="uml:Class" href="implementation.uml#_r01s4JwoEeWs7qnn26dFxw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W57fQKTmEeW9k8knzwKAVw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_W58tYKTmEeW9k8knzwKAVw" value="*"/>
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="__URBIZzEEeWApNmM4_vwcg"/>
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_cgnmkJzFEeWApNmM4_vwcg" name="roomBooking">

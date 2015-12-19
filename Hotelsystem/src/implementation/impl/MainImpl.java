@@ -7,8 +7,11 @@ import implementation.IAdministration;
 import implementation.IBooking;
 import implementation.IProfile;
 import implementation.ImplementationPackage;
+import implementation.Key;
 import implementation.Main;
 import implementation.PensionType;
+import implementation.Room;
+import implementation.RoomBooking;
 import implementation.RoomStatus;
 import implementation.RoomType;
 import implementation.impl.BookingControllerImpl.Tuple;
@@ -19,6 +22,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
+
+import javax.net.ssl.SSLEngineResult.Status;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -634,8 +640,37 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		System.out.println("Enter booking number");
 		int bookingNr = in.nextInt();
 		in.nextLine();
-		iadministration.checkIn(bookingNr);
+		RoomBooking roomBooking = iadministration.checkIn(bookingNr);
+		System.out.println("The guests have been given following rooms: ");
+		for(int i = 0; i < roomBooking.getRoom().size(); i++) {
+			Room room = (Room) roomBooking.getRoom().get(i);
+			System.out.println("Room nr " + room.getNumber());
+		}
+		
 		/* loopa genom alla bokade rum och sätt nycklar, admin anger nyckelID */
+		System.out.println("Please enter credit card details");
+		String creditCard = in.nextLine();
+		double amount = roomBooking.getDeposit();
+		if(iadministration.reservePayment(amount, creditCard)) {
+			for(int i = 0; i < roomBooking.getRoom().size(); i++) {
+				Room room = (Room) roomBooking.getRoom().get(i);
+				iadministration.updateRoomStatus(room, RoomStatus.OCCUPIED_LITERAL);
+				System.out.println("Enter ID for key 1");
+				Key key1 = new KeyImpl();
+				key1.setId(in.nextInt());
+				in.nextLine();
+				System.out.println("Enter ID for key 2");
+				Key key2 = new KeyImpl();
+				key2.setId(in.nextInt());
+				in.nextLine();
+				iadministration.assignKeysToRoom(room.getNumber(), key1, key2);
+			}
+		} else {
+			for(int i = 0; i < roomBooking.getRoom().size(); i++) {
+				Room room = (Room) roomBooking.getRoom().get(i);
+				room.getGuests().clear();
+			}
+		}
 	}
 
 	/**

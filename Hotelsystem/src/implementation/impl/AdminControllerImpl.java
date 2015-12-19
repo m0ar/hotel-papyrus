@@ -156,12 +156,14 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public void updateRoomStatus(int roomID, RoomStatus status) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public RoomBooking checkIn(int bookingID) {
+		RoomBooking roomBooking = (RoomBooking) model.getRoomBooking(bookingID); 
+		EList rooms = getAvailableRooms(roomBooking);
+		EList guests = roomBooking.getGuests();
+		assignGuestsToRoom(guests, rooms);
+		
+		return roomBooking;
 	}
 
 	/**
@@ -189,6 +191,14 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public void updateRoomStatus(Room room, RoomStatus status) {
+		room.setStatus(status);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void createRoom(int roomID, RoomType roomType) {
@@ -202,7 +212,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Room getAvailableRooms(RoomBooking roomBooking) {
+	public EList getAvailableRooms(RoomBooking roomBooking) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -212,33 +222,8 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void checkIn2(int bookingID) {
-		//RoomBooking roomBooking = (RoomBooking )model.getBooking(bookingID);
-		
-		/* get the guests for each room */
-		
-		/* assign the guests for each room */
-		
-		/* update all room statuses */
-		
-		
-		// roomBooking.getRoom();
-		// roomBooking.getGuest();
-		//EList roomTypes = roomBooking.getRoomtype(); 
-		//Room[] rooms = new Room[roomTypes.size()];
-		//getAvailableRooms(roomType)
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public EList checkIn(int bookingID) {
-		RoomBooking roomBooking = (RoomBooking) model.getRoomBooking(bookingID);
-		// EList rooms = 
-		
-		
-		return null;
+	public boolean reservePayment(double amount, String cardDetails) {
+		return bankprovides.reservePayment(amount, cardDetails);
 	}
 
 	/**
@@ -277,12 +262,10 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void assignKeysToRoom(int roomID, Key key1, Key key2) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		key1.setAccess(roomID);
+		key2.setAccess(roomID);
 	}
 
 	/**
@@ -299,12 +282,19 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void assignGuestsToRoom(EList guests, EList rooms) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		int roomIndex = 0;
+		for(int i = 0; i < guests.size(); i++) {
+			Room room = (Room) rooms.get(roomIndex);
+			if (room.getGuests().size() < room.getRoomtype().getNbrOfGuests()) {
+				room.getGuests().add(guests.get(i));
+			} else {
+				roomIndex += 1;
+				i -= 1;
+			}
+			
+		}
 	}
 
 	/**

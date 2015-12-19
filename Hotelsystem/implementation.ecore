@@ -263,7 +263,7 @@
         lowerBound="1" eType="#//BankProvides"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IAdministration" abstract="true" interface="true">
-    <eOperations name="checkIn" ordered="false" lowerBound="1" upperBound="-1" eType="#//Room">
+    <eOperations name="checkIn" ordered="false" lowerBound="1" eType="#//RoomBooking">
       <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
     <eOperations name="bookConferenceRoom" ordered="false" lowerBound="1">
@@ -296,7 +296,7 @@
       <eParameters name="bill" ordered="false" lowerBound="1" eType="#//Bill"/>
     </eOperations>
     <eOperations name="updateRoomStatus" ordered="false" lowerBound="1">
-      <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="room" ordered="false" lowerBound="1" eType="#//Room"/>
       <eParameters name="status" ordered="false" lowerBound="1" eType="#//RoomStatus"/>
     </eOperations>
     <eOperations name="makePayment" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
@@ -319,8 +319,12 @@
       <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
       <eParameters name="roomType" ordered="false" lowerBound="1" eType="#//RoomType"/>
     </eOperations>
-    <eOperations name="getAvailableRooms" ordered="false" lowerBound="1" eType="#//Room">
+    <eOperations name="getAvailableRooms" ordered="false" upperBound="-1" eType="#//Room">
       <eParameters name="roomBooking" ordered="false" lowerBound="1" eType="#//RoomBooking"/>
+    </eOperations>
+    <eOperations name="reservePayment" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
+      <eParameters name="amount" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Real"/>
+      <eParameters name="cardDetails" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelFactory">
