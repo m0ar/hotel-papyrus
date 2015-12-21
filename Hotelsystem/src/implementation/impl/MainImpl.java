@@ -649,25 +649,26 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			System.out.println("Room nr " + room.getNumber());
 		}
 		
-		/* loopa genom alla bokade rum och sätt nycklar, admin anger nyckelID */
 		System.out.println("Please enter credit card details");
 		String creditCard = in.nextLine();
 		double amount = roomBooking.getDeposit();
 		if(iadministration.reservePayment(amount, creditCard)) {
+			System.out.println("Payment was successful");
 			for(int i = 0; i < roomBooking.getRoom().size(); i++) {
 				Room room = (Room) roomBooking.getRoom().get(i);
 				iadministration.updateRoomStatus(room, RoomStatus.OCCUPIED_LITERAL);
-				System.out.println("Enter ID for key 1");
+				System.out.println("Enter ID for key 1 for the room " + room.getNumber());
 				Key key1 = new KeyImpl();
 				key1.setId(in.nextInt());
 				in.nextLine();
-				System.out.println("Enter ID for key 2");
+				System.out.println("Enter ID for key 2 for the room " + room.getNumber());
 				Key key2 = new KeyImpl();
 				key2.setId(in.nextInt());
 				in.nextLine();
 				iadministration.assignKeysToRoom(room.getNumber(), key1, key2);
 			}
 		} else {
+			System.out.println("Payment failed!");
 			for(int i = 0; i < roomBooking.getRoom().size(); i++) {
 				Room room = (Room) roomBooking.getRoom().get(i);
 				room.getGuests().clear();
