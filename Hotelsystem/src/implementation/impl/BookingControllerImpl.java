@@ -214,26 +214,8 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public boolean makePayment(String cardDetails, double amount, int age, int reservationId) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	private PensionType parsePensionType(String pt) {
-		for(int i = 0; i < PensionType.VALUES.size(); i++)
-			if(PensionType.VALUES.get(i).toString().toLowerCase().equals(pt.toLowerCase()))
-				return (PensionType)PensionType.VALUES.get(i);
-		return PensionType.NONE_LITERAL;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public boolean makePayment(String cardDetails, int amount, int age, int reservationId) {
 		if(age < 18)
 			return false;
 		
@@ -246,6 +228,13 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		}
 		
 		return false;
+	}
+
+	private PensionType parsePensionType(String pt) {
+		for(int i = 0; i < PensionType.VALUES.size(); i++)
+			if(PensionType.VALUES.get(i).toString().toLowerCase().equals(pt.toLowerCase()))
+				return (PensionType)PensionType.VALUES.get(i);
+		return PensionType.NONE_LITERAL;
 	}
 
 	/**
@@ -437,12 +426,15 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void addGuest(String name, String ssn, int reservationId) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList bookings = model.getRoombooking();
+		GuestImpl guest = new GuestImpl();
+		guest.setName(name);
+		guest.setSocialSecurityNumber(ssn);
+		for(int i = 0; i < bookings.size(); i++)
+			if(((RoomBookingImpl)bookings.get(i)).isReservation() && ((RoomBookingImpl)bookings.get(i)).getBookingNr() == reservationId)
+				((RoomBookingImpl)bookings.get(i)).getGuests().add(guest);
 	}
 
 	/**

@@ -2,6 +2,7 @@
  */
 package implementation.impl;
 
+import implementation.BankProvides;
 import implementation.Bill;
 import implementation.IAdministration;
 import implementation.IBooking;
@@ -423,6 +424,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 										if(ibooking.makePayment(paymentInfo, (int)getTotalCost(selectedRoomTypes), parseInt(age), reservationId)) {
 											ibooking.createBooking(reservationId);
 											System.out.println("Your booking was completed!");
+											System.out.println("Your booking number is " + reservationId);
 										} else
 											System.out.println("Payment failed.");
 									}
@@ -684,14 +686,16 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		iprofile = new ProfileHandlerImpl();
 		((ProfileHandlerImpl)iprofile).setModel(model);
 		
-		//bankprovides = new BankImpl();
+		BankProvides bankprovides = new BankImpl();
 
 		BookingControllerImpl bc = new BookingControllerImpl();
 		bc.setModel(model);
+		bc.setBankprovides(bankprovides);
 		ibooking = bc;
 
 		AdminControllerImpl ac = new AdminControllerImpl();
 		ac.setModel(model);
+		ac.setBankprovides(bankprovides);
 		iadministration = ac;
 	}
 	
