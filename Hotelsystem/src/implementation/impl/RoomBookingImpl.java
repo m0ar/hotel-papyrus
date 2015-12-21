@@ -38,6 +38,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link implementation.impl.RoomBookingImpl#getRoom <em>Room</em>}</li>
  *   <li>{@link implementation.impl.RoomBookingImpl#isRentPayed <em>Rent Payed</em>}</li>
  *   <li>{@link implementation.impl.RoomBookingImpl#getCustomer <em>Customer</em>}</li>
+ *   <li>{@link implementation.impl.RoomBookingImpl#isCheckedIn <em>Checked In</em>}</li>
  * </ul>
  *
  * @generated
@@ -142,6 +143,26 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 	 * @ordered
 	 */
 	protected Customer customer;
+
+	/**
+	 * The default value of the '{@link #isCheckedIn() <em>Checked In</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCheckedIn()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CHECKED_IN_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isCheckedIn() <em>Checked In</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCheckedIn()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean checkedIn = CHECKED_IN_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -303,6 +324,27 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isCheckedIn() {
+		return checkedIn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCheckedIn(boolean newCheckedIn) {
+		boolean oldCheckedIn = checkedIn;
+		checkedIn = newCheckedIn;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.ROOM_BOOKING__CHECKED_IN, oldCheckedIn, checkedIn));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ImplementationPackage.ROOM_BOOKING__DEPOSIT:
@@ -320,6 +362,8 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 			case ImplementationPackage.ROOM_BOOKING__CUSTOMER:
 				if (resolve) return getCustomer();
 				return basicGetCustomer();
+			case ImplementationPackage.ROOM_BOOKING__CHECKED_IN:
+				return isCheckedIn() ? Boolean.TRUE : Boolean.FALSE;
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -355,6 +399,9 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 			case ImplementationPackage.ROOM_BOOKING__CUSTOMER:
 				setCustomer((Customer)newValue);
 				return;
+			case ImplementationPackage.ROOM_BOOKING__CHECKED_IN:
+				setCheckedIn(((Boolean)newValue).booleanValue());
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -387,6 +434,9 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 			case ImplementationPackage.ROOM_BOOKING__CUSTOMER:
 				setCustomer((Customer)null);
 				return;
+			case ImplementationPackage.ROOM_BOOKING__CHECKED_IN:
+				setCheckedIn(CHECKED_IN_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -412,6 +462,8 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 				return rentPayed != RENT_PAYED_EDEFAULT;
 			case ImplementationPackage.ROOM_BOOKING__CUSTOMER:
 				return customer != null;
+			case ImplementationPackage.ROOM_BOOKING__CHECKED_IN:
+				return checkedIn != CHECKED_IN_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -431,6 +483,8 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 		result.append(pension);
 		result.append(", rentPayed: ");
 		result.append(rentPayed);
+		result.append(", checkedIn: ");
+		result.append(checkedIn);
 		result.append(')');
 		return result.toString();
 	}

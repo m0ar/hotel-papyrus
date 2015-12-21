@@ -337,6 +337,10 @@
         <element xmi:type="uml:Property" href="implementation.uml#_Ipw6EKPaEeWrsJl42mvD_Q"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_Iqgg8aPaEeWrsJl42mvD_Q"/>
       </children>
+      <children xmi:type="notation:Shape" xmi:id="_UYHQQKf7EeW9k8knzwKAVw" type="3012">
+        <element xmi:type="uml:Property" href="implementation.uml#_UXRiwKf7EeW9k8knzwKAVw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UYHQQaf7EeW9k8knzwKAVw"/>
+      </children>
       <styles xmi:type="notation:TitleStyle" xmi:id="_-d4EkZwoEeWs7qnn26dFxw"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_-d4EkpwoEeWs7qnn26dFxw"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_-d4Ek5woEeWs7qnn26dFxw"/>

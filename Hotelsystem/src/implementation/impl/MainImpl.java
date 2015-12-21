@@ -23,9 +23,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
-
-import javax.net.ssl.SSLEngineResult.Status;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -643,35 +640,40 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		int bookingNr = in.nextInt();
 		in.nextLine();
 		RoomBooking roomBooking = iadministration.checkIn(bookingNr);
-		System.out.println("The guests have been given following rooms: ");
-		for(int i = 0; i < roomBooking.getRoom().size(); i++) {
-			Room room = (Room) roomBooking.getRoom().get(i);
-			System.out.println("Room nr " + room.getNumber());
-		}
-		
-		System.out.println("Please enter credit card details");
-		String creditCard = in.nextLine();
-		double amount = roomBooking.getDeposit();
-		if(iadministration.reservePayment(amount, creditCard)) {
-			System.out.println("Payment was successful");
-			for(int i = 0; i < roomBooking.getRoom().size(); i++) {
-				Room room = (Room) roomBooking.getRoom().get(i);
-				iadministration.updateRoomStatus(room, RoomStatus.OCCUPIED_LITERAL);
-				System.out.println("Enter ID for key 1 for the room " + room.getNumber());
-				Key key1 = new KeyImpl();
-				key1.setId(in.nextInt());
-				in.nextLine();
-				System.out.println("Enter ID for key 2 for the room " + room.getNumber());
-				Key key2 = new KeyImpl();
-				key2.setId(in.nextInt());
-				in.nextLine();
-				iadministration.assignKeysToRoom(room.getNumber(), key1, key2);
-			}
+		if(roomBooking.isCheckedIn()) {
+			System.out.println("The guests have already checked in");
 		} else {
-			System.out.println("Payment failed!");
+			System.out.println("The guests have been given following rooms: ");
 			for(int i = 0; i < roomBooking.getRoom().size(); i++) {
 				Room room = (Room) roomBooking.getRoom().get(i);
-				room.getGuests().clear();
+				System.out.println("Room nr " + room.getNumber());
+			}
+			
+			System.out.println("Please enter credit card details");
+			String creditCard = in.nextLine();
+			double amount = roomBooking.getDeposit();
+			if(iadministration.reservePayment(amount, creditCard)) {
+				System.out.println("Payment was successful");
+				for(int i = 0; i < roomBooking.getRoom().size(); i++) {
+					Room room = (Room) roomBooking.getRoom().get(i);
+					iadministration.updateRoomStatus(room, RoomStatus.OCCUPIED_LITERAL);
+					System.out.println("Enter ID for key 1 for the room " + room.getNumber());
+					Key key1 = new KeyImpl();
+					key1.setId(in.nextInt());
+					in.nextLine();
+					System.out.println("Enter ID for key 2 for the room " + room.getNumber());
+					Key key2 = new KeyImpl();
+					key2.setId(in.nextInt());
+					in.nextLine();
+					iadministration.assignKeysToRoom(room.getNumber(), key1, key2);
+				}
+				roomBooking.setCheckedIn(true);
+			} else {
+				System.out.println("Payment failed!");
+				for(int i = 0; i < roomBooking.getRoom().size(); i++) {
+					Room room = (Room) roomBooking.getRoom().get(i);
+					room.getGuests().clear();
+				}
 			}
 		}
 	}

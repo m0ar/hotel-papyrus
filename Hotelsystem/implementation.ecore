@@ -153,6 +153,8 @@
         lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="customer" ordered="false"
         lowerBound="1" eType="#//Customer"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkedIn" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PensionType">
     <eLiterals name="HalfPension"/>

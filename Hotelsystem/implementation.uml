@@ -189,6 +189,10 @@
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_x8sqdJzBEeWXM95eiB_1bQ" name="customer" type="_GK_hQJwpEeWs7qnn26dFxw" association="_x8sqcJzBEeWXM95eiB_1bQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_UXRiwKf7EeW9k8knzwKAVw" name="checkedIn" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_gVEKcKf7EeW9k8knzwKAVw"/>
+    </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_AH6kgJwpEeWs7qnn26dFxw" name="Person" isAbstract="true">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_HqYuEJxCEeWs7qnn26dFxw" name="name" visibility="private">

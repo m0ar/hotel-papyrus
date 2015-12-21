@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link implementation.RoomBooking#getRoom <em>Room</em>}</li>
  *   <li>{@link implementation.RoomBooking#isRentPayed <em>Rent Payed</em>}</li>
  *   <li>{@link implementation.RoomBooking#getCustomer <em>Customer</em>}</li>
+ *   <li>{@link implementation.RoomBooking#isCheckedIn <em>Checked In</em>}</li>
  * </ul>
  *
  * @see implementation.ImplementationPackage#getRoomBooking()
@@ -182,5 +183,32 @@ public interface RoomBooking extends Booking {
 	 * @generated
 	 */
 	void setCustomer(Customer value);
+
+	/**
+	 * Returns the value of the '<em><b>Checked In</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Checked In</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Checked In</em>' attribute.
+	 * @see #setCheckedIn(boolean)
+	 * @see implementation.ImplementationPackage#getRoomBooking_CheckedIn()
+	 * @model default="false" dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false"
+	 * @generated
+	 */
+	boolean isCheckedIn();
+
+	/**
+	 * Sets the value of the '{@link implementation.RoomBooking#isCheckedIn <em>Checked In</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Checked In</em>' attribute.
+	 * @see #isCheckedIn()
+	 * @generated
+	 */
+	void setCheckedIn(boolean value);
 
 } // RoomBooking

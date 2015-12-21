@@ -864,6 +864,15 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRoomBooking_CheckedIn() {
+		return (EAttribute)roomBookingEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getKey() {
 		return keyEClass;
 	}
@@ -1234,6 +1243,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		createEReference(roomBookingEClass, ROOM_BOOKING__ROOM);
 		createEAttribute(roomBookingEClass, ROOM_BOOKING__RENT_PAYED);
 		createEReference(roomBookingEClass, ROOM_BOOKING__CUSTOMER);
+		createEAttribute(roomBookingEClass, ROOM_BOOKING__CHECKED_IN);
 
 		customerEClass = createEClass(CUSTOMER);
 		createEAttribute(customerEClass, CUSTOMER__ADDRESS);
@@ -1406,6 +1416,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		initEReference(getRoomBooking_Room(), this.getRoom(), null, "room", null, 1, -1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRoomBooking_RentPayed(), theTypesPackage.getBoolean(), "rentPayed", null, 1, 1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRoomBooking_Customer(), this.getCustomer(), null, "customer", null, 1, 1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRoomBooking_CheckedIn(), theTypesPackage.getBoolean(), "checkedIn", "false", 1, 1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(customerEClass, Customer.class, "Customer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCustomer_Address(), theTypesPackage.getString(), "address", null, 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

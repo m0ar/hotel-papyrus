@@ -890,13 +890,22 @@ public interface ImplementationPackage extends EPackage {
 	int ROOM_BOOKING__CUSTOMER = BOOKING_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Checked In</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_BOOKING__CHECKED_IN = BOOKING_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Room Booking</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_BOOKING_FEATURE_COUNT = BOOKING_FEATURE_COUNT + 7;
+	int ROOM_BOOKING_FEATURE_COUNT = BOOKING_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link implementation.impl.ConferenceRoomImpl <em>Conference Room</em>}' class.
@@ -1933,6 +1942,17 @@ public interface ImplementationPackage extends EPackage {
 	EReference getRoomBooking_Customer();
 
 	/**
+	 * Returns the meta object for the attribute '{@link implementation.RoomBooking#isCheckedIn <em>Checked In</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Checked In</em>'.
+	 * @see implementation.RoomBooking#isCheckedIn()
+	 * @see #getRoomBooking()
+	 * @generated
+	 */
+	EAttribute getRoomBooking_CheckedIn();
+
+	/**
 	 * Returns the meta object for class '{@link implementation.Key <em>Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2789,6 +2809,14 @@ public interface ImplementationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ROOM_BOOKING__CUSTOMER = eINSTANCE.getRoomBooking_Customer();
+
+		/**
+		 * The meta object literal for the '<em><b>Checked In</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROOM_BOOKING__CHECKED_IN = eINSTANCE.getRoomBooking_CheckedIn();
 
 		/**
 		 * The meta object literal for the '{@link implementation.impl.KeyImpl <em>Key</em>}' class.
