@@ -74,7 +74,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BookingControllerImpl() {
+	public BookingControllerImpl() {
 		super();
 	}
 
@@ -261,7 +261,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		System.out.println(sd != null);
 		System.out.println(ed != null);
 		System.out.println(sd.before(ed));
-		return nbrOfGuests >= 1 && nbrOfRooms >= 1 && sd != null && ed != null && sd.before(ed); 
+		return nbrOfGuests >= 1 && nbrOfRooms >= 1 && nbrOfRooms <= 5 && sd != null && ed != null && sd.before(ed); 
 	}
 
 	/**
