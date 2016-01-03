@@ -220,23 +220,28 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	}
 	
 	private void displayModeMenu(Scanner in){
-		while (true) {
-			System.out.println("Press 0 to exit program.");
-			System.out.println("Press 1 to enter booking mode.");
-			System.out.println("Press 2 to enter administration mode.");
-			int mode = in.nextInt();
-			in.nextLine();
-			if(mode == 0){
-				in.close();
-				System.exit(0);
-			}else if(mode == 1){
-				enterBookingMode(in);
-			}else if(mode == 2){
-				enterAdminMode(in);
-			}else{
-				System.out.println("Didn't understand input. Please try again.");
+		try{
+			while (true) {
+				System.out.println("Press 0 to exit program.");
+				System.out.println("Press 1 to enter booking mode.");
+				System.out.println("Press 2 to enter administration mode.");
+				int mode = in.nextInt();
+				in.nextLine();
+				if(mode == 0){
+					in.close();
+					System.exit(0);
+				}else if(mode == 1){
+					enterBookingMode(in);
+				}else if(mode == 2){
+					enterAdminMode(in);
+				}else{
+					System.out.println("Didn't understand input. Please try again.");
+				}			
 			}
-			
+		}catch(Exception e){
+			System.out.println("An error occurred with error message:");
+			System.out.println(e);
+			displayModeMenu(in);
 		}
 		
 		//ibooking.findAvailableRoomTypes(2, "2015-12-12", "2015-12-14", 1);
