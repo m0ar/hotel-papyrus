@@ -639,7 +639,15 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		System.out.println("Enter booking number");
 		int bookingNr = in.nextInt();
 		in.nextLine();
-		RoomBooking roomBooking = iadministration.checkIn(bookingNr);
+		RoomBooking roomBooking = null;
+		try {
+			roomBooking = iadministration.checkIn(bookingNr);
+		} catch (NullPointerException ex) {
+			System.out.println(ex.getMessage());
+			System.out.println("If you want to create a new booking, go to the booking mode");
+			displayModeMenu(in);
+		}
+		//RoomBooking roomBooking = iadministration.checkIn(bookingNr);
 		if(roomBooking.isCheckedIn()) {
 			System.out.println("The guests have already checked in");
 		} else {
