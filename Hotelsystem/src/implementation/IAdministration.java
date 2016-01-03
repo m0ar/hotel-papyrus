@@ -108,10 +108,10 @@ public interface IAdministration extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model roomBookingRequired="true" roomBookingOrdered="false"
+	 * @model required="true" ordered="false" roomBookingRequired="true" roomBookingOrdered="false"
 	 * @generated
 	 */
-	void getFinalBill(RoomBooking roomBooking);
+	Bill getFinalBill(RoomBooking roomBooking);
 
 	/**
 	 * <!-- begin-user-doc -->

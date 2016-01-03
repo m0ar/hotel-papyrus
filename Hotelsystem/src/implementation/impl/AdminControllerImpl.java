@@ -270,7 +270,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void getFinalBill(RoomBooking roomBooking) {
+	public Bill getFinalBill(RoomBooking roomBooking) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -321,26 +321,33 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 */
 	public Bill checkOut(int bookingID) {
-		//deactivateKeysFromRoom(bookingID);
-		RoomBooking booking = model.getRoomBooking(bookingID);		
-		double cost = 0;
-		if(!booking.isRentPayed()){
-			cost += booking.getCost();
-		}
+		RoomBooking booking = model.getRoomBooking(bookingID);
+		deactivateKeysFromRoom(booking);
 		EList rooms = booking.getRoom();
 		for(int i = 0; i < rooms.size(); i++){
-			Room r = (Room)rooms.get(i);
-			r.setStatus(RoomStatus.CLEANING_LITERAL);
-			r.getGuests().clear();
-			cost += r.getTotalBill();
+			updateRoomStatus((Room)rooms.get(i), RoomStatus.CLEANING_LITERAL);
 		}
-		Bill finalBill = new BillImpl();
-		finalBill.setCost(cost);
-		finalBill.setDescription("final bill of booking " + bookingID);
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd : HH:mm");
-		Date date = new Date();
-		finalBill.setDate(dateFormat.format(date));
-		return finalBill;
+		unassignGuestsFromRooms(booking);
+		return getFinalBill(booking);
+		
+//		double cost = 0;
+//		if(!booking.isRentPayed()){
+//			cost += booking.getCost();
+//		}
+//		EList rooms = booking.getRoom();
+//		for(int i = 0; i < rooms.size(); i++){
+//			Room r = (Room)rooms.get(i);
+//			r.setStatus(RoomStatus.CLEANING_LITERAL);
+//			r.getGuests().clear();
+//			cost += r.getTotalBill();
+//		}
+//		Bill finalBill = new BillImpl();
+//		finalBill.setCost(cost);
+//		finalBill.setDescription("final bill of booking " + bookingID);
+//		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd : HH:mm");
+//		Date date = new Date();
+//		finalBill.setDate(dateFormat.format(date));
+//		return finalBill;
 	}
 
 	/**

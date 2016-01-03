@@ -1566,7 +1566,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		addEParameter(op, this.getKey(), "key1", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getKey(), "key2", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = addEOperation(iAdministrationEClass, null, "getFinalBill");
+		op = addEOperation(iAdministrationEClass, this.getBill(), "getFinalBill", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoomBooking(), "roomBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = addEOperation(iAdministrationEClass, null, "assignGuestsToRoom");

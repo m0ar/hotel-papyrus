@@ -471,6 +471,7 @@
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDScoZ5ZEeWKBr577pjDPA" name="roomBooking" type="_-d1BQJwoEeWs7qnn26dFxw">
         <defaultValue xmi:type="uml:LiteralNull" xmi:id="_eDScop5ZEeWKBr577pjDPA"/>
       </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_GJ2ucLJGEeWLkv29jlh-hw" name="return" type="_poxd8JwoEeWs7qnn26dFxw" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_eDSco55ZEeWKBr577pjDPA" name="assignGuestsToRoom">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_eDScpJ5ZEeWKBr577pjDPA" name="guests" type="_FyjzIJwpEeWs7qnn26dFxw">

@@ -312,7 +312,7 @@
       <eParameters name="key1" ordered="false" lowerBound="1" eType="#//Key"/>
       <eParameters name="key2" ordered="false" lowerBound="1" eType="#//Key"/>
     </eOperations>
-    <eOperations name="getFinalBill" ordered="false" lowerBound="1">
+    <eOperations name="getFinalBill" ordered="false" lowerBound="1" eType="#//Bill">
       <eParameters name="roomBooking" ordered="false" lowerBound="1" eType="#//RoomBooking"/>
     </eOperations>
     <eOperations name="assignGuestsToRoom" ordered="false" lowerBound="1">
