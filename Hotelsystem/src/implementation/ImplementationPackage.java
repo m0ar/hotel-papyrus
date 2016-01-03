@@ -113,13 +113,22 @@ public interface ImplementationPackage extends EPackage {
 	int BOOKING_CONTROLLER__BANKPROVIDES = IBOOKING_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Next Booking Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_CONTROLLER__NEXT_BOOKING_ID = IBOOKING_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Booking Controller</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_CONTROLLER_FEATURE_COUNT = IBOOKING_FEATURE_COUNT + 3;
+	int BOOKING_CONTROLLER_FEATURE_COUNT = IBOOKING_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link implementation.impl.ModelImpl <em>Model</em>}' class.
@@ -1315,6 +1324,17 @@ public interface ImplementationPackage extends EPackage {
 	EReference getBookingController_Bankprovides();
 
 	/**
+	 * Returns the meta object for the attribute '{@link implementation.BookingController#getNextBookingId <em>Next Booking Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Next Booking Id</em>'.
+	 * @see implementation.BookingController#getNextBookingId()
+	 * @see #getBookingController()
+	 * @generated
+	 */
+	EAttribute getBookingController_NextBookingId();
+
+	/**
 	 * Returns the meta object for class '{@link implementation.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2323,6 +2343,14 @@ public interface ImplementationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BOOKING_CONTROLLER__BANKPROVIDES = eINSTANCE.getBookingController_Bankprovides();
+
+		/**
+		 * The meta object literal for the '<em><b>Next Booking Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOKING_CONTROLLER__NEXT_BOOKING_ID = eINSTANCE.getBookingController_NextBookingId();
 
 		/**
 		 * The meta object literal for the '{@link implementation.impl.ModelImpl <em>Model</em>}' class.

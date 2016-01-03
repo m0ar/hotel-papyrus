@@ -8,6 +8,8 @@
         lowerBound="1" eType="#//IProfile"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="bankprovides" ordered="false"
         lowerBound="1" eType="#//BankProvides"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nextBookingId" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Model">
     <eOperations name="getCustomer" ordered="false" lowerBound="1" eType="#//Customer">

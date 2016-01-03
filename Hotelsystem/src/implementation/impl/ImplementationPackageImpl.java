@@ -342,6 +342,15 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getBookingController_NextBookingId() {
+		return (EAttribute)bookingControllerEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getModel() {
 		return modelEClass;
 	}
@@ -1170,6 +1179,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		createEReference(bookingControllerEClass, BOOKING_CONTROLLER__MODEL);
 		createEReference(bookingControllerEClass, BOOKING_CONTROLLER__IPROFILE);
 		createEReference(bookingControllerEClass, BOOKING_CONTROLLER__BANKPROVIDES);
+		createEAttribute(bookingControllerEClass, BOOKING_CONTROLLER__NEXT_BOOKING_ID);
 
 		modelEClass = createEClass(MODEL);
 		createEReference(modelEClass, MODEL__ROOMTYPES);
@@ -1327,6 +1337,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		initEReference(getBookingController_Model(), this.getModel(), null, "model", null, 1, 1, BookingController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getBookingController_Iprofile(), this.getIProfile(), null, "iprofile", null, 1, 1, BookingController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getBookingController_Bankprovides(), this.getBankProvides(), null, "bankprovides", null, 1, 1, BookingController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getBookingController_NextBookingId(), theTypesPackage.getInteger(), "nextBookingId", null, 1, 1, BookingController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModel_Roomtypes(), this.getRoomType(), null, "roomtypes", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
