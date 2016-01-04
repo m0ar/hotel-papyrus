@@ -752,6 +752,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		BookingControllerImpl bc = new BookingControllerImpl();
 		bc.setModel(model);
 		bc.setBankprovides(bankprovides);
+		bc.setNextBookingId((model.getRoombooking()).size());
 		ibooking = bc;
 
 		AdminControllerImpl ac = new AdminControllerImpl();
@@ -765,7 +766,157 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		EList rooms = initRooms(roomTypes);
 		model.getRoomtypes().addAll(roomTypes);
 		model.getRoom().addAll(rooms);
+		EList roomBookings = initRoomBookings(model);
+		model.getRoombooking().addAll(roomBookings);
 		
+	}
+	
+	private EList initRoomBookings(ModelImpl model){
+		EList bookings = new BasicEList();
+		
+		RoomBooking rb1 = new RoomBookingImpl();
+		rb1.setBookingNr(1);
+		
+		CustomerImpl c = new CustomerImpl();
+		c.setAddress("Chalmers");
+		c.setName("Carl");
+		c.setPhoneNbr("01-233210");
+		c.setSocialSecurityNumber("661023-6595");
+		GuestImpl g = new GuestImpl();
+		g.setName("Calle");
+		g.setSocialSecurityNumber("510106-0650");
+		
+		rb1.setCustomer(c);
+		rb1.getGuests().add(g);
+		rb1.setDeposit(200);
+		rb1.setEndDate("2016-02-03");
+		rb1.setStartDate("2016-02-01");
+		rb1.setReservation(false);
+		rb1.setPension(PensionType.BREAKFAST_LITERAL);
+		rb1.getChosenroomtypes().add(model.getRoomType("Double room"));
+		rb1.setCost(model.getRoomType("Double room").getPrice());
+		
+		RoomImpl room = new RoomImpl();
+		
+		for(int i = 0; i < model.getRoom().size(); i++){
+			if(((RoomImpl)model.getRoom().get(i)).getRoomtype().getName().equals("Double room")){
+				room = (RoomImpl)model.getRoom().get(i);
+				break;
+			}
+		}
+		
+		rb1.getRoom().add(room);
+		bookings.add(rb1);
+		
+		
+		
+		RoomBooking rb2 = new RoomBookingImpl();
+		rb2.setBookingNr(2);
+		
+		c = new CustomerImpl();
+		c.setAddress("Göteborg");
+		c.setName("Erik");
+		c.setPhoneNbr("01-292720");
+		c.setSocialSecurityNumber("952023-6595");
+		g = new GuestImpl();
+		g.setName("Sara");
+		g.setSocialSecurityNumber("78956-0650");
+		
+		rb2.setCustomer(c);
+		rb2.getGuests().add(g);
+		rb2.setDeposit(200);
+		rb2.setEndDate("2016-05-05");
+		rb2.setStartDate("2016-07-01");
+		rb2.setReservation(false);
+		rb2.setPension(PensionType.FULL_PENSION_LITERAL);
+		rb2.getChosenroomtypes().add(model.getRoomType("Suite"));
+		rb2.setCost(model.getRoomType("Suite").getPrice());
+		
+		room = new RoomImpl();
+		
+		for(int i = 0; i < model.getRoom().size(); i++){
+			if(((RoomImpl)model.getRoom().get(i)).getRoomtype().getName().equals("Suite")){
+				room = (RoomImpl)model.getRoom().get(i);
+				break;
+			}
+		}
+		
+		rb2.getRoom().add(room);
+		bookings.add(rb2);
+		
+		
+		
+		RoomBooking rb3 = new RoomBookingImpl();
+		rb3.setBookingNr(3);
+		
+		c = new CustomerImpl();
+		c.setAddress("Stockholm");
+		c.setName("Lisa");
+		c.setPhoneNbr("01-202380");
+		c.setSocialSecurityNumber("875023-6595");
+		
+		rb3.setCustomer(c);
+		rb3.setDeposit(200);
+		rb3.setEndDate("2016-07-05");
+		rb3.setStartDate("2016-07-06");
+		rb3.setReservation(false);
+		rb3.setPension(PensionType.NONE_LITERAL);
+		rb3.getChosenroomtypes().add(model.getRoomType("Single room"));
+		rb3.setCost(model.getRoomType("Single room").getPrice());
+		
+		room = new RoomImpl();
+		
+		for(int i = 0; i < model.getRoom().size(); i++){
+			if(((RoomImpl)model.getRoom().get(i)).getRoomtype().getName().equals("Single room")){
+				room = (RoomImpl)model.getRoom().get(i);
+				break;
+			}
+		}
+		
+		rb3.getRoom().add(room);
+		bookings.add(rb3);
+		
+		
+		RoomBooking rb4 = new RoomBookingImpl();
+		rb4.setBookingNr(4);
+		
+		c = new CustomerImpl();
+		c.setAddress("Mölndal");
+		c.setName("Sven");
+		c.setPhoneNbr("08-75178");
+		c.setSocialSecurityNumber("578023-6595");
+		g = new GuestImpl();
+		g.setName("Eva");
+		g.setSocialSecurityNumber("68956-0650");
+		
+		rb4.setCustomer(c);
+		rb4.getGuests().add(g);
+		rb4.setDeposit(200);
+		rb4.setEndDate("2016-03-05");
+		rb4.setStartDate("2016-03-10");
+		rb4.setReservation(false);
+		rb4.setPension(PensionType.FULL_PENSION_LITERAL);
+		rb4.getChosenroomtypes().add(model.getRoomType("Single room"));
+		rb4.getChosenroomtypes().add(model.getRoomType("Single room"));
+		rb4.setCost(model.getRoomType("Single room").getPrice() * 2);
+		
+		room = new RoomImpl();
+		int j = 0;
+		for(int i = 0; i < model.getRoom().size(); i++){
+			if(((RoomImpl)model.getRoom().get(i)).getRoomtype().getName().equals("Single room")){
+				j++;
+				room = (RoomImpl)model.getRoom().get(i);
+				rb4.getRoom().add(room);
+				if(j == 2){
+					break;
+				}
+			}
+		}
+		
+		bookings.add(rb4);
+		
+		
+		return bookings;
 	}
 	
 	private EList initRooms(EList roomTypes){
