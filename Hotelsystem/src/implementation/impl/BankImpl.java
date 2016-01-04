@@ -51,4 +51,12 @@ public class BankImpl extends MinimalEObjectImpl.Container implements Bank {
 		return true;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean removeReservedPayment(double amount, String cardDetails) {
+		return true;
+	}
+
 } //BankImpl

@@ -211,6 +211,10 @@
       <eParameters name="amount" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Real"/>
       <eParameters name="cardDetails" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
+    <eOperations name="removeReservedPayment" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
+      <eParameters name="amount" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Real"/>
+      <eParameters name="cardDetails" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IBooking" abstract="true" interface="true">
     <eOperations name="selectExtras" ordered="false" lowerBound="1">
@@ -328,6 +332,10 @@
     </eOperations>
     <eOperations name="reservePayment" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
       <eParameters name="amount" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Real"/>
+      <eParameters name="cardDetails" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+    </eOperations>
+    <eOperations name="removeDeposition" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
+      <eParameters name="bookingNr" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
       <eParameters name="cardDetails" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
   </eClassifiers>

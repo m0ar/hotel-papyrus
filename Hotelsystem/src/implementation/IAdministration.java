@@ -68,6 +68,14 @@ public interface IAdministration extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" bookingNrDataType="org.eclipse.uml2.types.Integer" bookingNrRequired="true" bookingNrOrdered="false" cardDetailsDataType="org.eclipse.uml2.types.String" cardDetailsRequired="true" cardDetailsOrdered="false"
+	 * @generated
+	 */
+	boolean removeDeposition(int bookingNr, String cardDetails);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model required="true" ordered="false" bookingIDDataType="org.eclipse.uml2.types.Integer" bookingIDRequired="true" bookingIDOrdered="false"
 	 * @generated
 	 */

@@ -623,21 +623,67 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			Bill finalBill = iadministration.checkOut(bookingNr);
 			if(finalBill == null){
 				System.out.println("Could not find booking, please try again");				
+			}else if (finalBill.getCost() < 0.01){
+				while(true){
+					System.out.println("Should the deposition for booking " + bookingNr + " be returned? (Yes/No)");
+					String strReturnDeposit = in.nextLine();
+					if(strReturnDeposit.equalsIgnoreCase("Yes")){
+						System.out.println("Enter credit card details.");
+						String card = in.nextLine();
+						if(iadministration.removeDeposition(bookingNr, card)){
+							break;
+						}else{
+							System.out.println("The deposition was not returned. Please try again.");							
+						}
+					}else if(strReturnDeposit.equalsIgnoreCase("No")){
+						break;
+					}else{
+						System.out.println("Did not understand input. Pleas try again.");
+					}
+				}
+				System.out.println("Booking " + bookingNr + " was successfully checked out.");
+				return;
 			}else{
 				DecimalFormat df = new DecimalFormat("#.##");
 				while(true){
 					System.out.println("The total cost is " + df.format(finalBill.getCost()));
 					System.out.println("Please enter credit card details");
 					String creditCard = in.nextLine();
-					/*if(bankprovides.makePayment(finalBill.getCost(), creditCard)){
-						System.out.println("Check out was successfull");
-						return;
-					}else{
+					if(!iadministration.makePayment(creditCard, finalBill.getCost())){
 						System.out.println("Payment faild, please try again");
-					}*/
+					}else{
+						break;
+					}
+				}
+				if(returnDeposition(in, bookingNr)){
+					System.out.println("Booking " + bookingNr + " was successfully checked out.");
+					return;
+				}else{
+					return;
 				}
 			}
 		}
+	}
+	
+	private boolean returnDeposition(Scanner in, int bookingNr){
+		while(true){
+			System.out.println("Should the deposition for booking " + bookingNr + " be returned? (Yes/No)");
+			String strReturnDeposit = in.nextLine();
+			if(strReturnDeposit.equalsIgnoreCase("Yes")){
+				System.out.println("Enter credit card details.");
+				String card = in.nextLine();
+				if(iadministration.removeDeposition(bookingNr, card)){
+					break;
+				}else{
+					System.out.println("The deposition was not returned. Please try again.");							
+				}
+			}else if(strReturnDeposit.equalsIgnoreCase("No")){
+				break;
+			}else{
+				System.out.println("Did not understand input. Pleas try again.");
+			}
+		}
+		return true;
 	}
 	
 	private void checkIn(Scanner in) {
@@ -652,7 +698,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			System.out.println("If you want to create a new booking, go to the booking mode");
 			displayModeMenu(in);
 		}
-		//RoomBooking roomBooking = iadministration.checkIn(bookingNr);
 		if(roomBooking.isCheckedIn()) {
 			System.out.println("The guests have already checked in");
 		} else {

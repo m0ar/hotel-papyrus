@@ -172,12 +172,9 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public boolean makePayment(String cardDetails, double amount) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return bankprovides.makePayment(amount, cardDetails);
 	}
 
 	/**
@@ -229,6 +226,15 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public boolean removeDeposition(int bookingNr, String cardDetails) {
+		RoomBooking roomBooking = (RoomBooking) model.getRoomBooking(bookingNr);
+		return bankprovides.removeReservedPayment(roomBooking.getDeposit(), cardDetails);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void updateRoom(int roomID, RoomType roomType) {
@@ -251,12 +257,13 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void unassignGuestsFromRooms(RoomBooking roomBooking) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList rooms = roomBooking.getGuests();
+		for(int i = 0; i < rooms.size(); i++){
+			Room r = (Room)rooms.get(i);
+			r.getGuests().clear();
+		}
 	}
 
 	/**
@@ -271,12 +278,24 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public Bill getFinalBill(RoomBooking roomBooking) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		double cost = 0;
+		if(!roomBooking.isRentPayed()){
+			cost += roomBooking.getCost();
+		}
+		EList rooms = roomBooking.getRoom();
+		for(int i = 0; i < rooms.size(); i++){
+			Room r = (Room)rooms.get(i);
+			cost += r.getTotalBill();
+		}
+		Bill finalBill = new BillImpl();
+		finalBill.setCost(cost);
+		finalBill.setDescription("final bill of booking " + roomBooking.getBookingNr());
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		Date date = new Date();
+		finalBill.setDate(dateFormat.format(date));
+		return finalBill;
 	}
 
 	/**
@@ -311,12 +330,13 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void deactivateKeysFromRoom(RoomBooking roomBooking) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList rooms = roomBooking.getRoom();
+		for(int i = 0; i < rooms.size(); i++){
+			Room r = (Room)rooms.get(i);
+			r.getKeys().clear();
+		}
 	}
 
 	/**
@@ -325,6 +345,9 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public Bill checkOut(int bookingID) {
 		RoomBooking booking = model.getRoomBooking(bookingID);
+		if(booking == null){
+			return null;
+		}
 		deactivateKeysFromRoom(booking);
 		EList rooms = booking.getRoom();
 		for(int i = 0; i < rooms.size(); i++){
@@ -332,25 +355,6 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 		}
 		unassignGuestsFromRooms(booking);
 		return getFinalBill(booking);
-		
-//		double cost = 0;
-//		if(!booking.isRentPayed()){
-//			cost += booking.getCost();
-//		}
-//		EList rooms = booking.getRoom();
-//		for(int i = 0; i < rooms.size(); i++){
-//			Room r = (Room)rooms.get(i);
-//			r.setStatus(RoomStatus.CLEANING_LITERAL);
-//			r.getGuests().clear();
-//			cost += r.getTotalBill();
-//		}
-//		Bill finalBill = new BillImpl();
-//		finalBill.setCost(cost);
-//		finalBill.setDescription("final bill of booking " + bookingID);
-//		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd : HH:mm");
-//		Date date = new Date();
-//		finalBill.setDate(dateFormat.format(date));
-//		return finalBill;
 	}
 
 	/**

@@ -1468,6 +1468,10 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		addEParameter(op, theTypesPackage.getReal(), "amount", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "cardDetails", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
+		op = addEOperation(bankProvidesEClass, theTypesPackage.getBoolean(), "removeReservedPayment", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getReal(), "amount", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "cardDetails", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
 		initEClass(iBookingEClass, IBooking.class, "IBooking", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(iBookingEClass, null, "selectExtras");
@@ -1582,6 +1586,10 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 
 		op = addEOperation(iAdministrationEClass, theTypesPackage.getBoolean(), "reservePayment", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getReal(), "amount", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "cardDetails", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = addEOperation(iAdministrationEClass, theTypesPackage.getBoolean(), "removeDeposition", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getInteger(), "bookingNr", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "cardDetails", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(modelFactoryEClass, ModelFactory.class, "ModelFactory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

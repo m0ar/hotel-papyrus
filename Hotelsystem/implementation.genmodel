@@ -196,6 +196,10 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//BankProvides/reservePayment/amount"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//BankProvides/reservePayment/cardDetails"/>
       </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//BankProvides/removeReservedPayment">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//BankProvides/removeReservedPayment/amount"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//BankProvides/removeReservedPayment/cardDetails"/>
+      </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="implementation.ecore#//IBooking">
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IBooking/selectExtras">
@@ -313,6 +317,10 @@
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IAdministration/reservePayment">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IAdministration/reservePayment/amount"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IAdministration/reservePayment/cardDetails"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IAdministration/removeDeposition">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IAdministration/removeDeposition/bookingNr"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IAdministration/removeDeposition/cardDetails"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//ModelFactory">
