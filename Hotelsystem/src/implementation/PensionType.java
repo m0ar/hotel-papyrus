@@ -28,10 +28,9 @@ public final class PensionType extends AbstractEnumerator {
 	 * <!-- end-user-doc -->
 	 * @see #HALF_PENSION_LITERAL
 	 * @model name="HalfPension"
-	 * @generated
 	 * @ordered
 	 */
-	public static final int HALF_PENSION = 0;
+	public static final int HALF_PENSION = 200;
 
 	/**
 	 * The '<em><b>Full Pension</b></em>' literal value.
@@ -43,10 +42,9 @@ public final class PensionType extends AbstractEnumerator {
 	 * <!-- end-user-doc -->
 	 * @see #FULL_PENSION_LITERAL
 	 * @model name="FullPension"
-	 * @generated
 	 * @ordered
 	 */
-	public static final int FULL_PENSION = 1;
+	public static final int FULL_PENSION = 400;
 
 	/**
 	 * The '<em><b>Breakfast</b></em>' literal value.
@@ -58,10 +56,9 @@ public final class PensionType extends AbstractEnumerator {
 	 * <!-- end-user-doc -->
 	 * @see #BREAKFAST_LITERAL
 	 * @model name="Breakfast"
-	 * @generated
 	 * @ordered
 	 */
-	public static final int BREAKFAST = 2;
+	public static final int BREAKFAST = 75;
 
 	/**
 	 * The '<em><b>None</b></em>' literal value.
@@ -73,10 +70,9 @@ public final class PensionType extends AbstractEnumerator {
 	 * <!-- end-user-doc -->
 	 * @see #NONE_LITERAL
 	 * @model name="None"
-	 * @generated
 	 * @ordered
 	 */
-	public static final int NONE = 3;
+	public static final int NONE = 0;
 
 	/**
 	 * The '<em><b>Half Pension</b></em>' literal object.

@@ -259,7 +259,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 */
 	public void unassignGuestsFromRooms(RoomBooking roomBooking) {
-		EList rooms = roomBooking.getGuests();
+		EList rooms = roomBooking.getRoom();
 		for(int i = 0; i < rooms.size(); i++){
 			Room r = (Room)rooms.get(i);
 			r.getGuests().clear();

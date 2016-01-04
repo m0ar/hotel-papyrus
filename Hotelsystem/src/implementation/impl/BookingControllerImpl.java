@@ -9,6 +9,7 @@ import implementation.IProfile;
 import implementation.ImplementationPackage;
 import implementation.Model;
 import implementation.PensionType;
+import implementation.RoomBooking;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -285,9 +286,13 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	public void createBooking(int reservationID) {
 		EList bookings = model.getRoombooking();
-		for(int i = 0; i < bookings.size(); i++)
-			if(((RoomBookingImpl)bookings.get(i)).isReservation() && ((RoomBookingImpl)bookings.get(i)).getBookingNr() == reservationID)
-				((RoomBookingImpl)bookings.get(i)).setReservation(false);
+		for(int i = 0; i < bookings.size(); i++){
+			if(((RoomBooking)bookings.get(i)).isReservation() && ((RoomBooking)bookings.get(i)).getBookingNr() == reservationID){
+				RoomBooking booking = (RoomBooking)bookings.get(i);
+				booking.setReservation(false);
+				booking.calculateCost();
+			}
+		}
 	}
 
 	/**

@@ -137,6 +137,7 @@
         lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RoomBooking" eSuperTypes="#//Booking">
+    <eOperations name="calculateCost" ordered="false" lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deposit" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//Real"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pension" ordered="false"
