@@ -524,7 +524,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				}else if(operation.equalsIgnoreCase("create room")){
 					createRoom(in);
 				}else if(operation.equalsIgnoreCase("remove room")){
-					
+					removeRoom(in);
 				}else if(operation.equalsIgnoreCase("edit room")){
 					
 				}else if(operation.equalsIgnoreCase("update room status")){
@@ -534,6 +534,22 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				}
 			}
 		}
+	}
+	
+
+	private void removeRoom(Scanner in){
+		System.out.println("Enter roomID to remove");
+		int id = in.nextInt();
+		try{
+			iadministration.removeRoom(id);
+		}catch (NullPointerException ex) {
+			System.out.println(ex.getMessage());
+			System.out.println("The room does not exist");
+			displayModeMenu(in);
+		}
+		System.out.println("The room is removed");
+		displayModeMenu(in);
+
 	}
 	
 	private void updateTab(Scanner in){

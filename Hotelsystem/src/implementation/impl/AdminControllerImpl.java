@@ -389,12 +389,38 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void removeRoom(int roomID) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList rooms = model.getRoom();
+		Room room = null;
+		EList bookings = model.getRoombooking();
+		
+		for(int i = 0; i < rooms.size(); i++){
+			if(((RoomImpl)rooms.get(i)).getNumber() == roomID){
+				room = (RoomImpl)rooms.get(i);
+				break;
+			}
+		}
+		
+		if(room == null){
+			throw new NullPointerException("Didn't found the room");
+		}
+		
+		if(room.getGuests().size() != 0){
+			//Kast nån exception
+		}
+		
+		for(int i = 0; i < bookings.size(); i++){
+			RoomBooking rb = (RoomBookingImpl)bookings.get(i);
+			EList bookingRooms = rb.getRoom();
+			for(int j = 0; j < bookingRooms.size(); j++){
+				if(((RoomImpl)bookingRooms.get(j)).equals(room)){
+					//Boka om
+				}
+			}
+		}
+		
+		rooms.remove(room);
 	}
 
 	/**
