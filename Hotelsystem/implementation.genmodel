@@ -230,6 +230,7 @@
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IBooking/createBooking">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IBooking/createBooking/reservationID"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IBooking/createBooking/customer"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IBooking/requestConferenceRoom">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IBooking/requestConferenceRoom/conferenceRoom"/>

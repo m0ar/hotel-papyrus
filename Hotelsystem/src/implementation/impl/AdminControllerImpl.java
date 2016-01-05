@@ -246,12 +246,11 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public double getTotalCost(int bookingID) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		RoomBooking roomBooking = (RoomBooking) model.getRoomBooking(bookingID);
+		roomBooking.calculateCost();
+		return roomBooking.getCost();
 	}
 
 	/**

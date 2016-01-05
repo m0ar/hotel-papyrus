@@ -5,6 +5,7 @@ package implementation.impl;
 import implementation.BankProvides;
 import implementation.BookingController;
 import implementation.ConferenceRoom;
+import implementation.Customer;
 import implementation.IProfile;
 import implementation.ImplementationPackage;
 import implementation.Model;
@@ -284,12 +285,13 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void createBooking(int reservationID) {
+	public void createBooking(int reservationID, Customer customer) {
 		EList bookings = model.getRoombooking();
 		for(int i = 0; i < bookings.size(); i++){
 			if(((RoomBooking)bookings.get(i)).isReservation() && ((RoomBooking)bookings.get(i)).getBookingNr() == reservationID){
 				RoomBooking booking = (RoomBooking)bookings.get(i);
 				booking.setReservation(false);
+				booking.setCustomer(customer);
 				booking.calculateCost();
 			}
 		}
@@ -310,6 +312,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		System.out.println(sd.before(ed));
 		return nbrOfGuests >= 1 && nbrOfRooms >= 1 && sd != null && ed != null && sd.before(ed); 
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -36,18 +36,18 @@ public interface IBooking extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model reservationIDDataType="org.eclipse.uml2.types.Integer" reservationIDRequired="true" reservationIDOrdered="false"
-	 * @generated
-	 */
-	void createBooking(int reservationID);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" nbrOfGuestsDataType="org.eclipse.uml2.types.Integer" nbrOfGuestsRequired="true" nbrOfGuestsOrdered="false" nbrOfRoomsDataType="org.eclipse.uml2.types.Integer" nbrOfRoomsRequired="true" nbrOfRoomsOrdered="false" startDateDataType="org.eclipse.uml2.types.String" startDateRequired="true" startDateOrdered="false" endDateDataType="org.eclipse.uml2.types.String" endDateRequired="true" endDateOrdered="false"
 	 * @generated
 	 */
 	boolean validateBookingData(int nbrOfGuests, int nbrOfRooms, String startDate, String endDate);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model reservationIDDataType="org.eclipse.uml2.types.Integer" reservationIDRequired="true" reservationIDOrdered="false" customerRequired="true" customerOrdered="false"
+	 * @generated
+	 */
+	void createBooking(int reservationID, Customer customer);
 
 	/**
 	 * <!-- begin-user-doc -->

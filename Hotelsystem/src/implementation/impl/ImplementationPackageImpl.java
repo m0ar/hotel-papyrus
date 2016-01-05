@@ -1503,6 +1503,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 
 		op = addEOperation(iBookingEClass, null, "createBooking");
 		addEParameter(op, theTypesPackage.getInteger(), "reservationID", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getCustomer(), "customer", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = addEOperation(iBookingEClass, null, "requestConferenceRoom");
 		addEParameter(op, this.getConferenceRoom(), "conferenceRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);

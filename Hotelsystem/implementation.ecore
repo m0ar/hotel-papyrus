@@ -246,6 +246,7 @@
     </eOperations>
     <eOperations name="createBooking" ordered="false" lowerBound="1">
       <eParameters name="reservationID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="customer" ordered="false" lowerBound="1" eType="#//Customer"/>
     </eOperations>
     <eOperations name="requestConferenceRoom" ordered="false" lowerBound="1">
       <eParameters name="conferenceRoom" ordered="false" lowerBound="1" eType="#//ConferenceRoom"/>

@@ -374,22 +374,20 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 							EList guestNames = new BasicEList();
 							EList guestSocials = new BasicEList();
 							
-							if(nbrOfGuests > 1) {
-								int otherGuests = nbrOfGuests - 1;
-								System.out.println("------ Enter the name of the other guests: ------");
-								for(int i = 0; i < otherGuests; i++) {
-									System.out.println("Enter name of guest " + (i+1) + ":");
-									String guestName = in.nextLine();
-									System.out.println("Enter social of guest " + (i+1) + ":");
-									String guestSocial = in.nextLine();
-									ibooking.addGuest(guestName, guestSocial, reservationId);
-									
-									guestNames.add(guestName);
-									guestSocials.add(guestSocial);
-								}
+							System.out.println("------ Enter the name of the guests: ------");
+							for(int i = 0; i < nbrOfGuests; i++) {
+								System.out.println("Enter name of guest " + (i+1) + ":");
+								String guestName = in.nextLine();
+								System.out.println("Enter social of guest " + (i+1) + ":");
+								String guestSocial = in.nextLine();
+								ibooking.addGuest(guestName, guestSocial, reservationId);
+								
+								guestNames.add(guestName);
+								guestSocials.add(guestSocial);
 							}
 							
 							System.out.println("---------- Summary of your booking: ----------");
+							System.out.println("Booking number: " + reservationId);
 							System.out.println("\tStart date: " + startDate);
 							System.out.println("\tEnd date: " + endDate);
 							System.out.println("\tNumber of rooms: " + nbrOfRooms);
@@ -409,7 +407,8 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 								for(int i = 0; i < guestNames.size(); i++)
 									System.out.println("\t" + guestNames.get(i) + " - " + guestSocials.get(i));
 							}
-							System.out.println("Total cost: " + getTotalCost(selectedRoomTypes) + " kr");
+							double cost = iadministration.getTotalCost(reservationId);
+							System.out.println("Total cost: " + cost + " kr");
 							
 							System.out.println("Do you want to confirm the booking?");
 							String confirmation = in.nextLine();
@@ -423,15 +422,14 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 									String age = in.nextLine();
 									
 									if(parseInt(age) >= 18) {
-										if(ibooking.makePayment(paymentInfo, (int)getTotalCost(selectedRoomTypes), parseInt(age), reservationId)) {
-											ibooking.createBooking(reservationId);
+										if(ibooking.makePayment(paymentInfo, cost, parseInt(age), reservationId)) {
+											ibooking.createBooking(reservationId, customer);
 											System.out.println("Your booking was completed!");
-											System.out.println("Your booking number is " + reservationId);
 										} else
 											System.out.println("Payment failed.");
 									}
 								} else {
-									ibooking.createBooking(reservationId);
+									ibooking.createBooking(reservationId, customer);
 									System.out.println("Your booking was completed!");
 								}
 							} else {
@@ -468,13 +466,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		for(int i = 0; i < array.length; i++)
 			list.add(array[i]);
 		return list;
-	}
-	
-	private double getTotalCost(RoomTypeImpl[] roomTypes) {
-		double totalCost = 0;
-		for(int i = 0; i < roomTypes.length; i++)
-			totalCost += roomTypes[i].getPrice();
-		return totalCost;
 	}
 	
 	private int calculateMaxNbrOfGuests(RoomTypeImpl[] roomTypes) {
