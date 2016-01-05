@@ -339,6 +339,10 @@
       <eParameters name="bookingNr" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
       <eParameters name="cardDetails" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
+    <eOperations name="getRoomTypes" ordered="false" upperBound="-1" eType="#//RoomType"/>
+    <eOperations name="getTotalCost" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Real">
+      <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelFactory">
     <eOperations name="getModel" ordered="false" lowerBound="1" eType="#//Model"/>

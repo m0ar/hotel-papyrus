@@ -25,8 +25,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Room Booking</b></em>'.

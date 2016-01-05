@@ -527,6 +527,20 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
       </ownedParameter>
     </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_uLPPULOcEeWONu6cSvXLcQ" name="getRoomTypes">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_50NdkLOcEeWONu6cSvXLcQ" name="return" type="_ujtG4JwoEeWs7qnn26dFxw" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-nrMkLOcEeWONu6cSvXLcQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-qWGELOcEeWONu6cSvXLcQ" value="*"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_CCGFALOdEeWONu6cSvXLcQ" name="getTotalCost">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_I449sLOdEeWONu6cSvXLcQ" name="bookingID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_MWgUELOdEeWONu6cSvXLcQ" name="return" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+      </ownedParameter>
+    </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_NQmnIJwrEeWs7qnn26dFxw" name="ConferenceRoom">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_Py_y8JxNEeWs7qnn26dFxw" name="type" visibility="private">
