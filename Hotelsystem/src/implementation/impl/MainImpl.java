@@ -10,7 +10,6 @@ import implementation.IProfile;
 import implementation.ImplementationPackage;
 import implementation.Key;
 import implementation.Main;
-import implementation.Model;
 import implementation.PensionType;
 import implementation.Room;
 import implementation.RoomBooking;
@@ -18,6 +17,7 @@ import implementation.RoomStatus;
 import implementation.RoomType;
 import implementation.impl.BookingControllerImpl.Tuple;
 
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -375,22 +375,20 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 							EList guestNames = new BasicEList();
 							EList guestSocials = new BasicEList();
 							
-							if(nbrOfGuests > 1) {
-								int otherGuests = nbrOfGuests - 1;
-								System.out.println("------ Enter the name of the other guests: ------");
-								for(int i = 0; i < otherGuests; i++) {
-									System.out.println("Enter name of guest " + (i+1) + ":");
-									String guestName = in.nextLine();
-									System.out.println("Enter social of guest " + (i+1) + ":");
-									String guestSocial = in.nextLine();
-									ibooking.addGuest(guestName, guestSocial, reservationId);
-									
-									guestNames.add(guestName);
-									guestSocials.add(guestSocial);
-								}
+							System.out.println("------ Enter the name of the guests: ------");
+							for(int i = 0; i < nbrOfGuests; i++) {
+								System.out.println("Enter name of guest " + (i+1) + ":");
+								String guestName = in.nextLine();
+								System.out.println("Enter social of guest " + (i+1) + ":");
+								String guestSocial = in.nextLine();
+								ibooking.addGuest(guestName, guestSocial, reservationId);
+								
+								guestNames.add(guestName);
+								guestSocials.add(guestSocial);
 							}
 							
 							System.out.println("---------- Summary of your booking: ----------");
+							System.out.println("\tBooking number: " + reservationId);
 							System.out.println("\tStart date: " + startDate);
 							System.out.println("\tEnd date: " + endDate);
 							System.out.println("\tNumber of rooms: " + nbrOfRooms);
@@ -410,7 +408,8 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 								for(int i = 0; i < guestNames.size(); i++)
 									System.out.println("\t" + guestNames.get(i) + " - " + guestSocials.get(i));
 							}
-							System.out.println("Total cost: " + getTotalCost(selectedRoomTypes) + " kr");
+							double cost = iadministration.getTotalCost(reservationId);
+							System.out.println("Total cost: " + cost + " kr");
 							
 							System.out.println("Do you want to confirm the booking?");
 							String confirmation = in.nextLine();
@@ -424,15 +423,14 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 									String age = in.nextLine();
 									
 									if(parseInt(age) >= 18) {
-										if(ibooking.makePayment(paymentInfo, (int)getTotalCost(selectedRoomTypes), parseInt(age), reservationId)) {
-											ibooking.createBooking(reservationId);
+										if(ibooking.makePayment(paymentInfo, cost, parseInt(age), reservationId)) {
+											ibooking.createBooking(reservationId, customer);
 											System.out.println("Your booking was completed!");
-											System.out.println("Your booking number is " + reservationId);
 										} else
 											System.out.println("Payment failed.");
 									}
 								} else {
-									ibooking.createBooking(reservationId);
+									ibooking.createBooking(reservationId, customer);
 									System.out.println("Your booking was completed!");
 								}
 							} else {
@@ -471,13 +469,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		return list;
 	}
 	
-	private double getTotalCost(RoomTypeImpl[] roomTypes) {
-		double totalCost = 0;
-		for(int i = 0; i < roomTypes.length; i++)
-			totalCost += roomTypes[i].getPrice();
-		return totalCost;
-	}
-	
 	private int calculateMaxNbrOfGuests(RoomTypeImpl[] roomTypes) {
 		int count = 0;
 		for(int i = 0; i < roomTypes.length; i++){
@@ -506,7 +497,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		System.out.println("Administration mode");
 		while(true){
 			System.out.println("Press 1 to go back.");
-			System.out.println("Choose operation (check in, check out, update tab, edit customer, remove customer, create room, remove room, edit room)");
+			System.out.println("Choose operation (check in, check out, update tab, edit customer, remove customer, create room, remove room, edit room, update room status)");
 			if(in.hasNextInt()){
 				int i = in.nextInt();
 				in.nextLine();
@@ -525,18 +516,18 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				}else if(operation.equalsIgnoreCase("check out")){
 					checkOut(in);
 				}else if(operation.equalsIgnoreCase("update tab")){
-					
+					updateTab(in);
 				}else if(operation.equalsIgnoreCase("edit customer")){
 					
 				}else if(operation.equalsIgnoreCase("remove customer")){
 					
 				}else if(operation.equalsIgnoreCase("create room")){
 					createRoom(in);
-					
-					
 				}else if(operation.equalsIgnoreCase("remove room")){
 					removeRoom(in);
 				}else if(operation.equalsIgnoreCase("edit room")){
+					
+				}else if(operation.equalsIgnoreCase("update room status")){
 					
 				}else{
 					System.out.println("Didn't understand input. Please try again.");										
@@ -545,6 +536,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		}
 	}
 	
+
 	private void removeRoom(Scanner in){
 		System.out.println("Enter roomID to remove");
 		int id = in.nextInt();
@@ -557,6 +549,38 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		}
 		System.out.println("The room is removed");
 		displayModeMenu(in);
+
+	}
+	
+	private void updateTab(Scanner in){
+		//cost, date, description
+		while(true){
+			System.out.println("Enter Room number");
+			int roomID = in.nextInt();
+			in.nextLine();
+			System.out.println("Enter cost");
+			double cost = in.nextDouble();
+			in.nextLine();
+			System.out.println("Enter description");
+			String desc = in.nextLine();
+			Bill bill = new BillImpl();
+			bill.setCost(cost);
+			bill.setDescription(desc);
+			Date today = new Date();
+			DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			bill.setDate(df.format(today));
+			if(iadministration.addBill(roomID, bill)){
+				System.out.println("The bill was successfully added to room " + roomID);
+				return;
+			}else{
+				System.out.println("Something went wrong. Please try again.");
+			}
+		}
+	}
+	
+	private void updateRoomStatus(Scanner in){
+		
+
 	}
 	
 	private void createRoom(Scanner in){
@@ -566,73 +590,82 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		System.out.println("Enter roomID");
 		int i = in.nextInt();
 		
-		System.out.println("Is it an existing room type?");
+		System.out.println("Is it an existing room type? (y/n)");
 		in.nextLine();
 		String j = in.nextLine();
 		if(j.equalsIgnoreCase("y")){
-			System.out.println("What room type is it? (Single room / Double Room / Suit");
-			j = in.nextLine();
-			//r = model.getRoomType(name);
-		}
-		
-		System.out.println("Enter room type name");
-		String name = in.nextLine();
-		r.setName(name);
-		
-		System.out.println("Add a description of the room.");
-		String d = in.nextLine();
-		r.setDescription(d);
-		
-		System.out.println("Does it have a balcony? (y/n)");
-		j = in.nextLine();
-		if(j.equalsIgnoreCase("y")){
-			b = true;
-		}else{
-			b = false;
-		}
-		r.setBalcony(b);
 
-		System.out.println("Enter the maximum number of extra beds in the room");
-		int n = in.nextInt();
-		r.setMaxNbrOfExtraBeds(n);
-		
-		System.out.println("Does the room have a minibar? (y/n)");
-		in.nextLine();
-		j = in.nextLine();
-		if(j.equalsIgnoreCase("y")){
-			b = true;
-		}else{
-			b = false;
+			EList roomTypes = getIadministration().getRoomTypes();
+			System.out.println("Choose which alternative");
+			for(int a = 0; a < roomTypes.size(); a++){
+				System.out.println(" Alternative " + (a) + " " + '\n' + roomTypes.get(a));
+			}
+			
+			System.out.println("Enter number");
+			int k = in.nextInt();
+
+			r = (RoomType) roomTypes.get(k);
+			
+		} else {
+
+			System.out.println("Enter room type name");
+			String name = in.nextLine();
+			r.setName(name);
+
+			System.out.println("Add a description of the room.");
+			String d = in.nextLine();
+			r.setDescription(d);
+
+			System.out.println("Does it have a balcony? (y/n)");
+			j = in.nextLine();
+			if (j.equalsIgnoreCase("y")) {
+				b = true;
+			} else {
+				b = false;
+			}
+			r.setBalcony(b);
+
+			System.out.println("Enter the maximum number of extra beds in the room");
+			int n = in.nextInt();
+			r.setMaxNbrOfExtraBeds(n);
+
+			System.out.println("Does the room have a minibar? (y/n)");
+			in.nextLine();
+			j = in.nextLine();
+			if (j.equalsIgnoreCase("y")) {
+				b = true;
+			} else {
+				b = false;
+			}
+			r.setMiniBar(b);
+
+			System.out.println("Is it nonsmoking? (y/n)");
+			j = in.nextLine();
+			if (j.equalsIgnoreCase("y")) {
+				b = true;
+			} else {
+				b = false;
+			}
+			r.setNonSmoking(b);
+
+			System.out.println("Does the room have a TV? (y/n)");
+			j = in.nextLine();
+			if (j.equalsIgnoreCase("y")) {
+				b = true;
+			} else {
+				b = false;
+			}
+			r.setTv(b);
+
+			System.out.println("Does the room have a WiFi? (y/n)");
+			j = in.nextLine();
+			if (j.equalsIgnoreCase("y")) {
+				b = true;
+			} else {
+				b = false;
+			}
+			r.setWifi(b);
 		}
-		r.setMiniBar(b);
-		
-		System.out.println("Is it nonsmoking? (y/n)");
-		j = in.nextLine();
-		if(j.equalsIgnoreCase("y")){
-			b = true;
-		}else{
-			b = false;
-		}
-		r.setNonSmoking(b);
-		
-		System.out.println("Does the room have a TV? (y/n)");
-		j = in.nextLine();
-		if(j.equalsIgnoreCase("y")){
-			b = true;
-		}else{
-			b = false;
-		}
-		r.setTv(b);
-		
-		System.out.println("Does the room have a WiFi? (y/n)");
-		j = in.nextLine();
-		if(j.equalsIgnoreCase("y")){
-			b = true;
-		}else{
-			b = false;
-		}
-		r.setWifi(b);
-		
 		getIadministration().createRoom(i, r);
 	}
 	

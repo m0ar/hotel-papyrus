@@ -246,6 +246,7 @@
     </eOperations>
     <eOperations name="createBooking" ordered="false" lowerBound="1">
       <eParameters name="reservationID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="customer" ordered="false" lowerBound="1" eType="#//Customer"/>
     </eOperations>
     <eOperations name="requestConferenceRoom" ordered="false" lowerBound="1">
       <eParameters name="conferenceRoom" ordered="false" lowerBound="1" eType="#//ConferenceRoom"/>
@@ -289,8 +290,8 @@
     <eOperations name="removeRoom" ordered="false" lowerBound="1">
       <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
-    <eOperations name="addBill" ordered="false" lowerBound="1">
-      <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+    <eOperations name="addBill" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
+      <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
       <eParameters name="bill" ordered="false" lowerBound="1" eType="#//Bill"/>
     </eOperations>
     <eOperations name="deactivateKeysFromRoom" ordered="false" lowerBound="1">
@@ -342,6 +343,9 @@
     <eOperations name="getRoomTypes" ordered="false" upperBound="-1" eType="#//RoomType"/>
     <eOperations name="getTotalCost" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Real">
       <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+    </eOperations>
+    <eOperations name="getRoom" ordered="false" lowerBound="1" eType="#//Room">
+      <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelFactory">

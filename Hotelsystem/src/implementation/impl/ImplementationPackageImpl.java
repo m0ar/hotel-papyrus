@@ -1503,6 +1503,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 
 		op = addEOperation(iBookingEClass, null, "createBooking");
 		addEParameter(op, theTypesPackage.getInteger(), "reservationID", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getCustomer(), "customer", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = addEOperation(iBookingEClass, null, "requestConferenceRoom");
 		addEParameter(op, this.getConferenceRoom(), "conferenceRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -1544,8 +1545,8 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		op = addEOperation(iAdministrationEClass, null, "removeRoom");
 		addEParameter(op, theTypesPackage.getInteger(), "roomID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = addEOperation(iAdministrationEClass, null, "addBill");
-		addEParameter(op, theTypesPackage.getInteger(), "bookingID", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = addEOperation(iAdministrationEClass, theTypesPackage.getBoolean(), "addBill", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getInteger(), "roomID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getBill(), "bill", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = addEOperation(iAdministrationEClass, null, "deactivateKeysFromRoom");
@@ -1598,6 +1599,9 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 
 		op = addEOperation(iAdministrationEClass, theTypesPackage.getReal(), "getTotalCost", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getInteger(), "bookingID", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = addEOperation(iAdministrationEClass, this.getRoom(), "getRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getInteger(), "roomID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(modelFactoryEClass, ModelFactory.class, "ModelFactory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
