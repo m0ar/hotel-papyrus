@@ -1545,8 +1545,8 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		op = addEOperation(iAdministrationEClass, null, "removeRoom");
 		addEParameter(op, theTypesPackage.getInteger(), "roomID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = addEOperation(iAdministrationEClass, null, "addBill");
-		addEParameter(op, theTypesPackage.getInteger(), "bookingID", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = addEOperation(iAdministrationEClass, theTypesPackage.getBoolean(), "addBill", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getInteger(), "roomID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getBill(), "bill", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = addEOperation(iAdministrationEClass, null, "deactivateKeysFromRoom");

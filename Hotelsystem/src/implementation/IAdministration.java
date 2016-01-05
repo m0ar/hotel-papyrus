@@ -148,10 +148,10 @@ public interface IAdministration extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model bookingIDDataType="org.eclipse.uml2.types.Integer" bookingIDRequired="true" bookingIDOrdered="false" billRequired="true" billOrdered="false"
+	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" roomIDDataType="org.eclipse.uml2.types.Integer" roomIDRequired="true" roomIDOrdered="false" billRequired="true" billOrdered="false"
 	 * @generated
 	 */
-	void addBill(int bookingID, Bill bill);
+	boolean addBill(int roomID, Bill bill);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -10,7 +10,6 @@ import implementation.IProfile;
 import implementation.ImplementationPackage;
 import implementation.Key;
 import implementation.Main;
-import implementation.Model;
 import implementation.PensionType;
 import implementation.Room;
 import implementation.RoomBooking;
@@ -18,6 +17,7 @@ import implementation.RoomStatus;
 import implementation.RoomType;
 import implementation.impl.BookingControllerImpl.Tuple;
 
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -516,7 +516,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				}else if(operation.equalsIgnoreCase("check out")){
 					checkOut(in);
 				}else if(operation.equalsIgnoreCase("update tab")){
-					
+					updateTab(in);
 				}else if(operation.equalsIgnoreCase("edit customer")){
 					
 				}else if(operation.equalsIgnoreCase("remove customer")){
@@ -532,6 +532,32 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				}else{
 					System.out.println("Didn't understand input. Please try again.");										
 				}
+			}
+		}
+	}
+	
+	private void updateTab(Scanner in){
+		//cost, date, description
+		while(true){
+			System.out.println("Enter Room number");
+			int roomID = in.nextInt();
+			in.nextLine();
+			System.out.println("Enter cost");
+			double cost = in.nextDouble();
+			in.nextLine();
+			System.out.println("Enter description");
+			String desc = in.nextLine();
+			Bill bill = new BillImpl();
+			bill.setCost(cost);
+			bill.setDescription(desc);
+			Date today = new Date();
+			DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			bill.setDate(df.format(today));
+			if(iadministration.addBill(roomID, bill)){
+				System.out.println("The bill was successfully added to room " + roomID);
+				return;
+			}else{
+				System.out.println("Something went wrong. Please try again.");
 			}
 		}
 	}

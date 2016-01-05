@@ -275,7 +275,7 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IAdministration/removeRoom/roomID"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IAdministration/addBill">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IAdministration/addBill/bookingID"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IAdministration/addBill/roomID"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IAdministration/addBill/bill"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IAdministration/deactivateKeysFromRoom">

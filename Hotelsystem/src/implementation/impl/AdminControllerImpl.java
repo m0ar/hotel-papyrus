@@ -202,12 +202,9 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public void createRoom(int roomID, RoomType roomType) {
-		RoomImpl i = new RoomImpl();
-		 i.setRoomtype(roomType);
-		 i.setNumber(roomID);
-		 System.out.println(model.getRoom().size());
-		 model.getRoom().add(i);
-		 System.out.println(model.getRoom().size());
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -241,7 +238,9 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public EList getRoomTypes() {
-		return model.getRoomtypes();
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -341,12 +340,15 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public void addBill(int bookingID, Bill bill) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public boolean addBill(int roomID, Bill bill) {
+		Room r = model.getRoom(roomID);
+		if(r == null){
+			return false;
+		}else{
+			r.getTab().add(bill);
+			return true;
+		}
 	}
 
 	/**
