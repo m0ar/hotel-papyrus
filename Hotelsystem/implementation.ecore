@@ -344,6 +344,9 @@
     <eOperations name="getTotalCost" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Real">
       <eParameters name="bookingID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
+    <eOperations name="getRoom" ordered="false" lowerBound="1" eType="#//Room">
+      <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelFactory">
     <eOperations name="getModel" ordered="false" lowerBound="1" eType="#//Model"/>

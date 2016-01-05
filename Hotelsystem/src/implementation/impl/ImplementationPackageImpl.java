@@ -1600,6 +1600,9 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		op = addEOperation(iAdministrationEClass, theTypesPackage.getReal(), "getTotalCost", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getInteger(), "bookingID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
+		op = addEOperation(iAdministrationEClass, this.getRoom(), "getRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getInteger(), "roomID", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
 		initEClass(modelFactoryEClass, ModelFactory.class, "ModelFactory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		addEOperation(modelFactoryEClass, this.getModel(), "getModel", 1, 1, IS_UNIQUE, !IS_ORDERED);
