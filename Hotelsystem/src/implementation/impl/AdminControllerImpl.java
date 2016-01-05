@@ -241,9 +241,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public EList getRoomTypes() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return model.getRoomtypes();
 	}
 
 	/**
