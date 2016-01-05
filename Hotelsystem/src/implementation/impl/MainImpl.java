@@ -528,7 +528,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				}else if(operation.equalsIgnoreCase("edit room")){
 					
 				}else if(operation.equalsIgnoreCase("update room status")){
-					
+					updateRoomStatus(in);
 				}else{
 					System.out.println("Didn't understand input. Please try again.");										
 				}
@@ -563,7 +563,20 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	}
 	
 	private void updateRoomStatus(Scanner in){
+		System.out.println("Which room would you like to change status of? (enter room id)");
+		int i = in.nextInt();
+		in.nextLine();
+		Room r = iadministration.getRoom(i);
+		System.out.println("Status is currently: " + r.getStatus());
+		System.out.println("What status would you like to change to? (Available, Cleaning, Occupied, Repair)");
 		
+		String s = in.nextLine();
+		String s1 = s.toLowerCase();
+		String s2 = s1.substring(0, 1).toUpperCase() + s1.substring(1);
+		
+		RoomStatus status = RoomStatus.get(s2);
+		r.setStatus(status);
+		System.out.println("Status is set to: " + r.getStatus());
 	}
 	
 	private void createRoom(Scanner in){
