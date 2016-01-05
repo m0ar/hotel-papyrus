@@ -497,7 +497,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		System.out.println("Administration mode");
 		while(true){
 			System.out.println("Press 1 to go back.");
-			System.out.println("Choose operation (check in, check out, update tab, edit customer, remove customer, create room, remove room, edit room)");
+			System.out.println("Choose operation (check in, check out, update tab, edit customer, remove customer, create room, remove room, edit room, update room status)");
 			if(in.hasNextInt()){
 				int i = in.nextInt();
 				in.nextLine();
@@ -523,11 +523,11 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 					
 				}else if(operation.equalsIgnoreCase("create room")){
 					createRoom(in);
-					
-					
 				}else if(operation.equalsIgnoreCase("remove room")){
 					
 				}else if(operation.equalsIgnoreCase("edit room")){
+					
+				}else if(operation.equalsIgnoreCase("update room status")){
 					
 				}else{
 					System.out.println("Didn't understand input. Please try again.");										
@@ -560,6 +560,10 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				System.out.println("Something went wrong. Please try again.");
 			}
 		}
+	}
+	
+	private void updateRoomStatus(Scanner in){
+		
 	}
 	
 	private void createRoom(Scanner in){
