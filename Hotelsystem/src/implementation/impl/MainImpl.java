@@ -388,7 +388,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 							}
 							
 							System.out.println("---------- Summary of your booking: ----------");
-							System.out.println("Booking number: " + reservationId);
+							System.out.println("\tBooking number: " + reservationId);
 							System.out.println("\tStart date: " + startDate);
 							System.out.println("\tEnd date: " + endDate);
 							System.out.println("\tNumber of rooms: " + nbrOfRooms);
