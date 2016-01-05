@@ -304,13 +304,15 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	public boolean validateBookingData(int nbrOfGuests, int nbrOfRooms, String startDate, String endDate) {
 		Date sd = parseDate(startDate);
 		Date ed = parseDate(endDate);
+		Date today = new Date();
 		
 		System.out.println(nbrOfGuests >= 1);
 		System.out.println(nbrOfRooms >= 1);
 		System.out.println(sd != null);
 		System.out.println(ed != null);
 		System.out.println(sd.before(ed));
-		return nbrOfGuests >= 1 && nbrOfRooms >= 1 && sd != null && ed != null && sd.before(ed); 
+		System.out.println(today.before(sd));
+		return nbrOfGuests >= 1 && nbrOfRooms >= 1 && sd != null && ed != null && sd.before(ed) && today.before(sd); 
 	}
 
 
