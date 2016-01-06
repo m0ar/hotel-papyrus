@@ -444,6 +444,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 					rb.getRoom().add((RoomImpl)rooms.get(j));
 					rb.getChosenroomtypes().add(selectedRoomTypes.get(i));
 					foundRoom = true;
+					rooms.remove(j);
 					break;
 				}
 			}
