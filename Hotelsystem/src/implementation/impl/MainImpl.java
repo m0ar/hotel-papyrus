@@ -258,7 +258,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		System.out.println("Booking mode");
 		while(true){
 			System.out.println("Press 1 to go back.");
-			System.out.println("Choose operation (book room, book conference, edit booking, remove booking)");
+			System.out.println("Choose operation (book room)");
 			if(in.hasNextInt()){
 				int i = in.nextInt();
 				in.nextLine();
@@ -274,12 +274,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				String operation = in.nextLine();
 				if(operation.equalsIgnoreCase("book room")){
 					bookRoom(in);
-				}else if(operation.equalsIgnoreCase("book conference")){
-					
-				}else if(operation.equalsIgnoreCase("edit booking")){
-					
-				}else if(operation.equalsIgnoreCase("remove booking")){
-					
 				}else{
 					System.out.println("Didn't understand input. Please try again.");										
 				}
@@ -503,7 +497,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		System.out.println("Administration mode");
 		while(true){
 			System.out.println("Press 1 to go back.");
-			System.out.println("Choose operation (check in, check out, update tab, edit customer, remove customer, create room, remove room, edit room, update room status)");
+			System.out.println("Choose operation (check in, check out, update tab, create room, remove room, update room status)");
 			if(in.hasNextInt()){
 				int i = in.nextInt();
 				in.nextLine();
@@ -523,16 +517,10 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 					checkOut(in);
 				}else if(operation.equalsIgnoreCase("update tab")){
 					updateTab(in);
-				}else if(operation.equalsIgnoreCase("edit customer")){
-					
-				}else if(operation.equalsIgnoreCase("remove customer")){
-					
 				}else if(operation.equalsIgnoreCase("create room")){
 					createRoom(in);
 				}else if(operation.equalsIgnoreCase("remove room")){
 					removeRoom(in);
-				}else if(operation.equalsIgnoreCase("edit room")){
-					
 				}else if(operation.equalsIgnoreCase("update room status")){
 					updateRoomStatus(in);
 				}else{
