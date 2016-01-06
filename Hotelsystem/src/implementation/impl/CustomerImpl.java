@@ -90,7 +90,7 @@ public class CustomerImpl extends PersonImpl implements Customer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CustomerImpl() {
+	public CustomerImpl() {
 		super();
 	}
 

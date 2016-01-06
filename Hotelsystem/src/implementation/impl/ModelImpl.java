@@ -116,7 +116,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	protected ModelImpl() {
+	public ModelImpl() {
 		super();
 		conferenceroom = new BasicEList();
 		keys = new BasicEList();

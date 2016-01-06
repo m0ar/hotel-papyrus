@@ -428,6 +428,8 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 											System.out.println("Your booking was completed!");
 										} else
 											System.out.println("Payment failed.");
+									}else{
+										System.out.println("You need to be 18 or over to pay by creditcard. Booking aborted.");
 									}
 								} else {
 									ibooking.createBooking(reservationId, customer);

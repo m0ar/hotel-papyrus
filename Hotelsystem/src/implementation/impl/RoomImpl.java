@@ -139,7 +139,7 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	protected RoomImpl() {
+	public RoomImpl() {
 		super();
 		tab = new BasicEList();
 		roomissues = new BasicEList();

@@ -236,7 +236,7 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	protected RoomTypeImpl() {
+	public RoomTypeImpl() {
 		super();
 		beds = new BasicEList();
 	}
