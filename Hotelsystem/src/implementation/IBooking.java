@@ -65,7 +65,7 @@ public interface IBooking extends EObject {
 	 * @model type="implementation.Room" ordered="false" startDateDataType="org.eclipse.uml2.types.String" startDateRequired="true" startDateOrdered="false" endDateDataType="org.eclipse.uml2.types.String" endDateRequired="true" endDateOrdered="false"
 	 * @generated
 	 */
-	EList getAvaiableRooms(String startDate, String endDate);
+	EList getAvaiableRooms(Date startDate, Date endDate);
 
 	/**
 	 * <!-- begin-user-doc -->
