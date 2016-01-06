@@ -305,14 +305,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		Date sd = startDate;
 		Date ed = endDate;
 		Date today = new Date();
-		
-		System.out.println(nbrOfGuests >= 1);
-		System.out.println(nbrOfRooms >= 1);
-		System.out.println(sd != null);
-		System.out.println(ed != null);
-		System.out.println(sd.before(ed));
 
-		System.out.println(today.before(sd));
 		return nbrOfGuests >= 1 && nbrOfRooms >= 1 && nbrOfRooms <= 5 && sd != null && ed != null && sd.before(ed) && today.before(sd); 
 	}
 
@@ -336,7 +329,6 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		if(!validateBookingData(1,1,startDate,endDate))
 			return new BasicEList();
 		
-		Log.log("-------------------- Find available room types --------------------");
 		
 		EList availableRooms = getAvaiableRooms(startDate, endDate);
 		EList summary = summarizeRooms(availableRooms);
@@ -376,17 +368,10 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		Date sd = startDate;
 		Date ed = endDate;
 		
-		Log.log("Requested start date: " + sd);
-		Log.log("Requested end date: " + ed);
-		
 		EList unavailableRooms = getUnavailableRooms(sd, ed);
-		
-		Log.log("Number of unavailable rooms:" + unavailableRooms.size());
 		
 		EList roomClone = new BasicEList(model.getRoom());
 		roomClone.removeAll(unavailableRooms);
-		
-		Log.log("Available rooms: " + roomClone.size());
 		
 		return roomClone;
 	}
