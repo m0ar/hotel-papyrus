@@ -255,6 +255,8 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//AdminController/model"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//AdminController/bankprovides"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//AdminController/ibooking"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="implementation.ecore#//IAdministration">
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IAdministration/checkIn">

@@ -5,6 +5,7 @@ package implementation.impl;
 import implementation.AdminController;
 import implementation.BankProvides;
 import implementation.Bill;
+import implementation.IBooking;
 import implementation.ImplementationPackage;
 import implementation.Key;
 import implementation.Model;
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link implementation.impl.AdminControllerImpl#getModel <em>Model</em>}</li>
  *   <li>{@link implementation.impl.AdminControllerImpl#getBankprovides <em>Bankprovides</em>}</li>
+ *   <li>{@link implementation.impl.AdminControllerImpl#getIbooking <em>Ibooking</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,6 +61,15 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected BankProvides bankprovides;
+	/**
+	 * The cached value of the '{@link #getIbooking() <em>Ibooking</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIbooking()
+	 * @generated
+	 * @ordered
+	 */
+	protected IBooking ibooking;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -151,6 +162,44 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 		bankprovides = newBankprovides;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.ADMIN_CONTROLLER__BANKPROVIDES, oldBankprovides, bankprovides));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IBooking getIbooking() {
+		if (ibooking != null && ibooking.eIsProxy()) {
+			InternalEObject oldIbooking = (InternalEObject)ibooking;
+			ibooking = (IBooking)eResolveProxy(oldIbooking);
+			if (ibooking != oldIbooking) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImplementationPackage.ADMIN_CONTROLLER__IBOOKING, oldIbooking, ibooking));
+			}
+		}
+		return ibooking;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IBooking basicGetIbooking() {
+		return ibooking;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIbooking(IBooking newIbooking) {
+		IBooking oldIbooking = ibooking;
+		ibooking = newIbooking;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.ADMIN_CONTROLLER__IBOOKING, oldIbooking, ibooking));
 	}
 
 	/**
@@ -436,6 +485,9 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 			case ImplementationPackage.ADMIN_CONTROLLER__BANKPROVIDES:
 				if (resolve) return getBankprovides();
 				return basicGetBankprovides();
+			case ImplementationPackage.ADMIN_CONTROLLER__IBOOKING:
+				if (resolve) return getIbooking();
+				return basicGetIbooking();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -452,6 +504,9 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 				return;
 			case ImplementationPackage.ADMIN_CONTROLLER__BANKPROVIDES:
 				setBankprovides((BankProvides)newValue);
+				return;
+			case ImplementationPackage.ADMIN_CONTROLLER__IBOOKING:
+				setIbooking((IBooking)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -470,6 +525,9 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 			case ImplementationPackage.ADMIN_CONTROLLER__BANKPROVIDES:
 				setBankprovides((BankProvides)null);
 				return;
+			case ImplementationPackage.ADMIN_CONTROLLER__IBOOKING:
+				setIbooking((IBooking)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -485,6 +543,8 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 				return model != null;
 			case ImplementationPackage.ADMIN_CONTROLLER__BANKPROVIDES:
 				return bankprovides != null;
+			case ImplementationPackage.ADMIN_CONTROLLER__IBOOKING:
+				return ibooking != null;
 		}
 		return super.eIsSet(featureID);
 	}

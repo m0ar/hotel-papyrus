@@ -1197,13 +1197,22 @@ public interface ImplementationPackage extends EPackage {
 	int ADMIN_CONTROLLER__BANKPROVIDES = IADMINISTRATION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Ibooking</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER__IBOOKING = IADMINISTRATION_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Admin Controller</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADMIN_CONTROLLER_FEATURE_COUNT = IADMINISTRATION_FEATURE_COUNT + 2;
+	int ADMIN_CONTROLLER_FEATURE_COUNT = IADMINISTRATION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Model Factory</em>' class.
@@ -2144,6 +2153,17 @@ public interface ImplementationPackage extends EPackage {
 	EReference getAdminController_Bankprovides();
 
 	/**
+	 * Returns the meta object for the reference '{@link implementation.AdminController#getIbooking <em>Ibooking</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Ibooking</em>'.
+	 * @see implementation.AdminController#getIbooking()
+	 * @see #getAdminController()
+	 * @generated
+	 */
+	EReference getAdminController_Ibooking();
+
+	/**
 	 * Returns the meta object for class '{@link implementation.BankProvides <em>Bank Provides</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2983,6 +3003,14 @@ public interface ImplementationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ADMIN_CONTROLLER__BANKPROVIDES = eINSTANCE.getAdminController_Bankprovides();
+
+		/**
+		 * The meta object literal for the '<em><b>Ibooking</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ADMIN_CONTROLLER__IBOOKING = eINSTANCE.getAdminController_Ibooking();
 
 		/**
 		 * The meta object literal for the '{@link implementation.BankProvides <em>Bank Provides</em>}' class.

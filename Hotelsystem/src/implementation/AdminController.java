@@ -14,6 +14,7 @@ package implementation;
  * <ul>
  *   <li>{@link implementation.AdminController#getModel <em>Model</em>}</li>
  *   <li>{@link implementation.AdminController#getBankprovides <em>Bankprovides</em>}</li>
+ *   <li>{@link implementation.AdminController#getIbooking <em>Ibooking</em>}</li>
  * </ul>
  *
  * @see implementation.ImplementationPackage#getAdminController()
@@ -72,5 +73,31 @@ public interface AdminController extends IAdministration {
 	 * @generated
 	 */
 	void setBankprovides(BankProvides value);
+
+	/**
+	 * Returns the value of the '<em><b>Ibooking</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Ibooking</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ibooking</em>' reference.
+	 * @see #setIbooking(IBooking)
+	 * @see implementation.ImplementationPackage#getAdminController_Ibooking()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	IBooking getIbooking();
+
+	/**
+	 * Sets the value of the '{@link implementation.AdminController#getIbooking <em>Ibooking</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Ibooking</em>' reference.
+	 * @see #getIbooking()
+	 * @generated
+	 */
+	void setIbooking(IBooking value);
 
 } // AdminController

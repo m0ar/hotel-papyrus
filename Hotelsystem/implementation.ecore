@@ -271,6 +271,8 @@
         lowerBound="1" eType="#//Model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="bankprovides" ordered="false"
         lowerBound="1" eType="#//BankProvides"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ibooking" ordered="false"
+        lowerBound="1" eType="#//IBooking"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IAdministration" abstract="true" interface="true">
     <eOperations name="checkIn" ordered="false" lowerBound="1" eType="#//RoomBooking">

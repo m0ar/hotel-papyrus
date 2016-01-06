@@ -1026,6 +1026,15 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAdminController_Ibooking() {
+		return (EReference)adminControllerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBankProvides() {
 		return bankProvidesEClass;
 	}
@@ -1279,6 +1288,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		adminControllerEClass = createEClass(ADMIN_CONTROLLER);
 		createEReference(adminControllerEClass, ADMIN_CONTROLLER__MODEL);
 		createEReference(adminControllerEClass, ADMIN_CONTROLLER__BANKPROVIDES);
+		createEReference(adminControllerEClass, ADMIN_CONTROLLER__IBOOKING);
 
 		iAdministrationEClass = createEClass(IADMINISTRATION);
 
@@ -1525,6 +1535,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		initEClass(adminControllerEClass, AdminController.class, "AdminController", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAdminController_Model(), this.getModel(), null, "model", null, 1, 1, AdminController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getAdminController_Bankprovides(), this.getBankProvides(), null, "bankprovides", null, 1, 1, AdminController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAdminController_Ibooking(), this.getIBooking(), null, "ibooking", null, 1, 1, AdminController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(iAdministrationEClass, IAdministration.class, "IAdministration", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

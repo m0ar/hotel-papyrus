@@ -825,6 +825,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		AdminControllerImpl ac = new AdminControllerImpl();
 		ac.setModel(model);
 		ac.setBankprovides(bankprovides);
+		ac.setIbooking(ibooking);
 		iadministration = ac;
 	}
 	

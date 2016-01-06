@@ -97,7 +97,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BookingControllerImpl() {
+	protected BookingControllerImpl() {
 		super();
 	}
 
