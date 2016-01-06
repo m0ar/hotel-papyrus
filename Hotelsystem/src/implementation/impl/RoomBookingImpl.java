@@ -9,8 +9,6 @@ import implementation.PensionType;
 import implementation.Room;
 import implementation.RoomBooking;
 import implementation.RoomType;
-
-import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 

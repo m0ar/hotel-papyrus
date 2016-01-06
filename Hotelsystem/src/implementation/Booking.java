@@ -62,9 +62,9 @@ public interface Booking extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Start Date</em>' attribute.
-	 * @see #setStartDate(String)
+	 * @see #setStartDate(Date)
 	 * @see implementation.ImplementationPackage#getBooking_StartDate()
-	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	Date getStartDate();
@@ -88,9 +88,9 @@ public interface Booking extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>End Date</em>' attribute.
-	 * @see #setEndDate(String)
+	 * @see #setEndDate(Date)
 	 * @see implementation.ImplementationPackage#getBooking_EndDate()
-	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	Date getEndDate();

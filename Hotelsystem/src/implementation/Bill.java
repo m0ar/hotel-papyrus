@@ -2,6 +2,7 @@
  */
 package implementation;
 
+import java.util.Date;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -58,12 +59,12 @@ public interface Bill extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Date</em>' attribute.
-	 * @see #setDate(String)
+	 * @see #setDate(Date)
 	 * @see implementation.ImplementationPackage#getBill_Date()
-	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	String getDate();
+	Date getDate();
 
 	/**
 	 * Sets the value of the '{@link implementation.Bill#getDate <em>Date</em>}' attribute.
@@ -73,7 +74,7 @@ public interface Bill extends EObject {
 	 * @see #getDate()
 	 * @generated
 	 */
-	void setDate(String value);
+	void setDate(Date value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.

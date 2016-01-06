@@ -75,7 +75,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AdminControllerImpl() {
+	public AdminControllerImpl() {
 		super();
 	}
 
@@ -221,6 +221,17 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void bookConferenceRoom(int roomID, Date startTime, Date endTime) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public boolean makePayment(String cardDetails, double amount) {
 		return bankprovides.makePayment(amount, cardDetails);
@@ -323,17 +334,6 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void bookConferenceRoom(int roomID, String startTime, String endTime) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	public void unassignGuestsFromRooms(RoomBooking roomBooking) {
 		EList rooms = roomBooking.getRoom();
@@ -369,9 +369,8 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 		Bill finalBill = new BillImpl();
 		finalBill.setCost(cost);
 		finalBill.setDescription("final bill of booking " + roomBooking.getBookingNr());
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		Date date = new Date();
-		finalBill.setDate(dateFormat.format(date));
+		finalBill.setDate(date);
 		return finalBill;
 	}
 

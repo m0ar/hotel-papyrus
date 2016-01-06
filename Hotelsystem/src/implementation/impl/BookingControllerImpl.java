@@ -274,6 +274,17 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		return false;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList findAvailableConferenceRooms(Date startTime, Date endTime) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
 	private PensionType parsePensionType(String pt) {
 		for(int i = 0; i < PensionType.VALUES.size(); i++)
 			if(PensionType.VALUES.get(i).toString().toLowerCase().equals(pt.toLowerCase()))
@@ -401,13 +412,6 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		return unavailableRooms;
 	}
 	
-	private Date parseDate(String dateString) {
-		try {
-			return new SimpleDateFormat("yyyy-MM-dd").parse(dateString);
-		} catch (ParseException e) {
-			return null;
-		}
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -455,17 +459,6 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		
 		model.getRoombooking().add(rb);
 		return rb.getBookingNr();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList findAvailableConferenceRooms(String startTime, String endTime) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**

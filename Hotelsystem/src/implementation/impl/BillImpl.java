@@ -5,6 +5,7 @@ package implementation.impl;
 import implementation.Bill;
 import implementation.ImplementationPackage;
 
+import java.util.Date;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -56,7 +57,7 @@ public class BillImpl extends MinimalEObjectImpl.Container implements Bill {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DATE_EDEFAULT = null;
+	protected static final Date DATE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' attribute.
@@ -66,7 +67,7 @@ public class BillImpl extends MinimalEObjectImpl.Container implements Bill {
 	 * @generated
 	 * @ordered
 	 */
-	protected String date = DATE_EDEFAULT;
+	protected Date date = DATE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -132,7 +133,7 @@ public class BillImpl extends MinimalEObjectImpl.Container implements Bill {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 
@@ -141,8 +142,8 @@ public class BillImpl extends MinimalEObjectImpl.Container implements Bill {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDate(String newDate) {
-		String oldDate = date;
+	public void setDate(Date newDate) {
+		Date oldDate = date;
 		date = newDate;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.BILL__DATE, oldDate, date));
@@ -197,7 +198,7 @@ public class BillImpl extends MinimalEObjectImpl.Container implements Bill {
 				setCost(((Double)newValue).doubleValue());
 				return;
 			case ImplementationPackage.BILL__DATE:
-				setDate((String)newValue);
+				setDate((Date)newValue);
 				return;
 			case ImplementationPackage.BILL__DESCRIPTION:
 				setDescription((String)newValue);

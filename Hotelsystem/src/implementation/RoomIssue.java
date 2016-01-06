@@ -2,6 +2,7 @@
  */
 package implementation;
 
+import java.util.Date;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -58,12 +59,12 @@ public interface RoomIssue extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Start Date</em>' attribute.
-	 * @see #setStartDate(String)
+	 * @see #setStartDate(Date)
 	 * @see implementation.ImplementationPackage#getRoomIssue_StartDate()
-	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	String getStartDate();
+	Date getStartDate();
 
 	/**
 	 * Sets the value of the '{@link implementation.RoomIssue#getStartDate <em>Start Date</em>}' attribute.
@@ -73,7 +74,7 @@ public interface RoomIssue extends EObject {
 	 * @see #getStartDate()
 	 * @generated
 	 */
-	void setStartDate(String value);
+	void setStartDate(Date value);
 
 	/**
 	 * Returns the value of the '<em><b>Finish Date</b></em>' attribute.
@@ -84,12 +85,12 @@ public interface RoomIssue extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Finish Date</em>' attribute.
-	 * @see #setFinishDate(String)
+	 * @see #setFinishDate(Date)
 	 * @see implementation.ImplementationPackage#getRoomIssue_FinishDate()
-	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	String getFinishDate();
+	Date getFinishDate();
 
 	/**
 	 * Sets the value of the '{@link implementation.RoomIssue#getFinishDate <em>Finish Date</em>}' attribute.
@@ -99,6 +100,6 @@ public interface RoomIssue extends EObject {
 	 * @see #getFinishDate()
 	 * @generated
 	 */
-	void setFinishDate(String value);
+	void setFinishDate(Date value);
 
 } // RoomIssue

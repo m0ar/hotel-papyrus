@@ -5,6 +5,7 @@ package implementation.impl;
 import implementation.ImplementationPackage;
 import implementation.RoomIssue;
 
+import java.util.Date;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -56,7 +57,7 @@ public class RoomIssueImpl extends MinimalEObjectImpl.Container implements RoomI
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String START_DATE_EDEFAULT = null;
+	protected static final Date START_DATE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getStartDate() <em>Start Date</em>}' attribute.
@@ -66,7 +67,7 @@ public class RoomIssueImpl extends MinimalEObjectImpl.Container implements RoomI
 	 * @generated
 	 * @ordered
 	 */
-	protected String startDate = START_DATE_EDEFAULT;
+	protected Date startDate = START_DATE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getFinishDate() <em>Finish Date</em>}' attribute.
@@ -76,7 +77,7 @@ public class RoomIssueImpl extends MinimalEObjectImpl.Container implements RoomI
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String FINISH_DATE_EDEFAULT = null;
+	protected static final Date FINISH_DATE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getFinishDate() <em>Finish Date</em>}' attribute.
@@ -86,7 +87,7 @@ public class RoomIssueImpl extends MinimalEObjectImpl.Container implements RoomI
 	 * @generated
 	 * @ordered
 	 */
-	protected String finishDate = FINISH_DATE_EDEFAULT;
+	protected Date finishDate = FINISH_DATE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -132,7 +133,7 @@ public class RoomIssueImpl extends MinimalEObjectImpl.Container implements RoomI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getStartDate() {
+	public Date getStartDate() {
 		return startDate;
 	}
 
@@ -141,8 +142,8 @@ public class RoomIssueImpl extends MinimalEObjectImpl.Container implements RoomI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStartDate(String newStartDate) {
-		String oldStartDate = startDate;
+	public void setStartDate(Date newStartDate) {
+		Date oldStartDate = startDate;
 		startDate = newStartDate;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.ROOM_ISSUE__START_DATE, oldStartDate, startDate));
@@ -153,7 +154,7 @@ public class RoomIssueImpl extends MinimalEObjectImpl.Container implements RoomI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getFinishDate() {
+	public Date getFinishDate() {
 		return finishDate;
 	}
 
@@ -162,8 +163,8 @@ public class RoomIssueImpl extends MinimalEObjectImpl.Container implements RoomI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFinishDate(String newFinishDate) {
-		String oldFinishDate = finishDate;
+	public void setFinishDate(Date newFinishDate) {
+		Date oldFinishDate = finishDate;
 		finishDate = newFinishDate;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.ROOM_ISSUE__FINISH_DATE, oldFinishDate, finishDate));
@@ -197,10 +198,10 @@ public class RoomIssueImpl extends MinimalEObjectImpl.Container implements RoomI
 				setType((String)newValue);
 				return;
 			case ImplementationPackage.ROOM_ISSUE__START_DATE:
-				setStartDate((String)newValue);
+				setStartDate((Date)newValue);
 				return;
 			case ImplementationPackage.ROOM_ISSUE__FINISH_DATE:
-				setFinishDate((String)newValue);
+				setFinishDate((Date)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

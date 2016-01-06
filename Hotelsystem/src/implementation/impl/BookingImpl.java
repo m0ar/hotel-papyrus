@@ -183,9 +183,9 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStartDate(Date newValue) {
+	public void setStartDate(Date newStartDate) {
 		Date oldStartDate = startDate;
-		startDate = newValue;
+		startDate = newStartDate;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.BOOKING__START_DATE, oldStartDate, startDate));
 	}
@@ -204,9 +204,9 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEndDate(Date endDate2) {
+	public void setEndDate(Date newEndDate) {
 		Date oldEndDate = endDate;
-		endDate = endDate2;
+		endDate = newEndDate;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.BOOKING__END_DATE, oldEndDate, endDate));
 	}

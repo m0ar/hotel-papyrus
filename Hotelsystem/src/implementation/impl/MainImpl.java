@@ -575,8 +575,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			bill.setCost(cost);
 			bill.setDescription(desc);
 			Date today = new Date();
-			DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-			bill.setDate(df.format(today));
+			bill.setDate(today);
 			if(iadministration.addBill(roomID, bill)){
 				System.out.println("The bill was successfully added to room " + roomID);
 				return;
