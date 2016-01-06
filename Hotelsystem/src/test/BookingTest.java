@@ -251,24 +251,12 @@ public class BookingTest {
 	public void init() {
 		model = new ModelImpl();
 		initModel(model);
-		
-		/*
-		iprofile = new ProfileHandlerImpl();
-		((ProfileHandlerImpl)iprofile).setModel(model);
-		*/
+
 		BankProvides bankprovides = new BankImpl();
 
 		bc.setModel(model);
 		bc.setBankprovides(bankprovides);
 		bc.setNextBookingId((model.getRoombooking()).size());
-		
-		/*
-		AdminControllerImpl ac = new AdminControllerImpl();
-		ac.setModel(model);
-		ac.setBankprovides(bankprovides);
-		ac.setIbooking(bc);
-		iadministration = ac;
-		*/
 	}
 	
 	private void initModel(ModelImpl model){
