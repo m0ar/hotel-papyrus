@@ -426,6 +426,8 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 		RoomBooking booking = model.getRoomBooking(bookingID);
 		if(booking == null){
 			return null;
+		}else if (!booking.isCheckedIn()){
+			throw new IllegalStateException();
 		}
 		deactivateKeysFromRoom(booking);
 		EList rooms = booking.getRoom();
@@ -433,6 +435,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 			updateRoomStatus((Room)rooms.get(i), RoomStatus.CLEANING_LITERAL);
 		}
 		unassignGuestsFromRooms(booking);
+		booking.setCheckedIn(false);
 		return getFinalBill(booking);
 	}
 

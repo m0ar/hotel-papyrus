@@ -695,7 +695,13 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			System.out.println("Enter booking number");
 			int bookingNr = in.nextInt();
 			in.nextLine();
-			Bill finalBill = iadministration.checkOut(bookingNr);
+			Bill finalBill = null;
+			try{
+				finalBill = iadministration.checkOut(bookingNr);
+			}catch(IllegalStateException e){
+				System.out.println("The booking is not checked in. Aborting check out");
+				enterAdminMode(in);
+			}
 			if(finalBill == null){
 				System.out.println("Could not find booking, please try again");				
 			}else if (finalBill.getCost() < 0.01){
