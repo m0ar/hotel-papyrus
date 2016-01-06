@@ -428,6 +428,8 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 											System.out.println("Your booking was completed!");
 										} else
 											System.out.println("Payment failed.");
+									}else{
+										System.out.println("You need to be 18 or over to pay by creditcard. Booking aborted.");
 									}
 								} else {
 									ibooking.createBooking(reservationId, customer);
@@ -885,7 +887,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		rb2.setBookingNr(2);
 		
 		c = new CustomerImpl();
-		c.setAddress("Göteborg");
+		c.setAddress("Gï¿½teborg");
 		c.setName("Erik");
 		c.setPhoneNbr("01-292720");
 		c.setSocialSecurityNumber("952023-6595");
@@ -952,7 +954,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		rb4.setBookingNr(4);
 		
 		c = new CustomerImpl();
-		c.setAddress("Mölndal");
+		c.setAddress("Mï¿½lndal");
 		c.setName("Sven");
 		c.setPhoneNbr("08-75178");
 		c.setSocialSecurityNumber("578023-6595");

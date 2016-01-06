@@ -170,7 +170,7 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	protected RoomBookingImpl() {
+	public RoomBookingImpl() {
 		super();
 		guests = new BasicEList();
 	}

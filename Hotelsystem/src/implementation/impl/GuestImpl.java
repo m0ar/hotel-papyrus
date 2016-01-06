@@ -20,7 +20,7 @@ public class GuestImpl extends PersonImpl implements Guest {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GuestImpl() {
+	public GuestImpl() {
 		super();
 	}
 

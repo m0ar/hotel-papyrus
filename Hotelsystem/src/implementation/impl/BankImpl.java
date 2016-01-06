@@ -22,7 +22,7 @@ public class BankImpl extends MinimalEObjectImpl.Container implements Bank {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BankImpl() {
+	public BankImpl() {
 		super();
 	}
 

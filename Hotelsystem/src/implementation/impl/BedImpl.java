@@ -72,7 +72,7 @@ public class BedImpl extends MinimalEObjectImpl.Container implements Bed {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BedImpl() {
+	public BedImpl() {
 		super();
 	}
 
