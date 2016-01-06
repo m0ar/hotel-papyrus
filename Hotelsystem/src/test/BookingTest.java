@@ -10,6 +10,7 @@ import org.junit.Before;
 import implementation.impl.BookingControllerImpl;
 
 import org.junit.*;
+import java.util.*;
 
 /**
  * @author Sebastian
@@ -17,6 +18,8 @@ import org.junit.*;
  */
 public class BookingTest {
 	BookingControllerImpl bc;
+	Date today;
+	Date tomorrow;
 	
 	/**
 	 * @throws java.lang.Exception
@@ -24,6 +27,14 @@ public class BookingTest {
 	@Before
 	public void setUp() throws Exception {
 		bc = new BookingControllerImpl();
+		
+		//For dates
+		Calendar calendar = Calendar.getInstance();
+		//todays date
+		today = calendar.getTime();
+		//make end date tomorrows date
+		calendar.add(Calendar.DAY_OF_YEAR, 1);
+		tomorrow = calendar.getTime();
 		
 	}
 
