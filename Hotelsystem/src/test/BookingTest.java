@@ -10,6 +10,7 @@ import org.junit.Before;
 import implementation.impl.BookingControllerImpl;
 
 import org.junit.*;
+import java.util.*;
 
 /**
  * @author Sebastian
@@ -17,6 +18,8 @@ import org.junit.*;
  */
 public class BookingTest {
 	BookingControllerImpl bc;
+	Date startDate;
+	Date endDate;
 	
 	/**
 	 * @throws java.lang.Exception
@@ -24,6 +27,15 @@ public class BookingTest {
 	@Before
 	public void setUp() throws Exception {
 		bc = new BookingControllerImpl();
+		
+		//For dates
+		Calendar calendar = Calendar.getInstance();
+		//startDates date
+		calendar.add(Calendar.DAY_OF_YEAR, 1);
+		startDate = calendar.getTime();
+		//make end date endDates date
+		calendar.add(Calendar.DAY_OF_YEAR, 1);
+		endDate = calendar.getTime();
 		
 	}
 
@@ -56,7 +68,7 @@ public class BookingTest {
 	 */
 	@Test
 	public void testValidateBookingDataZeroGuest() {
-		assertFalse(bc.validateBookingData(0,1,"2015-12-28","2015-12-29"));
+		assertFalse(bc.validateBookingData(0,1,startDate,endDate));
 	}
 	
 	/**
@@ -64,14 +76,14 @@ public class BookingTest {
 	 */
 	@Test
 	public void testValidateBookingDataNegativeGuest() {
-		assertFalse(bc.validateBookingData(-1,1,"2015-12-28","2015-12-29"));
+		assertFalse(bc.validateBookingData(-1,1,startDate,endDate));
 	}
 	/**
 	 * Test method for {@link implementation.impl.BookingControllerImpl#validateBookingData(int, int, java.lang.String, java.lang.String)}.
 	 */
 	@Test
 	public void testValidateBookingDataOneGuest() {
-		assertTrue(bc.validateBookingData(1,1,"2016-12-28","2016-12-29"));
+		assertTrue(bc.validateBookingData(1,1,startDate,endDate));
 	}
 	
 	/**
@@ -79,7 +91,7 @@ public class BookingTest {
 	 */
 	@Test
 	public void testValidateBookingDataZeroRoom() {
-		assertFalse(bc.validateBookingData(2,0,"2015-12-28","2015-12-29"));
+		assertFalse(bc.validateBookingData(2,0,startDate,endDate));
 	}
 	
 	/**
@@ -87,14 +99,14 @@ public class BookingTest {
 	 */
 	@Test
 	public void testValidateBookingDataNegativeRoom() {
-		assertFalse(bc.validateBookingData(2,-1,"2015-12-28","2015-12-29"));
+		assertFalse(bc.validateBookingData(2,-1,startDate,endDate));
 	}
 	/**
 	 * Test method for {@link implementation.impl.BookingControllerImpl#validateBookingData(int, int, java.lang.String, java.lang.String)}.
 	 */
 	@Test
 	public void testValidateBookingDataOneRoom() {
-		assertTrue(bc.validateBookingData(2,1,"2016-12-28","2016-12-29"));
+		assertTrue(bc.validateBookingData(2,1,startDate,endDate));
 	}
 	
 	/**
@@ -102,7 +114,7 @@ public class BookingTest {
 	 */
 	@Test
 	public void testValidateBookingDataSixRooms() {
-		assertFalse(bc.validateBookingData(2,6,"2015-12-28","2015-12-29"));
+		assertFalse(bc.validateBookingData(2,6,startDate,endDate));
 	}
 	
 	
