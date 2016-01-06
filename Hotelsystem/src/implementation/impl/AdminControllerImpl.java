@@ -436,6 +436,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 		}
 		unassignGuestsFromRooms(booking);
 		booking.setCheckedIn(false);
+		model.getRoombooking().remove(booking);
 		return getFinalBill(booking);
 	}
 

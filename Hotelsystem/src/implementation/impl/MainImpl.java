@@ -686,6 +686,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			int bookingNr = in.nextInt();
 			in.nextLine();
 			Bill finalBill = null;
+			returnDeposition(in, bookingNr);
 			try{
 				finalBill = iadministration.checkOut(bookingNr);
 			}catch(IllegalStateException e){
@@ -695,23 +696,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			if(finalBill == null){
 				System.out.println("Could not find booking, please try again");				
 			}else if (finalBill.getCost() < 0.01){
-				while(true){
-					System.out.println("Should the deposition for booking " + bookingNr + " be returned? (Yes/No)");
-					String strReturnDeposit = in.nextLine();
-					if(strReturnDeposit.equalsIgnoreCase("Yes")){
-						System.out.println("Enter credit card details.");
-						String card = in.nextLine();
-						if(iadministration.removeDeposition(bookingNr, card)){
-							break;
-						}else{
-							System.out.println("The deposition was not returned. Please try again.");							
-						}
-					}else if(strReturnDeposit.equalsIgnoreCase("No")){
-						break;
-					}else{
-						System.out.println("Did not understand input. Pleas try again.");
-					}
-				}
 				System.out.println("Booking " + bookingNr + " was successfully checked out.");
 				return;
 			}else{
@@ -723,14 +707,9 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 					if(!iadministration.makePayment(creditCard, finalBill.getCost())){
 						System.out.println("Payment faild, please try again");
 					}else{
-						break;
+						System.out.println("Booking " + bookingNr + " was successfully checked out.");
+						return;
 					}
-				}
-				if(returnDeposition(in, bookingNr)){
-					System.out.println("Booking " + bookingNr + " was successfully checked out.");
-					return;
-				}else{
-					return;
 				}
 			}
 		}
