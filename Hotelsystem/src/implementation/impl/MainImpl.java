@@ -294,7 +294,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		Date startDate = parseDate(originalStartDate);
 		Date endDate = parseDate(originalEndDate);
 		
-		if(!ibooking.validateBookingData(nbrOfGuests, nbrOfRooms, originalStartDate, originalEndDate)) {
+		if(!ibooking.validateBookingData(nbrOfGuests, nbrOfRooms, startDate, endDate)) {
 			System.out.println("Invalid parameters");
 			return;
 		}
@@ -305,7 +305,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			System.out.println("The start date must be before the end date.");
 		else {
 			if(nbrOfGuests >= 1 && nbrOfRooms >= 1 && startDate != null && endDate != null) {
-				EList availableRoomTypes = ibooking.findAvailableRoomTypes(nbrOfGuests, originalStartDate, originalEndDate, nbrOfRooms);
+				EList availableRoomTypes = ibooking.findAvailableRoomTypes(nbrOfGuests, startDate, endDate, nbrOfRooms);
 				if(availableRoomTypes != null) {
 					System.out.println("Found the following available room types:\n");
 					
@@ -343,7 +343,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 						if(nbrOfGuests > maxNbrOfGuests)
 							System.out.println("The rooms you have chosen cannot have more than " + maxNbrOfGuests + " guests.");
 						else {
-							int reservationId = ibooking.reserveRoomtype(originalStartDate, originalEndDate, getEListFromArray(selectedRoomTypes));
+							int reservationId = ibooking.reserveRoomtype(startDate,endDate, getEListFromArray(selectedRoomTypes));
 							
 							if(reservationId == -1) {
 								System.out.println("The rooms are now longer available. Please try again.");
@@ -857,8 +857,8 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		rb1.setCustomer(c);
 		rb1.getGuests().add(g);
 		rb1.setDeposit(200);
-		rb1.setEndDate("2016-02-03");
-		rb1.setStartDate("2016-02-01");
+		rb1.setEndDate(new Date(2016,02,03));
+		rb1.setStartDate(new Date(2016,02,01));
 		rb1.setReservation(false);
 		rb1.setPension(PensionType.BREAKFAST_LITERAL);
 		rb1.getChosenroomtypes().add(model.getRoomType("Double room"));
@@ -893,8 +893,8 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		rb2.setCustomer(c);
 		rb2.getGuests().add(g);
 		rb2.setDeposit(200);
-		rb2.setEndDate("2016-05-05");
-		rb2.setStartDate("2016-07-01");
+		rb2.setEndDate(new Date(2016,05,05));
+		rb2.setStartDate(new Date(2016,07,01));
 		rb2.setReservation(false);
 		rb2.setPension(PensionType.FULL_PENSION_LITERAL);
 		rb2.getChosenroomtypes().add(model.getRoomType("Suite"));
@@ -925,8 +925,8 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		
 		rb3.setCustomer(c);
 		rb3.setDeposit(200);
-		rb3.setEndDate("2016-07-05");
-		rb3.setStartDate("2016-07-06");
+		rb3.setEndDate(new Date(2016,07,05));
+		rb3.setStartDate(new Date(2016,07,06));
 		rb3.setReservation(false);
 		rb3.setPension(PensionType.NONE_LITERAL);
 		rb3.getChosenroomtypes().add(model.getRoomType("Single room"));
@@ -960,8 +960,8 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		rb4.setCustomer(c);
 		rb4.getGuests().add(g);
 		rb4.setDeposit(200);
-		rb4.setEndDate("2016-03-05");
-		rb4.setStartDate("2016-03-10");
+		rb4.setEndDate(new Date(2016,03,05));
+		rb4.setStartDate(new Date(2016,03,10));
 		rb4.setReservation(false);
 		rb4.setPension(PensionType.FULL_PENSION_LITERAL);
 		rb4.getChosenroomtypes().add(model.getRoomType("Single room"));

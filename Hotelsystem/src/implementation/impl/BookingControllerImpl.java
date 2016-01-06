@@ -301,9 +301,9 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public boolean validateBookingData(int nbrOfGuests, int nbrOfRooms, String startDate, String endDate) {
-		Date sd = parseDate(startDate);
-		Date ed = parseDate(endDate);
+	public boolean validateBookingData(int nbrOfGuests, int nbrOfRooms, Date startDate, Date endDate) {
+		Date sd = startDate;
+		Date ed = endDate;
 		Date today = new Date();
 		
 		System.out.println(nbrOfGuests >= 1);
@@ -332,7 +332,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList findAvailableRoomTypes(int nbrOfGuests, String startDate, String endDate, int nbrOfRooms) {
+	public EList findAvailableRoomTypes(int nbrOfGuests, Date startDate, Date endDate, int nbrOfRooms) {
 		if(!validateBookingData(1,1,startDate,endDate))
 			return new BasicEList();
 		
@@ -372,9 +372,9 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		return false;
 	}
 	
-	public EList getAvaiableRooms(String startDate, String endDate) {
-		Date sd = parseDate(startDate);
-		Date ed = parseDate(endDate);
+	public EList getAvaiableRooms(Date startDate, Date endDate) {
+		Date sd = startDate;
+		Date ed = endDate;
 		
 		Log.log("Requested start date: " + sd);
 		Log.log("Requested end date: " + ed);
@@ -396,8 +396,8 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 
 		for(int i = 0; i < model.getRoombooking().size(); i++) { //RoomBookingImpl booking : (EList<RoomBookingImpl>)model.getRoombooking()) {
 			RoomBookingImpl booking = (RoomBookingImpl)model.getRoombooking().get(i);
-			Date bookingSd = parseDate(booking.startDate);
-			Date bookingEd = parseDate(booking.endDate);
+			Date bookingSd = booking.startDate;
+			Date bookingEd = booking.endDate;
 
 			// sd	bookingSd	  ed		=== overlap
 			boolean overlapBookingSd = sd.before(bookingSd) && ed.after(bookingSd);
@@ -439,7 +439,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public int reserveRoomtype(String startDate, String endDate, EList selectedRoomTypes) {
+	public int reserveRoomtype(Date startDate, Date endDate, EList selectedRoomTypes) {
 		RoomBookingImpl rb = new RoomBookingImpl();
 		rb.setStartDate(startDate);
 		rb.setEndDate(endDate);

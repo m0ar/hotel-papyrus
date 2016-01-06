@@ -2,6 +2,8 @@
  */
 package implementation;
 
+import java.util.Date;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -65,7 +67,7 @@ public interface Booking extends EObject {
 	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
 	 * @generated
 	 */
-	String getStartDate();
+	Date getStartDate();
 
 	/**
 	 * Sets the value of the '{@link implementation.Booking#getStartDate <em>Start Date</em>}' attribute.
@@ -75,7 +77,7 @@ public interface Booking extends EObject {
 	 * @see #getStartDate()
 	 * @generated
 	 */
-	void setStartDate(String value);
+	void setStartDate(Date value);
 
 	/**
 	 * Returns the value of the '<em><b>End Date</b></em>' attribute.
@@ -91,7 +93,7 @@ public interface Booking extends EObject {
 	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
 	 * @generated
 	 */
-	String getEndDate();
+	Date getEndDate();
 
 	/**
 	 * Sets the value of the '{@link implementation.Booking#getEndDate <em>End Date</em>}' attribute.
@@ -101,7 +103,7 @@ public interface Booking extends EObject {
 	 * @see #getEndDate()
 	 * @generated
 	 */
-	void setEndDate(String value);
+	void setEndDate(Date value);
 
 	/**
 	 * Returns the value of the '<em><b>Booking Nr</b></em>' attribute.

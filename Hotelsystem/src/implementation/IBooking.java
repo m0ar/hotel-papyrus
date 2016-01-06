@@ -2,6 +2,8 @@
  */
 package implementation;
 
+import java.util.Date;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
@@ -39,7 +41,7 @@ public interface IBooking extends EObject {
 	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" nbrOfGuestsDataType="org.eclipse.uml2.types.Integer" nbrOfGuestsRequired="true" nbrOfGuestsOrdered="false" nbrOfRoomsDataType="org.eclipse.uml2.types.Integer" nbrOfRoomsRequired="true" nbrOfRoomsOrdered="false" startDateDataType="org.eclipse.uml2.types.String" startDateRequired="true" startDateOrdered="false" endDateDataType="org.eclipse.uml2.types.String" endDateRequired="true" endDateOrdered="false"
 	 * @generated
 	 */
-	boolean validateBookingData(int nbrOfGuests, int nbrOfRooms, String startDate, String endDate);
+	boolean validateBookingData(int nbrOfGuests, int nbrOfRooms, Date startDate, Date endDate);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -71,7 +73,7 @@ public interface IBooking extends EObject {
 	 * @model type="implementation.RoomType" ordered="false" nbrOfGuestsDataType="org.eclipse.uml2.types.Integer" nbrOfGuestsRequired="true" nbrOfGuestsOrdered="false" startDateDataType="org.eclipse.uml2.types.String" startDateRequired="true" startDateOrdered="false" endDateDataType="org.eclipse.uml2.types.String" endDateRequired="true" endDateOrdered="false" nbrOfRoomsDataType="org.eclipse.uml2.types.Integer" nbrOfRoomsRequired="true" nbrOfRoomsOrdered="false"
 	 * @generated
 	 */
-	EList findAvailableRoomTypes(int nbrOfGuests, String startDate, String endDate, int nbrOfRooms);
+	EList findAvailableRoomTypes(int nbrOfGuests, Date startDate, Date endDate, int nbrOfRooms);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -87,7 +89,7 @@ public interface IBooking extends EObject {
 	 * @model dataType="org.eclipse.uml2.types.Integer" required="true" ordered="false" startDateDataType="org.eclipse.uml2.types.String" startDateRequired="true" startDateOrdered="false" endDateDataType="org.eclipse.uml2.types.String" endDateRequired="true" endDateOrdered="false" selectedRoomTypesType="implementation.RoomType" selectedRoomTypesMany="true" selectedRoomTypesOrdered="false"
 	 * @generated
 	 */
-	int reserveRoomtype(String startDate, String endDate, EList selectedRoomTypes);
+	int reserveRoomtype(Date startDate, Date endDate, EList selectedRoomTypes);
 
 	/**
 	 * <!-- begin-user-doc -->
