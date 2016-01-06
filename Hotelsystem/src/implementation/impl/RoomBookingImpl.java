@@ -347,21 +347,17 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 	 * <!-- end-user-doc -->
 	 */
 	public void calculateCost() {
-		try{
-			double cost = 0;
-			Date startDate = new SimpleDateFormat("yyyy-MM-dd").parse(this.startDate);
-			Date endDate = new SimpleDateFormat("yyyy-MM-dd").parse(this.endDate);		
-			int nbrNights = (int)Math.round(((double)(endDate.getTime() - startDate.getTime())) / 1000 / 60 / 60 / 24);
-			int nbrGuests = guests.size();
-			for(int i = 0; i < room.size(); i++){
-				Room r = (Room)room.get(i);
-				cost += nbrNights * r.getRoomtype().getPrice();
-			}
-			cost += nbrGuests * nbrNights * getPensionCost();
-			setCost(cost);
-		} catch (java.text.ParseException e) {
-			e.printStackTrace();
+		double cost = 0;
+		Date startDate =this.startDate;
+		Date endDate = this.endDate;		
+		int nbrNights = (int)Math.round(((double)(endDate.getTime() - startDate.getTime())) / 1000 / 60 / 60 / 24);
+		int nbrGuests = guests.size();
+		for(int i = 0; i < room.size(); i++){
+			Room r = (Room)room.get(i);
+			cost += nbrNights * r.getRoomtype().getPrice();
 		}
+		cost += nbrGuests * nbrNights * getPensionCost();
+		setCost(cost);
 	}
 	
 	private int getPensionCost(){

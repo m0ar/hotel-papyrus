@@ -2,12 +2,13 @@
  */
 package implementation.impl;
 
+import java.util.Date;
+
 import implementation.Booking;
 import implementation.ImplementationPackage;
+
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -57,7 +58,7 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String START_DATE_EDEFAULT = null;
+	protected static final Date START_DATE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getStartDate() <em>Start Date</em>}' attribute.
@@ -67,7 +68,7 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected String startDate = START_DATE_EDEFAULT;
+	protected Date startDate = START_DATE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getEndDate() <em>End Date</em>}' attribute.
@@ -77,7 +78,7 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String END_DATE_EDEFAULT = null;
+	protected static final Date END_DATE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getEndDate() <em>End Date</em>}' attribute.
@@ -87,7 +88,7 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected String endDate = END_DATE_EDEFAULT;
+	protected Date endDate = END_DATE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getBookingNr() <em>Booking Nr</em>}' attribute.
@@ -173,7 +174,7 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getStartDate() {
+	public Date getStartDate() {
 		return startDate;
 	}
 
@@ -182,9 +183,9 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStartDate(String newStartDate) {
-		String oldStartDate = startDate;
-		startDate = newStartDate;
+	public void setStartDate(Date newValue) {
+		Date oldStartDate = startDate;
+		startDate = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.BOOKING__START_DATE, oldStartDate, startDate));
 	}
@@ -194,7 +195,7 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getEndDate() {
+	public Date getEndDate() {
 		return endDate;
 	}
 
@@ -203,9 +204,9 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEndDate(String newEndDate) {
-		String oldEndDate = endDate;
-		endDate = newEndDate;
+	public void setEndDate(Date endDate2) {
+		Date oldEndDate = endDate;
+		endDate = endDate2;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.BOOKING__END_DATE, oldEndDate, endDate));
 	}
@@ -284,10 +285,10 @@ public abstract class BookingImpl extends MinimalEObjectImpl.Container implement
 				setCost(((Double)newValue).doubleValue());
 				return;
 			case ImplementationPackage.BOOKING__START_DATE:
-				setStartDate((String)newValue);
+				setStartDate((Date)newValue);
 				return;
 			case ImplementationPackage.BOOKING__END_DATE:
-				setEndDate((String)newValue);
+				setEndDate((Date)newValue);
 				return;
 			case ImplementationPackage.BOOKING__BOOKING_NR:
 				setBookingNr(((Integer)newValue).intValue());
