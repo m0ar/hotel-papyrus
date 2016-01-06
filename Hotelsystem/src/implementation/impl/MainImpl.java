@@ -800,6 +800,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 					iadministration.assignKeysToRoom(room.getNumber(), key1, key2);
 				}
 				roomBooking.setCheckedIn(true);
+				System.out.println("The check in was completed!");
 			} else {
 				System.out.println("Payment failed!");
 				for(int i = 0; i < roomBooking.getRoom().size(); i++) {
@@ -889,7 +890,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		rb2.setBookingNr(2);
 		
 		c = new CustomerImpl();
-		c.setAddress("Göteborg");
+		c.setAddress("Gï¿½teborg");
 		c.setName("Erik");
 		c.setPhoneNbr("01-292720");
 		c.setSocialSecurityNumber("952023-6595");
@@ -956,7 +957,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		rb4.setBookingNr(4);
 		
 		c = new CustomerImpl();
-		c.setAddress("Mölndal");
+		c.setAddress("Mï¿½lndal");
 		c.setName("Sven");
 		c.setPhoneNbr("08-75178");
 		c.setSocialSecurityNumber("578023-6595");
