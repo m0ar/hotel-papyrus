@@ -262,7 +262,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		}
 		return null;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

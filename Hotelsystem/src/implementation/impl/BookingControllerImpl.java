@@ -404,8 +404,10 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			
 			// sd	bookingEd	  ed		=== overlap
 			boolean overlapBookingEd = sd.before(bookingEd) && ed.after(bookingEd);
+			
+			boolean overlapBookingBetween = sd.after(bookingSd) && ed.before(bookingEd);
 
-			if(overlapBookingEd || overlapBookingSd) {
+			if(overlapBookingEd || overlapBookingSd || overlapBookingBetween) {
 				for(int j = 0; j < booking.getRoom().size(); j++)
 					unavailableRooms.add(booking.getRoom().get(j));
 			}

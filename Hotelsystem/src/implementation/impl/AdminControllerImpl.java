@@ -440,36 +440,30 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 */
 	public void removeRoom(int roomID) {
-		EList rooms = model.getRoom();
-		Room room = null;
-		EList bookings = model.getRoombooking();
 		
-		for(int i = 0; i < rooms.size(); i++){
-			if(((RoomImpl)rooms.get(i)).getNumber() == roomID){
-				room = (RoomImpl)rooms.get(i);
-				break;
-			}
-		}
-		
+		Room room = getRoom(roomID);	
+			
 		if(room == null){
 			throw new NullPointerException("Didn't found the room");
 		}
 		
-		if(room.getGuests().size() != 0){
+		if(room.getGuests().size() > 0){
 			//Kast nån exception
 		}
 		
+		EList bookings = model.getRoombooking();
+		
 		for(int i = 0; i < bookings.size(); i++){
 			RoomBooking rb = (RoomBookingImpl)bookings.get(i);
-			EList bookingRooms = rb.getRoom();
-			for(int j = 0; j < bookingRooms.size(); j++){
-				if(((RoomImpl)bookingRooms.get(j)).equals(room)){
-					//Boka om
+			EList bookedRooms = rb.getRoom();
+			for(int j = 0; j < bookedRooms.size(); j++){
+				if(((RoomImpl)bookedRooms.get(j)).equals(room)){ //Rummet finns i en bokning
+					//Ge bokningen ett annat ledigt rum av samma rumstyp
 				}
 			}
 		}
 		
-		rooms.remove(room);
+		model.getRoom().remove(room);
 	}
 
 	/**
