@@ -226,8 +226,13 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				System.out.println("Press 0 to exit program.");
 				System.out.println("Press 1 to enter booking mode.");
 				System.out.println("Press 2 to enter administration mode.");
-				int mode = in.nextInt();
-				in.nextLine();
+				int mode = -1;
+				if(in.hasNextInt()){
+					mode = in.nextInt();
+					in.nextLine();					
+				}else{
+					in.nextLine();
+				}
 				if(mode == 0){
 					in.close();
 					System.exit(0);
