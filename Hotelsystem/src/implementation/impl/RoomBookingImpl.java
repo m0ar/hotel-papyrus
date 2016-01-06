@@ -10,10 +10,12 @@ import implementation.Room;
 import implementation.RoomBooking;
 import implementation.RoomType;
 
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -167,10 +169,10 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected RoomBookingImpl() {
 		super();
+		guests = new BasicEList();
 	}
 
 	/**
@@ -338,6 +340,40 @@ public class RoomBookingImpl extends BookingImpl implements RoomBooking {
 		checkedIn = newCheckedIn;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.ROOM_BOOKING__CHECKED_IN, oldCheckedIn, checkedIn));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void calculateCost() {
+		try{
+			double cost = 0;
+			Date startDate = new SimpleDateFormat("yyyy-MM-dd").parse(this.startDate);
+			Date endDate = new SimpleDateFormat("yyyy-MM-dd").parse(this.endDate);		
+			int nbrNights = (int)Math.round(((double)(endDate.getTime() - startDate.getTime())) / 1000 / 60 / 60 / 24);
+			int nbrGuests = guests.size();
+			for(int i = 0; i < room.size(); i++){
+				Room r = (Room)room.get(i);
+				cost += nbrNights * r.getRoomtype().getPrice();
+			}
+			cost += nbrGuests * nbrNights * getPensionCost();
+			setCost(cost);
+		} catch (java.text.ParseException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private int getPensionCost(){
+		if(pension == PensionType.BREAKFAST_LITERAL){
+			return PensionType.BREAKFAST;
+		}else if(pension == PensionType.FULL_PENSION_LITERAL){
+			return PensionType.FULL_PENSION;
+		}else if(pension == PensionType.HALF_PENSION_LITERAL){
+			return PensionType.HALF_PENSION;
+		}else{
+			return PensionType.NONE;
+		}
 	}
 
 	/**

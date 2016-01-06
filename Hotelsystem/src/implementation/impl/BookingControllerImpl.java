@@ -5,10 +5,12 @@ package implementation.impl;
 import implementation.BankProvides;
 import implementation.BookingController;
 import implementation.ConferenceRoom;
+import implementation.Customer;
 import implementation.IProfile;
 import implementation.ImplementationPackage;
 import implementation.Model;
 import implementation.PensionType;
+import implementation.RoomBooking;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -34,6 +36,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link implementation.impl.BookingControllerImpl#getModel <em>Model</em>}</li>
  *   <li>{@link implementation.impl.BookingControllerImpl#getIprofile <em>Iprofile</em>}</li>
  *   <li>{@link implementation.impl.BookingControllerImpl#getBankprovides <em>Bankprovides</em>}</li>
+ *   <li>{@link implementation.impl.BookingControllerImpl#getNextBookingId <em>Next Booking Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,6 +71,26 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected BankProvides bankprovides;
+
+	/**
+	 * The default value of the '{@link #getNextBookingId() <em>Next Booking Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNextBookingId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int NEXT_BOOKING_ID_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getNextBookingId() <em>Next Booking Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNextBookingId()
+	 * @generated
+	 * @ordered
+	 */
+	protected int nextBookingId = NEXT_BOOKING_ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -203,6 +226,27 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getNextBookingId() {
+		return nextBookingId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNextBookingId(int newNextBookingId) {
+		int oldNextBookingId = nextBookingId;
+		nextBookingId = newNextBookingId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImplementationPackage.BOOKING_CONTROLLER__NEXT_BOOKING_ID, oldNextBookingId, nextBookingId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void selectExtras(String extrasList, int reservationId) {
 		EList bookings = model.getRoombooking();
@@ -241,11 +285,16 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void createBooking(int reservationID) {
+	public void createBooking(int reservationID, Customer customer) {
 		EList bookings = model.getRoombooking();
-		for(int i = 0; i < bookings.size(); i++)
-			if(((RoomBookingImpl)bookings.get(i)).isReservation() && ((RoomBookingImpl)bookings.get(i)).getBookingNr() == reservationID)
-				((RoomBookingImpl)bookings.get(i)).setReservation(false);
+		for(int i = 0; i < bookings.size(); i++){
+			if(((RoomBooking)bookings.get(i)).isReservation() && ((RoomBooking)bookings.get(i)).getBookingNr() == reservationID){
+				RoomBooking booking = (RoomBooking)bookings.get(i);
+				booking.setReservation(false);
+				booking.setCustomer(customer);
+				booking.calculateCost();
+			}
+		}
 	}
 
 	/**
@@ -255,14 +304,18 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	public boolean validateBookingData(int nbrOfGuests, int nbrOfRooms, String startDate, String endDate) {
 		Date sd = parseDate(startDate);
 		Date ed = parseDate(endDate);
+		Date today = new Date();
 		
 		System.out.println(nbrOfGuests >= 1);
 		System.out.println(nbrOfRooms >= 1);
 		System.out.println(sd != null);
 		System.out.println(ed != null);
 		System.out.println(sd.before(ed));
-		return nbrOfGuests >= 1 && nbrOfRooms >= 1 && nbrOfRooms <= 5 && sd != null && ed != null && sd.before(ed); 
+
+		System.out.println(today.before(sd));
+		return nbrOfGuests >= 1 && nbrOfRooms >= 1 && nbrOfRooms <= 5 && sd != null && ed != null && sd.before(ed) && today.before(sd); 
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -390,6 +443,9 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		rb.setEndDate(endDate);
 		rb.setReservation(true);
 		rb.setRentPayed(false);
+		int bookingId = getNextBookingId();
+		setNextBookingId(++bookingId);
+		rb.setBookingNr(bookingId);
 		
 		EList rooms = getAvaiableRooms(startDate, endDate);
 		
@@ -408,6 +464,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			if(!foundRoom)
 				return -1;
 		}
+		
 		model.getRoombooking().add(rb);
 		return rb.getBookingNr();
 	}
@@ -453,6 +510,8 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			case ImplementationPackage.BOOKING_CONTROLLER__BANKPROVIDES:
 				if (resolve) return getBankprovides();
 				return basicGetBankprovides();
+			case ImplementationPackage.BOOKING_CONTROLLER__NEXT_BOOKING_ID:
+				return new Integer(getNextBookingId());
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -472,6 +531,9 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 				return;
 			case ImplementationPackage.BOOKING_CONTROLLER__BANKPROVIDES:
 				setBankprovides((BankProvides)newValue);
+				return;
+			case ImplementationPackage.BOOKING_CONTROLLER__NEXT_BOOKING_ID:
+				setNextBookingId(((Integer)newValue).intValue());
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -493,6 +555,9 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			case ImplementationPackage.BOOKING_CONTROLLER__BANKPROVIDES:
 				setBankprovides((BankProvides)null);
 				return;
+			case ImplementationPackage.BOOKING_CONTROLLER__NEXT_BOOKING_ID:
+				setNextBookingId(NEXT_BOOKING_ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -510,8 +575,25 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 				return iprofile != null;
 			case ImplementationPackage.BOOKING_CONTROLLER__BANKPROVIDES:
 				return bankprovides != null;
+			case ImplementationPackage.BOOKING_CONTROLLER__NEXT_BOOKING_ID:
+				return nextBookingId != NEXT_BOOKING_ID_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (nextBookingId: ");
+		result.append(nextBookingId);
+		result.append(')');
+		return result.toString();
 	}
 
 	public class Tuple { 

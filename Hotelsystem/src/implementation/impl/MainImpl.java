@@ -17,6 +17,7 @@ import implementation.RoomStatus;
 import implementation.RoomType;
 import implementation.impl.BookingControllerImpl.Tuple;
 
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -220,23 +221,28 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	}
 	
 	private void displayModeMenu(Scanner in){
-		while (true) {
-			System.out.println("Press 0 to exit program.");
-			System.out.println("Press 1 to enter booking mode.");
-			System.out.println("Press 2 to enter administration mode.");
-			int mode = in.nextInt();
-			in.nextLine();
-			if(mode == 0){
-				in.close();
-				System.exit(0);
-			}else if(mode == 1){
-				enterBookingMode(in);
-			}else if(mode == 2){
-				enterAdminMode(in);
-			}else{
-				System.out.println("Didn't understand input. Please try again.");
+		try{
+			while (true) {
+				System.out.println("Press 0 to exit program.");
+				System.out.println("Press 1 to enter booking mode.");
+				System.out.println("Press 2 to enter administration mode.");
+				int mode = in.nextInt();
+				in.nextLine();
+				if(mode == 0){
+					in.close();
+					System.exit(0);
+				}else if(mode == 1){
+					enterBookingMode(in);
+				}else if(mode == 2){
+					enterAdminMode(in);
+				}else{
+					System.out.println("Didn't understand input. Please try again.");
+				}			
 			}
-			
+		}catch(Exception e){
+			System.out.println("An error occurred with error message:");
+			System.out.println(e);
+			displayModeMenu(in);
 		}
 		
 		//ibooking.findAvailableRoomTypes(2, "2015-12-12", "2015-12-14", 1);
@@ -369,22 +375,20 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 							EList guestNames = new BasicEList();
 							EList guestSocials = new BasicEList();
 							
-							if(nbrOfGuests > 1) {
-								int otherGuests = nbrOfGuests - 1;
-								System.out.println("------ Enter the name of the other guests: ------");
-								for(int i = 0; i < otherGuests; i++) {
-									System.out.println("Enter name of guest " + (i+1) + ":");
-									String guestName = in.nextLine();
-									System.out.println("Enter social of guest " + (i+1) + ":");
-									String guestSocial = in.nextLine();
-									ibooking.addGuest(guestName, guestSocial, reservationId);
-									
-									guestNames.add(guestName);
-									guestSocials.add(guestSocial);
-								}
+							System.out.println("------ Enter the name of the guests: ------");
+							for(int i = 0; i < nbrOfGuests; i++) {
+								System.out.println("Enter name of guest " + (i+1) + ":");
+								String guestName = in.nextLine();
+								System.out.println("Enter social of guest " + (i+1) + ":");
+								String guestSocial = in.nextLine();
+								ibooking.addGuest(guestName, guestSocial, reservationId);
+								
+								guestNames.add(guestName);
+								guestSocials.add(guestSocial);
 							}
 							
 							System.out.println("---------- Summary of your booking: ----------");
+							System.out.println("\tBooking number: " + reservationId);
 							System.out.println("\tStart date: " + startDate);
 							System.out.println("\tEnd date: " + endDate);
 							System.out.println("\tNumber of rooms: " + nbrOfRooms);
@@ -404,7 +408,8 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 								for(int i = 0; i < guestNames.size(); i++)
 									System.out.println("\t" + guestNames.get(i) + " - " + guestSocials.get(i));
 							}
-							System.out.println("Total cost: " + getTotalCost(selectedRoomTypes) + " kr");
+							double cost = iadministration.getTotalCost(reservationId);
+							System.out.println("Total cost: " + cost + " kr");
 							
 							System.out.println("Do you want to confirm the booking?");
 							String confirmation = in.nextLine();
@@ -418,15 +423,14 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 									String age = in.nextLine();
 									
 									if(parseInt(age) >= 18) {
-										if(ibooking.makePayment(paymentInfo, (int)getTotalCost(selectedRoomTypes), parseInt(age), reservationId)) {
-											ibooking.createBooking(reservationId);
+										if(ibooking.makePayment(paymentInfo, cost, parseInt(age), reservationId)) {
+											ibooking.createBooking(reservationId, customer);
 											System.out.println("Your booking was completed!");
-											System.out.println("Your booking number is " + reservationId);
 										} else
 											System.out.println("Payment failed.");
 									}
 								} else {
-									ibooking.createBooking(reservationId);
+									ibooking.createBooking(reservationId, customer);
 									System.out.println("Your booking was completed!");
 								}
 							} else {
@@ -465,13 +469,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		return list;
 	}
 	
-	private double getTotalCost(RoomTypeImpl[] roomTypes) {
-		double totalCost = 0;
-		for(int i = 0; i < roomTypes.length; i++)
-			totalCost += roomTypes[i].getPrice();
-		return totalCost;
-	}
-	
 	private int calculateMaxNbrOfGuests(RoomTypeImpl[] roomTypes) {
 		int count = 0;
 		for(int i = 0; i < roomTypes.length; i++){
@@ -500,7 +497,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		System.out.println("Administration mode");
 		while(true){
 			System.out.println("Press 1 to go back.");
-			System.out.println("Choose operation (check in, check out, update tab, edit customer, remove customer, create room, remove room, edit room)");
+			System.out.println("Choose operation (check in, check out, update tab, edit customer, remove customer, create room, remove room, edit room, update room status)");
 			if(in.hasNextInt()){
 				int i = in.nextInt();
 				in.nextLine();
@@ -519,96 +516,171 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 				}else if(operation.equalsIgnoreCase("check out")){
 					checkOut(in);
 				}else if(operation.equalsIgnoreCase("update tab")){
-					
+					updateTab(in);
 				}else if(operation.equalsIgnoreCase("edit customer")){
 					
 				}else if(operation.equalsIgnoreCase("remove customer")){
 					
 				}else if(operation.equalsIgnoreCase("create room")){
-					RoomType r = new RoomTypeImpl();
-					Boolean b = false;
-					System.out.println("Enter roomID");
-					int i = in.nextInt();
-					
-					System.out.println("Is it an existing room type?");
-					in.nextLine();
-					String j = in.nextLine();
-					if(j.equalsIgnoreCase("y")){
-						System.out.println("What room type is it? (Single room / Double Room / Suit");
-						j = in.nextLine();
-						//r = model.getRoomType(name);
-					}
-					
-					System.out.println("Enter room type name");
-					String name = in.nextLine();
-					r.setName(name);
-					
-					System.out.println("Add a description of the room.");
-					String d = in.nextLine();
-					r.setDescription(d);
-					
-					System.out.println("Does it have a balcony? (y/n)");
-					j = in.nextLine();
-					if(j.equalsIgnoreCase("y")){
-						b = true;
-					}else{
-						b = false;
-					}
-					r.setBalcony(b);
-
-					System.out.println("Enter the maximum number of extra beds in the room");
-					int n = in.nextInt();
-					r.setMaxNbrOfExtraBeds(n);
-					
-					System.out.println("Does the room have a minibar? (y/n)");
-					in.nextLine();
-					j = in.nextLine();
-					if(j.equalsIgnoreCase("y")){
-						b = true;
-					}else{
-						b = false;
-					}
-					r.setMiniBar(b);
-					
-					System.out.println("Is it nonsmoking? (y/n)");
-					j = in.nextLine();
-					if(j.equalsIgnoreCase("y")){
-						b = true;
-					}else{
-						b = false;
-					}
-					r.setNonSmoking(b);
-					
-					System.out.println("Does the room have a TV? (y/n)");
-					j = in.nextLine();
-					if(j.equalsIgnoreCase("y")){
-						b = true;
-					}else{
-						b = false;
-					}
-					r.setTv(b);
-					
-					System.out.println("Does the room have a WiFi? (y/n)");
-					j = in.nextLine();
-					if(j.equalsIgnoreCase("y")){
-						b = true;
-					}else{
-						b = false;
-					}
-					r.setWifi(b);
-					
-					getIadministration().createRoom(i, r);
-					
+					createRoom(in);
 				}else if(operation.equalsIgnoreCase("remove room")){
-					
+					removeRoom(in);
 				}else if(operation.equalsIgnoreCase("edit room")){
 					
+				}else if(operation.equalsIgnoreCase("update room status")){
+					updateRoomStatus(in);
 				}else{
 					System.out.println("Didn't understand input. Please try again.");										
 				}
 			}
 		}
 	}
+	
+
+	private void removeRoom(Scanner in){
+		System.out.println("Enter roomID to remove");
+		int id = in.nextInt();
+		try{
+			iadministration.removeRoom(id);
+		}catch (NullPointerException ex) {
+			System.out.println(ex.getMessage());
+			System.out.println("The room does not exist");
+			displayModeMenu(in);
+		}
+		System.out.println("The room is removed");
+		displayModeMenu(in);
+
+	}
+	
+	private void updateTab(Scanner in){
+		//cost, date, description
+		while(true){
+			System.out.println("Enter Room number");
+			int roomID = in.nextInt();
+			in.nextLine();
+			System.out.println("Enter cost");
+			double cost = in.nextDouble();
+			in.nextLine();
+			System.out.println("Enter description");
+			String desc = in.nextLine();
+			Bill bill = new BillImpl();
+			bill.setCost(cost);
+			bill.setDescription(desc);
+			Date today = new Date();
+			DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			bill.setDate(df.format(today));
+			if(iadministration.addBill(roomID, bill)){
+				System.out.println("The bill was successfully added to room " + roomID);
+				return;
+			}else{
+				System.out.println("Something went wrong. Please try again.");
+			}
+		}
+	}
+	
+	private void updateRoomStatus(Scanner in){
+		System.out.println("Which room would you like to change status of? (enter room id)");
+		int i = in.nextInt();
+		in.nextLine();
+		Room r = iadministration.getRoom(i);
+		System.out.println("Status is currently: " + r.getStatus());
+		System.out.println("What status would you like to change to? (Available, Cleaning, Occupied, Repair)");
+		
+		String s = in.nextLine();
+		String s1 = s.toLowerCase();
+		String s2 = s1.substring(0, 1).toUpperCase() + s1.substring(1);
+		
+		RoomStatus status = RoomStatus.get(s2);
+		r.setStatus(status);
+		System.out.println("Status is set to: " + r.getStatus());
+	}
+	
+	private void createRoom(Scanner in){
+
+		RoomType r = new RoomTypeImpl();
+		Boolean b = false;
+		System.out.println("Enter roomID");
+		int i = in.nextInt();
+		
+		System.out.println("Is it an existing room type? (y/n)");
+		in.nextLine();
+		String j = in.nextLine();
+		if(j.equalsIgnoreCase("y")){
+
+			EList roomTypes = getIadministration().getRoomTypes();
+			System.out.println("Choose which alternative");
+			for(int a = 0; a < roomTypes.size(); a++){
+				System.out.println(" Alternative " + (a) + " " + '\n' + roomTypes.get(a));
+			}
+			
+			System.out.println("Enter number");
+			int k = in.nextInt();
+
+			r = (RoomType) roomTypes.get(k);
+			
+		} else {
+
+			System.out.println("Enter room type name");
+			String name = in.nextLine();
+			r.setName(name);
+
+			System.out.println("Add a description of the room.");
+			String d = in.nextLine();
+			r.setDescription(d);
+
+			System.out.println("Does it have a balcony? (y/n)");
+			j = in.nextLine();
+			if (j.equalsIgnoreCase("y")) {
+				b = true;
+			} else {
+				b = false;
+			}
+			r.setBalcony(b);
+
+			System.out.println("Enter the maximum number of extra beds in the room");
+			int n = in.nextInt();
+			r.setMaxNbrOfExtraBeds(n);
+
+			System.out.println("Does the room have a minibar? (y/n)");
+			in.nextLine();
+			j = in.nextLine();
+			if (j.equalsIgnoreCase("y")) {
+				b = true;
+			} else {
+				b = false;
+			}
+			r.setMiniBar(b);
+
+			System.out.println("Is it nonsmoking? (y/n)");
+			j = in.nextLine();
+			if (j.equalsIgnoreCase("y")) {
+				b = true;
+			} else {
+				b = false;
+			}
+			r.setNonSmoking(b);
+
+			System.out.println("Does the room have a TV? (y/n)");
+			j = in.nextLine();
+			if (j.equalsIgnoreCase("y")) {
+				b = true;
+			} else {
+				b = false;
+			}
+			r.setTv(b);
+
+			System.out.println("Does the room have a WiFi? (y/n)");
+			j = in.nextLine();
+			if (j.equalsIgnoreCase("y")) {
+				b = true;
+			} else {
+				b = false;
+			}
+			r.setWifi(b);
+		}
+		getIadministration().createRoom(i, r);
+	}
+	
 	
 	private void checkOut(Scanner in){
 		while(true){
@@ -618,28 +690,81 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			Bill finalBill = iadministration.checkOut(bookingNr);
 			if(finalBill == null){
 				System.out.println("Could not find booking, please try again");				
+			}else if (finalBill.getCost() < 0.01){
+				while(true){
+					System.out.println("Should the deposition for booking " + bookingNr + " be returned? (Yes/No)");
+					String strReturnDeposit = in.nextLine();
+					if(strReturnDeposit.equalsIgnoreCase("Yes")){
+						System.out.println("Enter credit card details.");
+						String card = in.nextLine();
+						if(iadministration.removeDeposition(bookingNr, card)){
+							break;
+						}else{
+							System.out.println("The deposition was not returned. Please try again.");							
+						}
+					}else if(strReturnDeposit.equalsIgnoreCase("No")){
+						break;
+					}else{
+						System.out.println("Did not understand input. Pleas try again.");
+					}
+				}
+				System.out.println("Booking " + bookingNr + " was successfully checked out.");
+				return;
 			}else{
 				DecimalFormat df = new DecimalFormat("#.##");
 				while(true){
 					System.out.println("The total cost is " + df.format(finalBill.getCost()));
 					System.out.println("Please enter credit card details");
 					String creditCard = in.nextLine();
-					/*if(bankprovides.makePayment(finalBill.getCost(), creditCard)){
-						System.out.println("Check out was successfull");
-						return;
-					}else{
+					if(!iadministration.makePayment(creditCard, finalBill.getCost())){
 						System.out.println("Payment faild, please try again");
-					}*/
+					}else{
+						break;
+					}
+				}
+				if(returnDeposition(in, bookingNr)){
+					System.out.println("Booking " + bookingNr + " was successfully checked out.");
+					return;
+				}else{
+					return;
 				}
 			}
 		}
+	}
+	
+	private boolean returnDeposition(Scanner in, int bookingNr){
+		while(true){
+			System.out.println("Should the deposition for booking " + bookingNr + " be returned? (Yes/No)");
+			String strReturnDeposit = in.nextLine();
+			if(strReturnDeposit.equalsIgnoreCase("Yes")){
+				System.out.println("Enter credit card details.");
+				String card = in.nextLine();
+				if(iadministration.removeDeposition(bookingNr, card)){
+					break;
+				}else{
+					System.out.println("The deposition was not returned. Please try again.");							
+				}
+			}else if(strReturnDeposit.equalsIgnoreCase("No")){
+				break;
+			}else{
+				System.out.println("Did not understand input. Pleas try again.");
+			}
+		}
+		return true;
 	}
 	
 	private void checkIn(Scanner in) {
 		System.out.println("Enter booking number");
 		int bookingNr = in.nextInt();
 		in.nextLine();
-		RoomBooking roomBooking = iadministration.checkIn(bookingNr);
+		RoomBooking roomBooking = null;
+		try {
+			roomBooking = iadministration.checkIn(bookingNr);
+		} catch (NullPointerException ex) {
+			System.out.println(ex.getMessage());
+			System.out.println("If you want to create a new booking, go to the booking mode");
+			displayModeMenu(in);
+		}
 		if(roomBooking.isCheckedIn()) {
 			System.out.println("The guests have already checked in");
 		} else {
@@ -694,6 +819,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		BookingControllerImpl bc = new BookingControllerImpl();
 		bc.setModel(model);
 		bc.setBankprovides(bankprovides);
+		bc.setNextBookingId((model.getRoombooking()).size());
 		ibooking = bc;
 
 		AdminControllerImpl ac = new AdminControllerImpl();
@@ -707,7 +833,157 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 		EList rooms = initRooms(roomTypes);
 		model.getRoomtypes().addAll(roomTypes);
 		model.getRoom().addAll(rooms);
+		EList roomBookings = initRoomBookings(model);
+		model.getRoombooking().addAll(roomBookings);
 		
+	}
+	
+	private EList initRoomBookings(ModelImpl model){
+		EList bookings = new BasicEList();
+		
+		RoomBooking rb1 = new RoomBookingImpl();
+		rb1.setBookingNr(1);
+		
+		CustomerImpl c = new CustomerImpl();
+		c.setAddress("Chalmers");
+		c.setName("Carl");
+		c.setPhoneNbr("01-233210");
+		c.setSocialSecurityNumber("661023-6595");
+		GuestImpl g = new GuestImpl();
+		g.setName("Calle");
+		g.setSocialSecurityNumber("510106-0650");
+		
+		rb1.setCustomer(c);
+		rb1.getGuests().add(g);
+		rb1.setDeposit(200);
+		rb1.setEndDate("2016-02-03");
+		rb1.setStartDate("2016-02-01");
+		rb1.setReservation(false);
+		rb1.setPension(PensionType.BREAKFAST_LITERAL);
+		rb1.getChosenroomtypes().add(model.getRoomType("Double room"));
+		rb1.setCost(model.getRoomType("Double room").getPrice());
+		
+		RoomImpl room = new RoomImpl();
+		
+		for(int i = 0; i < model.getRoom().size(); i++){
+			if(((RoomImpl)model.getRoom().get(i)).getRoomtype().getName().equals("Double room")){
+				room = (RoomImpl)model.getRoom().get(i);
+				break;
+			}
+		}
+		
+		rb1.getRoom().add(room);
+		bookings.add(rb1);
+		
+		
+		
+		RoomBooking rb2 = new RoomBookingImpl();
+		rb2.setBookingNr(2);
+		
+		c = new CustomerImpl();
+		c.setAddress("Göteborg");
+		c.setName("Erik");
+		c.setPhoneNbr("01-292720");
+		c.setSocialSecurityNumber("952023-6595");
+		g = new GuestImpl();
+		g.setName("Sara");
+		g.setSocialSecurityNumber("78956-0650");
+		
+		rb2.setCustomer(c);
+		rb2.getGuests().add(g);
+		rb2.setDeposit(200);
+		rb2.setEndDate("2016-05-05");
+		rb2.setStartDate("2016-07-01");
+		rb2.setReservation(false);
+		rb2.setPension(PensionType.FULL_PENSION_LITERAL);
+		rb2.getChosenroomtypes().add(model.getRoomType("Suite"));
+		rb2.setCost(model.getRoomType("Suite").getPrice());
+		
+		room = new RoomImpl();
+		
+		for(int i = 0; i < model.getRoom().size(); i++){
+			if(((RoomImpl)model.getRoom().get(i)).getRoomtype().getName().equals("Suite")){
+				room = (RoomImpl)model.getRoom().get(i);
+				break;
+			}
+		}
+		
+		rb2.getRoom().add(room);
+		bookings.add(rb2);
+		
+		
+		
+		RoomBooking rb3 = new RoomBookingImpl();
+		rb3.setBookingNr(3);
+		
+		c = new CustomerImpl();
+		c.setAddress("Stockholm");
+		c.setName("Lisa");
+		c.setPhoneNbr("01-202380");
+		c.setSocialSecurityNumber("875023-6595");
+		
+		rb3.setCustomer(c);
+		rb3.setDeposit(200);
+		rb3.setEndDate("2016-07-05");
+		rb3.setStartDate("2016-07-06");
+		rb3.setReservation(false);
+		rb3.setPension(PensionType.NONE_LITERAL);
+		rb3.getChosenroomtypes().add(model.getRoomType("Single room"));
+		rb3.setCost(model.getRoomType("Single room").getPrice());
+		
+		room = new RoomImpl();
+		
+		for(int i = 0; i < model.getRoom().size(); i++){
+			if(((RoomImpl)model.getRoom().get(i)).getRoomtype().getName().equals("Single room")){
+				room = (RoomImpl)model.getRoom().get(i);
+				break;
+			}
+		}
+		
+		rb3.getRoom().add(room);
+		bookings.add(rb3);
+		
+		
+		RoomBooking rb4 = new RoomBookingImpl();
+		rb4.setBookingNr(4);
+		
+		c = new CustomerImpl();
+		c.setAddress("Mölndal");
+		c.setName("Sven");
+		c.setPhoneNbr("08-75178");
+		c.setSocialSecurityNumber("578023-6595");
+		g = new GuestImpl();
+		g.setName("Eva");
+		g.setSocialSecurityNumber("68956-0650");
+		
+		rb4.setCustomer(c);
+		rb4.getGuests().add(g);
+		rb4.setDeposit(200);
+		rb4.setEndDate("2016-03-05");
+		rb4.setStartDate("2016-03-10");
+		rb4.setReservation(false);
+		rb4.setPension(PensionType.FULL_PENSION_LITERAL);
+		rb4.getChosenroomtypes().add(model.getRoomType("Single room"));
+		rb4.getChosenroomtypes().add(model.getRoomType("Single room"));
+		rb4.setCost(model.getRoomType("Single room").getPrice() * 2);
+		
+		room = new RoomImpl();
+		int j = 0;
+		for(int i = 0; i < model.getRoom().size(); i++){
+			if(((RoomImpl)model.getRoom().get(i)).getRoomtype().getName().equals("Single room")){
+				j++;
+				room = (RoomImpl)model.getRoom().get(i);
+				rb4.getRoom().add(room);
+				if(j == 2){
+					break;
+				}
+			}
+		}
+		
+		bookings.add(rb4);
+		
+		
+		return bookings;
 	}
 	
 	private EList initRooms(EList roomTypes){

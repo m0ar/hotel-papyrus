@@ -211,4 +211,12 @@ public interface RoomBooking extends Booking {
 	 */
 	void setCheckedIn(boolean value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void calculateCost();
+
 } // RoomBooking

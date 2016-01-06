@@ -50,6 +50,7 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//BookingController/iprofile"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//BookingController/bankprovides"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute implementation.ecore#//BookingController/nextBookingId"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//Model">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
@@ -154,6 +155,7 @@
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference implementation.ecore#//RoomBooking/customer"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute implementation.ecore#//RoomBooking/checkedIn"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//RoomBooking/calculateCost"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//Customer">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute implementation.ecore#//Customer/address"/>
@@ -195,6 +197,10 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//BankProvides/reservePayment/amount"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//BankProvides/reservePayment/cardDetails"/>
       </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//BankProvides/removeReservedPayment">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//BankProvides/removeReservedPayment/amount"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//BankProvides/removeReservedPayment/cardDetails"/>
+      </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="implementation.ecore#//IBooking">
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IBooking/selectExtras">
@@ -224,6 +230,7 @@
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IBooking/createBooking">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IBooking/createBooking/reservationID"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IBooking/createBooking/customer"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IBooking/requestConferenceRoom">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IBooking/requestConferenceRoom/conferenceRoom"/>
@@ -268,7 +275,7 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IAdministration/removeRoom/roomID"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IAdministration/addBill">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IAdministration/addBill/bookingID"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IAdministration/addBill/roomID"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IAdministration/addBill/bill"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IAdministration/deactivateKeysFromRoom">
@@ -312,6 +319,17 @@
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IAdministration/reservePayment">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IAdministration/reservePayment/amount"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IAdministration/reservePayment/cardDetails"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IAdministration/removeDeposition">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IAdministration/removeDeposition/bookingNr"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IAdministration/removeDeposition/cardDetails"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IAdministration/getRoomTypes"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IAdministration/getTotalCost">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IAdministration/getTotalCost/bookingID"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IAdministration/getRoom">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IAdministration/getRoom/roomID"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//ModelFactory">

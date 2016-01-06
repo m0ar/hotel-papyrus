@@ -342,6 +342,15 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getBookingController_NextBookingId() {
+		return (EAttribute)bookingControllerEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getModel() {
 		return modelEClass;
 	}
@@ -1170,6 +1179,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		createEReference(bookingControllerEClass, BOOKING_CONTROLLER__MODEL);
 		createEReference(bookingControllerEClass, BOOKING_CONTROLLER__IPROFILE);
 		createEReference(bookingControllerEClass, BOOKING_CONTROLLER__BANKPROVIDES);
+		createEAttribute(bookingControllerEClass, BOOKING_CONTROLLER__NEXT_BOOKING_ID);
 
 		modelEClass = createEClass(MODEL);
 		createEReference(modelEClass, MODEL__ROOMTYPES);
@@ -1327,6 +1337,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		initEReference(getBookingController_Model(), this.getModel(), null, "model", null, 1, 1, BookingController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getBookingController_Iprofile(), this.getIProfile(), null, "iprofile", null, 1, 1, BookingController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getBookingController_Bankprovides(), this.getBankProvides(), null, "bankprovides", null, 1, 1, BookingController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getBookingController_NextBookingId(), theTypesPackage.getInteger(), "nextBookingId", null, 1, 1, BookingController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModel_Roomtypes(), this.getRoomType(), null, "roomtypes", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1418,6 +1429,8 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		initEReference(getRoomBooking_Customer(), this.getCustomer(), null, "customer", null, 1, 1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRoomBooking_CheckedIn(), theTypesPackage.getBoolean(), "checkedIn", "false", 1, 1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
+		addEOperation(roomBookingEClass, null, "calculateCost");
+
 		initEClass(customerEClass, Customer.class, "Customer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCustomer_Address(), theTypesPackage.getString(), "address", null, 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getCustomer_PhoneNbr(), theTypesPackage.getString(), "phoneNbr", null, 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1457,6 +1470,10 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		addEParameter(op, theTypesPackage.getReal(), "amount", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "cardDetails", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
+		op = addEOperation(bankProvidesEClass, theTypesPackage.getBoolean(), "removeReservedPayment", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getReal(), "amount", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "cardDetails", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
 		initEClass(iBookingEClass, IBooking.class, "IBooking", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(iBookingEClass, null, "selectExtras");
@@ -1486,6 +1503,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 
 		op = addEOperation(iBookingEClass, null, "createBooking");
 		addEParameter(op, theTypesPackage.getInteger(), "reservationID", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getCustomer(), "customer", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = addEOperation(iBookingEClass, null, "requestConferenceRoom");
 		addEParameter(op, this.getConferenceRoom(), "conferenceRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -1527,8 +1545,8 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		op = addEOperation(iAdministrationEClass, null, "removeRoom");
 		addEParameter(op, theTypesPackage.getInteger(), "roomID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = addEOperation(iAdministrationEClass, null, "addBill");
-		addEParameter(op, theTypesPackage.getInteger(), "bookingID", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = addEOperation(iAdministrationEClass, theTypesPackage.getBoolean(), "addBill", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getInteger(), "roomID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getBill(), "bill", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = addEOperation(iAdministrationEClass, null, "deactivateKeysFromRoom");
@@ -1555,7 +1573,7 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		addEParameter(op, this.getKey(), "key1", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getKey(), "key2", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = addEOperation(iAdministrationEClass, null, "getFinalBill");
+		op = addEOperation(iAdministrationEClass, this.getBill(), "getFinalBill", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoomBooking(), "roomBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = addEOperation(iAdministrationEClass, null, "assignGuestsToRoom");
@@ -1572,6 +1590,18 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		op = addEOperation(iAdministrationEClass, theTypesPackage.getBoolean(), "reservePayment", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getReal(), "amount", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "cardDetails", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = addEOperation(iAdministrationEClass, theTypesPackage.getBoolean(), "removeDeposition", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getInteger(), "bookingNr", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "cardDetails", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		addEOperation(iAdministrationEClass, this.getRoomType(), "getRoomTypes", 0, -1, IS_UNIQUE, !IS_ORDERED);
+
+		op = addEOperation(iAdministrationEClass, theTypesPackage.getReal(), "getTotalCost", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getInteger(), "bookingID", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = addEOperation(iAdministrationEClass, this.getRoom(), "getRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getInteger(), "roomID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(modelFactoryEClass, ModelFactory.class, "ModelFactory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

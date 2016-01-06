@@ -68,6 +68,38 @@ public interface IAdministration extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" bookingNrDataType="org.eclipse.uml2.types.Integer" bookingNrRequired="true" bookingNrOrdered="false" cardDetailsDataType="org.eclipse.uml2.types.String" cardDetailsRequired="true" cardDetailsOrdered="false"
+	 * @generated
+	 */
+	boolean removeDeposition(int bookingNr, String cardDetails);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" type="implementation.RoomType" ordered="false"
+	 * @generated
+	 */
+	EList getRoomTypes();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.uml2.types.Real" required="true" ordered="false" bookingIDDataType="org.eclipse.uml2.types.Integer" bookingIDRequired="true" bookingIDOrdered="false"
+	 * @generated
+	 */
+	double getTotalCost(int bookingID);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" ordered="false" roomIDDataType="org.eclipse.uml2.types.Integer" roomIDRequired="true" roomIDOrdered="false"
+	 * @generated
+	 */
+	Room getRoom(int roomID);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model required="true" ordered="false" bookingIDDataType="org.eclipse.uml2.types.Integer" bookingIDRequired="true" bookingIDOrdered="false"
 	 * @generated
 	 */
@@ -108,10 +140,10 @@ public interface IAdministration extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model roomBookingRequired="true" roomBookingOrdered="false"
+	 * @model required="true" ordered="false" roomBookingRequired="true" roomBookingOrdered="false"
 	 * @generated
 	 */
-	void getFinalBill(RoomBooking roomBooking);
+	Bill getFinalBill(RoomBooking roomBooking);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,10 +156,10 @@ public interface IAdministration extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model bookingIDDataType="org.eclipse.uml2.types.Integer" bookingIDRequired="true" bookingIDOrdered="false" billRequired="true" billOrdered="false"
+	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" roomIDDataType="org.eclipse.uml2.types.Integer" roomIDRequired="true" roomIDOrdered="false" billRequired="true" billOrdered="false"
 	 * @generated
 	 */
-	void addBill(int bookingID, Bill bill);
+	boolean addBill(int roomID, Bill bill);
 
 	/**
 	 * <!-- begin-user-doc -->

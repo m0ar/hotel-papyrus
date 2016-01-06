@@ -31,4 +31,12 @@ public interface BankProvides extends EObject {
 	 */
 	boolean reservePayment(double amount, String cardDetails);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" amountDataType="org.eclipse.uml2.types.Real" amountRequired="true" amountOrdered="false" cardDetailsDataType="org.eclipse.uml2.types.String" cardDetailsRequired="true" cardDetailsOrdered="false"
+	 * @generated
+	 */
+	boolean removeReservedPayment(double amount, String cardDetails);
+
 } // BankProvides

@@ -158,7 +158,10 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 */
 	public RoomBooking checkIn(int bookingID) {
-		RoomBooking roomBooking = (RoomBooking) model.getRoomBooking(bookingID); 
+		RoomBooking roomBooking = (RoomBooking) model.getRoomBooking(bookingID);
+		if (roomBooking == null) {
+			throw new NullPointerException("There is no booking with the bookingID " + bookingID);
+		}
 		EList rooms = getAvailableRooms(roomBooking);
 		EList guests = roomBooking.getGuests();
 		assignGuestsToRoom(guests, rooms);
@@ -169,12 +172,9 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public boolean makePayment(String cardDetails, double amount) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return bankprovides.makePayment(amount, cardDetails);
 	}
 
 	/**
@@ -226,6 +226,41 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public boolean removeDeposition(int bookingNr, String cardDetails) {
+		RoomBooking roomBooking = (RoomBooking) model.getRoomBooking(bookingNr);
+		return bankprovides.removeReservedPayment(roomBooking.getDeposit(), cardDetails);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList getRoomTypes() {
+		return model.getRoomtypes();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public double getTotalCost(int bookingID) {
+		RoomBooking roomBooking = (RoomBooking) model.getRoomBooking(bookingID);
+		roomBooking.calculateCost();
+		return roomBooking.getCost();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Room getRoom(int roomID) {
+		return model.getRoom(roomID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void updateRoom(int roomID, RoomType roomType) {
@@ -248,12 +283,13 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void unassignGuestsFromRooms(RoomBooking roomBooking) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList rooms = roomBooking.getRoom();
+		for(int i = 0; i < rooms.size(); i++){
+			Room r = (Room)rooms.get(i);
+			r.getGuests().clear();
+		}
 	}
 
 	/**
@@ -268,12 +304,24 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public void getFinalBill(RoomBooking roomBooking) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public Bill getFinalBill(RoomBooking roomBooking) {
+		double cost = 0;
+		if(!roomBooking.isRentPayed()){
+			cost += roomBooking.getCost();
+		}
+		EList rooms = roomBooking.getRoom();
+		for(int i = 0; i < rooms.size(); i++){
+			Room r = (Room)rooms.get(i);
+			cost += r.getTotalBill();
+		}
+		Bill finalBill = new BillImpl();
+		finalBill.setCost(cost);
+		finalBill.setDescription("final bill of booking " + roomBooking.getBookingNr());
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		Date date = new Date();
+		finalBill.setDate(dateFormat.format(date));
+		return finalBill;
 	}
 
 	/**
@@ -297,23 +345,27 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public void addBill(int bookingID, Bill bill) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public boolean addBill(int roomID, Bill bill) {
+		Room r = model.getRoom(roomID);
+		if(r == null){
+			return false;
+		}else{
+			r.getTab().add(bill);
+			return true;
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void deactivateKeysFromRoom(RoomBooking roomBooking) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList rooms = roomBooking.getRoom();
+		for(int i = 0; i < rooms.size(); i++){
+			Room r = (Room)rooms.get(i);
+			r.getKeys().clear();
+		}
 	}
 
 	/**
@@ -321,37 +373,54 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 */
 	public Bill checkOut(int bookingID) {
-		//deactivateKeysFromRoom(bookingID);
-		RoomBooking booking = model.getRoomBooking(bookingID);		
-		double cost = 0;
-		if(!booking.isRentPayed()){
-			cost += booking.getCost();
+		RoomBooking booking = model.getRoomBooking(bookingID);
+		if(booking == null){
+			return null;
 		}
+		deactivateKeysFromRoom(booking);
 		EList rooms = booking.getRoom();
 		for(int i = 0; i < rooms.size(); i++){
-			Room r = (Room)rooms.get(i);
-			r.setStatus(RoomStatus.CLEANING_LITERAL);
-			r.getGuests().clear();
-			cost += r.getTotalBill();
+			updateRoomStatus((Room)rooms.get(i), RoomStatus.CLEANING_LITERAL);
 		}
-		Bill finalBill = new BillImpl();
-		finalBill.setCost(cost);
-		finalBill.setDescription("final bill of booking " + bookingID);
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd : HH:mm");
-		Date date = new Date();
-		finalBill.setDate(dateFormat.format(date));
-		return finalBill;
+		unassignGuestsFromRooms(booking);
+		return getFinalBill(booking);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void removeRoom(int roomID) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList rooms = model.getRoom();
+		Room room = null;
+		EList bookings = model.getRoombooking();
+		
+		for(int i = 0; i < rooms.size(); i++){
+			if(((RoomImpl)rooms.get(i)).getNumber() == roomID){
+				room = (RoomImpl)rooms.get(i);
+				break;
+			}
+		}
+		
+		if(room == null){
+			throw new NullPointerException("Didn't found the room");
+		}
+		
+		if(room.getGuests().size() != 0){
+			//Kast nån exception
+		}
+		
+		for(int i = 0; i < bookings.size(); i++){
+			RoomBooking rb = (RoomBookingImpl)bookings.get(i);
+			EList bookingRooms = rb.getRoom();
+			for(int j = 0; j < bookingRooms.size(); j++){
+				if(((RoomImpl)bookingRooms.get(j)).equals(room)){
+					//Boka om
+				}
+			}
+		}
+		
+		rooms.remove(room);
 	}
 
 	/**
