@@ -209,7 +209,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	public RoomBooking checkIn(int bookingID) {
 		RoomBooking roomBooking = (RoomBooking) model.getRoomBooking(bookingID);
 		if (roomBooking == null) {
-			throw new NullPointerException("There is no booking with the bookingID " + bookingID);
+			throw new NullPointerException("There is no booking with the booking number " + bookingID);
 		}
 		EList rooms = getAvailableRooms(roomBooking);
 		EList guests = roomBooking.getGuests();

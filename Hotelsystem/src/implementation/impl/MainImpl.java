@@ -22,6 +22,7 @@ import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 import org.eclipse.emf.common.notify.Notification;
@@ -761,9 +762,17 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	}
 	
 	private void checkIn(Scanner in) {
-		System.out.println("Enter booking number");
-		int bookingNr = in.nextInt();
-		in.nextLine();
+		System.out.println("Enter the booking number");
+		int bookingNr = -1;
+		try {
+			bookingNr = in.nextInt();
+			in.nextLine();
+		} catch (InputMismatchException ex) {
+			System.out.println("The booking number should only consist of numbers, please try again");
+			in.nextLine();
+			checkIn(in);
+		}
+		
 		RoomBooking roomBooking = null;
 		try {
 			roomBooking = iadministration.checkIn(bookingNr);
