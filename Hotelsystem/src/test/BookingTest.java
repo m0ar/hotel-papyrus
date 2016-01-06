@@ -1,4 +1,4 @@
-/**
+	/**
  * 
  */
 package test;
@@ -17,12 +17,14 @@ import org.junit.*;
  */
 public class BookingTest {
 	BookingControllerImpl bc;
+	
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
 		bc = new BookingControllerImpl();
+		
 	}
 
 	/**
@@ -69,7 +71,7 @@ public class BookingTest {
 	 */
 	@Test
 	public void testValidateBookingDataOneGuest() {
-		assertTrue(bc.validateBookingData(1,1,"2015-12-28","2015-12-29"));
+		assertTrue(bc.validateBookingData(1,1,"2016-12-28","2016-12-29"));
 	}
 	
 	/**
@@ -92,7 +94,7 @@ public class BookingTest {
 	 */
 	@Test
 	public void testValidateBookingDataOneRoom() {
-		assertTrue(bc.validateBookingData(2,1,"2015-12-28","2015-12-29"));
+		assertTrue(bc.validateBookingData(2,1,"2016-12-28","2016-12-29"));
 	}
 	
 	/**
