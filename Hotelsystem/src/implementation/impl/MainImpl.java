@@ -544,11 +544,14 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 			iadministration.removeRoom(id);
 		}catch (NullPointerException ex) {
 			System.out.println(ex.getMessage());
-			System.out.println("The room does not exist");
-			displayModeMenu(in);
+			enterAdminMode(in);
+		}catch(IllegalStateException ex) {
+			System.out.println(ex.getMessage());
+			enterAdminMode(in);
 		}
+		
 		System.out.println("The room is removed");
-		displayModeMenu(in);
+		enterAdminMode(in);
 
 	}
 	

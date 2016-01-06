@@ -446,11 +446,11 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 		Room room = getRoom(roomID);	
 			
 		if(room == null){
-			throw new NullPointerException("Didn't found the room");
+			throw new NullPointerException("The room does not exist");
 		}
 		
 		if(room.getGuests().size() > 0){
-			//Kast nån exception
+			throw new IllegalStateException("There are guests on the room");
 		}
 		
 		EList bookings = model.getRoombooking();
@@ -458,9 +458,24 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 		for(int i = 0; i < bookings.size(); i++){
 			RoomBooking rb = (RoomBookingImpl)bookings.get(i);
 			EList bookedRooms = rb.getRoom();
+			
 			for(int j = 0; j < bookedRooms.size(); j++){
+				
 				if(((RoomImpl)bookedRooms.get(j)).equals(room)){ //Rummet finns i en bokning
-					//Ge bokningen ett annat ledigt rum av samma rumstyp
+					EList availableRooms = ibooking.getAvaiableRooms(rb.getStartDate(), rb.getEndDate());
+					boolean succeed = false;
+					for(int k = 0; k < availableRooms.size(); k++){
+						
+						if(((RoomImpl)availableRooms.get(k)).getRoomtype().equals(room.getRoomtype())){
+							rb.getRoom().remove(room);
+							rb.getRoom().add((RoomImpl)availableRooms.get(k));
+							succeed = true;
+							break;
+						}
+					}
+					if(!succeed){
+						throw new IllegalStateException("Conuld not assign a roombooking to a new room");
+					}
 				}
 			}
 		}
