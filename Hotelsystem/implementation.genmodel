@@ -249,6 +249,10 @@
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IBooking/removeReservation">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IBooking/removeReservation/reservationId"/>
       </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="implementation.ecore#//IBooking/getAvaiableRooms">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IBooking/getAvaiableRooms/startDate"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="implementation.ecore#//IBooking/getAvaiableRooms/endDate"/>
+      </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="implementation.ecore#//AdminController">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"

@@ -1532,6 +1532,10 @@ public class ImplementationPackageImpl extends EPackageImpl implements Implement
 		op = addEOperation(iBookingEClass, null, "removeReservation");
 		addEParameter(op, theTypesPackage.getInteger(), "reservationId", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
+		op = addEOperation(iBookingEClass, this.getRoom(), "getAvaiableRooms", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "startDate", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "endDate", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
 		initEClass(adminControllerEClass, AdminController.class, "AdminController", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAdminController_Model(), this.getModel(), null, "model", null, 1, 1, AdminController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getAdminController_Bankprovides(), this.getBankProvides(), null, "bankprovides", null, 1, 1, AdminController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

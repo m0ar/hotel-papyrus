@@ -361,6 +361,18 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
     </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_NzDUELRtEeWtO5BonM0Irw" name="getAvaiableRooms">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_TdEQkLRtEeWtO5BonM0Irw" name="startDate">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_VnxNkLRtEeWtO5BonM0Irw" name="endDate">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_YdRbELRtEeWtO5BonM0Irw" name="return" type="_r01s4JwoEeWs7qnn26dFxw" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aOorALRtEeWtO5BonM0Irw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aOsVYLRtEeWtO5BonM0Irw" value="*"/>
+      </ownedParameter>
+    </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_X_2C8JwpEeWs7qnn26dFxw" name="IAdministration">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_eDOyQJ5ZEeWKBr577pjDPA" name="checkIn">
